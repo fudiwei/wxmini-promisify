@@ -1,0 +1,39 @@
+{
+    "name": "@step/wxmini-promisify",
+    "title": "wxmini-promisify",
+    "description": "Converts wx-miniprogram callback-based functions to Promises.",
+    "version": "2.8.3",
+    "main": "dist/index.js",
+    "author": "Fu Diwei",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/fudiwei/wxmini-promisify.git"
+    },
+    "license": "MIT",
+    "scripts": {
+        "prepublishOnly": "npm run build",
+        "build": "gulp dist --sourceMap=no",
+        "clean": "gulp clean",
+        "deploy": "npm publish --access=public"
+    },
+    "dependencies": {},
+    "devDependencies": {
+        "babel-core": "^6.26.3",
+        "babel-preset-env": "^1.7.0",
+        "eslint": "^5.9.0",
+        "eslint-config-standard": "^12.0.0",
+        "eslint-plugin-import": "^2.18.2",
+        "eslint-plugin-node": "^8.0.0",
+        "eslint-plugin-promise": "^4.2.1",
+        "eslint-plugin-standard": "^4.0.1",
+        "gulp": "^3.9.1",
+        "gulp-babel": "^7.0.1",
+        "gulp-eslint": "^5.0.0",
+        "gulp-rimraf": "^0.2.2",
+        "gulp-strip-debug": "^3.0.0",
+        "gulp-uglify": "^3.0.2",
+        "gulp-util": "^3.0.8",
+        "natives": "^1.1.6",
+        "q": "^1.5.1"
+    }
+}

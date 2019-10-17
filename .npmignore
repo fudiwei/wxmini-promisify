@@ -1,0 +1,9 @@
+.eslintignore
+.eslintrc.json
+.eslintrc.js
+
+gulpfile.js
+
+/src
+/test
+/doc
