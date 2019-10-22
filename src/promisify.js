@@ -108,6 +108,8 @@ const promisyFuncs = [
     'getUserInfo',
     // open-api 微信运动
     'getWeRunData',
+    // open-api 订阅消息
+    'requestSubscribeMessage',
 
     // canvas
     'canvasToTempFilePath', 'canvasGetImageData', 'canvasPutImageData',
