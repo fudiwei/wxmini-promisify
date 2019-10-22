@@ -7,7 +7,7 @@
 * 将微信小程序中提供的基于回调函数的 API，转化为 Promise 形式（支持直接覆写或挂载成 *wx.funcAsync* 的形式）；
 * 将微信小程序中高版本提供的 API，做向下兼容处理，以保证代码在运行时无需考虑版本问题而不抛出异常；
 * 与 wepy 框架的 [promisify](https://github.com/Tencent/wepy/wiki/wepy%E9%A1%B9%E7%9B%AE%E4%B8%AD%E4%BD%BF%E7%94%A8async-await) 模块相比，侵入性更小，同时支持了原本的 *complete* 回调；
-* 与微信小程序基础库（当前版本：2.8.3）同步更新。
+* 与微信小程序基础库（当前版本：2.9.0）同步更新。
 
 ---
 
