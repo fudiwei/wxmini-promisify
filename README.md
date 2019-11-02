@@ -1,5 +1,8 @@
 # wxmini-promisify
 
+> 微信官方已于 2019 年 7 月 16 日推出了专门的小程序 API Promise 化扩展库 [miniprogram-api-promise](https://github.com/wechat-miniprogram/miniprogram-api-promise)，详情请参阅此[链接](https://developers.weixin.qq.com/miniprogram/dev/extended/utils/api-promise.html)。
+> 本库也会继续维护更新。
+
 ---
 
 ## 特性
