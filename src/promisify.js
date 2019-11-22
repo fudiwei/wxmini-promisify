@@ -133,78 +133,101 @@ const promisyFuncs = [
 /**
  * 
  * @param {Object} options
- * @param {Boolean} options.enableOverwrite 是否直接覆写原生方法（默认值为 false）
- * @param {Boolean} options.enableCompatible 是否为低版本基础库提供兼容方法（默认值为 true）
- * @param {Array} options.ignore 忽略的原生方法列表（仅当 options.enableOverwrite 设置为 true 时生效）
+ * @param {Object} [options.root] 指定异步方法挂载到某个对象的属性上。默认挂载到 wx。
+ * @param {Array} [options.extends] 若基础库新增了某些 API 而该库尚未更新，可由此传入相应的方法名数组以转换成异步方法。
+ * @param {Boolean} [options.enableCompatible] 是否为低版本基础库提供兼容方法。默认值为 true。
  */
 module.exports = (options = {}) => {
+    options = Object.assign({
+        root: wx,
+        extends: [],
+        enableCompatible: true
+    }, options, {});
+
     if (null === wx || undefined === wx) {
-        throw 'This module can be injected into wx-miniprogram runtime only.';
+        throw 'This module can be injected into wechat-miniprogram runtime only.';
+    }
+    if (null === options.root || undefined === options.root) {
+        throw 'The value of root must be a not-empty object.';
+    }
+    if (!Array.isArray(options.extends)) {
+        options.extends = Array.from(options.extends);
     }
 
-    options = Object.assign({}, {
-        enableOverwrite: false,
-        enableCompatible: true,
-        ignore: []
-    }, options);
+    [].concat(promisyFuncs, options.extends)
+        .filter((e) => !!e)
+        .filter((e, i, arr) => arr.indexOf(e, 0) === i)
+        .forEach((prop) => {
+            let fn = wx[prop];
+            if (!isCallable(fn)) {
+                if (!options.enableCompatible) {
+                    return;
+                }
 
-    if (!Array.isArray(options.ignore)) {
-        options.ignore = [];
-    }
-
-    promisyFuncs.forEach((prop) => {
-        let fn = wx[prop];
-        if (!isCallable(fn)) {
-            if (!options.enableCompatible) {
-                return;
+                fn = (args) => {
+                    if ('object' === typeof args) {
+                        if (isCallable(args.fail)) {
+                            args.fail({ errMsg: `${prop}:not support` });
+                        }
+                        if (isCallable(args.complete)) {
+                            args.complete({ errMsg: `${prop}:not support` });
+                        }
+                    }
+                };
             }
 
-            fn = (args) => {
-                if ('object' === typeof args) {
-                    if (isCallable(args.fail)) {
-                        args.fail({ errMsg: `${prop}:not support` });
+            const newFn = (args = {}) => {
+                args = Object.assign({
+                    success: noop,
+                    fail: noop,
+                    complete: noop
+                }, args, {});
+
+                const successFn = args.success,
+                    failFn = args.fail,
+                    completeFn = args.complete;
+
+                return new Promise((resolve, reject) => {
+                    args.success = (res) => {
+                        resolve(res);
+                    };
+                    args.fail = (res) => {
+                        reject(res);
+                    };
+                    args.complete = () => {};
+
+                    fn(args);
+                }).then(res => {
+                    if (isCallable(successFn)) {
+                        try {
+                            successFn(res);
+                        } catch (err) {
+                            console.error(err);
+                        }
                     }
-                    if (isCallable(args.complete)) {
-                        args.complete({ errMsg: `${prop}:not support` });
+
+                    return Promise.resolve(res);
+                }).catch(res => {
+                    if (isCallable(failFn)) {
+                        try {
+                            failFn(res);
+                        } catch (err) {
+                            console.error(err);
+                        }
                     }
-                }
+
+                    return Promise.reject(res);
+                }).finally(res => {
+                    if (isCallable(completeFn)) {
+                        try {
+                            completeFn(res);
+                        } catch (err) {
+                            console.error(err);
+                        }
+                    }
+                });
             };
-        }
 
-        const newFn = (args) => {
-            return new Promise((resolve, reject) => {
-                if ('object' !== typeof args) {
-                    args = {};
-                }
-
-                const successFn = isCallable(args.success) ? args.success : noop,
-                    failFn = isCallable(args.fail) ? args.fail : noop,
-                    completeFn = isCallable(args.complete) ? args.complete : noop;
-
-                args.success = (res) => {
-                    successFn(res);
-                    completeFn(res);
-                    resolve(res);
-                };
-                args.fail = (err) => {
-                    failFn(err);
-                    completeFn(err);
-                    reject(err);
-                };
-                args.complete = (data) => {
-                    completeFn(data);
-                };
-
-                fn(args);
-            });
-        };
-
-        const newProp = prop + 'Async';
-        if (options.enableOverwrite && options.ignore.includes(prop)) {
-            wx[prop] = newFn;
-            wx[newProp] = newFn;
-        } else {
-            wx[newProp] = newFn;
-        }
-    });
+            options.root[prop + 'Async'] = newFn;
+        });
 }

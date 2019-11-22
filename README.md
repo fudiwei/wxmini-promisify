@@ -7,7 +7,7 @@
 
 ## 特性
 
-* 将微信小程序中提供的基于回调函数的 API，转化为 Promise 形式（支持直接覆写或挂载成 *wx.funcAsync* 的形式）；
+* 将微信小程序中提供的基于回调函数的 API，转化为 Promise 形式（*wx.func* 将转换成同名的 *wx.funcAsync* 形式）；
 * 将微信小程序中高版本提供的 API，做向下兼容处理，以保证代码在运行时无需考虑版本问题而不抛出异常；
 * 与 wepy 框架的 [promisify](https://github.com/Tencent/wepy/wiki/wepy%E9%A1%B9%E7%9B%AE%E4%B8%AD%E4%BD%BF%E7%94%A8async-await) 模块相比，侵入性更小，同时支持了原本的 *complete* 回调；
 * 可单独拷贝到项目中使用；
@@ -31,9 +31,9 @@ npm install @step/wxmini-promisify
 import WxMini from '@step/wxmini-promisify';
 
 WxMini.promisify({
-    'enableOverwrite': false, // 是否直接覆写原生方法（默认值为 false）
-    'enableCompatible': true, // 是否为低版本基础库提供兼容方法（默认值为 true）
-    'ignore': ['request', 'downloadFile', 'uploadFile', 'connectSocket'] // 不覆写的原生方法列表（仅当 options.enableOverwrite 设置为 true 时生效）
+    'root': wx, // 指定异步方法挂载到某个对象的属性上。默认挂载到 wx。
+    'extends': ['request', 'downloadFile', 'uploadFile', 'connectSocket'], // 若基础库新增了某些 API 而该库尚未更新，可由此传入相应的方法名数组以转换成异步方法。
+    'enableCompatible': true // 是否为低版本基础库提供兼容方法。默认值为 true。
 });
 WxMini.polyfill();
 ```
