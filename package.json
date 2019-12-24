@@ -16,6 +16,11 @@
         "clean": "gulp clean",
         "deploy": "npm publish --access=public"
     },
+    "typings": "src/@types/index.d.ts",
+    "files": [
+        "src/@types/*",
+        "dist/*"
+    ],
     "dependencies": {},
     "devDependencies": {
         "babel-core": "^6.26.3",
