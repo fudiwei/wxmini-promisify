@@ -2,7 +2,7 @@
     "name": "@step/wxmini-promisify",
     "title": "wxmini-promisify",
     "description": "Converts wx-miniprogram callback-based functions to Promises.",
-    "version": "2.9.0",
+    "version": "2.10.0",
     "main": "dist/index.js",
     "author": "Fu Diwei",
     "repository": {

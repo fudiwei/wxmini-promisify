@@ -22,7 +22,7 @@ const promisyFuncs = [
     // media 录音
     'stopRecord', 'startRecord',
     // media 视频
-    'chooseVideo', 'saveVideoToPhotosAlbum',
+    'chooseMedia', 'chooseVideo', 'saveVideoToPhotosAlbum',
 
     // file
     'getFileInfo', 'getSavedFileInfo', 'getSavedFileList', 'openDocument', 'removeSavedFile', 'saveFile',
