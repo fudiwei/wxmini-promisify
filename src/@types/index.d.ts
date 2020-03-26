@@ -1,3 +1,5 @@
+/// <reference path="./wx.api.d.ts" />
+
 declare namespace STEP.WxminiPromisify {
     interface WxminiPolyfillOptions {}
 

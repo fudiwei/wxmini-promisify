@@ -2,132 +2,138 @@ const isCallable = (fn) => 'function' === typeof fn;
 const noop = () => {};
 
 const promisyFuncs = [
-    // network 下载
-    'downloadFile',
-    // network mDNS
-    'startLocalServiceDiscovery', 'stopLocalServiceDiscovery',
-    // network 发起请求
-    'request',
-    // network 上传
-    'uploadFile',
-    // network WebSocket
-    'closeSocket', 'connectSocket', 'sendSocketMessage',
-
-    // media 音频
-    'getAvailableAudioSources', 'pauseVoice', 'playVoice', 'setInnerAudioOption', 'stopVoice',
-    // media 背景音频
-    'getBackgroundAudioPlayerState', 'pauseBackgroundAudio', 'playBackgroundAudio', 'seekBackgroundAudio', 'stopBackgroundAudio',
-    // media 图片
-    'chooseImage', 'chooseMessageFile', 'compressImage', 'getImageInfo', 'previewImage', 'saveImageToPhotosAlbum',
-    // media 录音
-    'stopRecord', 'startRecord',
-    // media 视频
-    'chooseMedia', 'chooseVideo', 'saveVideoToPhotosAlbum',
-
-    // file
-    'getFileInfo', 'getSavedFileInfo', 'getSavedFileList', 'openDocument', 'removeSavedFile', 'saveFile',
-
-    // storage
-    'clearStorage', 'getStorage', 'getStorageInfo', 'removeStorage', 'setStorage',
-    'setBackgroundFetchToken', 'getBackgroundFetchToken', 'getBackgroundFetchData',
-
-    // location
-    'stopLocationUpdate', 'startLocationUpdateBackground', 'startLocationUpdate', 'openLocation', 'getLocation', 'chooseLocation',
-
-    // device 加速计
-    'startAccelerometer', 'stopAccelerometer',
-    // device 电量
-    'getBatteryInfo',
-    // device 蓝牙
-    'closeBluetoothAdapter', 'getBluetoothAdapterState', 'getBluetoothDevices', 'getConnectedBluetoothDevices', 'openBluetoothAdapter', 'startBluetoothDevicesDiscovery', 'stopBluetoothDevicesDiscovery',
-    // device 低功耗蓝牙
-    'closeBLEConnection', 'createBLEConnection', 'getBLEDeviceCharacteristics', 'getBLEDeviceServices', 'notifyBLECharacteristicValueChange', 'readBLECharacteristicValue', 'writeBLECharacteristicValue',
-    // device 剪贴板
-    'getClipboardData', 'setClipboardData',
-    // device 罗盘
-    'startCompass', 'stopCompass',
-    // device 联系人
-    'addPhoneContact',
-    // device 陀螺仪
-    'startGyroscope', 'stopGyroscope',
-    // device iBeacon
-    'getBeacons', 'startBeaconDiscovery', 'stopBeaconDiscovery',
-    // device 设备方向
-    'startDeviceMotionListening', 'stopDeviceMotionListening',
-    // device 网络
-    'getNetworkType',
-    // device NFC
-    'getHCEState', 'sendHCEMessage', 'startHCE', 'stopHCE',
-    // device 电话
-    'makePhoneCall',
-    // device 扫码
-    'scanCode',
-    // device 屏幕
-    'getScreenBrightness', 'setKeepScreenOn', 'setScreenBrightness',
-    // device 振动
-    'vibrateShort', 'vibrateLong',
-    // device Wi-Fi
-    'connectWifi', 'getConnectedWifi', 'getWifiList', 'setWifiList', 'startWifi', 'stopWifi',
-
-    // ui 背景
-    'setBackgroundColor', 'setBackgroundTextStyle',
-    // ui 交互
-    'hideLoading', 'hideToast', 'showActionSheet', 'showLoading', 'showModal', 'showToast',
-    // ui 导航栏
-    'showNavigationBarLoading', 'setNavigationBarTitle', 'setNavigationBarColor', 'hideNavigationBarLoading', 'hideHomeButton',
-    // ui 下拉刷新
-    'startPullDownRefresh', 'stopPullDownRefresh',
-    // ui 滚动
-    'pageScrollTo',
-    // ui 置顶
-    'setTopBarText',
-    // ui TabBar
-    'hideTabBar', 'hideTabBarRedDot', 'removeTabBarBadge', 'setTabBarBadge', 'setTabBarItem', 'setTabBarStyle', 'showTabBar', 'showTabBarRedDot',
-    // ui 字体
-    'loadFontFace',
-
-    // open-api 收货地址
-    'chooseAddress',
-    // open-api 授权
-    'authorize',
-    // open-api 卡券
-    'addCard', 'openCard',
-    // open-api 发票
-    'chooseInvoice', 'chooseInvoiceTitle',
-    // open-api 登录
-    'checkSession', 'login',
-    // open-api 小程序跳转
-    'navigateBackMiniProgram', 'navigateToMiniProgram',
-    // open-api 支付
-    'requestPayment',
-    // open-api 设置
-    'getSetting', 'openSetting',
-    // open-api 生物认证
-    'checkIsSoterEnrolledInDevice', 'checkIsSupportSoterAuthentication', 'startSoterAuthentication',
-    // open-api 用户信息
-    'getUserInfo',
-    // open-api 微信运动
-    'getWeRunData',
-    // open-api 订阅消息
-    'requestSubscribeMessage',
-
-    // canvas
-    'canvasToTempFilePath', 'canvasGetImageData', 'canvasPutImageData',
-
-    // debug
+    // 基础：系统 - Base/System
+    'getSystemInfo',
+    // 基础：调试 - Base/Debug
     'setEnableDebug',
 
-    // ext
+    // 路由 - Route
+    'switchTab', 'reLaunch', 'redirectTo', 'navigateTo', 'navigateBack',
+
+    // 界面：交互 - UI/Interaction
+    'showToast', 'showModal', 'showLoading', 'showActionSheet', 'hideToast', 'hideLoading',
+    // 界面：导航栏 - UI/Navigation
+    'showNavigationBarLoading', 'setNavigationBarTitle', 'setNavigationBarColor', 'hideNavigationBarLoading', 'hideHomeButton',
+    // 界面：背景 - UI/Background
+    'setBackgroundTextStyle', 'setBackgroundColor',
+    // 界面：TabBar - UI/TabBar
+    'showTabBarRedDot', 'showTabBar', 'setTabBarStyle', 'setTabBarItem', 'setTabBarBadge', 'removeTabBarBadge', 'hideTabBarRedDot', 'hideTabBar',
+    // 界面：字体 - UI/Font
+    'loadFontFace',
+    // 界面：下拉刷新 - UI/PullDown
+    'startPullDownRefresh', 'stopPullDownRefresh',
+    // 界面：滚动 - UI/Scroll
+    'pageScrollTo',
+    // 界面：置顶 - UI/TopBar
+    'setTopBarText',
+    // 界面：窗口 - UI/Window
+    'setWindowSize',
+    // 界面：键盘 - UI/Keyboard
+    'hideKeyboard', 'getSelectedTextRange',
+
+    // 网络：发起请求 - Network/Request
+    'request',
+    // 网络：下载 - Network/Download
+    'downloadFile',
+    // 网络：上传 - Network/Upload
+    'uploadFile',
+    // 网络：WebSocket - Network/WebSocket
+    'sendSocketMessage', 'connectSocket', 'closeSocket',
+    // 网络：mDNS - Network/mDNS
+    'stopLocalServiceDiscovery', 'startLocalServiceDiscovery',
+
+    // 数据缓存：存储 - Storage/Storage
+    'setStorage', 'removeStorage', 'getStorageInfo', 'getStorage', 'clearStorage',
+    // 数据缓存：周期性更新 - Storage/BackgroundFetch
+    'setBackgroundFetchToken', 'getBackgroundFetchToken', 'getBackgroundFetchData',
+
+    // 媒体：图片 - Media/Image
+    'saveImageToPhotosAlbum', 'previewImage', 'getImageInfo', 'compressImage', 'chooseMessageFile', 'chooseImage',
+    // 媒体：视频 - Media/Video
+    'saveVideoToPhotosAlbum', 'chooseVideo', 'chooseMedia',
+    // 媒体：音频 - Media/Audio&Voice
+    'stopVoice', 'setInnerAudioOption', 'playVoice', 'pauseVoice', 'getAvailableAudioSources',
+    // 媒体：背景音频 - Media/BackgroundAudio
+    'stopBackgroundAudio', 'seekBackgroundAudio', 'playBackgroundAudio', 'pauseBackgroundAudio', 'getBackgroundAudioPlayerState',
+    // 媒体：录音 - Media/Record
+    'stopRecord', 'startRecord',
+
+    // 位置 - Location
+    'stopLocationUpdate', 'startLocationUpdateBackground', 'startLocationUpdate', 'openLocation', 'getLocation', 'chooseLocation',
+
+    // 转发 - Share
+    'updateShareMenu', 'showShareMenu', 'hideShareMenu', 'getShareInfo',
+
+    // 画布 - Canvas
+    'canvasToTempFilePath', 'canvasPutImageData', 'canvasGetImageData',
+
+    // 文件 File
+    'saveFile', 'removeSavedFile', 'openDocument', 'getSavedFileList', 'getSavedFileInfo', 'getFileInfo',
+
+    // 开放接口：登录 - OpenAPI/Login
+    'login', 'checkSession',
+    // 开放接口：小程序跳转 - OpenAPI/MiniProgramNavigate
+    'navigateToMiniProgram', 'navigateBackMiniProgram',
+    // 开放接口：用户信息 - OpenAPI/UserInfo
+    'getUserInfo',
+    // 开放接口：支付 - OpenAPI/Payment
+    'requestPayment',
+    // 开放接口：授权 - OpenAPI/Authorization
+    'authorize',
+    // 开放接口：设置 - OpenAPI/Setting
+    'openSetting', 'getSetting',
+    // 开放接口：收货地址 - OpenAPI/Address
+    'chooseAddress',
+    // 开放接口：卡券 - OpenAPI/Card
+    'openCard', 'addCard',
+    // 开放接口：发票 - OpenAPI/Invoice
+    'chooseInvoiceTitle', 'chooseInvoice',
+    // 开放接口：生物认证 - OpenAPI/SoterAuthentication
+    'startSoterAuthentication', 'checkIsSupportSoterAuthentication', 'checkIsSoterEnrolledInDevice',
+    // 开放接口：微信运动 - OpenAPI/RunData
+    'getWeRunData',
+    // 开放接口：订阅消息 - OpenAPI/SubscribeMessage
+    'requestSubscribeMessage',
+    // 开放接口：微信红包 - OpenAPI/RedPackage
+    'showRedPackage',
+
+    // 设备：iBeacon - Device/iBeacon
+    'stopBeaconDiscovery', 'startBeaconDiscovery', 'getBeacons',
+    // 设备：WiFi - Device/WiFi
+    'stopWifi', 'startWifi', 'setWifiList', 'getWifiList', 'getConnectedWifi', 'connectWifi',
+    // 设备：联系人 - Device/Contact
+    'chooseContact', 'addPhoneContact',
+    // 设备：低功耗蓝牙 - Device/BLE
+    'writeBLECharacteristicValue', 'readBLECharacteristicValue', 'notifyBLECharacteristicValueChange', 'getBLEDeviceServices', 'getBLEDeviceCharacteristics', 'createBLEConnection', 'closeBLEConnection', 
+    // 设备：蓝牙 - Device/Bluetooth
+    'stopBluetoothDevicesDiscovery', 'startBluetoothDevicesDiscovery', 'openBluetoothAdapter', 'getConnectedBluetoothDevices', 'getBluetoothDevices', 'getBluetoothAdapterState', 'closeBluetoothAdapter',
+    // 设备：电量 - Device/Battery
+    'getBatteryInfo',
+    // 设备：剪贴板 - Device/Clipboard
+    'setClipboardData', 'getClipboardData',
+    // 设备：NFC - Device/NFC
+    'stopHCE', 'startHCE', 'sendHCEMessage', 'getHCEState',
+    // 设备：网络 - Device/Newwork
+    'getNetworkType',
+    // 设备：屏幕 - Device/Screen
+    'setScreenBrightness', 'setKeepScreenOn', 'getScreenBrightness',
+    // 设备：电话 - Device/Call
+    'makePhoneCall',
+    // 设备：加速计 - Device/Accelerometer
+    'stopAccelerometer', 'startAccelerometer',
+    // 设备：罗盘 - Device/Compass
+    'stopCompass', 'startCompass',
+    // 设备：设备方向 - Device/Motion
+    'stopDeviceMotionListening', 'startDeviceMotionListening',
+    // 设备：陀螺仪 - Device/Gyroscope
+    'stopGyroscope', 'startGyroscope',
+    // 设备：扫码 - Device/ScanCode
+    'scanCode',
+    // 设备：振动 - Device/Vibration
+    'vibrateShort', 'vibrateLong',
+
+    // 第三方平台 - Ext
     'getExtConfig',
-
-    // route
-    'navigateBack', 'navigateTo', 'redirectTo', 'reLaunch', 'switchTab',
-
-    // share
-    'getShareInfo', 'hideShareMenu', 'showShareMenu', 'updateShareMenu',
-
-    // system
-    'getSystemInfo',
 ];
 
 /**
@@ -141,7 +147,8 @@ module.exports = (options = {}) => {
     options = Object.assign({
         root: wx,
         extends: [],
-        enableCompatible: true
+        enableCompatible: true,
+        enableEventListener: true
     }, options, {});
 
     if (null === wx || undefined === wx) {
@@ -155,8 +162,7 @@ module.exports = (options = {}) => {
     }
 
     [].concat(promisyFuncs, options.extends)
-        .filter((e) => !!e)
-        .filter((e, i, arr) => arr.indexOf(e, 0) === i)
+        .filter((e, i, arr) => !!e && arr.indexOf(e, 0) === i)
         .forEach((prop) => {
             let fn = wx[prop];
             if (!isCallable(fn)) {
@@ -207,7 +213,7 @@ module.exports = (options = {}) => {
                     }
 
                     return Promise.resolve(res);
-                }).catch(res => {
+                }).catch(err => {
                     if (isCallable(failFn)) {
                         try {
                             failFn(res);

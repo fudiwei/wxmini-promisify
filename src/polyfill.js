@@ -218,4 +218,11 @@ module.exports = () => {
             });
         }
     }
+
+    /**
+     * support after 2.9.2
+     */
+    if (!isCallable(wx.reportPerformance)) {
+        wx.reportPerformance = (id, value) => noop;
+    }
 }
