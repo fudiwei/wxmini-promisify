@@ -13,7 +13,7 @@
 * 与 wepy 框架的 [promisify](https://github.com/Tencent/wepy/wiki/wepy%E9%A1%B9%E7%9B%AE%E4%B8%AD%E4%BD%BF%E7%94%A8async-await) 模块相比，侵入性更小，同时支持了原本的 *complete* 回调；
 * 可单独拷贝到项目中使用；
 * 支持 TypeScript；
-* 与微信小程序基础库（当前版本：2.10.2）同步更新。
+* 与微信小程序基础库（当前版本：2.10.3）同步更新。
 
 ---
 
@@ -55,7 +55,7 @@ wx.login({
     complete: () => {
         // Do Something
     }
-})
+});
 
 // Promise 方法
 wx.loginAsync({
