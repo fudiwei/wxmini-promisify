@@ -9,6 +9,7 @@
 
 * 将微信小程序中提供的基于回调函数的 API，转化为 Promise 形式（*wx.func* 将转换成同名的 *wx.funcAsync* 形式）；
 * 将微信小程序中高版本提供的 API，做向下兼容处理，以保证代码在运行时无需考虑版本问题而不抛出异常；
+* 将微信小程序中的 `wx.onEvent` / `wx.offEvent` 转换为 `wx.addEventListener` / `wx.removeEventListener` 的形式；
 * 与 wepy 框架的 [promisify](https://github.com/Tencent/wepy/wiki/wepy%E9%A1%B9%E7%9B%AE%E4%B8%AD%E4%BD%BF%E7%94%A8async-await) 模块相比，侵入性更小，同时支持了原本的 *complete* 回调；
 * 可单独拷贝到项目中使用；
 * 支持 TypeScript；
@@ -37,4 +38,46 @@ WxMini.promisify({
     'enableCompatible': true // 指示是否为低版本基础库提供覆写，防止抛出 undefined。默认值为 true。
 });
 WxMini.polyfill();
+```
+
+使用异步方法：
+
+``` javascript
+// 原始方法
+wx.login({
+    timeout: 5000,
+    success: (res) => {
+        console.info(res.code);
+    },
+    fail: (err) => {
+        console.error(err);
+    },
+    complete: () => {
+        // Do Something
+    }
+})
+
+// Promise 方法
+wx.loginAsync({
+    timeout: 5000
+}).then((res) => {
+    console.info(res.code);
+}).catch((err) => {
+    console.error(err);
+}).finally(() => {
+    // Do Something
+});
+```
+
+使用 `EventListener`：
+``` javascript
+// 原始方法
+wx.onMemoryWarning((err) => {
+    console.warn(err.level);
+});
+
+// EventListener 方法
+wx.addEventListener('memorywarning', (err) => {
+    console.warn(err.level);
+});
 ```
