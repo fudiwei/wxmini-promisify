@@ -45,7 +45,7 @@ const promisyFuncs = [
     // 数据缓存：存储 - Storage/Storage
     'setStorage', 'removeStorage', 'getStorageInfo', 'getStorage', 'clearStorage',
     // 数据缓存：周期性更新 - Storage/BackgroundFetch
-    'setBackgroundFetchToken', 'getBackgroundFetchToken', 'getBackgroundFetchData',
+    'setBackgroundFetchToken', 'onBackgroundFetchData', 'getBackgroundFetchToken', 'getBackgroundFetchData',
 
     // 媒体：图片 - Media/Image
     'saveImageToPhotosAlbum', 'previewImage', 'getImageInfo', 'compressImage', 'chooseMessageFile', 'chooseImage',
@@ -142,6 +142,7 @@ const promisyFuncs = [
  * @param {Object} [options.root] 指定异步方法挂载到某个对象的属性上。默认挂载到 wx。
  * @param {Array} [options.extends] 若基础库新增了某些 API 而该库尚未更新，可由此传入相应的方法名数组以转换成异步方法。
  * @param {Boolean} [options.enableCompatible] 是否为低版本基础库提供兼容方法。默认值为 true。
+ * @param {Boolean} [options.enableEventListener] 是否使用 wx.addEventListener/wx.removeEventListener 方式替换 wx.onEvent / wx.offEvent。默认值为 true。
  */
 module.exports = (options = {}) => {
     options = Object.assign({
@@ -236,4 +237,40 @@ module.exports = (options = {}) => {
 
             options.root[prop + 'Async'] = newFn;
         });
+
+    if (options.enableEventListener) {
+        options.root.addEventListener = (event, callback) => {
+            if (undefined  === event || null === event) 
+                throw 'The value of event must be a not-empty string.';
+            if ('function' !== typeof callback) 
+                throw 'The value of callback must be a function.';
+
+            const e = 'on' + String(event).replace(/-/g, '').trim().toLowerCase();
+            for (let p in options.root) {
+                if (p.toLowerCase() === e) {
+                    if (isCallable(options.root[p])) {
+                        options.root[p](callback);
+                    }
+                    break;
+                }
+            }
+        }
+
+        options.root.removeEventListener = (event, callback) => {
+            if (undefined  === event || null === event) 
+                throw 'The value of event must be a not-empty string.';
+            if ('function' !== typeof callback) 
+                throw 'The value of callback must be a function.';
+
+            const e = 'off' + String(event).replace(/-/g, '').trim().toLowerCase();
+            for (let p in options.root) {
+                if (p.toLowerCase() === e) {
+                    if (isCallable(options.root[p])) {
+                        options.root[p](callback);
+                    }
+                    break;
+                }
+            }
+        }
+    }
 }

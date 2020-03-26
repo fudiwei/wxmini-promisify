@@ -72,6 +72,7 @@ declare namespace WechatMiniprogram {
         clearStorageAsync(options?: ClearStorageOption): Promise<GeneralCallbackResult>;
         // 数据缓存：周期性更新 - Storage/BackgroundFetch
         setBackgroundFetchTokenAsync(options?: SetBackgroundFetchTokenOption): Promise<GeneralCallbackResult>;
+        onBackgroundFetchDataAsync(options?: OnBackgroundFetchDataOption): Promise<GeneralCallbackResult>;
         getBackgroundFetchTokenAsync(options?: GetBackgroundFetchTokenOption): Promise<GeneralCallbackResult>;
         getBackgroundFetchDataAsync(options?: GetBackgroundFetchDataOption): Promise<GeneralCallbackResult>;
         
