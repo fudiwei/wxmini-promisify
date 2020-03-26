@@ -46,6 +46,8 @@ declare namespace WechatMiniprogram {
         pageScrollToAsync(options?: PageScrollToOption): Promise<GeneralCallbackResult>;
         // 界面：置顶 - UI/TopBar
         setTopBarTextAsync(options?: SetTopBarTextOption): Promise<GeneralCallbackResult>;
+        // 界面：窗口 - UI/Window
+        setWindowSizeAsync(options?: SetWindowSizeOption): Promise<GeneralCallbackResult>;
         // 界面：键盘 - UI/Keyword
         hideKeyboardAsync(options?: HideKeyboardOption): Promise<GeneralCallbackResult>;
         getSelectedTextRange(options?: GetSelectedTextRangeOption): Promise<GetSelectedTextRangeSuccessCallbackResult>;
@@ -176,6 +178,7 @@ declare namespace WechatMiniprogram {
         getConnectedWifiAsync(options?: GetConnectedWifiOption): Promise<GetConnectedWifiSuccessCallbackResult>;
         connectWifiAsync(options?: ConnectWifiOption): Promise<WifiError>;
         // 设备：联系人 - Device/Contact
+        chooseContactAsync(options?: ChooseContactOption): Promise<ChooseContactSuccessCallbackOption>;
         addPhoneContactAsync(options?: AddPhoneContactOption): Promise<GeneralCallbackResult>;
         // 设备：低功耗蓝牙 - Device/BLE
         writeBLECharacteristicValueAsync(options?: WriteBLECharacteristicValueOption): Promise<BluetoothError>;

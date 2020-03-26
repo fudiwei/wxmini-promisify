@@ -97,6 +97,8 @@ const promisyFuncs = [
     // 开放接口：微信红包 - OpenAPI/RedPackage
     'showRedPackage',
 
+    // 设备：外围设备 - Device/Peripheral
+    'createBLEPeripheralServer',
     // 设备：iBeacon - Device/iBeacon
     'stopBeaconDiscovery', 'startBeaconDiscovery', 'getBeacons',
     // 设备：WiFi - Device/WiFi

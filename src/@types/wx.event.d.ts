@@ -28,6 +28,8 @@ declare namespace WechatMiniprogram {
         "backgroundaudiopause": OnBackgroundAudioPauseCallback;
         // 位置
         "locationchange": OnLocationChangeCallback;
+        // 设备：外围设备
+        "bleperipheralconnectionstatechanged": OnBLEPeripheralConnectionStateChangedCallback;
         // 设备：Beacon
         "beaconupdate": OnBeaconUpdateCallback;
         "beaconservicechange": OnBeaconServiceChangeCallback;
