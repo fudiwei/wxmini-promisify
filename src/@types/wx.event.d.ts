@@ -64,7 +64,7 @@ declare namespace WechatMiniprogram {
          * @param {String} event 事件名。
          * @param {Function} listener 事件触发时执行的函数。 
          */
-        addEventListener<K extends keyof WxEventHandlersEventMap>(event: K, listener: (e: WxEventHandlersEventMap[K]) => any): void;
+        addEventListener<K extends keyof WxEventHandlersEventMap>(event: K, listener: WxEventHandlersEventMap[K]): void;
         /**
          * 添加事件句柄。
          * @param {String} event 事件名。
@@ -76,7 +76,7 @@ declare namespace WechatMiniprogram {
          * @param {String} event 事件名。
          * @param {Function} listener 事件触发时执行的函数。 
          */
-        removeEventListener<K extends keyof WxEventHandlersEventMap>(event: K, listener: (e: WxEventHandlersEventMap[K]) => any): void;
+        removeEventListener<K extends keyof WxEventHandlersEventMap>(event: K, listener: WxEventHandlersEventMap[K]): void;
         /**
          * 移除事件句柄。
          * @param {String} event 事件名。
