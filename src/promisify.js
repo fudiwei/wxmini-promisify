@@ -219,7 +219,7 @@ module.exports = (options = {}) => {
                 }).catch(err => {
                     if (isCallable(failFn)) {
                         try {
-                            failFn(res);
+                            failFn(err);
                         } catch (err) {
                             console.error(err);
                         }
