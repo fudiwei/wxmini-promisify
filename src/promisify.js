@@ -216,20 +216,20 @@ module.exports = (options = {}) => {
                     }
 
                     return Promise.resolve(res);
-                }).catch(err => {
+                }).catch(res => {
                     if (isCallable(failFn)) {
                         try {
-                            failFn(err);
+                            failFn(res);
                         } catch (err) {
                             console.error(err);
                         }
                     }
 
                     return Promise.reject(res);
-                }).finally(res => {
+                }).finally(() => {
                     if (isCallable(completeFn)) {
                         try {
-                            completeFn(res);
+                            completeFn();
                         } catch (err) {
                             console.error(err);
                         }
