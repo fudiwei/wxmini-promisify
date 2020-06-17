@@ -7,7 +7,8 @@ const gulp$babel = require('gulp-babel'),
     gulp$util = require('gulp-util');
 
 gulp.task('clean', () => {
-    return gulp.src(['dist/**/*.js', 'dist/**/*.js.map'], {
+    return gulp
+        .src(['dist/**/*.js', 'dist/**/*.js.map'], {
             read: false
         })
         .pipe(gulp$rimraf({
@@ -16,31 +17,30 @@ gulp.task('clean', () => {
 });
 
 gulp.task('eslint', () => {
-    gulp.src(['src/**/*.js'])
+    return gulp
+        .src(['src/**/*.js'])
         .pipe(gulp$eslint())
         .pipe(gulp$eslint.format())
         .pipe(gulp$eslint.failAfterError());
 });
 
-gulp.task('dist', ['clean'], () => {
+gulp.task('dist', gulp.series('clean', () => {
     const babelOptions = {
         presets: [
             [
-                'env', {
-                    modules: false,
-                    blacklist: ['useStrict']
+                '@babel/preset-env', {
+                    modules: false
                 }
             ]
         ]
     };
     
-    gulp.src(['src/**/*.js'])
+    return gulp
+        .src(['src/**/*.js'])
         .pipe(gulp$strip())
         .pipe(gulp$babel(babelOptions))
         .pipe(gulp$uglify())
         .pipe(gulp.dest('dist'));
-});
+}));
 
-gulp.task('default', ['clean'], () => {
-    gulp.run('dist');
-});
+gulp.task('default', gulp.series('clean', 'dist'));
