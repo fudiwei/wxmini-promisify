@@ -20,7 +20,7 @@ module.exports = () => {
      * support after 1.0.1
      */
     if (!isCallable(wx.reportAnalytics)) {
-        wx.reportAnalytics = (eventName, args) => noop;
+        wx.reportAnalytics = noop;
     }
 
     /**
@@ -35,6 +35,7 @@ module.exports = () => {
                 complete: noop
             }, options);
 
+            const getCurrentPages = getCurrentPages || noop; // eslint-disable-line no-undef
             if (getCurrentPages()[0].route.startsWith(options.url)) {
                 wx.navigateBack(
                     Object.assign({}, options, { delta: 99 })
@@ -125,7 +126,7 @@ module.exports = () => {
      * support after 2.0.1
      */
     if (!isCallable(wx.reportMonitor)) {
-        wx.reportMonitor = (name, value) => noop;
+        wx.reportMonitor = noop;
     }
 
     /**
@@ -187,8 +188,8 @@ module.exports = () => {
             log: () => console.log(arguments),
             warn: () => console.warn(arguments),
             error: () => console.warn(arguments),
-            setFilterMsg: (msg) => noop,
-            addFilterMsg: (msg) => noop
+            setFilterMsg: noop,
+            addFilterMsg: noop
         });
     } else {
         const logManager = wx.getRealtimeLogManager();
@@ -204,7 +205,7 @@ module.exports = () => {
                         return;
                     logManager.setFilterMsg(msg);
                 },
-                addFilterMsg: (msg) => noop
+                addFilterMsg: noop
             });
         } else if (!isCallable(logManager.setFilterMsg)) {
             wx.getRealtimeLogManager = () => ({
@@ -213,8 +214,8 @@ module.exports = () => {
                 log: () => logManager.log.apply(logManager, arguments),
                 warn: () => logManager.warn.apply(logManager, arguments),
                 error: () => logManager.error.apply(logManager, arguments),
-                setFilterMsg: (msg) => noop,
-                addFilterMsg: (msg) => noop
+                setFilterMsg: noop,
+                addFilterMsg: noop
             });
         }
     }
@@ -223,6 +224,6 @@ module.exports = () => {
      * support after 2.9.2
      */
     if (!isCallable(wx.reportPerformance)) {
-        wx.reportPerformance = (id, value) => noop;
+        wx.reportPerformance = noop;
     }
 }
