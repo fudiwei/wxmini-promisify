@@ -18,7 +18,9 @@ module.exports = {
     },
     'rules': {
         'no-console': 'off',
-        'promise/avoid-new': 'off'
+		'no-extra-boolean-cast': 'off',
+        'promise/avoid-new': 'off',
+        'promise/no-return-wrap': 'off'
     },
     'plugins': [
         'promise'
