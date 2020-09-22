@@ -106,7 +106,7 @@ const promisyFuncs = [
     // 设备：WiFi - Device/WiFi
     'stopWifi', 'startWifi', 'setWifiList', 'getWifiList', 'getConnectedWifi', 'connectWifi',
     // 设备：联系人 - Device/Contact
-    'chooseContact', 'addPhoneContact',
+    'addPhoneContact',
     // 设备：低功耗蓝牙 - Device/BLE
     'setBLEMTU', 'makeBluetoothPair', 'writeBLECharacteristicValue', 'readBLECharacteristicValue', 'notifyBLECharacteristicValueChange', 'getBLEDeviceServices', 'getBLEDeviceCharacteristics', 'createBLEConnection', 'closeBLEConnection', 
     // 设备：蓝牙 - Device/Bluetooth

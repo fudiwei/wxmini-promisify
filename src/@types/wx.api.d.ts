@@ -40,7 +40,7 @@ declare namespace WechatMiniprogram {
         hideTabBarRedDotAsync(options?: HideTabBarRedDotOption): Promise<GeneralCallbackResult>;
         hideTabBarAsync(options?: HideTabBarOption): Promise<GeneralCallbackResult>;
         // 界面：字体 - UI/Font
-        loadFontFaceAsync(options?: LoadFontFaceOption): Promise<LoadFontFaceSuccessCallbackResult>;
+        loadFontFaceAsync(options?: LoadFontFaceOption): Promise<LoadFontFaceCompleteCallbackResult>;
         // 界面：下拉刷新 - UI/PullDown
         startPullDownRefreshAsync(options?: StartPullDownRefreshOption): Promise<GeneralCallbackResult>;
         stopPullDownRefreshAsync(options?: StopPullDownRefreshOption): Promise<GeneralCallbackResult>;
@@ -76,7 +76,6 @@ declare namespace WechatMiniprogram {
         clearStorageAsync(options?: ClearStorageOption): Promise<GeneralCallbackResult>;
         // 数据缓存：周期性更新 - Storage/BackgroundFetch
         setBackgroundFetchTokenAsync(options?: SetBackgroundFetchTokenOption): Promise<GeneralCallbackResult>;
-        onBackgroundFetchDataAsync(options?: OnBackgroundFetchDataOption): Promise<GeneralCallbackResult>;
         getBackgroundFetchTokenAsync(options?: GetBackgroundFetchTokenOption): Promise<GeneralCallbackResult>;
         getBackgroundFetchDataAsync(options?: GetBackgroundFetchDataOption): Promise<GeneralCallbackResult>;
         
@@ -183,7 +182,6 @@ declare namespace WechatMiniprogram {
         getConnectedWifiAsync(options?: GetConnectedWifiOption): Promise<GetConnectedWifiSuccessCallbackResult>;
         connectWifiAsync(options?: ConnectWifiOption): Promise<WifiError>;
         // 设备：联系人 - Device/Contact
-        chooseContactAsync(options?: ChooseContactOption): Promise<ChooseContactSuccessCallbackOption>;
         addPhoneContactAsync(options?: AddPhoneContactOption): Promise<GeneralCallbackResult>;
         // 设备：低功耗蓝牙 - Device/BLE
         setBLEMTUAsync(options?: SetBLEMTUOption): Promise<GeneralCallbackResult>;
