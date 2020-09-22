@@ -2,7 +2,7 @@
     "name": "@step/wxmini-promisify",
     "title": "wxmini-promisify",
     "description": "Converts wx-miniprogram callback-based functions to Promises.",
-    "version": "2.10.3",
+    "version": "2.12.2",
     "main": "dist/index.js",
     "author": "Fu Diwei",
     "repository": {
@@ -38,7 +38,7 @@
         "gulp-strip-debug": "^3.0.0",
         "gulp-uglify": "^3.0.2",
         "gulp-util": "^3.0.8",
-        "miniprogram-api-typings": "^2.10.3",
+        "miniprogram-api-typings": "^3.0.2",
         "natives": "^1.1.6",
         "q": "^1.5.1"
     }

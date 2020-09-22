@@ -2,6 +2,8 @@ declare namespace WechatMiniprogram {
     interface Wx {
         // 基础：系统 - Base/System
         getSystemInfoAsync(options?: GetSystemInfoOption): Promise<GetSystemInfoSuccessCallbackResult>;
+        // 基础：更新 - Base/Update
+        updateWeChatAppAsync(options?: UpdateWeChatAppOption): Promise<GeneralCallbackResult>,
         // 基础：调试 - Base/Debug
         setEnableDebugAsync(options?: SetEnableDebugOption): Promise<GeneralCallbackResult>;
 
@@ -80,6 +82,7 @@ declare namespace WechatMiniprogram {
         
         // 媒体：图片 - Media/Image
         saveImageToPhotosAlbumAsync(options?: SaveImageToPhotosAlbumOption): Promise<GeneralCallbackResult>;
+        previewMediaAsync(options?: PreviewMediaOption): Promise<GeneralCallbackResult>;
         previewImageAsync(options?: PreviewImageOption): Promise<GeneralCallbackResult>;
         getImageInfoAsync(options?: GetImageInfoOption): Promise<GetImageInfoSuccessCallbackResult>;
         compressImageAsync(options?: CompressImageOption): Promise<CompressImageSuccessCallbackResult>;
@@ -87,6 +90,8 @@ declare namespace WechatMiniprogram {
         chooseImageAsync(options?: ChooseImageOption): Promise<ChooseImageSuccessCallbackResult>;
         // 媒体：视频 - Media/Video
         saveVideoToPhotosAlbumAsync(options?: SaveVideoToPhotosAlbumOption): Promise<GeneralCallbackResult>;
+        openVideoEditorAsync(options?: OpenVideoEditorOption): Promise<OpenVideoEditorSuccessCallbackResult>;
+        compressVideoAsync(options?: CompressVideoOption): Promise<CompressVideoSuccessCallbackResult>;
         chooseVideoAsync(options?: ChooseVideoOption): Promise<ChooseVideoSuccessCallbackResult>;
         chooseMediaAsync(options?: ChooseMediaOption): Promise<ChooseMediaSuccessCallbackResult>;
         // 媒体：音频 - Media/Audio&Voice
@@ -181,6 +186,8 @@ declare namespace WechatMiniprogram {
         chooseContactAsync(options?: ChooseContactOption): Promise<ChooseContactSuccessCallbackOption>;
         addPhoneContactAsync(options?: AddPhoneContactOption): Promise<GeneralCallbackResult>;
         // 设备：低功耗蓝牙 - Device/BLE
+        setBLEMTUAsync(options?: SetBLEMTUOption): Promise<GeneralCallbackResult>;
+        makeBluetoothPairAsync(options?: MakeBluetoothPairOption): Promise<GeneralCallbackResult>;
         writeBLECharacteristicValueAsync(options?: WriteBLECharacteristicValueOption): Promise<BluetoothError>;
         readBLECharacteristicValueAsync(options?: ReadBLECharacteristicValueOption): Promise<BluetoothError>;
         notifyBLECharacteristicValueChangeAsync(options?: NotifyBLECharacteristicValueChangeOption): Promise<BluetoothError>;
