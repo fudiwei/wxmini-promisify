@@ -4,6 +4,8 @@ const noop = () => {};
 const promisyFuncs = [
     // 基础：系统 - Base/System
     'getSystemInfo',
+    // 基础：更新 - Base/Update
+    'updateWeChatApp',
     // 基础：调试 - Base/Debug
     'setEnableDebug',
 
@@ -48,9 +50,9 @@ const promisyFuncs = [
     'setBackgroundFetchToken', 'onBackgroundFetchData', 'getBackgroundFetchToken', 'getBackgroundFetchData',
 
     // 媒体：图片 - Media/Image
-    'saveImageToPhotosAlbum', 'previewImage', 'getImageInfo', 'compressImage', 'chooseMessageFile', 'chooseImage',
+    'saveImageToPhotosAlbum', 'previewMedia', 'previewImage', 'getImageInfo', 'compressImage', 'chooseMessageFile', 'chooseImage',
     // 媒体：视频 - Media/Video
-    'saveVideoToPhotosAlbum', 'chooseVideo', 'chooseMedia',
+    'saveVideoToPhotosAlbum', 'openVideoEditor', 'compressVideo', 'chooseVideo', 'chooseMedia',
     // 媒体：音频 - Media/Audio&Voice
     'stopVoice', 'setInnerAudioOption', 'playVoice', 'pauseVoice', 'getAvailableAudioSources',
     // 媒体：背景音频 - Media/BackgroundAudio
@@ -106,7 +108,7 @@ const promisyFuncs = [
     // 设备：联系人 - Device/Contact
     'chooseContact', 'addPhoneContact',
     // 设备：低功耗蓝牙 - Device/BLE
-    'writeBLECharacteristicValue', 'readBLECharacteristicValue', 'notifyBLECharacteristicValueChange', 'getBLEDeviceServices', 'getBLEDeviceCharacteristics', 'createBLEConnection', 'closeBLEConnection', 
+    'setBLEMTU', 'makeBluetoothPair', 'writeBLECharacteristicValue', 'readBLECharacteristicValue', 'notifyBLECharacteristicValueChange', 'getBLEDeviceServices', 'getBLEDeviceCharacteristics', 'createBLEConnection', 'closeBLEConnection', 
     // 设备：蓝牙 - Device/Bluetooth
     'stopBluetoothDevicesDiscovery', 'startBluetoothDevicesDiscovery', 'openBluetoothAdapter', 'getConnectedBluetoothDevices', 'getBluetoothDevices', 'getBluetoothAdapterState', 'closeBluetoothAdapter',
     // 设备：电量 - Device/Battery
