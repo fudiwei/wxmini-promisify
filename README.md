@@ -11,6 +11,7 @@
 * 将微信小程序中高版本提供的 API，做向下兼容处理，以保证代码在运行时无需考虑版本问题而不抛出 `undefined` 异常；
 * 将微信小程序中的 `wx.onEvent` / `wx.offEvent` 转换为 `wx.addEventListener` / `wx.removeEventListener` 的形式；
 * 与 wepy 框架的 [promisify](https://github.com/Tencent/wepy/wiki/wepy%E9%A1%B9%E7%9B%AE%E4%B8%AD%E4%BD%BF%E7%94%A8async-await) 模块相比，侵入性更小，同时以 `Promise.finally` 的形式支持了原本的 *complete* 回调；
+* 与 miniprogram-api-promise 库相比，支持了 TypeScript。虽然社区有了解决方案（[详情参考此 Issue](https://github.com/wechat-miniprogram/miniprogram-api-promise/issues/5)），但并非百分百完全兼容，仍有部分类型声明因原始命名不标准而遗漏；
 * 可单独拷贝到项目中使用；
 * 支持 TypeScript；
 * 与微信小程序基础库（当前版本：2.14.3）同步更新。
@@ -20,8 +21,6 @@
 ## 用法
 
 安装：
-
-> 提示：暂时未发布到 npmjs.org，需先自行执行 `npm run deploy` 发布到私有仓库。
 
 ``` shell
 npm install @step/wxmini-promisify
