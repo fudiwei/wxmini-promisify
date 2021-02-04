@@ -8,8 +8,6 @@
 .DS_Store
 .bower.json
 .sizecache.json
-yarn.lock
-package-lock.json
 
 npm-debug.log*
 
