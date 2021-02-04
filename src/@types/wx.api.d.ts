@@ -1,7 +1,8 @@
 declare namespace WechatMiniprogram {
     interface Wx {
         // 基础：系统 - Base/System
-        getSystemInfoAsync(options?: GetSystemInfoOption): Promise<GetSystemInfoSuccessCallbackResult>;
+        getSystemInfoAsyncAsync(options?: GetSystemInfoAsyncOption): Promise<SystemInfo>;
+        getSystemInfoAsync(options?: GetSystemInfoOption): Promise<SystemInfo>;
         // 基础：更新 - Base/Update
         updateWeChatAppAsync(options?: UpdateWeChatAppOption): Promise<GeneralCallbackResult>,
         // 基础：调试 - Base/Debug
@@ -21,6 +22,8 @@ declare namespace WechatMiniprogram {
         showActionSheetAsync(options?: ShowActionSheetOption): Promise<ShowActionSheetSuccessCallbackResult>;
         hideToastAsync(options?: HideToastOption): Promise<GeneralCallbackResult>;
         hideLoadingAsync(options?: HideLoadingOption): Promise<GeneralCallbackResult>;
+        enableAlertBeforeUnloadAsync(options?: EnableAlertBeforeUnloadOption): Promise<GeneralCallbackResult>;
+        disableAlertBeforeUnloadAsync(options?: DisableAlertBeforeUnloadOption): Promise<GeneralCallbackResult>;
         // 界面：导航栏 - UI/Navigation
         showNavigationBarLoadingAsync(options?: ShowNavigationBarLoadingOption): Promise<GeneralCallbackResult>;
         setNavigationBarTitleAsync(options?: SetNavigationBarTitleOption): Promise<GeneralCallbackResult>;
@@ -90,6 +93,7 @@ declare namespace WechatMiniprogram {
         // 媒体：视频 - Media/Video
         saveVideoToPhotosAlbumAsync(options?: SaveVideoToPhotosAlbumOption): Promise<GeneralCallbackResult>;
         openVideoEditorAsync(options?: OpenVideoEditorOption): Promise<OpenVideoEditorSuccessCallbackResult>;
+        getVideoInfoAsync(options?: GetVideoInfoOption): Promise<GetVideoInfoSuccessCallbackResult>;
         compressVideoAsync(options?: CompressVideoOption): Promise<CompressVideoSuccessCallbackResult>;
         chooseVideoAsync(options?: ChooseVideoOption): Promise<ChooseVideoSuccessCallbackResult>;
         chooseMediaAsync(options?: ChooseMediaOption): Promise<ChooseMediaSuccessCallbackResult>;
@@ -108,6 +112,11 @@ declare namespace WechatMiniprogram {
         // 媒体：录音 - Media/Record
         stopRecordAsync(options?: WxStopRecordOption): Promise<GeneralCallbackResult>;
         startRecordAsync(options?: WxStartRecordOption): Promise<StartRecordSuccessCallbackResult>;
+        // 媒体：实时语音 - Media/VoIP
+        updateVoIPChatMuteConfigAsync(options?: UpdateVoIPChatMuteConfigOption): Promise<GeneralCallbackResult>;
+        subscribeVoIPVideoMembersAsync(options?: SubscribeVoIPVideoMembersOption): Promise<GeneralCallbackResult>;
+        joinVoIPChatAsync(options?: JoinVoIPChatOption): Promise<JoinVoIPChatSuccessCallbackResult>;
+        exitVoIPChatAsync(options?: ExitVoIPChatOption): Promise<GeneralCallbackResult>;
         
         // 位置 - Location
         stopLocationUpdateAsync(options?: StopLocationUpdateOption): Promise<GeneralCallbackResult>;
@@ -121,7 +130,8 @@ declare namespace WechatMiniprogram {
         updateShareMenuAsync(options?: UpdateShareMenuOption): Promise<GeneralCallbackResult>;
         showShareMenuAsync(options?: ShowShareMenuOption): Promise<GeneralCallbackResult>;
         hideShareMenuAsync(options?: HideShareMenuOption): Promise<GeneralCallbackResult>;
-        getShareInfoAsync(options?: GetShareInfoOption): Promise<GetShareInfoSuccessCallbackResult>;
+        getShareInfoAsync(options?: GetShareInfoOption): Promise<GetGroupEnterInfoSuccessCallbackResult>;
+        authPrivateMessageAsync(options: AuthPrivateMessageOption): Promise<AuthPrivateMessageSuccessCallbackResult>;
 
         // 画布 - Canvas
         canvasToTempFilePathAsync(options?: CanvasToTempFilePathOption): Promise<CanvasToTempFilePathSuccessCallbackResult>;
@@ -129,7 +139,8 @@ declare namespace WechatMiniprogram {
         canvasGetImageDataAync(options?: CanvasGetImageDataOption): Promise<CanvasGetImageDataSuccessCallbackResult>;
         
         // 文件 File
-        saveFileAsync(options?: WxSaveFileOption): Promise<WxSaveFileSuccessCallbackResult>;
+        saveFileToDiskAsync(options?: SaveFileToDiskOption): Promise<GeneralCallbackResult>;
+        saveFileAsync(options?: WxSaveFileOption): Promise<SaveFileSuccessCallbackResult>;
         removeSavedFileAsync(options?: WxRemoveSavedFileOption): Promise<GeneralCallbackResult>;
         openDocumentAsync(options?: OpenDocumentOption): Promise<GeneralCallbackResult>;
         getSavedFileListAsync(options?: WxGetSavedFileListOption): Promise<WxGetSavedFileListSuccessCallbackResult>;
@@ -169,6 +180,8 @@ declare namespace WechatMiniprogram {
         requestSubscribeMessageAsync(options?: RequestSubscribeMessageOption): Promise<RequestSubscribeMessageSuccessCallbackResult>;
         // 开放接口：微信红包 - OpenAPI/RedPackage
         showRedPackgeAsync(options?: ShowRedPackageOption): Promise<GeneralCallbackResult>;
+        // 开发接口：群工具 - OpenAPI/Group
+        getGroupEnterInfoAsync(options?: GetGroupEnterInfoOption): Promise<GetGroupEnterInfoSuccessCallbackResult>;
 
         // 设备：iBeacon - Device/iBeacon
         stopBeaconDiscoveryAsync(options?: StopBeaconDiscoveryOption): Promise<IBeaconError>;
@@ -181,8 +194,6 @@ declare namespace WechatMiniprogram {
         getWifiListAsync(options?: GetWifiListOption): Promise<WifiError>;
         getConnectedWifiAsync(options?: GetConnectedWifiOption): Promise<GetConnectedWifiSuccessCallbackResult>;
         connectWifiAsync(options?: ConnectWifiOption): Promise<WifiError>;
-        // 设备：联系人 - Device/Contact
-        addPhoneContactAsync(options?: AddPhoneContactOption): Promise<GeneralCallbackResult>;
         // 设备：低功耗蓝牙 - Device/BLE
         setBLEMTUAsync(options?: SetBLEMTUOption): Promise<GeneralCallbackResult>;
         makeBluetoothPairAsync(options?: MakeBluetoothPairOption): Promise<GeneralCallbackResult>;
@@ -193,6 +204,10 @@ declare namespace WechatMiniprogram {
         getBLEDeviceCharacteristicsAsync(options?: GetBLEDeviceCharacteristicsOption): Promise<GetBLEDeviceCharacteristicsSuccessCallbackResult>;
         createBLEConnectionAsync(options?: CreateBLEConnectionOption): Promise<BluetoothError>;
         closeBLEConnectionAsync(options?: CloseBLEConnectionOption): Promise<BluetoothError>;
+        // 设备：联系人 - Device/Contact
+        addPhoneContactAsync(options?: AddPhoneContactOption): Promise<GeneralCallbackResult>;
+        // 设备：无障碍 - Device/Accessibility
+        checkIsOpenAccessibilityAsync(options?: CheckIsOpenAccessibilityOption): Promise<CheckIsOpenAccessibilitySuccessCallbackOption>;
         // 设备：蓝牙 - Device/Bluetooth
         stopBluetoothDevicesDiscoveryAsync(options?: StopBluetoothDevicesDiscoveryOption): Promise<BluetoothError>;
         startBluetoothDevicesDiscoveryAsync(options?: StartBluetoothDevicesDiscoveryOption): Promise<BluetoothError>;

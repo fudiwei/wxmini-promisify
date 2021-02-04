@@ -2,6 +2,7 @@ declare namespace WechatMiniprogram {
     interface WxEventHandlersEventMap {
         // 基础：应用级事件
         "unhandledrejection": OnUnhandledRejectionCallback;
+        "themechange": OnThemeChangeCallback;
         "pagenotfound": OnPageNotFoundCallback;
         "error": OnAppErrorCallback;
         "audiointerruptionend": OnAudioInterruptionEndCallback;
@@ -26,6 +27,11 @@ declare namespace WechatMiniprogram {
         "backgroundaudiostop": OnBackgroundAudioStopCallback;
         "backgroundaudioplay": OnBackgroundAudioPlayCallback;
         "backgroundaudiopause": OnBackgroundAudioPauseCallback;
+        // 媒体：实时语音
+        "voipvideomemberschanged": OnVoIPVideoMembersChangedCallback;
+        "voipvideospeakerschanged": OnVoIPVideoSpeakersChangedCallback;
+        "voipchatmemberschanged": OnVoIPChatMembersChangedCallback;
+        "voipchatinterrupted": OnVoIPChatInterruptedCallback;
         // 位置
         "locationchange": OnLocationChangeCallback;
         // 设备：外围设备

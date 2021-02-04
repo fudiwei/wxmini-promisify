@@ -3,7 +3,7 @@ const noop = () => {};
 
 const promisyFuncs = [
     // 基础：系统 - Base/System
-    'getSystemInfo',
+    'getSystemInfoAsync', 'getSystemInfo',
     // 基础：更新 - Base/Update
     'updateWeChatApp',
     // 基础：调试 - Base/Debug
@@ -13,7 +13,7 @@ const promisyFuncs = [
     'switchTab', 'reLaunch', 'redirectTo', 'navigateTo', 'navigateBack',
 
     // 界面：交互 - UI/Interaction
-    'showToast', 'showModal', 'showLoading', 'showActionSheet', 'hideToast', 'hideLoading',
+    'showToast', 'showModal', 'showLoading', 'showActionSheet', 'hideToast', 'hideLoading', 'enableAlertBeforeUnload', 'disableAlertBeforeUnload',
     // 界面：导航栏 - UI/Navigation
     'showNavigationBarLoading', 'setNavigationBarTitle', 'setNavigationBarColor', 'hideNavigationBarLoading', 'hideHomeButton',
     // 界面：背景 - UI/Background
@@ -52,25 +52,27 @@ const promisyFuncs = [
     // 媒体：图片 - Media/Image
     'saveImageToPhotosAlbum', 'previewMedia', 'previewImage', 'getImageInfo', 'compressImage', 'chooseMessageFile', 'chooseImage',
     // 媒体：视频 - Media/Video
-    'saveVideoToPhotosAlbum', 'openVideoEditor', 'compressVideo', 'chooseVideo', 'chooseMedia',
+    'saveVideoToPhotosAlbum', 'openVideoEditor', 'getVideoInfo', 'compressVideo', 'chooseVideo', 'chooseMedia',
     // 媒体：音频 - Media/Audio&Voice
     'stopVoice', 'setInnerAudioOption', 'playVoice', 'pauseVoice', 'getAvailableAudioSources',
     // 媒体：背景音频 - Media/BackgroundAudio
     'stopBackgroundAudio', 'seekBackgroundAudio', 'playBackgroundAudio', 'pauseBackgroundAudio', 'getBackgroundAudioPlayerState',
     // 媒体：录音 - Media/Record
     'stopRecord', 'startRecord',
+    // 媒体：实时语音 - Media/VoIP
+    'updateVoIPChatMuteConfig', 'subscribeVoIPVideoMembers', 'joinVoIPChat', 'exitVoIPChat',
 
     // 位置 - Location
     'stopLocationUpdate', 'startLocationUpdateBackground', 'startLocationUpdate', 'openLocation', 'getLocation', 'chooseLocation',
 
     // 转发 - Share
-    'updateShareMenu', 'showShareMenu', 'hideShareMenu', 'getShareInfo',
+    'updateShareMenu', 'showShareMenu', 'showShareImageMenu', 'hideShareMenu', 'getShareInfo', 'authPrivateMessage',
 
     // 画布 - Canvas
     'canvasToTempFilePath', 'canvasPutImageData', 'canvasGetImageData',
 
     // 文件 File
-    'saveFile', 'removeSavedFile', 'openDocument', 'getSavedFileList', 'getSavedFileInfo', 'getFileInfo',
+    'saveFileToDisk', 'saveFile', 'removeSavedFile', 'openDocument', 'getSavedFileList', 'getSavedFileInfo', 'getFileInfo',
 
     // 开放接口：登录 - OpenAPI/Login
     'login', 'checkSession',
@@ -81,7 +83,7 @@ const promisyFuncs = [
     // 开放接口：支付 - OpenAPI/Payment
     'requestPayment',
     // 开放接口：授权 - OpenAPI/Authorization
-    'authorize',
+    'authorizeForMiniProgram', 'authorize',
     // 开放接口：设置 - OpenAPI/Setting
     'openSetting', 'getSetting',
     // 开放接口：收货地址 - OpenAPI/Address
@@ -98,6 +100,8 @@ const promisyFuncs = [
     'requestSubscribeMessage',
     // 开放接口：微信红包 - OpenAPI/RedPackage
     'showRedPackage',
+    // 开发接口：群工具 - OpenAPI/Group
+    'getGroupEnterInfo',
 
     // 设备：外围设备 - Device/Peripheral
     'createBLEPeripheralServer',
@@ -105,10 +109,12 @@ const promisyFuncs = [
     'stopBeaconDiscovery', 'startBeaconDiscovery', 'getBeacons',
     // 设备：WiFi - Device/WiFi
     'stopWifi', 'startWifi', 'setWifiList', 'getWifiList', 'getConnectedWifi', 'connectWifi',
-    // 设备：联系人 - Device/Contact
-    'addPhoneContact',
     // 设备：低功耗蓝牙 - Device/BLE
     'setBLEMTU', 'makeBluetoothPair', 'writeBLECharacteristicValue', 'readBLECharacteristicValue', 'notifyBLECharacteristicValueChange', 'getBLEDeviceServices', 'getBLEDeviceCharacteristics', 'createBLEConnection', 'closeBLEConnection', 
+    // 设备：联系人 - Device/Contact
+    'addPhoneContact',
+    // 设备：无障碍 - Device/Accessibility
+    'checkIsOpenAccessibility',
     // 设备：蓝牙 - Device/Bluetooth
     'stopBluetoothDevicesDiscovery', 'startBluetoothDevicesDiscovery', 'openBluetoothAdapter', 'getConnectedBluetoothDevices', 'getBluetoothDevices', 'getBluetoothAdapterState', 'closeBluetoothAdapter',
     // 设备：电量 - Device/Battery
