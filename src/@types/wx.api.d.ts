@@ -134,7 +134,7 @@ declare namespace WechatMiniprogram {
         authPrivateMessageAsync(options: AuthPrivateMessageOption): Promise<AuthPrivateMessageSuccessCallbackResult>;
 
         // 画布 - Canvas
-        canvasToTempFilePathAsync(options?: CanvasToTempFilePathOption): Promise<CanvasToTempFilePathSuccessCallbackResult>;
+        canvasToTempFilePathAsync(options?: CanvasToTempFilePathOption, component?: Component.TrivialInstance | Page.TrivialInstance): Promise<CanvasToTempFilePathSuccessCallbackResult>;
         canvasPutImageDataAsync(options?: CanvasPutImageDataOption): Promise<GeneralCallbackResult>;
         canvasGetImageDataAync(options?: CanvasGetImageDataOption): Promise<CanvasGetImageDataSuccessCallbackResult>;
 

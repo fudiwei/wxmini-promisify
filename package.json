@@ -1,53 +1,61 @@
 {
-    "name": "@step/wxmini-promisify",
-    "title": "wxmini-promisify",
-    "description": "Converts wx-miniprogram callback-based functions to Promises.",
-    "version": "2.14.3",
-    "main": "dist/index.js",
-    "author": "Fu Diwei",
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/fudiwei/wxmini-promisify.git"
-    },
-    "license": "MIT",
-    "scripts": {
-        "clean": "gulp clean",
-        "eslint": "gulp eslint",
-        "build": "gulp dist --sourceMap=no",
-        "deploy": "npm run build && npm publish --access=public"
-    },
-    "typings": "src/@types/index.d.ts",
-    "files": [
-        "src/@types/*",
-        "dist/*"
-    ],
-    "dependencies": {
-        "miniprogram-api-typings": "^3.2.2"
-    },
-    "devDependencies": {
-        "@babel/core": "^7.12.13",
-        "@babel/preset-env": "^7.12.13",
-        "@typescript-eslint/eslint-plugin": "^4.14.2",
-        "@typescript-eslint/parser": "^4.14.2",
-        "eslint": "^7.19.0",
-        "eslint-config-standard": "^16.0.2",
-        "eslint-plugin-import": "^2.22.1",
-        "eslint-plugin-node": "^11.1.0",
-        "eslint-plugin-prettier": "^3.3.1",
-        "eslint-plugin-standard": "^5.0.0",
-        "gulp": "^4.0.2",
-        "gulp-babel": "^8.0.0",
-        "gulp-eslint": "^6.0.0",
-        "gulp-rimraf": "^1.0.0",
-        "gulp-strip-debug": "^3.0.0",
-        "gulp-uglify": "^3.0.2",
-        "gulp-util": "^3.0.8",
+	"name": "@step/wxmini-promisify",
+	"title": "wxmini-promisify",
+	"description": "Converts wx-miniprogram callback-based functions to Promises.",
+	"version": "2.14.3",
+	"main": "dist/index.js",
+	"author": "Fu Diwei",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/fudiwei/wxmini-promisify.git"
+	},
+	"license": "MIT",
+	"scripts": {
+		"clean": "gulp clean",
+		"eslint": "gulp eslint",
+		"build": "gulp dist --sourceMap=no",
+		"deploy": "npm run build && npm publish --access=public"
+	},
+	"typings": "src/@types/index.d.ts",
+	"files": [
+		"src/@types/*",
+		"dist/*"
+	],
+	"dependencies": {
+		"miniprogram-api-typings": "^3.2.2"
+	},
+	"devDependencies": {
+		"@babel/core": "^7.12.13",
+		"@babel/preset-env": "^7.12.13",
+		"@typescript-eslint/eslint-plugin": "^4.14.2",
+		"@typescript-eslint/parser": "^4.14.2",
+		"eslint": "^7.19.0",
+		"eslint-config-standard": "^16.0.2",
+		"eslint-plugin-import": "^2.22.1",
+		"eslint-plugin-node": "^11.1.0",
+		"eslint-plugin-prettier": "^3.3.1",
+		"eslint-plugin-standard": "^5.0.0",
+		"gulp": "^4.0.2",
+		"gulp-babel": "^8.0.0",
+		"gulp-eslint": "^6.0.0",
+		"gulp-rimraf": "^1.0.0",
+		"gulp-strip-debug": "^3.0.0",
+		"gulp-uglify": "^3.0.2",
+		"gulp-util": "^3.0.8",
+<<<<<<< HEAD
         "natives": "^1.1.6",
-        "prettier": "~2.2.1",
-        "q": "^1.5.1",
-        "typescript": "~4.1.3"
-    },
-    "peerDependencies": {
-        "miniprogram-api-typings": "~3.2.2"
-    }
+		"prettier": "~2.2.1",
+		"q": "^1.5.1",
+		"typescript": "~4.1.3"
+=======
+        "lodash.template": ">=4.5.0",
+		"miniprogram-api-typings": "^3.2.2",
+		"natives": "^1.1.6",
+		"q": "^1.5.1",
+		"yargs-parser": ">=5.0.0-security.0"
+>>>>>>> 17ca7be (chore: upgrade dependencies)
+	},
+	"peerDependencies": {
+		"miniprogram-api-typings": "~3.2.2"
+	}
 }
