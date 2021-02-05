@@ -26,11 +26,11 @@
         "@babel/core": "^7.10.2",
         "@babel/preset-env": "^7.10.2",
         "eslint": "^7.2.0",
-        "eslint-config-standard": "^14.1.0",
-        "eslint-plugin-import": "^2.8.0",
+        "eslint-config-standard": "^16.0.2",
+        "eslint-plugin-import": "^2.22.1",
         "eslint-plugin-node": "^11.1.0",
         "eslint-plugin-promise": "^4.0.1",
-        "eslint-plugin-standard": "^4.0.0",
+        "eslint-plugin-standard": "^5.0.0",
         "gulp": "^4.0.2",
         "gulp-babel": "^8.0.0",
         "gulp-eslint": "^6.0.0",
@@ -38,9 +38,11 @@
         "gulp-strip-debug": "^3.0.0",
         "gulp-uglify": "^3.0.2",
         "gulp-util": "^3.0.8",
+        "lodash.template": ">=4.5.0",
         "miniprogram-api-typings": "^3.2.2",
         "natives": "^1.1.6",
-        "q": "^1.5.1"
+        "q": "^1.5.1",
+        "yargs-parser": ">=5.0.0-security.0"
     },
     "peerDependencies": {
         "miniprogram-api-typings": "^3.2.2"
