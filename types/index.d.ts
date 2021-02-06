@@ -1,7 +1,7 @@
 /// <reference path="./wx.api.d.ts" />
 /// <reference path="./wx.event.d.ts" />
 
-declare namespace STEP.WxminiPromisify {
+declare namespace SKIT.WxminiPromisify {
     interface WxminiPolyfillOptions {}
 
     interface WxminiPromisifyOptions {
@@ -32,4 +32,4 @@ declare namespace STEP.WxminiPromisify {
     export const wxmini: Wxmini;
 }
 
-export default STEP.WxminiPromisify.wxmini;
+export default SKIT.WxminiPromisify.wxmini;
