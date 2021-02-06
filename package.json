@@ -1,5 +1,5 @@
 {
-    "name": "@step/wxmini-promisify",
+    "name": "@skit/wxmini-promisify",
     "title": "wxmini-promisify",
     "description": "Converts wx-miniprogram callback-based functions to Promises.",
     "version": "2.14.3",
@@ -16,10 +16,10 @@
         "build": "gulp dist --sourceMap=no",
         "deploy": "npm run build && npm publish --access=public"
     },
-    "typings": "src/@types/index.d.ts",
+    "typings": "types/index.d.ts",
     "files": [
-        "src/@types/*",
-        "dist/*"
+        "dist/*",
+        "types/*"
     ],
     "dependencies": {
         "miniprogram-api-typings": "^3.2.2"
