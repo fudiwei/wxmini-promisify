@@ -1,5 +1,5 @@
 const isCallable = (fn) => 'function' === typeof fn;
-const noop = () => {};
+const noop = () => { };
 
 const promisyFuncs = [
     // 基础：系统 - Base/System
@@ -110,7 +110,7 @@ const promisyFuncs = [
     // 设备：WiFi - Device/WiFi
     'stopWifi', 'startWifi', 'setWifiList', 'getWifiList', 'getConnectedWifi', 'connectWifi',
     // 设备：低功耗蓝牙 - Device/BLE
-    'setBLEMTU', 'makeBluetoothPair', 'writeBLECharacteristicValue', 'readBLECharacteristicValue', 'notifyBLECharacteristicValueChange', 'getBLEDeviceServices', 'getBLEDeviceCharacteristics', 'createBLEConnection', 'closeBLEConnection', 
+    'setBLEMTU', 'makeBluetoothPair', 'writeBLECharacteristicValue', 'readBLECharacteristicValue', 'notifyBLECharacteristicValueChange', 'getBLEDeviceServices', 'getBLEDeviceCharacteristics', 'createBLEConnection', 'closeBLEConnection',
     // 设备：联系人 - Device/Contact
     'addPhoneContact',
     // 设备：无障碍 - Device/Accessibility
@@ -147,7 +147,7 @@ const promisyFuncs = [
 ];
 
 /**
- * 
+ *
  * @param {Object} options
  * @param {Object} [options.root] 指定异步方法挂载到某个对象的属性上。默认挂载到 wx。
  * @param {Array} [options.extends] 若基础库新增了某些 API 而该库尚未更新，可由此传入相应的方法名数组以转换成异步方法。
@@ -211,7 +211,7 @@ module.exports = (options = {}) => {
                     args.fail = (res) => {
                         reject(res);
                     };
-                    args.complete = () => {};
+                    args.complete = () => { };
 
                     fn(args);
                 }).then(res => {
@@ -250,9 +250,9 @@ module.exports = (options = {}) => {
 
     if (options.enableEventListener) {
         options.root.addEventListener = (event, callback) => {
-            if (undefined  === event || null === event) 
+            if (undefined === event || null === event)
                 throw 'The value of event must be a not-empty string.';
-            if ('function' !== typeof callback) 
+            if ('function' !== typeof callback)
                 throw 'The value of callback must be a function.';
 
             const e = 'on' + String(event).replace(/-/g, '').trim().toLowerCase();
@@ -264,12 +264,12 @@ module.exports = (options = {}) => {
                     break;
                 }
             }
-        }
+        };
 
         options.root.removeEventListener = (event, callback) => {
-            if (undefined  === event || null === event) 
+            if (undefined === event || null === event)
                 throw 'The value of event must be a not-empty string.';
-            if ('function' !== typeof callback) 
+            if ('function' !== typeof callback)
                 throw 'The value of callback must be a function.';
 
             const e = 'off' + String(event).replace(/-/g, '').trim().toLowerCase();
@@ -281,6 +281,6 @@ module.exports = (options = {}) => {
                     break;
                 }
             }
-        }
+        };
     }
-}
+};
