@@ -70,7 +70,7 @@ declare namespace WechatMiniprogram {
         // 网络：mDNS - Network/mDNS
         stopLocalServiceDiscoveryAsync(options?: StopLocalServiceDiscoveryOption): Promise<GeneralCallbackResult>;
         startLocalServiceDiscoveryAsync(options?: StartLocalServiceDiscoveryOption): Promise<GeneralCallbackResult>;
-        
+
         // 数据缓存：存储 - Storage/Storage
         setStorageAsync(options?: SetStorageOption): Promise<GeneralCallbackResult>;
         removeStorageAsync(options?: RemoveStorageOption): Promise<GeneralCallbackResult>;
@@ -81,7 +81,7 @@ declare namespace WechatMiniprogram {
         setBackgroundFetchTokenAsync(options?: SetBackgroundFetchTokenOption): Promise<GeneralCallbackResult>;
         getBackgroundFetchTokenAsync(options?: GetBackgroundFetchTokenOption): Promise<GeneralCallbackResult>;
         getBackgroundFetchDataAsync(options?: GetBackgroundFetchDataOption): Promise<GeneralCallbackResult>;
-        
+
         // 媒体：图片 - Media/Image
         saveImageToPhotosAlbumAsync(options?: SaveImageToPhotosAlbumOption): Promise<GeneralCallbackResult>;
         previewMediaAsync(options?: PreviewMediaOption): Promise<GeneralCallbackResult>;
@@ -117,7 +117,7 @@ declare namespace WechatMiniprogram {
         subscribeVoIPVideoMembersAsync(options?: SubscribeVoIPVideoMembersOption): Promise<GeneralCallbackResult>;
         joinVoIPChatAsync(options?: JoinVoIPChatOption): Promise<JoinVoIPChatSuccessCallbackResult>;
         exitVoIPChatAsync(options?: ExitVoIPChatOption): Promise<GeneralCallbackResult>;
-        
+
         // 位置 - Location
         stopLocationUpdateAsync(options?: StopLocationUpdateOption): Promise<GeneralCallbackResult>;
         startLocationUpdateBackgroundAsync(options?: StartLocationUpdateBackgroundOption): Promise<GeneralCallbackResult>;
@@ -137,7 +137,7 @@ declare namespace WechatMiniprogram {
         canvasToTempFilePathAsync(options?: CanvasToTempFilePathOption): Promise<CanvasToTempFilePathSuccessCallbackResult>;
         canvasPutImageDataAsync(options?: CanvasPutImageDataOption): Promise<GeneralCallbackResult>;
         canvasGetImageDataAync(options?: CanvasGetImageDataOption): Promise<CanvasGetImageDataSuccessCallbackResult>;
-        
+
         // 文件 File
         saveFileToDiskAsync(options?: SaveFileToDiskOption): Promise<GeneralCallbackResult>;
         saveFileAsync(options?: WxSaveFileOption): Promise<SaveFileSuccessCallbackResult>;

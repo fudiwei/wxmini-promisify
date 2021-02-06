@@ -1,8 +1,8 @@
 const isCallable = (fn) => 'function' === typeof fn;
-const noop = () => {};
+const noop = () => { };
 
 /**
- * 
+ *
  */
 module.exports = () => {
     if (null === wx || undefined === wx) {
@@ -43,7 +43,7 @@ module.exports = () => {
             } else {
                 wx.redirectTo(options);
             }
-        }
+        };
     }
 
     /**
@@ -145,12 +145,12 @@ module.exports = () => {
      * support after 2.2.3
      */
     if (!isCallable(wx.nextTick)) {
-        wx.nextTick = function(callback) {
+        wx.nextTick = function (callback) {
             const _this = this;
             setTimeout(() => {
                 isCallable(callback) && callback.apply(_this, arguments);
             });
-        }
+        };
     }
 
     /**
@@ -226,4 +226,4 @@ module.exports = () => {
     if (!isCallable(wx.reportPerformance)) {
         wx.reportPerformance = noop;
     }
-}
+};
