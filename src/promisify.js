@@ -79,7 +79,7 @@ const promisyFuncs = [
     // 开放接口：小程序跳转 - OpenAPI/MiniProgramNavigate
     'navigateToMiniProgram', 'navigateBackMiniProgram',
     // 开放接口：用户信息 - OpenAPI/UserInfo
-    'getUserInfo',
+    'getUserProfile', 'getUserInfo',
     // 开放接口：支付 - OpenAPI/Payment
     'requestPayment',
     // 开放接口：授权 - OpenAPI/Authorization

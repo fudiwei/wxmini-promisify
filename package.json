@@ -2,7 +2,7 @@
     "name": "@skit/wxmini-promisify",
     "title": "wxmini-promisify",
     "description": "Converts wx-miniprogram callback-based functions to Promises.",
-    "version": "2.14.3",
+    "version": "2.15.0",
     "main": "dist/index.js",
     "author": "Fu Diwei",
     "repository": {
@@ -22,7 +22,7 @@
         "types/*"
     ],
     "dependencies": {
-        "miniprogram-api-typings": "^3.2.2"
+        "@types/wechat-miniprogram": "~3.3.0"
     },
     "devDependencies": {
         "@babel/core": "^7.12.13",
@@ -49,6 +49,6 @@
         "q": "^1.5.1"
     },
     "peerDependencies": {
-        "miniprogram-api-typings": "~3.2.2"
+        "@types/wechat-miniprogram": "~3.3.0"
     }
 }

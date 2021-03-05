@@ -14,7 +14,7 @@
 -   与 miniprogram-api-promise 库相比，支持了 TypeScript。虽然社区有了解决方案（[详情参考此 Issue](https://github.com/wechat-miniprogram/miniprogram-api-promise/issues/5)），但并非百分百完全兼容，仍有部分类型声明因原始命名不标准而遗漏；
 -   可单独拷贝到项目中使用；
 -   支持 TypeScript；
--   与微信小程序基础库（当前版本：2.14.3）同步更新。
+-   与微信小程序基础库（当前版本：2.15.0）同步更新。
 
 ---
 

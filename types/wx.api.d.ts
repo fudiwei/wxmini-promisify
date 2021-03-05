@@ -4,7 +4,7 @@ declare namespace WechatMiniprogram {
         getSystemInfoAsyncAsync(options?: GetSystemInfoAsyncOption): Promise<SystemInfo>;
         getSystemInfoAsync(options?: GetSystemInfoOption): Promise<SystemInfo>;
         // 基础：更新 - Base/Update
-        updateWeChatAppAsync(options?: UpdateWeChatAppOption): Promise<GeneralCallbackResult>,
+        updateWeChatAppAsync(options?: UpdateWeChatAppOption): Promise<GeneralCallbackResult>;
         // 基础：调试 - Base/Debug
         setEnableDebugAsync(options?: SetEnableDebugOption): Promise<GeneralCallbackResult>;
 
@@ -59,6 +59,7 @@ declare namespace WechatMiniprogram {
 
         // 网络：发起请求 - Network/Request
         requestAsync(options?: RequestOption): Promise<RequestSuccessCallbackResult>;
+        requestAsync<T>(options?: RequestOption<T>): Promise<RequestSuccessCallbackResult<T>>;
         // 网络：下载 - Network/Download
         downloadFileAsync(options?: DownloadFileOption): Promise<DownloadFileSuccessCallbackResult>;
         // 网络：上传 - Network/Upload
@@ -75,7 +76,8 @@ declare namespace WechatMiniprogram {
         setStorageAsync(options?: SetStorageOption): Promise<GeneralCallbackResult>;
         removeStorageAsync(options?: RemoveStorageOption): Promise<GeneralCallbackResult>;
         getStorageInfoAsync(options?: GetStorageInfoOption): Promise<GetStorageInfoSuccessCallbackOption>;
-        getStorageAsync(options?: GetStorageOption): Promise<GetStorageInfoSuccessCallbackOption>;
+        getStorageAsync(options?: GetStorageOption): Promise<GetStorageSuccessCallbackResult>;
+        getStorageAsync<T>(options?: GetStorageOption<T>): Promise<GetStorageSuccessCallbackResult<T>>;
         clearStorageAsync(options?: ClearStorageOption): Promise<GeneralCallbackResult>;
         // 数据缓存：周期性更新 - Storage/BackgroundFetch
         setBackgroundFetchTokenAsync(options?: SetBackgroundFetchTokenOption): Promise<GeneralCallbackResult>;
@@ -134,7 +136,10 @@ declare namespace WechatMiniprogram {
         authPrivateMessageAsync(options: AuthPrivateMessageOption): Promise<AuthPrivateMessageSuccessCallbackResult>;
 
         // 画布 - Canvas
-        canvasToTempFilePathAsync(options?: CanvasToTempFilePathOption, component?: Component.TrivialInstance | Page.TrivialInstance): Promise<CanvasToTempFilePathSuccessCallbackResult>;
+        canvasToTempFilePathAsync(
+            options?: CanvasToTempFilePathOption,
+            component?: Component.TrivialInstance | Page.TrivialInstance
+        ): Promise<CanvasToTempFilePathSuccessCallbackResult>;
         canvasPutImageDataAsync(options?: CanvasPutImageDataOption): Promise<GeneralCallbackResult>;
         canvasGetImageDataAync(options?: CanvasGetImageDataOption): Promise<CanvasGetImageDataSuccessCallbackResult>;
 
@@ -154,6 +159,7 @@ declare namespace WechatMiniprogram {
         navigateToMiniProgramAsync(options?: NavigateToMiniProgramOption): Promise<GeneralCallbackResult>;
         navigateBackMiniProgramAsync(options?: NavigateBackMiniProgramOption): Promise<GeneralCallbackResult>;
         // 开放接口：用户信息 - OpenAPI/UserInfo
+        getUserProfileAsync(options?: GetUserProfileOption): Promise<GetUserProfileSuccessCallbackResult>;
         getUserInfoAsync(options?: GetUserInfoOption): Promise<GetUserInfoSuccessCallbackResult>;
         // 开放接口：支付 - OpenAPI/Payment
         requestPaymentAsync(options?: RequestPaymentOption): Promise<GeneralCallbackResult>;
@@ -172,7 +178,9 @@ declare namespace WechatMiniprogram {
         chooseInvoiceAsync(options?: ChooseInvoiceOption): Promise<ChooseInvoiceSuccessCallbackResult>;
         // 开放接口：生物认证 - OpenAPI/SoterAuthentication
         startSoterAuthenticationAsync(options?: StartSoterAuthenticationOption): Promise<StartSoterAuthenticationSuccessCallbackResult>;
-        checkIsSupportSoterAuthenticationAsync(options?: CheckIsSupportSoterAuthenticationOption): Promise<CheckIsSupportSoterAuthenticationSuccessCallbackResult>;
+        checkIsSupportSoterAuthenticationAsync(
+            options?: CheckIsSupportSoterAuthenticationOption
+        ): Promise<CheckIsSupportSoterAuthenticationSuccessCallbackResult>;
         checkIsSoterEnrolledInDeviceAsync(options?: CheckIsSoterEnrolledInDeviceOption): Promise<CheckIsSoterEnrolledInDeviceSuccessCallbackResult>;
         // 开放接口：微信运动 - OpenAPI/RunData
         getWeRunDataAsync(options?: GetWeRunDataOption): Promise<GetWeRunDataSuccessCallbackResult>;

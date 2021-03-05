@@ -29,7 +29,7 @@ declare namespace WechatMiniprogram {
         backgroundaudiopause: OnBackgroundAudioPauseCallback;
         // 媒体：实时语音
         voipvideomemberschanged: OnVoIPVideoMembersChangedCallback;
-        voipvideospeakerschanged: OnVoIPVideoSpeakersChangedCallback;
+        voipchatspeakerschanged: OnVoIPChatSpeakersChangedCallback;
         voipchatmemberschanged: OnVoIPChatMembersChangedCallback;
         voipchatinterrupted: OnVoIPChatInterruptedCallback;
         // 位置

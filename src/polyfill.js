@@ -226,4 +226,11 @@ module.exports = () => {
     if (!isCallable(wx.reportPerformance)) {
         wx.reportPerformance = noop;
     }
+
+    /**
+     * support after 2.14.4
+     */
+    if (!isCallable(wx.reportEvent)) {
+        wx.reportEvent = noop;
+    }
 };
