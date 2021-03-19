@@ -1,5 +1,10 @@
 # wxmini-promisify
 
+[![NPM Version](https://img.shields.io/npm/v/@skit/wxmini-promisify.svg?sanitize=true)](https://www.npmjs.com/package/@skit/wxmini-promisify)
+[![NPM Download](https://img.shields.io/npm/dm/@skit/wxmini-promisify.svg?sanitize=true)](https://www.npmjs.com/package/@skit/wxmini-promisify)
+[![Dependency Status](https://david-dm.org/fudiwei/wxmini-promisify.svg)](https://david-dm.org/fudiwei/wxmini-promisify)
+[![GitHub License](https://img.shields.io/github/license/fudiwei/wxmini-promisify)](https://github.com/fudiwei/wxmini-promisify/blob/master/LICENSE)
+
 > 微信官方已于 2019 年 7 月 16 日推出了专门的小程序 API Promise 化扩展库 [miniprogram-api-promise](https://github.com/wechat-miniprogram/miniprogram-api-promise)，详情请参阅此[链接](https://developers.weixin.qq.com/miniprogram/dev/extended/utils/api-promise.html)。
 > 本库也会继续维护更新。
 
