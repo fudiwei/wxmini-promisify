@@ -126,6 +126,7 @@ declare namespace WechatMiniprogram {
         startLocationUpdateAsync(options?: StartLocationUpdateOption): Promise<GeneralCallbackResult>;
         openLocationAsync(options?: OpenLocationOption): Promise<GeneralCallbackResult>;
         getLocationAsync(options?: GetLocationOption): Promise<GetLocationSuccessCallbackResult>;
+        choosePoiAsync(options?: ChoosePoiOption): Promise<ChoosePoiSuccessCallbackResult>;
         chooseLocationAsync(options?: ChooseLocationOption): Promise<ChooseLocationSuccessCallbackResult>;
 
         // 转发 - Share
@@ -183,6 +184,7 @@ declare namespace WechatMiniprogram {
         ): Promise<CheckIsSupportSoterAuthenticationSuccessCallbackResult>;
         checkIsSoterEnrolledInDeviceAsync(options?: CheckIsSoterEnrolledInDeviceOption): Promise<CheckIsSoterEnrolledInDeviceSuccessCallbackResult>;
         // 开放接口：微信运动 - OpenAPI/RunData
+        shareToWeRunAsync(options?: ShareToWeRunOption): Promise<GeneralCallbackResult>;
         getWeRunDataAsync(options?: GetWeRunDataOption): Promise<GetWeRunDataSuccessCallbackResult>;
         // 开放接口：订阅消息 - OpenAPI/SubscribeMessage
         requestSubscribeMessageAsync(options?: RequestSubscribeMessageOption): Promise<RequestSubscribeMessageSuccessCallbackResult>;
@@ -213,6 +215,7 @@ declare namespace WechatMiniprogram {
         createBLEConnectionAsync(options?: CreateBLEConnectionOption): Promise<BluetoothError>;
         closeBLEConnectionAsync(options?: CloseBLEConnectionOption): Promise<BluetoothError>;
         // 设备：联系人 - Device/Contact
+        chooseContactAsync(options?: ChooseContactOption): Promise<ChooseContactSuccessCallbackOption>;
         addPhoneContactAsync(options?: AddPhoneContactOption): Promise<GeneralCallbackResult>;
         // 设备：无障碍 - Device/Accessibility
         checkIsOpenAccessibilityAsync(options?: CheckIsOpenAccessibilityOption): Promise<CheckIsOpenAccessibilitySuccessCallbackOption>;
