@@ -63,7 +63,7 @@ const promisyFuncs = [
     'updateVoIPChatMuteConfig', 'subscribeVoIPVideoMembers', 'joinVoIPChat', 'exitVoIPChat',
 
     // 位置 - Location
-    'stopLocationUpdate', 'startLocationUpdateBackground', 'startLocationUpdate', 'openLocation', 'getLocation', 'chooseLocation',
+    'stopLocationUpdate', 'startLocationUpdateBackground', 'startLocationUpdate', 'openLocation', 'getLocation', 'choosePoi', 'chooseLocation',
 
     // 转发 - Share
     'updateShareMenu', 'showShareMenu', 'showShareImageMenu', 'hideShareMenu', 'getShareInfo', 'authPrivateMessage',
@@ -95,7 +95,7 @@ const promisyFuncs = [
     // 开放接口：生物认证 - OpenAPI/SoterAuthentication
     'startSoterAuthentication', 'checkIsSupportSoterAuthentication', 'checkIsSoterEnrolledInDevice',
     // 开放接口：微信运动 - OpenAPI/RunData
-    'getWeRunData',
+    'shareToWeRun', 'getWeRunData',
     // 开放接口：订阅消息 - OpenAPI/SubscribeMessage
     'requestSubscribeMessage',
     // 开放接口：微信红包 - OpenAPI/RedPackage
@@ -112,7 +112,7 @@ const promisyFuncs = [
     // 设备：低功耗蓝牙 - Device/BLE
     'setBLEMTU', 'makeBluetoothPair', 'writeBLECharacteristicValue', 'readBLECharacteristicValue', 'notifyBLECharacteristicValueChange', 'getBLEDeviceServices', 'getBLEDeviceCharacteristics', 'createBLEConnection', 'closeBLEConnection',
     // 设备：联系人 - Device/Contact
-    'addPhoneContact',
+    'chooseContact', 'addPhoneContact',
     // 设备：无障碍 - Device/Accessibility
     'checkIsOpenAccessibility',
     // 设备：蓝牙 - Device/Bluetooth
