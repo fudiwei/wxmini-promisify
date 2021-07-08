@@ -12,6 +12,12 @@ const promisyFuncs = [
     // 路由 - Route
     'switchTab', 'reLaunch', 'redirectTo', 'navigateTo', 'navigateBack',
 
+    // 跳转 - Navigate
+    'navigateToMiniProgram', 'navigateBackMiniProgram', 'exitMiniProgram',
+
+    // 转发 - Share
+    'updateShareMenu', 'showShareMenu', 'showShareImageMenu', 'shareVideoMessage', 'shareFileMessage', 'hideShareMenu', 'getShareInfo', 'authPrivateMessage',
+
     // 界面：交互 - UI/Interaction
     'showToast', 'showModal', 'showLoading', 'showActionSheet', 'hideToast', 'hideLoading', 'enableAlertBeforeUnload', 'disableAlertBeforeUnload',
     // 界面：导航栏 - UI/Navigation
@@ -30,8 +36,6 @@ const promisyFuncs = [
     'setTopBarText',
     // 界面：窗口 - UI/Window
     'setWindowSize',
-    // 界面：键盘 - UI/Keyboard
-    'hideKeyboard', 'getSelectedTextRange',
 
     // 网络：发起请求 - Network/Request
     'request',
@@ -44,10 +48,16 @@ const promisyFuncs = [
     // 网络：mDNS - Network/mDNS
     'stopLocalServiceDiscovery', 'startLocalServiceDiscovery',
 
+    // 支付 - Payment
+    'requestPayment', 'requestOrderPayment',
+
     // 数据缓存：存储 - Storage/Storage
     'setStorage', 'removeStorage', 'getStorageInfo', 'getStorage', 'clearStorage',
     // 数据缓存：周期性更新 - Storage/BackgroundFetch
     'setBackgroundFetchToken', 'onBackgroundFetchData', 'getBackgroundFetchToken', 'getBackgroundFetchData',
+
+    // 画布 - Canvas
+    'canvasToTempFilePath', 'canvasPutImageData', 'canvasGetImageData',
 
     // 媒体：图片 - Media/Image
     'saveImageToPhotosAlbum', 'previewMedia', 'previewImage', 'getImageInfo', 'compressImage', 'chooseMessageFile', 'chooseImage',
@@ -65,23 +75,13 @@ const promisyFuncs = [
     // 位置 - Location
     'stopLocationUpdate', 'startLocationUpdateBackground', 'startLocationUpdate', 'openLocation', 'getLocation', 'choosePoi', 'chooseLocation',
 
-    // 转发 - Share
-    'updateShareMenu', 'showShareMenu', 'showShareImageMenu', 'hideShareMenu', 'getShareInfo', 'authPrivateMessage',
-
-    // 画布 - Canvas
-    'canvasToTempFilePath', 'canvasPutImageData', 'canvasGetImageData',
-
     // 文件 File
     'saveFileToDisk', 'saveFile', 'removeSavedFile', 'openDocument', 'getSavedFileList', 'getSavedFileInfo', 'getFileInfo',
 
     // 开放接口：登录 - OpenAPI/Login
     'login', 'checkSession',
-    // 开放接口：小程序跳转 - OpenAPI/MiniProgramNavigate
-    'navigateToMiniProgram', 'navigateBackMiniProgram',
     // 开放接口：用户信息 - OpenAPI/UserInfo
     'getUserProfile', 'getUserInfo',
-    // 开放接口：支付 - OpenAPI/Payment
-    'requestPayment',
     // 开放接口：授权 - OpenAPI/Authorization
     'authorizeForMiniProgram', 'authorize',
     // 开放接口：设置 - OpenAPI/Setting
@@ -100,33 +100,43 @@ const promisyFuncs = [
     'requestSubscribeMessage',
     // 开放接口：微信红包 - OpenAPI/RedPackage
     'showRedPackage',
-    // 开发接口：群工具 - OpenAPI/Group
+    // 开发接口：收藏 - OpenAPI/Favorites
+    'addVideoToFavorites', 'addFileToFavorites',
+    // 开发接口：视频号 - OpenAPI/Channels
+    'openChannelsLive', 'getChannelsLiveInfo',
+    // 开发接口：微信群 - OpenAPI/Group
     'getGroupEnterInfo',
 
     // 设备：外围设备 - Device/Peripheral
     'createBLEPeripheralServer',
     // 设备：iBeacon - Device/iBeacon
     'stopBeaconDiscovery', 'startBeaconDiscovery', 'getBeacons',
+    // 设备：NFC - Device/NFC
+    'stopHCE', 'startHCE', 'sendHCEMessage', 'getHCEState',
     // 设备：WiFi - Device/WiFi
     'stopWifi', 'startWifi', 'setWifiList', 'getWifiList', 'getConnectedWifi', 'connectWifi',
-    // 设备：低功耗蓝牙 - Device/BLE
-    'setBLEMTU', 'makeBluetoothPair', 'writeBLECharacteristicValue', 'readBLECharacteristicValue', 'notifyBLECharacteristicValueChange', 'getBLEDeviceServices', 'getBLEDeviceCharacteristics', 'createBLEConnection', 'closeBLEConnection',
+    // 设备：日历 - Device/Calendar
+    'addPhoneRepeatCalendar', 'addPhoneCalendar',
     // 设备：联系人 - Device/Contact
-    'chooseContact', 'addPhoneContact',
+    'searchContacts', 'chooseContact', 'addPhoneContact',
     // 设备：无障碍 - Device/Accessibility
     'checkIsOpenAccessibility',
+    // 设备：低功耗蓝牙 - Device/BLE
+    'setBLEMTU', 'makeBluetoothPair', 'writeBLECharacteristicValue', 'readBLECharacteristicValue', 'notifyBLECharacteristicValueChange', 'getBLEDeviceServices', 'getBLEDeviceCharacteristics', 'createBLEConnection', 'closeBLEConnection',
     // 设备：蓝牙 - Device/Bluetooth
     'stopBluetoothDevicesDiscovery', 'startBluetoothDevicesDiscovery', 'openBluetoothAdapter', 'getConnectedBluetoothDevices', 'getBluetoothDevices', 'getBluetoothAdapterState', 'closeBluetoothAdapter',
     // 设备：电量 - Device/Battery
     'getBatteryInfo',
     // 设备：剪贴板 - Device/Clipboard
     'setClipboardData', 'getClipboardData',
-    // 设备：NFC - Device/NFC
-    'stopHCE', 'startHCE', 'sendHCEMessage', 'getHCEState',
     // 设备：网络 - Device/Newwork
     'getNetworkType',
+    // 设备：加密 - Device/Crypto
+    'getRandomValues',
     // 设备：屏幕 - Device/Screen
     'setScreenBrightness', 'setKeepScreenOn', 'getScreenBrightness',
+    // 设备：键盘 - Device/Keyboard
+    'hideKeyboard', 'getSelectedTextRange',
     // 设备：电话 - Device/Call
     'makePhoneCall',
     // 设备：加速计 - Device/Accelerometer
