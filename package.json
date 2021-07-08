@@ -2,7 +2,7 @@
     "name": "@skit/wxmini-promisify",
     "title": "wxmini-promisify",
     "description": "Converts wx-miniprogram callback-based functions to Promises.",
-    "version": "2.18.0",
+    "version": "2.18.0-1",
     "main": "dist/index.js",
     "author": "Fu Diwei",
     "repository": {
