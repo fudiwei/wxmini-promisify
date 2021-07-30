@@ -100,11 +100,11 @@ const promisyFuncs = [
     'requestSubscribeMessage',
     // 开放接口：微信红包 - OpenAPI/RedPackage
     'showRedPackage',
-    // 开发接口：收藏 - OpenAPI/Favorites
+    // 开放接口：收藏 - OpenAPI/Favorites
     'addVideoToFavorites', 'addFileToFavorites',
-    // 开发接口：视频号 - OpenAPI/Channels
-    'openChannelsLive', 'getChannelsLiveInfo',
-    // 开发接口：微信群 - OpenAPI/Group
+    // 开放接口：视频号 - OpenAPI/Channels
+    'openChannelsLive', 'openChannelsActivity', 'getChannelsLiveNoticeInfo', 'getChannelsLiveInfo',
+    // 开放接口：微信群 - OpenAPI/Group
     'getGroupEnterInfo',
 
     // 设备：外围设备 - Device/Peripheral
@@ -151,6 +151,9 @@ const promisyFuncs = [
     'scanCode',
     // 设备：振动 - Device/Vibration
     'vibrateShort', 'vibrateLong',
+
+    // AI：人脸识别 - AI/Face
+    'stopFaceDetect', 'initFaceDetect', 'faceDetect',
 
     // 第三方平台 - Ext
     'getExtConfig',
@@ -214,7 +217,7 @@ module.exports = (options = {}) => {
                     failFn = args.fail,
                     completeFn = args.complete;
 
-                return new Promise((resolve, reject) => {
+                const p = new Promise((resolve, reject) => {
                     args.success = (res) => {
                         resolve(res);
                     };
@@ -244,15 +247,21 @@ module.exports = (options = {}) => {
                     }
 
                     return Promise.reject(res);
-                }).finally(() => {
-                    if (isCallable(completeFn)) {
-                        try {
-                            completeFn();
-                        } catch (err) {
-                            console.error(err);
-                        }
-                    }
                 });
+
+                if (isCallable(p.finally)) {
+                    p.finally(() => {
+                        if (isCallable(completeFn)) {
+                            try {
+                                completeFn();
+                            } catch (err) {
+                                console.error(err);
+                            }
+                        }
+                    });
+                }
+
+                return p;
             };
 
             options.root[prop + 'Async'] = newFn;
