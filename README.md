@@ -3,9 +3,12 @@
 [![NPM Version](https://img.shields.io/npm/v/@skit/wxmini-promisify.svg?sanitize=true)](https://www.npmjs.com/package/@skit/wxmini-promisify)
 [![NPM Download](https://img.shields.io/npm/dm/@skit/wxmini-promisify.svg?sanitize=true)](https://www.npmjs.com/package/@skit/wxmini-promisify)
 [![Dependency Status](https://david-dm.org/fudiwei/wxmini-promisify.svg)](https://david-dm.org/fudiwei/wxmini-promisify)
-[![GitHub License](https://img.shields.io/github/license/fudiwei/wxmini-promisify)](https://github.com/fudiwei/wxmini-promisify/blob/master/LICENSE)
+[![License](https://img.shields.io/github/license/fudiwei/wxmini-promisify)](https://mit-license.org/)
 
-> 微信官方已于 2019 年 7 月 16 日推出了专门的小程序 API Promise 化扩展库 [miniprogram-api-promise](https://github.com/wechat-miniprogram/miniprogram-api-promise)，详情请参阅此[链接](https://developers.weixin.qq.com/miniprogram/dev/extended/utils/api-promise.html)。
+> 微信官方已于 2019 年 7 月 16 日推出了小程序 API Promise 化独立的扩展库 [miniprogram-api-promise](https://github.com/wechat-miniprogram/miniprogram-api-promise)，详情请参阅此[链接](https://developers.weixin.qq.com/miniprogram/dev/extended/utils/api-promise.html)。
+>
+> 微信官方已于 2020 年 2 月 20 日在小程序基础库中支持了 API Promise 形式调用，详情请参阅此[链接](https://developers.weixin.qq.com/miniprogram/dev/framework/app-service/api.html)。
+>
 > 本库也会继续维护更新。
 
 ---
@@ -19,7 +22,7 @@
 -   与 miniprogram-api-promise 库相比，支持了 TypeScript。虽然社区有了解决方案（[详情参考此 Issue](https://github.com/wechat-miniprogram/miniprogram-api-promise/issues/5)），但并非百分百完全兼容，仍有部分类型声明因原始命名不标准而遗漏；
 -   可单独拷贝到项目中使用；
 -   支持 TypeScript；
--   与微信小程序基础库（当前版本：2.18.0）同步更新。
+-   与微信小程序基础库（当前版本：2.19.0）同步更新。
 
 ---
 

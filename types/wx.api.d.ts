@@ -462,24 +462,38 @@ declare namespace WechatMiniprogram {
         showRedPackgeAsync(
             options?: Wx.PromisifiedCallbackOption<ShowRedPackageOption>
         ): Wx.PromisifiedCallbackResult<ShowRedPackageOption>;
-        // 开发接口：收藏 - OpenAPI/Favorites
+        // 开放接口：收藏 - OpenAPI/Favorites
         addVideoToFavoritesAsync(
             options?: Wx.PromisifiedCallbackOption<AddVideoToFavoritesOption>
         ): Wx.PromisifiedCallbackResult<AddVideoToFavoritesOption>;
         addFileToFavoritesAsync(
             options?: Wx.PromisifiedCallbackOption<AddFileToFavoritesOption>
         ): Wx.PromisifiedCallbackResult<AddFileToFavoritesOption>;
-        // 开发接口：视频号 - OpenAPI/Channels
+        // 开放接口：车牌 - LicensePlate
+        chooseLicensePlateAsync(
+            options?: Wx.PromisifiedCallbackOption<ChooseLicensePlateOption>
+        ): Wx.PromisifiedCallbackResult<ChooseLicensePlateOption>;
+        // 开放接口：视频号 - OpenAPI/Channels
         openChannelsLiveAsync(
             options?: Wx.PromisifiedCallbackOption<OpenChannelsLiveOption>
         ): Wx.PromisifiedCallbackResult<OpenChannelsLiveOption>;
+        openChannelsActivityAsync(
+            options?: Wx.PromisifiedCallbackOption<OpenChannelsActivityOption>
+        ): Wx.PromisifiedCallbackResult<OpenChannelsActivityOption>;
+        getChannelsLiveNoticeInfoAsync(
+            options?: Wx.PromisifiedCallbackOption<GetChannelsLiveNoticeInfoOption>
+        ): Wx.PromisifiedCallbackResult<GetChannelsLiveNoticeInfoOption>;
         getChannelsLiveInfoAsync(
             options?: Wx.PromisifiedCallbackOption<GetChannelsLiveInfoOption>
         ): Wx.PromisifiedCallbackResult<GetChannelsLiveInfoOption>;
-        // 开发接口：微信群 - OpenAPI/Group
+        // 开放接口：微信群 - OpenAPI/Group
         getGroupEnterInfoAsync(
             options?: Wx.PromisifiedCallbackOption<GetGroupEnterInfoOption>
         ): Wx.PromisifiedCallbackResult<GetGroupEnterInfoOption>;
+        // 开放接口：微信客服 - ServiceChat
+        openCustomerServiceChatAsync(
+            options?: Wx.PromisifiedCallbackOption<OpenCustomerServiceChatOption>
+        ): Wx.PromisifiedCallbackResult<OpenCustomerServiceChatOption>;
 
         // 设备：iBeacon - Device/iBeacon
         stopBeaconDiscoveryAsync(
@@ -673,6 +687,17 @@ declare namespace WechatMiniprogram {
         vibrateLongAsync(
             options?: Wx.PromisifiedCallbackOption<VibrateLongOption>
         ): Wx.PromisifiedCallbackResult<VibrateLongOption>;
+
+        // AI：人脸识别 - AI/Face
+        stopFaceDetectAsync(
+            options?: Wx.PromisifiedCallbackOption<StopFaceDetectOption>
+        ): Wx.PromisifiedCallbackResult<StopFaceDetectOption>;
+        initFaceDetectAsync(
+            options?: Wx.PromisifiedCallbackOption<InitFaceDetectOption>
+        ): Wx.PromisifiedCallbackResult<InitFaceDetectOption>;
+        faceDetectAsync(
+            options?: Wx.PromisifiedCallbackOption<FaceDetectOption>
+        ): Wx.PromisifiedCallbackResult<FaceDetectOption>;
 
         // 第三方平台 - Ext
         getExtConfigAsync(
