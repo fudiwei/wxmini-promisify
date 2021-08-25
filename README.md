@@ -61,14 +61,12 @@ wx.login({
         console.error(err);
     },
     complete: () => {
-        // Do Something
+        // Do Something always
     }
 });
 
 // Promise 方法
-wx.loginAsync({
-    timeout: 5000
-})
+wx.loginAsync({ timeout: 5000 })
     .then((res) => {
         console.info(res.code);
     })
@@ -76,7 +74,7 @@ wx.loginAsync({
         console.error(err);
     })
     .finally(() => {
-        // Do Something
+        // Do Something always
     });
 ```
 
