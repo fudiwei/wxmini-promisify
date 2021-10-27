@@ -15,7 +15,7 @@
 
 ## 特性
 
--   将微信小程序中提供的基于回调函数的 API，转化为 Promise 形式（_wx.func_ 将转换成同名的 _wx.funcAsync_ 形式）；
+-   将微信小程序或小游戏中提供的基于回调函数的 API，转化为 Promise 形式（_wx.func_ 将转换成同名的 _wx.funcAsync_ 形式）；
 -   与 wepy 框架的 [promisify](https://github.com/Tencent/wepy/wiki/wepy%E9%A1%B9%E7%9B%AE%E4%B8%AD%E4%BD%BF%E7%94%A8async-await) 模块相比，侵入性更小，同时以 `Promise.finally` 的形式支持了原本的 _complete_ 回调；
 -   与 miniprogram-api-promise 库相比，支持了 TypeScript。虽然社区有了解决方案（[详情参考此 Issue](https://github.com/wechat-miniprogram/miniprogram-api-promise/issues/5)），但并非百分百完全兼容，仍有部分类型声明因原始命名不标准而遗漏；
 -   可单独拷贝到项目中使用；

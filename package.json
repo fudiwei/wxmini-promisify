@@ -1,8 +1,27 @@
 {
     "name": "@skit/wxmini-promisify",
     "title": "wxmini-promisify",
-    "description": "Converts wx-miniprogram callback-based functions to Promises. 将微信小程序基于回调的异步 API 转化为 Promise 形式。",
-    "version": "2.19.0",
+    "description": "为微信小程序、小游戏提供 TypeScript 支持，同时将其基于回调函数的异步 API 转化为 Promise 形式。",
+    "keywords": [
+        "微信",
+        "小程序",
+        "微信小程序",
+        "微信小游戏",
+        "Wechat",
+        "Weixin",
+        "MicroMessager",
+        "MiniProgram",
+        "MiniGame",
+        "Wechat-MiniProgram",
+        "Wechat-MiniGame",
+        "Weixin-MiniProgram",
+        "Weixin-MiniGame",
+        "weapp",
+        "wxapp",
+        "promise",
+        "promisify"
+    ],
+    "version": "2.19.4",
     "main": "dist/index.js",
     "author": "Fu Diwei",
     "repository": {
@@ -22,7 +41,8 @@
         "types/*"
     ],
     "dependencies": {
-        "miniprogram-api-typings": "^3.4.3"
+        "minigame-api-typings": "~3.4.1",
+        "miniprogram-api-typings": "~3.4.3"
     },
     "devDependencies": {
         "@babel/core": "^7.15.8",
@@ -46,8 +66,5 @@
         "prettier": "^2.4.1",
         "q": "^1.5.1",
         "typescript": "^4.4.4"
-    },
-    "peerDependencies": {
-        "miniprogram-api-typings": "~3.4.3"
     }
 }

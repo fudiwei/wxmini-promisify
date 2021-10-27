@@ -16,12 +16,16 @@ const promisyFuncs = [
     'navigateToMiniProgram', 'navigateBackMiniProgram', 'exitMiniProgram',
 
     // 转发 - Share
-    'updateShareMenu', 'showShareMenu', 'showShareImageMenu', 'shareVideoMessage', 'shareFileMessage', 'hideShareMenu', 'getShareInfo', 'authPrivateMessage',
+    'updateShareMenu', 'showShareMenu', 'showShareImageMenu', 'shareVideoMessage', 'shareFileMessage', 'hideShareMenu', 'getShareInfo', 'authPrivateMessage', 'startHandoff', 'checkHandoffEnabled',
 
     // 界面：交互 - UI/Interaction
     'showToast', 'showModal', 'showLoading', 'showActionSheet', 'hideToast', 'hideLoading', 'enableAlertBeforeUnload', 'disableAlertBeforeUnload',
     // 界面：导航栏 - UI/Navigation
     'showNavigationBarLoading', 'setNavigationBarTitle', 'setNavigationBarColor', 'hideNavigationBarLoading', 'hideHomeButton',
+    // 界面：菜单 - UI/Menu
+    'setMenuStyle',
+    // 界面：状态栏 - UI/StatusBar
+    'setStatusBarStyle',
     // 界面：背景 - UI/Background
     'setBackgroundTextStyle', 'setBackgroundColor',
     // 界面：TabBar - UI/TabBar
@@ -51,6 +55,9 @@ const promisyFuncs = [
     // 支付 - Payment
     'requestPayment', 'requestOrderPayment',
 
+    // 虚拟支付 - MidasPayment
+    'requestMidasPayment', 'requestMidasFriendPayment',
+
     // 数据缓存：存储 - Storage/Storage
     'setStorage', 'removeStorage', 'getStorageInfo', 'getStorage', 'clearStorage',
     // 数据缓存：周期性更新 - Storage/BackgroundFetch
@@ -59,12 +66,15 @@ const promisyFuncs = [
     // 画布 - Canvas
     'canvasToTempFilePath', 'canvasPutImageData', 'canvasGetImageData',
 
+    // 字体 - Font
+    'getTextLineHeight',
+
     // 媒体：图片 - Media/Image
     'saveImageToPhotosAlbum', 'previewMedia', 'previewImage', 'getImageInfo', 'compressImage', 'chooseMessageFile', 'chooseImage',
     // 媒体：视频 - Media/Video
     'saveVideoToPhotosAlbum', 'openVideoEditor', 'getVideoInfo', 'compressVideo', 'chooseVideo', 'chooseMedia',
     // 媒体：音频 - Media/Audio&Voice
-    'stopVoice', 'setInnerAudioOption', 'playVoice', 'pauseVoice', 'getAvailableAudioSources',
+    'stopVoice', 'playVoice', 'pauseVoice', 'setInnerAudioOption', 'getAvailableAudioSources',
     // 媒体：背景音频 - Media/BackgroundAudio
     'stopBackgroundAudio', 'seekBackgroundAudio', 'playBackgroundAudio', 'pauseBackgroundAudio', 'getBackgroundAudioPlayerState',
     // 媒体：录音 - Media/Record
@@ -83,7 +93,7 @@ const promisyFuncs = [
     // 开放接口：用户信息 - OpenAPI/UserInfo
     'getUserProfile', 'getUserInfo',
     // 开放接口：授权 - OpenAPI/Authorization
-    'authorizeForMiniProgram', 'authorize',
+    'authorize', 'authorizeForMiniProgram',
     // 开放接口：设置 - OpenAPI/Setting
     'openSetting', 'getSetting',
     // 开放接口：收货地址 - OpenAPI/Address
@@ -97,7 +107,7 @@ const promisyFuncs = [
     // 开放接口：微信运动 - OpenAPI/RunData
     'shareToWeRun', 'getWeRunData',
     // 开放接口：订阅消息 - OpenAPI/SubscribeMessage
-    'requestSubscribeMessage',
+    'requestSubscribeMessage', 'requestSubscribeSystemMessage',
     // 开放接口：微信红包 - OpenAPI/RedPackage
     'showRedPackage',
     // 开放接口：收藏 - OpenAPI/Favorites
@@ -106,6 +116,14 @@ const promisyFuncs = [
     'openChannelsLive', 'openChannelsActivity', 'getChannelsLiveNoticeInfo', 'getChannelsLiveInfo',
     // 开放接口：微信群 - OpenAPI/Group
     'getGroupEnterInfo',
+    // 开放接口：微信客服 - OpenAPI/ServiceChat
+    'openCustomerServiceChat',
+    // 开放接口：开放数据 - OpenAPI/Data
+    'shareMessageToFriend', 'setUserCloudStorage', 'removeUserCloudStorage', 'modifyFriendInteractiveStorage', 'getUserInteractiveStorage', 'getUserCloudStorageKeys', 'getUserCloudStorage', 'getPotentialFriendList', 'getGroupInfo', 'getGroupCloudStorage', 'getFriendCloudStorage',
+    // 开放接口：防沉迷 - OpenAPI/Anti-Addiction
+    'checkIsUserAdvisedToRest',
+    // 开放接口：客服消息 - OpenAPI/CustomerMessage
+    'openCustomerServiceConversation',
 
     // 设备：外围设备 - Device/Peripheral
     'createBLEPeripheralServer',
@@ -122,7 +140,7 @@ const promisyFuncs = [
     // 设备：无障碍 - Device/Accessibility
     'checkIsOpenAccessibility',
     // 设备：低功耗蓝牙 - Device/BLE
-    'setBLEMTU', 'makeBluetoothPair', 'writeBLECharacteristicValue', 'readBLECharacteristicValue', 'notifyBLECharacteristicValueChange', 'getBLEDeviceServices', 'getBLEDeviceCharacteristics', 'createBLEConnection', 'closeBLEConnection',
+    'setBLEMTU', 'makeBluetoothPair', 'writeBLECharacteristicValue', 'readBLECharacteristicValue', 'notifyBLECharacteristicValueChange', 'getBLEDeviceServices', 'getBLEDeviceCharacteristics', 'createBLEConnection', 'closeBLEConnection', 'createBLEPeripheralServer', 'getBLEDeviceRSSI',
     // 设备：蓝牙 - Device/Bluetooth
     'stopBluetoothDevicesDiscovery', 'startBluetoothDevicesDiscovery', 'openBluetoothAdapter', 'getConnectedBluetoothDevices', 'getBluetoothDevices', 'getBluetoothAdapterState', 'closeBluetoothAdapter',
     // 设备：电量 - Device/Battery
@@ -136,7 +154,7 @@ const promisyFuncs = [
     // 设备：屏幕 - Device/Screen
     'setScreenBrightness', 'setKeepScreenOn', 'getScreenBrightness',
     // 设备：键盘 - Device/Keyboard
-    'hideKeyboard', 'getSelectedTextRange',
+    'hideKeyboard', 'getSelectedTextRange', 'updateKeyboard', 'showKeyboard',
     // 设备：电话 - Device/Call
     'makePhoneCall',
     // 设备：加速计 - Device/Accelerometer
@@ -174,7 +192,7 @@ module.exports = (options = {}) => {
     }, options, {});
 
     if (null === wx || undefined === wx) {
-        throw 'This module can be injected into WeChat MiniProgram runtime only.';
+        throw 'This module can be injected into WeChat MiniProgram/MiniGame runtime only.';
     }
     if (null === options.root || undefined === options.root) {
         throw 'The value of `options.root` must be a not-empty object.';

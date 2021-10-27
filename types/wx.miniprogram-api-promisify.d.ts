@@ -1,12 +1,12 @@
+/// <reference path="./wx.internal.d.ts" />
+
 declare namespace WechatMiniprogram {
     namespace Wx {
-        type CallbackOption = {
-            success?: (...args: any) => void;
-            fail?: (...args: any) => void;
-            complete?: (...args: any) => void;
-        };
-        type PromisifiedCallbackOption<T extends CallbackOption> = Omit<T, keyof CallbackOption>;
-        type PromisifiedCallbackResult<T extends CallbackOption> = Promise<Parameters<T['success']>[0]>;
+        type CallbackOption = SKIT.WxminiPromisify.Internal.WxCallbackOption;
+        type PromisifiedCallbackOption<T extends CallbackOption> =
+            SKIT.WxminiPromisify.Internal.WxPromisifiedCallbackOption<T>;
+        type PromisifiedCallbackResult<T extends CallbackOption> =
+            SKIT.WxminiPromisify.Internal.WxPromisifiedCallbackResult<T>;
     }
 
     interface Wx {
@@ -61,7 +61,7 @@ declare namespace WechatMiniprogram {
         showShareMenuAsync(
             options?: Wx.PromisifiedCallbackOption<ShowShareMenuOption>
         ): Wx.PromisifiedCallbackResult<ShowShareMenuOption>;
-        showShareImageMenuMenu(
+        showShareImageMenuAsync(
             options?: Wx.PromisifiedCallbackOption<ShowShareImageMenuOption>
         ): Wx.PromisifiedCallbackResult<ShowShareImageMenuOption>;
         shareVideoMessageAsync(
@@ -169,10 +169,16 @@ declare namespace WechatMiniprogram {
             options?: Wx.PromisifiedCallbackOption<PageScrollToOption>
         ): Wx.PromisifiedCallbackResult<PageScrollToOption>;
         // 界面：置顶 - UI/TopBar
+        /**
+         * @deprecated
+         */
         setTopBarTextAsync(
             options?: Wx.PromisifiedCallbackOption<SetTopBarTextOption>
         ): Wx.PromisifiedCallbackResult<SetTopBarTextOption>;
         // 界面：窗口 - UI/Window
+        /**
+         * @deprecated
+         */
         setWindowSizeAsync(
             options?: Wx.PromisifiedCallbackOption<SetWindowSizeOption>
         ): Wx.PromisifiedCallbackResult<SetWindowSizeOption>;
@@ -298,41 +304,71 @@ declare namespace WechatMiniprogram {
             options?: Wx.PromisifiedCallbackOption<ChooseMediaOption>
         ): Wx.PromisifiedCallbackResult<ChooseMediaOption>;
         // 媒体：音频 - Media/Audio&Voice
+        /**
+         * @deprecated
+         */
         stopVoiceAsync(
             options?: Wx.PromisifiedCallbackOption<StopVoiceOption>
         ): Wx.PromisifiedCallbackResult<StopVoiceOption>;
-        setInnerAudioOptionAsync(
-            options?: Wx.PromisifiedCallbackOption<SetInnerAudioOption>
-        ): Wx.PromisifiedCallbackResult<SetInnerAudioOption>;
+        /**
+         * @deprecated
+         */
         playVoiceAsync(
             options?: Wx.PromisifiedCallbackOption<PlayVoiceOption>
         ): Wx.PromisifiedCallbackResult<PlayVoiceOption>;
+        /**
+         * @deprecated
+         */
         pauseVoiceAsync(
             options?: Wx.PromisifiedCallbackOption<PauseVoiceOption>
         ): Wx.PromisifiedCallbackResult<PauseVoiceOption>;
+        setInnerAudioOptionAsync(
+            options?: Wx.PromisifiedCallbackOption<SetInnerAudioOption>
+        ): Wx.PromisifiedCallbackResult<SetInnerAudioOption>;
         getAvailableAudioSourcesAsync(
             options?: Wx.PromisifiedCallbackOption<GetAvailableAudioSourcesOption>
         ): Wx.PromisifiedCallbackResult<GetAvailableAudioSourcesOption>;
         // 媒体：背景音频 - Media/BackgroundAudio
+        /**
+         * @deprecated
+         */
         stopBackgroundAudioAsync(
             options?: Wx.PromisifiedCallbackOption<StopBackgroundAudioOption>
         ): Wx.PromisifiedCallbackResult<StopBackgroundAudioOption>;
+        /**
+         * @deprecated
+         */
         seekBackgroundAudioAsync(
             options?: Wx.PromisifiedCallbackOption<SeekBackgroundAudioOption>
         ): Wx.PromisifiedCallbackResult<SeekBackgroundAudioOption>;
+        /**
+         * @deprecated
+         */
         playBackgroundAudioAsync(
             options?: Wx.PromisifiedCallbackOption<PlayBackgroundAudioOption>
         ): Wx.PromisifiedCallbackResult<PlayBackgroundAudioOption>;
+        /**
+         * @deprecated
+         */
         pauseBackgroundAudioAsync(
             options?: Wx.PromisifiedCallbackOption<PauseBackgroundAudioOption>
         ): Wx.PromisifiedCallbackResult<PauseBackgroundAudioOption>;
+        /**
+         * @deprecated
+         */
         getBackgroundAudioPlayerStateAsync(
             options?: Wx.PromisifiedCallbackOption<GetBackgroundAudioPlayerStateOption>
         ): Wx.PromisifiedCallbackResult<GetBackgroundAudioPlayerStateOption>;
         // 媒体：录音 - Media/Record
+        /**
+         * @deprecated
+         */
         stopRecordAsync(
             options?: Wx.PromisifiedCallbackOption<WxStopRecordOption>
         ): Wx.PromisifiedCallbackResult<WxStopRecordOption>;
+        /**
+         * @deprecated
+         */
         startRecordAsync(
             options?: Wx.PromisifiedCallbackOption<WxStartRecordOption>
         ): Wx.PromisifiedCallbackResult<WxStartRecordOption>;
@@ -412,6 +448,9 @@ declare namespace WechatMiniprogram {
         authorizeAsync(
             options?: Wx.PromisifiedCallbackOption<AuthorizeOption>
         ): Wx.PromisifiedCallbackResult<AuthorizeOption>;
+        authorizeForMiniProgramAsync(
+            options?: Wx.PromisifiedCallbackOption<AuthorizeForMiniProgramOption>
+        ): Wx.PromisifiedCallbackResult<AuthorizeForMiniProgramOption>;
         // 开放接口：设置 - OpenAPI/Setting
         openSettingAsync(
             options?: Wx.PromisifiedCallbackOption<OpenSettingOption>
@@ -586,6 +625,12 @@ declare namespace WechatMiniprogram {
         closeBLEConnectionAsync(
             options?: Wx.PromisifiedCallbackOption<CloseBLEConnectionOption>
         ): Wx.PromisifiedCallbackResult<CloseBLEConnectionOption>;
+        createBLEPeripheralServerAsync(
+            options?: Wx.PromisifiedCallbackOption<CreateBLEPeripheralServerOption>
+        ): Wx.PromisifiedCallbackResult<CreateBLEPeripheralServerOption>;
+        getBLEDeviceRSSIAsync(
+            options?: Wx.PromisifiedCallbackOption<GetBLEDeviceRSSIOption>
+        ): Wx.PromisifiedCallbackResult<GetBLEDeviceRSSIOption>;
         // 设备：蓝牙 - Device/Bluetooth
         stopBluetoothDevicesDiscoveryAsync(
             options?: Wx.PromisifiedCallbackOption<StopBluetoothDevicesDiscoveryOption>
@@ -638,10 +683,13 @@ declare namespace WechatMiniprogram {
             options?: Wx.PromisifiedCallbackOption<GetScreenBrightnessOption>
         ): Wx.PromisifiedCallbackResult<GetScreenBrightnessOption>;
         // 设备：键盘 - Device/Keyword
+        showKeyboardAsync(
+            options?: Wx.PromisifiedCallbackOption<ShowKeyboardOption>
+        ): Wx.PromisifiedCallbackResult<ShowKeyboardOption>;
         hideKeyboardAsync(
             options?: Wx.PromisifiedCallbackOption<HideKeyboardOption>
         ): Wx.PromisifiedCallbackResult<HideKeyboardOption>;
-        getSelectedTextRange(
+        getSelectedTextRangeAsync(
             options?: Wx.PromisifiedCallbackOption<GetSelectedTextRangeOption>
         ): Wx.PromisifiedCallbackResult<GetSelectedTextRangeOption>;
         // 设备：电话 - Device/Call

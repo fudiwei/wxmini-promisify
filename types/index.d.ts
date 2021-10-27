@@ -1,4 +1,5 @@
-/// <reference path="./wx.api-promisify.d.ts" />
+/// <reference path="./wx.minigame-api-promisify.d.ts" />
+/// <reference path="./wx.miniprogram-api-promisify.d.ts" />
 
 declare namespace SKIT.WxminiPromisify {
     interface WxminiPolyfillOptions {}
