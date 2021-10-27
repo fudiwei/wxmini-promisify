@@ -1,5 +1,4 @@
-/// <reference path="./wx.api.d.ts" />
-/// <reference path="./wx.event.d.ts" />
+/// <reference path="./wx.api-promisify.d.ts" />
 
 declare namespace SKIT.WxminiPromisify {
     interface WxminiPolyfillOptions {}
@@ -17,15 +16,9 @@ declare namespace SKIT.WxminiPromisify {
          * 指示是否为低版本基础库提供覆写，防止抛出 undefined。默认值为 true。
          */
         enableCompatible?: boolean;
-        /**
-         * 是否使用 EventListener 方式替换 wx.onEvent / wx.offEvent。默认值为 true。
-         */
-        enableEventListener?: boolean;
     }
 
     interface Wxmini {
-        polyfill(options?: WxminiPolyfillOptions): void;
-
         promisify(options?: WxminiPromisifyOptions): void;
     }
 

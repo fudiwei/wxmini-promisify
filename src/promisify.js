@@ -164,22 +164,20 @@ const promisyFuncs = [
  * @param {Object} options
  * @param {Object} [options.root] 指定异步方法挂载到某个对象的属性上。默认挂载到 wx。
  * @param {Array} [options.extends] 若基础库新增了某些 API 而该库尚未更新，可由此传入相应的方法名数组以转换成异步方法。
- * @param {Boolean} [options.enableCompatible] 是否为低版本基础库提供兼容方法。默认值为 true。
- * @param {Boolean} [options.enableEventListener] 是否使用 wx.addEventListener/wx.removeEventListener 方式替换 wx.onEvent / wx.offEvent。默认值为 true。
+ * @param {Boolean} [options.enableCompatible] 是否为兼容低版本基础库。默认值为 true。
  */
 module.exports = (options = {}) => {
     options = Object.assign({
         root: wx,
         extends: [],
-        enableCompatible: true,
-        enableEventListener: true
+        enableCompatible: true
     }, options, {});
 
     if (null === wx || undefined === wx) {
-        throw 'This module can be injected into wechat-miniprogram runtime only.';
+        throw 'This module can be injected into WeChat MiniProgram runtime only.';
     }
     if (null === options.root || undefined === options.root) {
-        throw 'The value of root must be a not-empty object.';
+        throw 'The value of `options.root` must be a not-empty object.';
     }
     if (!Array.isArray(options.extends)) {
         options.extends = Array.from(options.extends);
@@ -197,10 +195,10 @@ module.exports = (options = {}) => {
                 fn = (args) => {
                     if ('object' === typeof args) {
                         if (isCallable(args.fail)) {
-                            args.fail({ errMsg: `${prop}:not support` });
+                            args.fail({ errMsg: `${prop}:not supported` });
                         }
                         if (isCallable(args.complete)) {
-                            args.complete({ errMsg: `${prop}:not support` });
+                            args.complete({ errMsg: `${prop}:not supported` });
                         }
                     }
                 };
@@ -218,32 +216,20 @@ module.exports = (options = {}) => {
                     completeFn = args.complete;
 
                 const p = new Promise((resolve, reject) => {
-                    args.success = (res) => {
-                        resolve(res);
-                    };
-                    args.fail = (res) => {
-                        reject(res);
-                    };
-                    args.complete = () => { };
+                    args.success = (res) => resolve(res);
+                    args.fail = (res) => reject(res);
+                    args.complete = noop;
 
                     fn(args);
                 }).then(res => {
                     if (isCallable(successFn)) {
-                        try {
-                            successFn(res);
-                        } catch (err) {
-                            console.error(err);
-                        }
+                        successFn(res);
                     }
 
                     return Promise.resolve(res);
                 }).catch(res => {
                     if (isCallable(failFn)) {
-                        try {
-                            failFn(res);
-                        } catch (err) {
-                            console.error(err);
-                        }
+                        failFn(res);
                     }
 
                     return Promise.reject(res);
@@ -252,11 +238,7 @@ module.exports = (options = {}) => {
                 if (isCallable(p.finally)) {
                     p.finally(() => {
                         if (isCallable(completeFn)) {
-                            try {
-                                completeFn();
-                            } catch (err) {
-                                console.error(err);
-                            }
+                            completeFn();
                         }
                     });
                 }
@@ -266,40 +248,4 @@ module.exports = (options = {}) => {
 
             options.root[prop + 'Async'] = newFn;
         });
-
-    if (options.enableEventListener) {
-        options.root.addEventListener = (event, callback) => {
-            if (undefined === event || null === event)
-                throw 'The value of event must be a not-empty string.';
-            if ('function' !== typeof callback)
-                throw 'The value of callback must be a function.';
-
-            const e = 'on' + String(event).replace(/-/g, '').trim().toLowerCase();
-            for (let p in options.root) {
-                if (p.toLowerCase() === e) {
-                    if (isCallable(options.root[p])) {
-                        options.root[p](callback);
-                    }
-                    break;
-                }
-            }
-        };
-
-        options.root.removeEventListener = (event, callback) => {
-            if (undefined === event || null === event)
-                throw 'The value of event must be a not-empty string.';
-            if ('function' !== typeof callback)
-                throw 'The value of callback must be a function.';
-
-            const e = 'off' + String(event).replace(/-/g, '').trim().toLowerCase();
-            for (let p in options.root) {
-                if (p.toLowerCase() === e) {
-                    if (isCallable(options.root[p])) {
-                        options.root[p](callback);
-                    }
-                    break;
-                }
-            }
-        };
-    }
 };

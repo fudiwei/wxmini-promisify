@@ -1,4 +1,3 @@
 module.exports = {
-    promisify: require('./promisify'),
-    polyfill: require('./polyfill')
+    promisify: require('./promisify')
 };
