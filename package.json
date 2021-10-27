@@ -25,15 +25,15 @@
         "miniprogram-api-typings": "^3.4.3"
     },
     "devDependencies": {
-        "@babel/core": "^7.14.8",
-        "@babel/preset-env": "^7.14.8",
-        "@typescript-eslint/eslint-plugin": "^4.28.5",
-        "@typescript-eslint/parser": "^4.28.5",
-        "eslint": "^7.31.0",
+        "@babel/core": "^7.15.8",
+        "@babel/preset-env": "^7.15.8",
+        "@typescript-eslint/eslint-plugin": "^5.2.0",
+        "@typescript-eslint/parser": "^5.2.0",
+        "eslint": "^7.32.0",
         "eslint-config-standard": "^16.0.3",
-        "eslint-plugin-import": "^2.23.4",
+        "eslint-plugin-import": "^2.25.2",
         "eslint-plugin-node": "^11.1.0",
-        "eslint-plugin-prettier": "^3.4.0",
+        "eslint-plugin-prettier": "^4.0.0",
         "eslint-plugin-standard": "^5.0.0",
         "gulp": "^4.0.2",
         "gulp-babel": "^8.0.0",
@@ -43,11 +43,11 @@
         "gulp-uglify": "^3.0.2",
         "gulp-util": "^3.0.8",
         "natives": "^1.1.6",
-        "prettier": "^2.3.2",
+        "prettier": "^2.4.1",
         "q": "^1.5.1",
-        "typescript": "~4.3.5"
+        "typescript": "^4.4.4"
     },
     "peerDependencies": {
-        "miniprogram-api-typings": "~3.4.1"
+        "miniprogram-api-typings": "~3.4.3"
     }
 }
