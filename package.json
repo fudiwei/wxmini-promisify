@@ -21,7 +21,7 @@
         "promise",
         "promisify"
     ],
-    "version": "2.19.4",
+    "version": "2.20.1",
     "main": "dist/index.js",
     "author": "Fu Diwei",
     "repository": {
@@ -42,11 +42,11 @@
     ],
     "dependencies": {
         "minigame-api-typings": "~3.4.1",
-        "miniprogram-api-typings": "~3.4.3"
+        "miniprogram-api-typings": "^3.4.4"
     },
     "devDependencies": {
-        "@babel/core": "^7.15.8",
-        "@babel/preset-env": "^7.15.8",
+        "@babel/core": "^7.16.0",
+        "@babel/preset-env": "^7.16.0",
         "@typescript-eslint/eslint-plugin": "^5.2.0",
         "@typescript-eslint/parser": "^5.2.0",
         "eslint": "^7.32.0",

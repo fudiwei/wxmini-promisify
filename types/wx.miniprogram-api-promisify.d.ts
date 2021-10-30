@@ -11,6 +11,12 @@ declare namespace WechatMiniprogram {
 
     interface Wx {
         // 基础：系统 - Base/System
+        openSystemBluetoothSettingAsync(
+            options?: Wx.PromisifiedCallbackOption<OpenSystemBluetoothSettingOption>
+        ): Wx.PromisifiedCallbackResult<OpenSystemBluetoothSettingOption>;
+        openAppAuthorizeSettingAsync(
+            options?: Wx.PromisifiedCallbackOption<OpenAppAuthorizeSettingOption>
+        ): Wx.PromisifiedCallbackResult<OpenAppAuthorizeSettingOption>;
         getSystemInfoAsyncAsync(
             options?: Wx.PromisifiedCallbackOption<GetSystemInfoAsyncOption>
         ): Wx.PromisifiedCallbackResult<GetSystemInfoAsyncOption>;
@@ -44,6 +50,9 @@ declare namespace WechatMiniprogram {
         ): Wx.PromisifiedCallbackResult<NavigateBackOption>;
 
         // 跳转 - Navigate
+        openEmbeddedMiniProgramAsync(
+            options?: Wx.PromisifiedCallbackOption<OpenEmbeddedMiniProgramOption>
+        ): Wx.PromisifiedCallbackResult<OpenEmbeddedMiniProgramOption>;
         navigateToMiniProgramAsync(
             options?: Wx.PromisifiedCallbackOption<NavigateToMiniProgramOption>
         ): Wx.PromisifiedCallbackResult<NavigateToMiniProgramOption>;
@@ -379,6 +388,9 @@ declare namespace WechatMiniprogram {
         subscribeVoIPVideoMembersAsync(
             options?: Wx.PromisifiedCallbackOption<SubscribeVoIPVideoMembersOption>
         ): Wx.PromisifiedCallbackResult<SubscribeVoIPVideoMembersOption>;
+        setEnable1v1ChatAsync(
+            options?: Wx.PromisifiedCallbackOption<SetEnable1v1ChatAsyncOption>
+        ): Wx.PromisifiedCallbackResult<SetEnable1v1ChatAsyncOption>;
         joinVoIPChatAsync(
             options?: Wx.PromisifiedCallbackOption<JoinVoIPChatOption>
         ): Wx.PromisifiedCallbackResult<JoinVoIPChatOption>;
@@ -613,6 +625,9 @@ declare namespace WechatMiniprogram {
         notifyBLECharacteristicValueChangeAsync(
             options?: Wx.PromisifiedCallbackOption<NotifyBLECharacteristicValueChangeOption>
         ): Wx.PromisifiedCallbackResult<NotifyBLECharacteristicValueChangeOption>;
+        getBLEMTUAsync(
+            options?: Wx.PromisifiedCallbackOption<GetBLEMTUOption>
+        ): Wx.PromisifiedCallbackResult<GetBLEMTUOption>;
         getBLEDeviceServicesAsync(
             options?: Wx.PromisifiedCallbackOption<GetBLEDeviceServicesOption>
         ): Wx.PromisifiedCallbackResult<GetBLEDeviceServicesOption>;
@@ -641,6 +656,9 @@ declare namespace WechatMiniprogram {
         openBluetoothAdapterAsync(
             options?: Wx.PromisifiedCallbackOption<OpenBluetoothAdapterOption>
         ): Wx.PromisifiedCallbackResult<OpenBluetoothAdapterOption>;
+        isBluetoothDevicePairedAsync(
+            options?: Wx.PromisifiedCallbackOption<IsBluetoothDevicePairedOption>
+        ): Wx.PromisifiedCallbackResult<IsBluetoothDevicePairedOption>;
         getConnectedBluetoothDevicesAsync(
             options?: Wx.PromisifiedCallbackOption<GetConnectedBluetoothDevicesOption>
         ): Wx.PromisifiedCallbackResult<GetConnectedBluetoothDevicesOption>;
@@ -668,11 +686,17 @@ declare namespace WechatMiniprogram {
         getNetworkTypeAsync(
             options?: Wx.PromisifiedCallbackOption<GetNetworkTypeOption>
         ): Wx.PromisifiedCallbackResult<GetNetworkTypeOption>;
+        getLocalIPAddressAsync(
+            options?: Wx.PromisifiedCallbackOption<GetLocalIPAddressOption>
+        ): Wx.PromisifiedCallbackResult<GetLocalIPAddressOption>;
         // 设备：加密 - Device/Crypto
         getRandomValuesAsync(
             options?: Wx.PromisifiedCallbackOption<GetRandomValuesOption>
         ): Wx.PromisifiedCallbackResult<GetRandomValuesOption>;
         // 设备：屏幕 - Device/Screen
+        setVisualEffectOnCaptureAsync(
+            options?: Wx.PromisifiedCallbackOption<SetVisualEffectOnCaptureOption>
+        ): Wx.PromisifiedCallbackResult<SetVisualEffectOnCaptureOption>;
         setScreenBrightnessAsync(
             options?: Wx.PromisifiedCallbackOption<SetScreenBrightnessOption>
         ): Wx.PromisifiedCallbackResult<SetScreenBrightnessOption>;

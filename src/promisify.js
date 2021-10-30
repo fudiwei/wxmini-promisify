@@ -3,7 +3,7 @@ const noop = () => { };
 
 const promisyFuncs = [
     // 基础：系统 - Base/System
-    'getSystemInfoAsync', 'getSystemInfo',
+    'openSystemBluetoothSetting', 'openAppAuthorizeSetting', 'getSystemInfoAsync', 'getSystemInfo',
     // 基础：更新 - Base/Update
     'updateWeChatApp',
     // 基础：调试 - Base/Debug
@@ -13,7 +13,7 @@ const promisyFuncs = [
     'switchTab', 'reLaunch', 'redirectTo', 'navigateTo', 'navigateBack',
 
     // 跳转 - Navigate
-    'navigateToMiniProgram', 'navigateBackMiniProgram', 'exitMiniProgram',
+    'openEmbeddedMiniProgram', 'navigateToMiniProgram', 'navigateBackMiniProgram', 'exitMiniProgram',
 
     // 转发 - Share
     'updateShareMenu', 'showShareMenu', 'showShareImageMenu', 'shareVideoMessage', 'shareFileMessage', 'hideShareMenu', 'getShareInfo', 'authPrivateMessage', 'startHandoff', 'checkHandoffEnabled',
@@ -80,7 +80,7 @@ const promisyFuncs = [
     // 媒体：录音 - Media/Record
     'stopRecord', 'startRecord',
     // 媒体：实时语音 - Media/VoIP
-    'updateVoIPChatMuteConfig', 'subscribeVoIPVideoMembers', 'joinVoIPChat', 'exitVoIPChat',
+    'updateVoIPChatMuteConfig', 'subscribeVoIPVideoMembers', 'setEnable1v1Chat', 'joinVoIPChat', 'exitVoIPChat',
 
     // 位置 - Location
     'stopLocationUpdate', 'startLocationUpdateBackground', 'startLocationUpdate', 'openLocation', 'getLocation', 'choosePoi', 'chooseLocation',
@@ -140,19 +140,19 @@ const promisyFuncs = [
     // 设备：无障碍 - Device/Accessibility
     'checkIsOpenAccessibility',
     // 设备：低功耗蓝牙 - Device/BLE
-    'setBLEMTU', 'makeBluetoothPair', 'writeBLECharacteristicValue', 'readBLECharacteristicValue', 'notifyBLECharacteristicValueChange', 'getBLEDeviceServices', 'getBLEDeviceCharacteristics', 'createBLEConnection', 'closeBLEConnection', 'createBLEPeripheralServer', 'getBLEDeviceRSSI',
+    'setBLEMTU', 'makeBluetoothPair', 'writeBLECharacteristicValue', 'readBLECharacteristicValue', 'notifyBLECharacteristicValueChange', 'getBLEMTU', 'getBLEDeviceServices', 'getBLEDeviceCharacteristics', 'createBLEConnection', 'closeBLEConnection', 'createBLEPeripheralServer', 'getBLEDeviceRSSI',
     // 设备：蓝牙 - Device/Bluetooth
-    'stopBluetoothDevicesDiscovery', 'startBluetoothDevicesDiscovery', 'openBluetoothAdapter', 'getConnectedBluetoothDevices', 'getBluetoothDevices', 'getBluetoothAdapterState', 'closeBluetoothAdapter',
+    'stopBluetoothDevicesDiscovery', 'startBluetoothDevicesDiscovery', 'openBluetoothAdapter', 'isBluetoothDevicePaired', 'getConnectedBluetoothDevices', 'getBluetoothDevices', 'getBluetoothAdapterState', 'closeBluetoothAdapter',
     // 设备：电量 - Device/Battery
     'getBatteryInfo',
     // 设备：剪贴板 - Device/Clipboard
     'setClipboardData', 'getClipboardData',
     // 设备：网络 - Device/Newwork
-    'getNetworkType',
+    'getLocalIPAddress', 'getNetworkType',
     // 设备：加密 - Device/Crypto
     'getRandomValues',
     // 设备：屏幕 - Device/Screen
-    'setScreenBrightness', 'setKeepScreenOn', 'getScreenBrightness',
+    'setVisualEffectOnCapture', 'setScreenBrightness', 'setKeepScreenOn', 'getScreenBrightness',
     // 设备：键盘 - Device/Keyboard
     'hideKeyboard', 'getSelectedTextRange', 'updateKeyboard', 'showKeyboard',
     // 设备：电话 - Device/Call
