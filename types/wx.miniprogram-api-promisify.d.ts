@@ -389,8 +389,8 @@ declare namespace WechatMiniprogram {
             options?: Wx.PromisifiedCallbackOption<SubscribeVoIPVideoMembersOption>
         ): Wx.PromisifiedCallbackResult<SubscribeVoIPVideoMembersOption>;
         setEnable1v1ChatAsync(
-            options?: Wx.PromisifiedCallbackOption<SetEnable1v1ChatAsyncOption>
-        ): Wx.PromisifiedCallbackResult<SetEnable1v1ChatAsyncOption>;
+            options?: Wx.PromisifiedCallbackOption<SetEnable1v1ChatOption>
+        ): Wx.PromisifiedCallbackResult<SetEnable1v1ChatOption>;
         joinVoIPChatAsync(
             options?: Wx.PromisifiedCallbackOption<JoinVoIPChatOption>
         ): Wx.PromisifiedCallbackResult<JoinVoIPChatOption>;
