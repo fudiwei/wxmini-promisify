@@ -707,9 +707,6 @@ declare namespace WechatMiniprogram {
             options?: Wx.PromisifiedCallbackOption<GetScreenBrightnessOption>
         ): Wx.PromisifiedCallbackResult<GetScreenBrightnessOption>;
         // 设备：键盘 - Device/Keyword
-        showKeyboardAsync(
-            options?: Wx.PromisifiedCallbackOption<ShowKeyboardOption>
-        ): Wx.PromisifiedCallbackResult<ShowKeyboardOption>;
         hideKeyboardAsync(
             options?: Wx.PromisifiedCallbackOption<HideKeyboardOption>
         ): Wx.PromisifiedCallbackResult<HideKeyboardOption>;
