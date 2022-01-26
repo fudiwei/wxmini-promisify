@@ -37,9 +37,15 @@
     },
     "typings": "types/index.d.ts",
     "files": [
+        "src/*",
         "dist/*",
         "types/*"
     ],
+    "engines": {
+        "node": ">=12",
+        "npm": ">=7",
+        "pnpm": ">=6"
+    },
     "dependencies": {
         "minigame-api-typings": "^3.4.2",
         "miniprogram-api-typings": "^3.4.5"
@@ -50,21 +56,16 @@
         "@typescript-eslint/eslint-plugin": "^5.10.1",
         "@typescript-eslint/parser": "^5.10.1",
         "eslint": "^8.7.0",
-        "eslint-config-standard": "^16.0.3",
-        "eslint-plugin-import": "^2.25.4",
+        "eslint-config-prettier": "^8.3.0",
         "eslint-plugin-node": "^11.1.0",
         "eslint-plugin-prettier": "^4.0.0",
-        "eslint-plugin-standard": "^5.0.0",
         "gulp": "^4.0.2",
         "gulp-babel": "^8.0.0",
         "gulp-eslint": "^6.0.0",
         "gulp-rimraf": "^1.0.0",
         "gulp-strip-debug": "^4.0.0",
         "gulp-uglify": "^3.0.2",
-        "gulp-util": "^3.0.8",
-        "natives": "^1.1.6",
         "prettier": "^2.5.1",
-        "q": "^1.5.1",
         "typescript": "~4.5.5"
     }
 }

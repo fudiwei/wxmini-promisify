@@ -1,4 +1,6 @@
-﻿declare namespace SKIT.WxminiPromisify {
+﻿/* eslint-disable @typescript-eslint/no-explicit-any */
+/* eslint-disable @typescript-eslint/no-unused-vars */
+declare namespace SKIT.WxminiPromisify {
     namespace Internal {
         type WxCallbackOption = {
             success?: (...args: any) => void;

@@ -25,7 +25,7 @@ declare const __wxConfig: {
 
     debug?: boolean;
 
-    ext?: Record<string, any>;
+    ext?: Record<string, unknown>;
 
     extAppid?: string;
 
