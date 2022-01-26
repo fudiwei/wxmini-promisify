@@ -445,6 +445,9 @@ declare namespace WechatMiniprogram {
         ): Wx.PromisifiedCallbackResult<WxGetFileInfoOption>;
 
         // 开放接口：登录 - OpenAPI/Login
+        pluginLoginAsync(
+            options?: Wx.PromisifiedCallbackOption<PluginLoginOption>
+        ): Wx.PromisifiedCallbackResult<PluginLoginOption>;
         loginAsync(options?: Wx.PromisifiedCallbackOption<LoginOption>): Wx.PromisifiedCallbackResult<LoginOption>;
         checkSessionAsync(
             options?: Wx.PromisifiedCallbackOption<CheckSessionOption>
@@ -509,6 +512,9 @@ declare namespace WechatMiniprogram {
         requestSubscribeMessageAsync(
             options?: Wx.PromisifiedCallbackOption<RequestSubscribeMessageOption>
         ): Wx.PromisifiedCallbackResult<RequestSubscribeMessageOption>;
+        requestSubscribeDeviceMessageAsync(
+            options?: Wx.PromisifiedCallbackOption<RequestSubscribeDeviceMessageOption>
+        ): Wx.PromisifiedCallbackResult<RequestSubscribeDeviceMessageOption>;
         // 开放接口：微信红包 - OpenAPI/RedPackage
         showRedPackgeAsync(
             options?: Wx.PromisifiedCallbackOption<ShowRedPackageOption>
@@ -525,9 +531,15 @@ declare namespace WechatMiniprogram {
             options?: Wx.PromisifiedCallbackOption<ChooseLicensePlateOption>
         ): Wx.PromisifiedCallbackResult<ChooseLicensePlateOption>;
         // 开放接口：视频号 - OpenAPI/Channels
+        openChannelsUserProfileAsync(
+            options?: Wx.PromisifiedCallbackOption<OpenChannelsUserProfileOption>
+        ): Wx.PromisifiedCallbackResult<OpenChannelsUserProfileOption>;
         openChannelsLiveAsync(
             options?: Wx.PromisifiedCallbackOption<OpenChannelsLiveOption>
         ): Wx.PromisifiedCallbackResult<OpenChannelsLiveOption>;
+        openChannelsEventAsync(
+            options?: Wx.PromisifiedCallbackOption<OpenChannelsEventOption>
+        ): Wx.PromisifiedCallbackResult<OpenChannelsEventOption>;
         openChannelsActivityAsync(
             options?: Wx.PromisifiedCallbackOption<OpenChannelsActivityOption>
         ): Wx.PromisifiedCallbackResult<OpenChannelsActivityOption>;

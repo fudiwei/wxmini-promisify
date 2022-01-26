@@ -21,7 +21,7 @@
         "promise",
         "promisify"
     ],
-    "version": "2.20.1",
+    "version": "2.21.3",
     "main": "dist/index.js",
     "author": "Fu Diwei",
     "repository": {
@@ -41,8 +41,8 @@
         "types/*"
     ],
     "dependencies": {
-        "minigame-api-typings": "~3.4.1",
-        "miniprogram-api-typings": "^3.4.4"
+        "minigame-api-typings": "^3.4.2",
+        "miniprogram-api-typings": "^3.4.5"
     },
     "devDependencies": {
         "@babel/core": "^7.16.12",
