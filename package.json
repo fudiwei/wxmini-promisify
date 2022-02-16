@@ -51,11 +51,11 @@
         "miniprogram-api-typings": "^3.4.5"
     },
     "devDependencies": {
-        "@babel/core": "^7.16.12",
+        "@babel/core": "^7.17.4",
         "@babel/preset-env": "^7.16.11",
-        "@typescript-eslint/eslint-plugin": "^5.10.1",
-        "@typescript-eslint/parser": "^5.10.1",
-        "eslint": "^8.7.0",
+        "@typescript-eslint/eslint-plugin": "^5.12.0",
+        "@typescript-eslint/parser": "^5.12.0",
+        "eslint": "^8.9.0",
         "eslint-config-prettier": "^8.3.0",
         "eslint-plugin-node": "^11.1.0",
         "eslint-plugin-prettier": "^4.0.0",
