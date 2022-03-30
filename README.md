@@ -35,41 +35,41 @@ npm install @skit/wxmini-promisify
 导入：
 
 ```javascript
-import wxmini from '@skit/wxmini-promisify';
+const $ = require('@skit/wxmini-promisify');
 
-wxmini.promisify({
+$.promisify({
     root: wx, // （可选）指定异步方法挂载到某个对象的属性上。默认挂载到 wx。
-    extends: ['someNewApi'], // （可选）若基础库新增了某些 API 而本库尚未更新，可由此传入相应的方法名数组以转换成异步方法。
-    enableCompatible: true // （可选）指示是否为低版本基础库提供覆写，防止抛出 NPE（这些方法会在调用后直接进入 fail/catch 回调）。默认值为 true。
+    extends: ['someNewApi'] // （可选）若基础库新增了某些 API 而本库尚未更新，可由此传入相应的方法名数组以转换成异步方法。
 });
 ```
 
 使用异步方法：
 
 ```javascript
-// 原始方法
+wx.loginAsync({ timeout: 5000 })
+    .then((res) => {
+        console.info('success', res.code);
+    })
+    .catch((err) => {
+        console.error('fail', err);
+    })
+    .finally(() => {
+        console.log('complete');
+    });
+    
+/**
+ * @example 以上示例代码等同于下方原生实现：
+ */
 wx.login({
     timeout: 5000,
     success: (res) => {
-        console.info(res.code);
+        console.info('success', res.code);
     },
     fail: (err) => {
-        console.error(err);
+        console.error('fail', err);
     },
     complete: () => {
-        // Do Something always
+        console.log('complete');
     }
 });
-
-// Promise 方法
-wx.loginAsync({ timeout: 5000 })
-    .then((res) => {
-        console.info(res.code);
-    })
-    .catch((err) => {
-        console.error(err);
-    })
-    .finally(() => {
-        // Do Something always
-    });
 ```
