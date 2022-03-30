@@ -1,7 +1,5 @@
-const isCallable = (fn) => 'function' === typeof fn;
-const noop = () => {
-    /* do nothing! */
-};
+const isCallable = (o) => 'function' === typeof o;
+const noop = () => { };
 
 const promisyFuncs = [
     // 基础：系统 - Base/System
@@ -342,104 +340,75 @@ const promisyFuncs = [
     'getExtConfig'
 ];
 
-/**
- *
- * @param {Object} options
- * @param {Object} [options.root] 指定异步方法挂载到某个对象的属性上。默认挂载到 wx。
- * @param {Array} [options.extends] 若基础库新增了某些 API 而本库尚未更新，可由此传入相应的方法名数组以转换成异步方法。
- * @param {Boolean} [options.enableCompatible] 是否为兼容低版本基础库。默认值为 true。
- */
 module.exports = (options = {}) => {
-    options = Object.assign(
-        {
-            root: wx,
-            extends: [],
-            enableCompatible: true
-        },
-        options,
-        {}
-    );
+    options = Object.assign({
+        env: wx,
+        root: wx,
+        extends: []
+    }, options);
 
-    if (null === wx || undefined === wx) {
+    if (options.env == null) {
         throw 'This module can be injected into WeChat MiniProgram/MiniGame runtime only.';
     }
-    if (null === options.root || undefined === options.root) {
+    if (options.root == null) {
         throw 'The value of `options.root` must be a not-empty object.';
     }
-    if (!Array.isArray(options.extends)) {
-        options.extends = Array.from(options.extends);
+    if (options.extends != null && !Array.isArray(options.extends)) {
+        throw 'The value of `options.extends` should be an array.';
     }
 
     []
         .concat(promisyFuncs, options.extends)
         .filter((e, i, arr) => !!e && arr.indexOf(e, 0) === i)
         .forEach((prop) => {
-            let fn = wx[prop];
-            if (!isCallable(fn)) {
-                if (!options.enableCompatible) {
-                    return;
-                }
-
-                fn = (args) => {
-                    if ('object' === typeof args) {
-                        if (isCallable(args.fail)) {
-                            args.fail({ errMsg: `${prop}:not supported` });
-                        }
-                        if (isCallable(args.complete)) {
-                            args.complete({ errMsg: `${prop}:not supported` });
-                        }
-                    }
+            const rawFn = isCallable(options.env[prop])
+                ? options.env[prop]
+                : function (args) {
+                    args.fail({ errMsg: `${prop}:not supported` });
+                    args.complete({ errMsg: `${prop}:not supported` });
                 };
-            }
 
-            const newFn = (args = {}) => {
-                args = Object.assign(
-                    {
-                        success: noop,
-                        fail: noop,
-                        complete: noop
-                    },
-                    args,
-                    {}
-                );
+            const proxyFn = (args = {}) => {
+                args = Object.assign({
+                    success: noop,
+                    fail: noop,
+                    complete: noop
+                }, args);
 
-                const successFn = args.success,
-                    failFn = args.fail,
-                    completeFn = args.complete;
+                const onSuccess = args.success,
+                    onFail = args.fail,
+                    onComplete = args.complete;
 
                 const p = new Promise((resolve, reject) => {
                     args.success = (res) => resolve(res);
                     args.fail = (res) => reject(res);
                     args.complete = noop;
 
-                    fn(args);
-                })
-                    .then((res) => {
-                        if (isCallable(successFn)) {
-                            successFn(res);
-                        }
+                    rawFn(args);
+                }).then((res) => {
+                    if (isCallable(onSuccess)) {
+                        onSuccess(res);
+                    }
 
-                        return Promise.resolve(res);
-                    })
-                    .catch((res) => {
-                        if (isCallable(failFn)) {
-                            failFn(res);
-                        }
+                    return Promise.resolve(res);
+                }).catch((res) => {
+                    if (isCallable(onFail)) {
+                        onFail(res);
+                    }
 
-                        return Promise.reject(res);
-                    });
+                    return Promise.reject(res);
+                });
 
-                if (isCallable(p.finally)) {
+                isCallable(p.finally) &&
                     p.finally(() => {
-                        if (isCallable(completeFn)) {
-                            completeFn();
+                        if (isCallable(onComplete)) {
+                            onComplete();
                         }
                     });
-                }
 
                 return p;
             };
 
-            options.root[prop + 'Async'] = newFn;
+            options.root[prop + 'Async'] = proxyFn;
         });
 };

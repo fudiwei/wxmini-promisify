@@ -1,788 +1,650 @@
-/// <reference path="./wx.internal.d.ts" />
-
 declare namespace WechatMiniprogram {
     namespace Wx {
-        type CallbackOption = SKIT.WxminiPromisify.Internal.WxCallbackOption;
-        type PromisifiedCallbackOption<T extends CallbackOption> =
-            SKIT.WxminiPromisify.Internal.WxPromisifiedCallbackOption<T>;
-        type PromisifiedCallbackResult<T extends CallbackOption> =
-            SKIT.WxminiPromisify.Internal.WxPromisifiedCallbackResult<T>;
+        type CallbackOption = {
+            success?: (...args: any) => void;
+            fail?: (...args: any) => void;
+            complete?: (...args: any) => void;
+        };
+        type PromisifiedOption<T extends CallbackOption> = SKIT.WxminiPromisify.Internal.WxPromisifiedCallbackOption<T>;
+        type PromisifiedResult<T extends CallbackOption> = SKIT.WxminiPromisify.Internal.WxPromisifiedCallbackResult<T>;
     }
 
     interface Wx {
         // 基础：系统 - Base/System
         openSystemBluetoothSettingAsync(
-            options?: Wx.PromisifiedCallbackOption<OpenSystemBluetoothSettingOption>
-        ): Wx.PromisifiedCallbackResult<OpenSystemBluetoothSettingOption>;
+            options?: Wx.PromisifiedOption<OpenSystemBluetoothSettingOption>
+        ): Wx.PromisifiedResult<OpenSystemBluetoothSettingOption>;
         openAppAuthorizeSettingAsync(
-            options?: Wx.PromisifiedCallbackOption<OpenAppAuthorizeSettingOption>
-        ): Wx.PromisifiedCallbackResult<OpenAppAuthorizeSettingOption>;
+            options?: Wx.PromisifiedOption<OpenAppAuthorizeSettingOption>
+        ): Wx.PromisifiedResult<OpenAppAuthorizeSettingOption>;
         getSystemInfoAsyncAsync(
-            options?: Wx.PromisifiedCallbackOption<GetSystemInfoAsyncOption>
-        ): Wx.PromisifiedCallbackResult<GetSystemInfoAsyncOption>;
+            options?: Wx.PromisifiedOption<GetSystemInfoAsyncOption>
+        ): Wx.PromisifiedResult<GetSystemInfoAsyncOption>;
         getSystemInfoAsync(
-            options?: Wx.PromisifiedCallbackOption<GetSystemInfoOption>
-        ): Wx.PromisifiedCallbackResult<GetSystemInfoOption>;
+            options?: Wx.PromisifiedOption<GetSystemInfoOption>
+        ): Wx.PromisifiedResult<GetSystemInfoOption>;
         // 基础：更新 - Base/Update
         updateWeChatAppAsync(
-            options?: Wx.PromisifiedCallbackOption<UpdateWeChatAppOption>
-        ): Wx.PromisifiedCallbackResult<UpdateWeChatAppOption>;
+            options?: Wx.PromisifiedOption<UpdateWeChatAppOption>
+        ): Wx.PromisifiedResult<UpdateWeChatAppOption>;
         // 基础：调试 - Base/Debug
         setEnableDebugAsync(
-            options?: Wx.PromisifiedCallbackOption<SetEnableDebugOption>
-        ): Wx.PromisifiedCallbackResult<SetEnableDebugOption>;
+            options?: Wx.PromisifiedOption<SetEnableDebugOption>
+        ): Wx.PromisifiedResult<SetEnableDebugOption>;
 
         // 路由 - Route
-        reLaunchAsync(
-            options?: Wx.PromisifiedCallbackOption<ReLaunchOption>
-        ): Wx.PromisifiedCallbackResult<ReLaunchOption>;
-        switchTabAsync(
-            options?: Wx.PromisifiedCallbackOption<SwitchTabOption>
-        ): Wx.PromisifiedCallbackResult<SwitchTabOption>;
-        redirectToAsync(
-            options?: Wx.PromisifiedCallbackOption<RedirectToOption>
-        ): Wx.PromisifiedCallbackResult<RedirectToOption>;
-        navigateToAsync(
-            options?: Wx.PromisifiedCallbackOption<NavigateToOption>
-        ): Wx.PromisifiedCallbackResult<NavigateToOption>;
-        navigateBackAsync(
-            options?: Wx.PromisifiedCallbackOption<NavigateBackOption>
-        ): Wx.PromisifiedCallbackResult<NavigateBackOption>;
+        reLaunchAsync(options?: Wx.PromisifiedOption<ReLaunchOption>): Wx.PromisifiedResult<ReLaunchOption>;
+        switchTabAsync(options?: Wx.PromisifiedOption<SwitchTabOption>): Wx.PromisifiedResult<SwitchTabOption>;
+        redirectToAsync(options?: Wx.PromisifiedOption<RedirectToOption>): Wx.PromisifiedResult<RedirectToOption>;
+        navigateToAsync(options?: Wx.PromisifiedOption<NavigateToOption>): Wx.PromisifiedResult<NavigateToOption>;
+        navigateBackAsync(options?: Wx.PromisifiedOption<NavigateBackOption>): Wx.PromisifiedResult<NavigateBackOption>;
 
         // 跳转 - Navigate
         openEmbeddedMiniProgramAsync(
-            options?: Wx.PromisifiedCallbackOption<OpenEmbeddedMiniProgramOption>
-        ): Wx.PromisifiedCallbackResult<OpenEmbeddedMiniProgramOption>;
+            options?: Wx.PromisifiedOption<OpenEmbeddedMiniProgramOption>
+        ): Wx.PromisifiedResult<OpenEmbeddedMiniProgramOption>;
         navigateToMiniProgramAsync(
-            options?: Wx.PromisifiedCallbackOption<NavigateToMiniProgramOption>
-        ): Wx.PromisifiedCallbackResult<NavigateToMiniProgramOption>;
+            options?: Wx.PromisifiedOption<NavigateToMiniProgramOption>
+        ): Wx.PromisifiedResult<NavigateToMiniProgramOption>;
         navigateBackMiniProgramAsync(
-            options?: Wx.PromisifiedCallbackOption<NavigateBackMiniProgramOption>
-        ): Wx.PromisifiedCallbackResult<NavigateBackMiniProgramOption>;
+            options?: Wx.PromisifiedOption<NavigateBackMiniProgramOption>
+        ): Wx.PromisifiedResult<NavigateBackMiniProgramOption>;
         exitMiniProgramAsync(
-            options?: Wx.PromisifiedCallbackOption<ExitMiniProgramOption>
-        ): Wx.PromisifiedCallbackResult<ExitMiniProgramOption>;
+            options?: Wx.PromisifiedOption<ExitMiniProgramOption>
+        ): Wx.PromisifiedResult<ExitMiniProgramOption>;
 
         // 转发 - Share
         updateShareMenuAsync(
-            options?: Wx.PromisifiedCallbackOption<UpdateShareMenuOption>
-        ): Wx.PromisifiedCallbackResult<UpdateShareMenuOption>;
+            options?: Wx.PromisifiedOption<UpdateShareMenuOption>
+        ): Wx.PromisifiedResult<UpdateShareMenuOption>;
         showShareMenuAsync(
-            options?: Wx.PromisifiedCallbackOption<ShowShareMenuOption>
-        ): Wx.PromisifiedCallbackResult<ShowShareMenuOption>;
+            options?: Wx.PromisifiedOption<ShowShareMenuOption>
+        ): Wx.PromisifiedResult<ShowShareMenuOption>;
         showShareImageMenuAsync(
-            options?: Wx.PromisifiedCallbackOption<ShowShareImageMenuOption>
-        ): Wx.PromisifiedCallbackResult<ShowShareImageMenuOption>;
+            options?: Wx.PromisifiedOption<ShowShareImageMenuOption>
+        ): Wx.PromisifiedResult<ShowShareImageMenuOption>;
         shareVideoMessageAsync(
-            options?: Wx.PromisifiedCallbackOption<ShareVideoMessageOption>
-        ): Wx.PromisifiedCallbackResult<ShareVideoMessageOption>;
+            options?: Wx.PromisifiedOption<ShareVideoMessageOption>
+        ): Wx.PromisifiedResult<ShareVideoMessageOption>;
         shareFileMessageAsync(
-            options?: Wx.PromisifiedCallbackOption<ShareFileMessageOption>
-        ): Wx.PromisifiedCallbackResult<ShareFileMessageOption>;
+            options?: Wx.PromisifiedOption<ShareFileMessageOption>
+        ): Wx.PromisifiedResult<ShareFileMessageOption>;
         hideShareMenuAsync(
-            options?: Wx.PromisifiedCallbackOption<HideShareMenuOption>
-        ): Wx.PromisifiedCallbackResult<HideShareMenuOption>;
-        getShareInfoAsync(
-            options?: Wx.PromisifiedCallbackOption<GetShareInfoOption>
-        ): Wx.PromisifiedCallbackResult<GetShareInfoOption>;
+            options?: Wx.PromisifiedOption<HideShareMenuOption>
+        ): Wx.PromisifiedResult<HideShareMenuOption>;
+        getShareInfoAsync(options?: Wx.PromisifiedOption<GetShareInfoOption>): Wx.PromisifiedResult<GetShareInfoOption>;
         authPrivateMessageAsync(
-            options?: Wx.PromisifiedCallbackOption<AuthPrivateMessageOption>
-        ): Wx.PromisifiedCallbackResult<AuthPrivateMessageOption>;
+            options?: Wx.PromisifiedOption<AuthPrivateMessageOption>
+        ): Wx.PromisifiedResult<AuthPrivateMessageOption>;
 
         // 界面：交互 - UI/Interaction
-        showToastAsync(
-            options?: Wx.PromisifiedCallbackOption<ShowToastOption>
-        ): Wx.PromisifiedCallbackResult<ShowToastOption>;
-        showModalAsync(
-            options?: Wx.PromisifiedCallbackOption<ShowModalOption>
-        ): Wx.PromisifiedCallbackResult<ShowModalOption>;
-        showLoadingAsync(
-            options?: Wx.PromisifiedCallbackOption<ShowLoadingOption>
-        ): Wx.PromisifiedCallbackResult<ShowLoadingOption>;
+        showToastAsync(options?: Wx.PromisifiedOption<ShowToastOption>): Wx.PromisifiedResult<ShowToastOption>;
+        showModalAsync(options?: Wx.PromisifiedOption<ShowModalOption>): Wx.PromisifiedResult<ShowModalOption>;
+        showLoadingAsync(options?: Wx.PromisifiedOption<ShowLoadingOption>): Wx.PromisifiedResult<ShowLoadingOption>;
         showActionSheetAsync(
-            options?: Wx.PromisifiedCallbackOption<ShowActionSheetOption>
-        ): Wx.PromisifiedCallbackResult<ShowActionSheetOption>;
-        hideToastAsync(
-            options?: Wx.PromisifiedCallbackOption<HideToastOption>
-        ): Wx.PromisifiedCallbackResult<HideToastOption>;
-        hideLoadingAsync(
-            options?: Wx.PromisifiedCallbackOption<HideLoadingOption>
-        ): Wx.PromisifiedCallbackResult<HideLoadingOption>;
+            options?: Wx.PromisifiedOption<ShowActionSheetOption>
+        ): Wx.PromisifiedResult<ShowActionSheetOption>;
+        hideToastAsync(options?: Wx.PromisifiedOption<HideToastOption>): Wx.PromisifiedResult<HideToastOption>;
+        hideLoadingAsync(options?: Wx.PromisifiedOption<HideLoadingOption>): Wx.PromisifiedResult<HideLoadingOption>;
         enableAlertBeforeUnloadAsync(
-            options?: Wx.PromisifiedCallbackOption<EnableAlertBeforeUnloadOption>
-        ): Wx.PromisifiedCallbackResult<EnableAlertBeforeUnloadOption>;
+            options?: Wx.PromisifiedOption<EnableAlertBeforeUnloadOption>
+        ): Wx.PromisifiedResult<EnableAlertBeforeUnloadOption>;
         disableAlertBeforeUnloadAsync(
-            options?: Wx.PromisifiedCallbackOption<DisableAlertBeforeUnloadOption>
-        ): Wx.PromisifiedCallbackResult<DisableAlertBeforeUnloadOption>;
+            options?: Wx.PromisifiedOption<DisableAlertBeforeUnloadOption>
+        ): Wx.PromisifiedResult<DisableAlertBeforeUnloadOption>;
         // 界面：导航栏 - UI/Navigation
         showNavigationBarLoadingAsync(
-            options?: Wx.PromisifiedCallbackOption<ShowNavigationBarLoadingOption>
-        ): Wx.PromisifiedCallbackResult<ShowNavigationBarLoadingOption>;
+            options?: Wx.PromisifiedOption<ShowNavigationBarLoadingOption>
+        ): Wx.PromisifiedResult<ShowNavigationBarLoadingOption>;
         setNavigationBarTitleAsync(
-            options?: Wx.PromisifiedCallbackOption<SetNavigationBarTitleOption>
-        ): Wx.PromisifiedCallbackResult<SetNavigationBarTitleOption>;
+            options?: Wx.PromisifiedOption<SetNavigationBarTitleOption>
+        ): Wx.PromisifiedResult<SetNavigationBarTitleOption>;
         setNavigationBarColorAsync(
-            options?: Wx.PromisifiedCallbackOption<SetNavigationBarColorOption>
-        ): Wx.PromisifiedCallbackResult<SetNavigationBarColorOption>;
+            options?: Wx.PromisifiedOption<SetNavigationBarColorOption>
+        ): Wx.PromisifiedResult<SetNavigationBarColorOption>;
         hideNavigationBarLoadingAsync(
-            options?: Wx.PromisifiedCallbackOption<HideNavigationBarLoadingOption>
-        ): Wx.PromisifiedCallbackResult<HideNavigationBarLoadingOption>;
+            options?: Wx.PromisifiedOption<HideNavigationBarLoadingOption>
+        ): Wx.PromisifiedResult<HideNavigationBarLoadingOption>;
         hideHomeButtonAsync(
-            options?: Wx.PromisifiedCallbackOption<HideHomeButtonOption>
-        ): Wx.PromisifiedCallbackResult<HideHomeButtonOption>;
+            options?: Wx.PromisifiedOption<HideHomeButtonOption>
+        ): Wx.PromisifiedResult<HideHomeButtonOption>;
         // 界面：背景 - UI/Background
         setBackgroundTextStyleAsync(
-            options?: Wx.PromisifiedCallbackOption<SetBackgroundTextStyleOption>
-        ): Wx.PromisifiedCallbackResult<SetBackgroundTextStyleOption>;
+            options?: Wx.PromisifiedOption<SetBackgroundTextStyleOption>
+        ): Wx.PromisifiedResult<SetBackgroundTextStyleOption>;
         setBackgroundColorAsync(
-            options?: Wx.PromisifiedCallbackOption<SetBackgroundColorOption>
-        ): Wx.PromisifiedCallbackResult<SetBackgroundColorOption>;
+            options?: Wx.PromisifiedOption<SetBackgroundColorOption>
+        ): Wx.PromisifiedResult<SetBackgroundColorOption>;
         // 界面：TabBar - UI/TabBar
         showTabBarRedDotAsync(
-            options?: Wx.PromisifiedCallbackOption<ShowTabBarRedDotOption>
-        ): Wx.PromisifiedCallbackResult<ShowTabBarRedDotOption>;
-        showTabBarAsync(
-            options?: Wx.PromisifiedCallbackOption<ShowTabBarOption>
-        ): Wx.PromisifiedCallbackResult<ShowTabBarOption>;
+            options?: Wx.PromisifiedOption<ShowTabBarRedDotOption>
+        ): Wx.PromisifiedResult<ShowTabBarRedDotOption>;
+        showTabBarAsync(options?: Wx.PromisifiedOption<ShowTabBarOption>): Wx.PromisifiedResult<ShowTabBarOption>;
         setTabBarStyleAsync(
-            options?: Wx.PromisifiedCallbackOption<SetTabBarStyleOption>
-        ): Wx.PromisifiedCallbackResult<SetTabBarStyleOption>;
+            options?: Wx.PromisifiedOption<SetTabBarStyleOption>
+        ): Wx.PromisifiedResult<SetTabBarStyleOption>;
         setTabBarItemAsync(
-            options?: Wx.PromisifiedCallbackOption<SetTabBarItemOption>
-        ): Wx.PromisifiedCallbackResult<SetTabBarItemOption>;
+            options?: Wx.PromisifiedOption<SetTabBarItemOption>
+        ): Wx.PromisifiedResult<SetTabBarItemOption>;
         setTabBarBadgeAsync(
-            options?: Wx.PromisifiedCallbackOption<SetTabBarBadgeOption>
-        ): Wx.PromisifiedCallbackResult<SetTabBarBadgeOption>;
+            options?: Wx.PromisifiedOption<SetTabBarBadgeOption>
+        ): Wx.PromisifiedResult<SetTabBarBadgeOption>;
         removeTabBarBadgeAsync(
-            options?: Wx.PromisifiedCallbackOption<RemoveTabBarBadgeOption>
-        ): Wx.PromisifiedCallbackResult<RemoveTabBarBadgeOption>;
+            options?: Wx.PromisifiedOption<RemoveTabBarBadgeOption>
+        ): Wx.PromisifiedResult<RemoveTabBarBadgeOption>;
         hideTabBarRedDotAsync(
-            options?: Wx.PromisifiedCallbackOption<HideTabBarRedDotOption>
-        ): Wx.PromisifiedCallbackResult<HideTabBarRedDotOption>;
-        hideTabBarAsync(
-            options?: Wx.PromisifiedCallbackOption<HideTabBarOption>
-        ): Wx.PromisifiedCallbackResult<HideTabBarOption>;
+            options?: Wx.PromisifiedOption<HideTabBarRedDotOption>
+        ): Wx.PromisifiedResult<HideTabBarRedDotOption>;
+        hideTabBarAsync(options?: Wx.PromisifiedOption<HideTabBarOption>): Wx.PromisifiedResult<HideTabBarOption>;
         // 界面：字体 - UI/Font
-        loadFontFaceAsync(
-            options?: Wx.PromisifiedCallbackOption<LoadFontFaceOption>
-        ): Wx.PromisifiedCallbackResult<LoadFontFaceOption>;
+        loadFontFaceAsync(options?: Wx.PromisifiedOption<LoadFontFaceOption>): Wx.PromisifiedResult<LoadFontFaceOption>;
         // 界面：下拉刷新 - UI/PullDown
         startPullDownRefreshAsync(
-            options?: Wx.PromisifiedCallbackOption<StartPullDownRefreshOption>
-        ): Wx.PromisifiedCallbackResult<StartPullDownRefreshOption>;
+            options?: Wx.PromisifiedOption<StartPullDownRefreshOption>
+        ): Wx.PromisifiedResult<StartPullDownRefreshOption>;
         stopPullDownRefreshAsync(
-            options?: Wx.PromisifiedCallbackOption<StopPullDownRefreshOption>
-        ): Wx.PromisifiedCallbackResult<StopPullDownRefreshOption>;
+            options?: Wx.PromisifiedOption<StopPullDownRefreshOption>
+        ): Wx.PromisifiedResult<StopPullDownRefreshOption>;
         // 界面：滚动 - UI/Scroll
-        pageScrollToAsync(
-            options?: Wx.PromisifiedCallbackOption<PageScrollToOption>
-        ): Wx.PromisifiedCallbackResult<PageScrollToOption>;
+        pageScrollToAsync(options?: Wx.PromisifiedOption<PageScrollToOption>): Wx.PromisifiedResult<PageScrollToOption>;
         // 界面：置顶 - UI/TopBar
         /**
          * @deprecated
          */
         setTopBarTextAsync(
-            options?: Wx.PromisifiedCallbackOption<SetTopBarTextOption>
-        ): Wx.PromisifiedCallbackResult<SetTopBarTextOption>;
+            options?: Wx.PromisifiedOption<SetTopBarTextOption>
+        ): Wx.PromisifiedResult<SetTopBarTextOption>;
         // 界面：窗口 - UI/Window
         /**
          * @deprecated
          */
         setWindowSizeAsync(
-            options?: Wx.PromisifiedCallbackOption<SetWindowSizeOption>
-        ): Wx.PromisifiedCallbackResult<SetWindowSizeOption>;
+            options?: Wx.PromisifiedOption<SetWindowSizeOption>
+        ): Wx.PromisifiedResult<SetWindowSizeOption>;
 
         // 网络：发起请求 - Network/Request
-        requestAsync(
-            options?: Wx.PromisifiedCallbackOption<RequestOption>
-        ): Wx.PromisifiedCallbackResult<RequestOption>;
-        requestAsync<T>(options?: Wx.PromisifiedCallbackOption<RequestOption<T>>): Promise<RequestOption<T>>;
+        requestAsync(options?: Wx.PromisifiedOption<RequestOption>): Wx.PromisifiedResult<RequestOption>;
+        requestAsync<T>(options?: Wx.PromisifiedOption<RequestOption<T>>): Promise<RequestOption<T>>;
         // 网络：下载 - Network/Download
-        downloadFileAsync(
-            options?: Wx.PromisifiedCallbackOption<DownloadFileOption>
-        ): Wx.PromisifiedCallbackResult<DownloadFileOption>;
+        downloadFileAsync(options?: Wx.PromisifiedOption<DownloadFileOption>): Wx.PromisifiedResult<DownloadFileOption>;
         // 网络：上传 - Network/Upload
-        uploadFileAsync(
-            options?: Wx.PromisifiedCallbackOption<UploadFileOption>
-        ): Wx.PromisifiedCallbackResult<UploadFileOption>;
+        uploadFileAsync(options?: Wx.PromisifiedOption<UploadFileOption>): Wx.PromisifiedResult<UploadFileOption>;
         // 网络：WebSocket - Network/WebSocket
         sendSocketMessageAsync(
-            options?: Wx.PromisifiedCallbackOption<SendSocketMessageOption>
-        ): Wx.PromisifiedCallbackResult<SendSocketMessageOption>;
+            options?: Wx.PromisifiedOption<SendSocketMessageOption>
+        ): Wx.PromisifiedResult<SendSocketMessageOption>;
         connectSocketAsync(
-            options?: Wx.PromisifiedCallbackOption<ConnectSocketOption>
-        ): Wx.PromisifiedCallbackResult<ConnectSocketOption>;
-        closeSocketAsync(
-            options?: Wx.PromisifiedCallbackOption<CloseSocketOption>
-        ): Wx.PromisifiedCallbackResult<CloseSocketOption>;
+            options?: Wx.PromisifiedOption<ConnectSocketOption>
+        ): Wx.PromisifiedResult<ConnectSocketOption>;
+        closeSocketAsync(options?: Wx.PromisifiedOption<CloseSocketOption>): Wx.PromisifiedResult<CloseSocketOption>;
         // 网络：mDNS - Network/mDNS
         stopLocalServiceDiscoveryAsync(
-            options?: Wx.PromisifiedCallbackOption<StopLocalServiceDiscoveryOption>
-        ): Wx.PromisifiedCallbackResult<StopLocalServiceDiscoveryOption>;
+            options?: Wx.PromisifiedOption<StopLocalServiceDiscoveryOption>
+        ): Wx.PromisifiedResult<StopLocalServiceDiscoveryOption>;
         startLocalServiceDiscoveryAsync(
-            options?: Wx.PromisifiedCallbackOption<StartLocalServiceDiscoveryOption>
-        ): Wx.PromisifiedCallbackResult<StartLocalServiceDiscoveryOption>;
+            options?: Wx.PromisifiedOption<StartLocalServiceDiscoveryOption>
+        ): Wx.PromisifiedResult<StartLocalServiceDiscoveryOption>;
 
         // 支付 - Payment
         requestPaymentAsync(
-            options?: Wx.PromisifiedCallbackOption<RequestPaymentOption>
-        ): Wx.PromisifiedCallbackResult<RequestPaymentOption>;
+            options?: Wx.PromisifiedOption<RequestPaymentOption>
+        ): Wx.PromisifiedResult<RequestPaymentOption>;
         requestOrderPaymentAsync(
-            options?: Wx.PromisifiedCallbackOption<RequestOrderPaymentOption>
-        ): Wx.PromisifiedCallbackResult<RequestOrderPaymentOption>;
+            options?: Wx.PromisifiedOption<RequestOrderPaymentOption>
+        ): Wx.PromisifiedResult<RequestOrderPaymentOption>;
 
         // 数据缓存：存储 - Storage/Storage
-        setStorageAsync(
-            options?: Wx.PromisifiedCallbackOption<SetStorageOption>
-        ): Wx.PromisifiedCallbackResult<SetStorageOption>;
+        setStorageAsync(options?: Wx.PromisifiedOption<SetStorageOption>): Wx.PromisifiedResult<SetStorageOption>;
         removeStorageAsync(
-            options?: Wx.PromisifiedCallbackOption<RemoveStorageOption>
-        ): Wx.PromisifiedCallbackResult<RemoveStorageOption>;
+            options?: Wx.PromisifiedOption<RemoveStorageOption>
+        ): Wx.PromisifiedResult<RemoveStorageOption>;
         getStorageInfoAsync(
-            options?: Wx.PromisifiedCallbackOption<GetStorageInfoOption>
-        ): Wx.PromisifiedCallbackResult<GetStorageInfoOption>;
-        getStorageAsync(
-            options?: Wx.PromisifiedCallbackOption<GetStorageOption>
-        ): Wx.PromisifiedCallbackResult<GetStorageOption>;
-        getStorageAsync<T>(options?: Wx.PromisifiedCallbackOption<GetStorageOption<T>>): Promise<GetStorageOption<T>>;
-        clearStorageAsync(
-            options?: Wx.PromisifiedCallbackOption<ClearStorageOption>
-        ): Wx.PromisifiedCallbackResult<ClearStorageOption>;
+            options?: Wx.PromisifiedOption<GetStorageInfoOption>
+        ): Wx.PromisifiedResult<GetStorageInfoOption>;
+        getStorageAsync(options?: Wx.PromisifiedOption<GetStorageOption>): Wx.PromisifiedResult<GetStorageOption>;
+        getStorageAsync<T>(options?: Wx.PromisifiedOption<GetStorageOption<T>>): Promise<GetStorageOption<T>>;
+        clearStorageAsync(options?: Wx.PromisifiedOption<ClearStorageOption>): Wx.PromisifiedResult<ClearStorageOption>;
         // 数据缓存：周期性更新 - Storage/BackgroundFetch
         setBackgroundFetchTokenAsync(
-            options?: Wx.PromisifiedCallbackOption<SetBackgroundFetchTokenOption>
-        ): Wx.PromisifiedCallbackResult<SetBackgroundFetchTokenOption>;
+            options?: Wx.PromisifiedOption<SetBackgroundFetchTokenOption>
+        ): Wx.PromisifiedResult<SetBackgroundFetchTokenOption>;
         getBackgroundFetchTokenAsync(
-            options?: Wx.PromisifiedCallbackOption<GetBackgroundFetchTokenOption>
-        ): Wx.PromisifiedCallbackResult<GetBackgroundFetchTokenOption>;
+            options?: Wx.PromisifiedOption<GetBackgroundFetchTokenOption>
+        ): Wx.PromisifiedResult<GetBackgroundFetchTokenOption>;
         getBackgroundFetchDataAsync(
-            options?: Wx.PromisifiedCallbackOption<GetBackgroundFetchDataOption>
-        ): Wx.PromisifiedCallbackResult<GetBackgroundFetchDataOption>;
+            options?: Wx.PromisifiedOption<GetBackgroundFetchDataOption>
+        ): Wx.PromisifiedResult<GetBackgroundFetchDataOption>;
 
         // 画布 - Canvas
         canvasToTempFilePathAsync(
-            options?: Wx.PromisifiedCallbackOption<CanvasToTempFilePathOption>,
+            options?: Wx.PromisifiedOption<CanvasToTempFilePathOption>,
             component?: Component.TrivialInstance | Page.TrivialInstance
         ): Promise<CanvasToTempFilePathOption>;
         canvasPutImageDataAsync(
-            options?: Wx.PromisifiedCallbackOption<CanvasPutImageDataOption>
-        ): Wx.PromisifiedCallbackResult<CanvasPutImageDataOption>;
+            options?: Wx.PromisifiedOption<CanvasPutImageDataOption>
+        ): Wx.PromisifiedResult<CanvasPutImageDataOption>;
         canvasGetImageDataAync(
-            options?: Wx.PromisifiedCallbackOption<CanvasGetImageDataOption>
-        ): Wx.PromisifiedCallbackResult<CanvasGetImageDataOption>;
+            options?: Wx.PromisifiedOption<CanvasGetImageDataOption>
+        ): Wx.PromisifiedResult<CanvasGetImageDataOption>;
 
         // 媒体：图片 - Media/Image
         saveImageToPhotosAlbumAsync(
-            options?: Wx.PromisifiedCallbackOption<SaveImageToPhotosAlbumOption>
-        ): Wx.PromisifiedCallbackResult<SaveImageToPhotosAlbumOption>;
-        previewMediaAsync(
-            options?: Wx.PromisifiedCallbackOption<PreviewMediaOption>
-        ): Wx.PromisifiedCallbackResult<PreviewMediaOption>;
-        previewImageAsync(
-            options?: Wx.PromisifiedCallbackOption<PreviewImageOption>
-        ): Wx.PromisifiedCallbackResult<PreviewImageOption>;
-        getImageInfoAsync(
-            options?: Wx.PromisifiedCallbackOption<GetImageInfoOption>
-        ): Wx.PromisifiedCallbackResult<GetImageInfoOption>;
+            options?: Wx.PromisifiedOption<SaveImageToPhotosAlbumOption>
+        ): Wx.PromisifiedResult<SaveImageToPhotosAlbumOption>;
+        previewMediaAsync(options?: Wx.PromisifiedOption<PreviewMediaOption>): Wx.PromisifiedResult<PreviewMediaOption>;
+        previewImageAsync(options?: Wx.PromisifiedOption<PreviewImageOption>): Wx.PromisifiedResult<PreviewImageOption>;
+        getImageInfoAsync(options?: Wx.PromisifiedOption<GetImageInfoOption>): Wx.PromisifiedResult<GetImageInfoOption>;
         compressImageAsync(
-            options?: Wx.PromisifiedCallbackOption<CompressImageOption>
-        ): Wx.PromisifiedCallbackResult<CompressImageOption>;
+            options?: Wx.PromisifiedOption<CompressImageOption>
+        ): Wx.PromisifiedResult<CompressImageOption>;
         chooseMessageFileAsync(
-            options?: Wx.PromisifiedCallbackOption<ChooseMessageFileOption>
-        ): Wx.PromisifiedCallbackResult<ChooseMessageFileOption>;
-        chooseImageAsync(
-            options?: Wx.PromisifiedCallbackOption<ChooseImageOption>
-        ): Wx.PromisifiedCallbackResult<ChooseImageOption>;
+            options?: Wx.PromisifiedOption<ChooseMessageFileOption>
+        ): Wx.PromisifiedResult<ChooseMessageFileOption>;
+        chooseImageAsync(options?: Wx.PromisifiedOption<ChooseImageOption>): Wx.PromisifiedResult<ChooseImageOption>;
         // 媒体：视频 - Media/Video
         saveVideoToPhotosAlbumAsync(
-            options?: Wx.PromisifiedCallbackOption<SaveVideoToPhotosAlbumOption>
-        ): Wx.PromisifiedCallbackResult<SaveVideoToPhotosAlbumOption>;
+            options?: Wx.PromisifiedOption<SaveVideoToPhotosAlbumOption>
+        ): Wx.PromisifiedResult<SaveVideoToPhotosAlbumOption>;
         openVideoEditorAsync(
-            options?: Wx.PromisifiedCallbackOption<OpenVideoEditorOption>
-        ): Wx.PromisifiedCallbackResult<OpenVideoEditorOption>;
-        getVideoInfoAsync(
-            options?: Wx.PromisifiedCallbackOption<GetVideoInfoOption>
-        ): Wx.PromisifiedCallbackResult<GetVideoInfoOption>;
+            options?: Wx.PromisifiedOption<OpenVideoEditorOption>
+        ): Wx.PromisifiedResult<OpenVideoEditorOption>;
+        getVideoInfoAsync(options?: Wx.PromisifiedOption<GetVideoInfoOption>): Wx.PromisifiedResult<GetVideoInfoOption>;
         compressVideoAsync(
-            options?: Wx.PromisifiedCallbackOption<CompressVideoOption>
-        ): Wx.PromisifiedCallbackResult<CompressVideoOption>;
-        chooseVideoAsync(
-            options?: Wx.PromisifiedCallbackOption<ChooseVideoOption>
-        ): Wx.PromisifiedCallbackResult<ChooseVideoOption>;
-        chooseMediaAsync(
-            options?: Wx.PromisifiedCallbackOption<ChooseMediaOption>
-        ): Wx.PromisifiedCallbackResult<ChooseMediaOption>;
+            options?: Wx.PromisifiedOption<CompressVideoOption>
+        ): Wx.PromisifiedResult<CompressVideoOption>;
+        chooseVideoAsync(options?: Wx.PromisifiedOption<ChooseVideoOption>): Wx.PromisifiedResult<ChooseVideoOption>;
+        chooseMediaAsync(options?: Wx.PromisifiedOption<ChooseMediaOption>): Wx.PromisifiedResult<ChooseMediaOption>;
         // 媒体：音频 - Media/Audio&Voice
         /**
          * @deprecated
          */
-        stopVoiceAsync(
-            options?: Wx.PromisifiedCallbackOption<StopVoiceOption>
-        ): Wx.PromisifiedCallbackResult<StopVoiceOption>;
+        stopVoiceAsync(options?: Wx.PromisifiedOption<StopVoiceOption>): Wx.PromisifiedResult<StopVoiceOption>;
         /**
          * @deprecated
          */
-        playVoiceAsync(
-            options?: Wx.PromisifiedCallbackOption<PlayVoiceOption>
-        ): Wx.PromisifiedCallbackResult<PlayVoiceOption>;
+        playVoiceAsync(options?: Wx.PromisifiedOption<PlayVoiceOption>): Wx.PromisifiedResult<PlayVoiceOption>;
         /**
          * @deprecated
          */
-        pauseVoiceAsync(
-            options?: Wx.PromisifiedCallbackOption<PauseVoiceOption>
-        ): Wx.PromisifiedCallbackResult<PauseVoiceOption>;
+        pauseVoiceAsync(options?: Wx.PromisifiedOption<PauseVoiceOption>): Wx.PromisifiedResult<PauseVoiceOption>;
         setInnerAudioOptionAsync(
-            options?: Wx.PromisifiedCallbackOption<SetInnerAudioOption>
-        ): Wx.PromisifiedCallbackResult<SetInnerAudioOption>;
+            options?: Wx.PromisifiedOption<SetInnerAudioOption>
+        ): Wx.PromisifiedResult<SetInnerAudioOption>;
         getAvailableAudioSourcesAsync(
-            options?: Wx.PromisifiedCallbackOption<GetAvailableAudioSourcesOption>
-        ): Wx.PromisifiedCallbackResult<GetAvailableAudioSourcesOption>;
+            options?: Wx.PromisifiedOption<GetAvailableAudioSourcesOption>
+        ): Wx.PromisifiedResult<GetAvailableAudioSourcesOption>;
         // 媒体：背景音频 - Media/BackgroundAudio
         /**
          * @deprecated
          */
         stopBackgroundAudioAsync(
-            options?: Wx.PromisifiedCallbackOption<StopBackgroundAudioOption>
-        ): Wx.PromisifiedCallbackResult<StopBackgroundAudioOption>;
+            options?: Wx.PromisifiedOption<StopBackgroundAudioOption>
+        ): Wx.PromisifiedResult<StopBackgroundAudioOption>;
         /**
          * @deprecated
          */
         seekBackgroundAudioAsync(
-            options?: Wx.PromisifiedCallbackOption<SeekBackgroundAudioOption>
-        ): Wx.PromisifiedCallbackResult<SeekBackgroundAudioOption>;
+            options?: Wx.PromisifiedOption<SeekBackgroundAudioOption>
+        ): Wx.PromisifiedResult<SeekBackgroundAudioOption>;
         /**
          * @deprecated
          */
         playBackgroundAudioAsync(
-            options?: Wx.PromisifiedCallbackOption<PlayBackgroundAudioOption>
-        ): Wx.PromisifiedCallbackResult<PlayBackgroundAudioOption>;
+            options?: Wx.PromisifiedOption<PlayBackgroundAudioOption>
+        ): Wx.PromisifiedResult<PlayBackgroundAudioOption>;
         /**
          * @deprecated
          */
         pauseBackgroundAudioAsync(
-            options?: Wx.PromisifiedCallbackOption<PauseBackgroundAudioOption>
-        ): Wx.PromisifiedCallbackResult<PauseBackgroundAudioOption>;
+            options?: Wx.PromisifiedOption<PauseBackgroundAudioOption>
+        ): Wx.PromisifiedResult<PauseBackgroundAudioOption>;
         /**
          * @deprecated
          */
         getBackgroundAudioPlayerStateAsync(
-            options?: Wx.PromisifiedCallbackOption<GetBackgroundAudioPlayerStateOption>
-        ): Wx.PromisifiedCallbackResult<GetBackgroundAudioPlayerStateOption>;
+            options?: Wx.PromisifiedOption<GetBackgroundAudioPlayerStateOption>
+        ): Wx.PromisifiedResult<GetBackgroundAudioPlayerStateOption>;
         // 媒体：录音 - Media/Record
         /**
          * @deprecated
          */
-        stopRecordAsync(
-            options?: Wx.PromisifiedCallbackOption<WxStopRecordOption>
-        ): Wx.PromisifiedCallbackResult<WxStopRecordOption>;
+        stopRecordAsync(options?: Wx.PromisifiedOption<WxStopRecordOption>): Wx.PromisifiedResult<WxStopRecordOption>;
         /**
          * @deprecated
          */
         startRecordAsync(
-            options?: Wx.PromisifiedCallbackOption<WxStartRecordOption>
-        ): Wx.PromisifiedCallbackResult<WxStartRecordOption>;
+            options?: Wx.PromisifiedOption<WxStartRecordOption>
+        ): Wx.PromisifiedResult<WxStartRecordOption>;
         // 媒体：实时语音 - Media/VoIP
         updateVoIPChatMuteConfigAsync(
-            options?: Wx.PromisifiedCallbackOption<UpdateVoIPChatMuteConfigOption>
-        ): Wx.PromisifiedCallbackResult<UpdateVoIPChatMuteConfigOption>;
+            options?: Wx.PromisifiedOption<UpdateVoIPChatMuteConfigOption>
+        ): Wx.PromisifiedResult<UpdateVoIPChatMuteConfigOption>;
         subscribeVoIPVideoMembersAsync(
-            options?: Wx.PromisifiedCallbackOption<SubscribeVoIPVideoMembersOption>
-        ): Wx.PromisifiedCallbackResult<SubscribeVoIPVideoMembersOption>;
+            options?: Wx.PromisifiedOption<SubscribeVoIPVideoMembersOption>
+        ): Wx.PromisifiedResult<SubscribeVoIPVideoMembersOption>;
         setEnable1v1ChatAsync(
-            options?: Wx.PromisifiedCallbackOption<SetEnable1v1ChatOption>
-        ): Wx.PromisifiedCallbackResult<SetEnable1v1ChatOption>;
-        joinVoIPChatAsync(
-            options?: Wx.PromisifiedCallbackOption<JoinVoIPChatOption>
-        ): Wx.PromisifiedCallbackResult<JoinVoIPChatOption>;
-        exitVoIPChatAsync(
-            options?: Wx.PromisifiedCallbackOption<ExitVoIPChatOption>
-        ): Wx.PromisifiedCallbackResult<ExitVoIPChatOption>;
+            options?: Wx.PromisifiedOption<SetEnable1v1ChatOption>
+        ): Wx.PromisifiedResult<SetEnable1v1ChatOption>;
+        joinVoIPChatAsync(options?: Wx.PromisifiedOption<JoinVoIPChatOption>): Wx.PromisifiedResult<JoinVoIPChatOption>;
+        exitVoIPChatAsync(options?: Wx.PromisifiedOption<ExitVoIPChatOption>): Wx.PromisifiedResult<ExitVoIPChatOption>;
 
         // 位置 - Location
         stopLocationUpdateAsync(
-            options?: Wx.PromisifiedCallbackOption<StopLocationUpdateOption>
-        ): Wx.PromisifiedCallbackResult<StopLocationUpdateOption>;
+            options?: Wx.PromisifiedOption<StopLocationUpdateOption>
+        ): Wx.PromisifiedResult<StopLocationUpdateOption>;
         startLocationUpdateBackgroundAsync(
-            options?: Wx.PromisifiedCallbackOption<StartLocationUpdateBackgroundOption>
-        ): Wx.PromisifiedCallbackResult<StartLocationUpdateBackgroundOption>;
+            options?: Wx.PromisifiedOption<StartLocationUpdateBackgroundOption>
+        ): Wx.PromisifiedResult<StartLocationUpdateBackgroundOption>;
         startLocationUpdateAsync(
-            options?: Wx.PromisifiedCallbackOption<StartLocationUpdateOption>
-        ): Wx.PromisifiedCallbackResult<StartLocationUpdateOption>;
-        openLocationAsync(
-            options?: Wx.PromisifiedCallbackOption<OpenLocationOption>
-        ): Wx.PromisifiedCallbackResult<OpenLocationOption>;
-        getLocationAsync(
-            options?: Wx.PromisifiedCallbackOption<GetLocationOption>
-        ): Wx.PromisifiedCallbackResult<GetLocationOption>;
-        choosePoiAsync(
-            options?: Wx.PromisifiedCallbackOption<ChoosePoiOption>
-        ): Wx.PromisifiedCallbackResult<ChoosePoiOption>;
+            options?: Wx.PromisifiedOption<StartLocationUpdateOption>
+        ): Wx.PromisifiedResult<StartLocationUpdateOption>;
+        openLocationAsync(options?: Wx.PromisifiedOption<OpenLocationOption>): Wx.PromisifiedResult<OpenLocationOption>;
+        getLocationAsync(options?: Wx.PromisifiedOption<GetLocationOption>): Wx.PromisifiedResult<GetLocationOption>;
+        choosePoiAsync(options?: Wx.PromisifiedOption<ChoosePoiOption>): Wx.PromisifiedResult<ChoosePoiOption>;
         chooseLocationAsync(
-            options?: Wx.PromisifiedCallbackOption<ChooseLocationOption>
-        ): Wx.PromisifiedCallbackResult<ChooseLocationOption>;
+            options?: Wx.PromisifiedOption<ChooseLocationOption>
+        ): Wx.PromisifiedResult<ChooseLocationOption>;
 
         // 文件 File
         saveFileToDiskAsync(
-            options?: Wx.PromisifiedCallbackOption<SaveFileToDiskOption>
-        ): Wx.PromisifiedCallbackResult<SaveFileToDiskOption>;
-        saveFileAsync(
-            options?: Wx.PromisifiedCallbackOption<WxSaveFileOption>
-        ): Wx.PromisifiedCallbackResult<WxSaveFileOption>;
+            options?: Wx.PromisifiedOption<SaveFileToDiskOption>
+        ): Wx.PromisifiedResult<SaveFileToDiskOption>;
+        saveFileAsync(options?: Wx.PromisifiedOption<WxSaveFileOption>): Wx.PromisifiedResult<WxSaveFileOption>;
         removeSavedFileAsync(
-            options?: Wx.PromisifiedCallbackOption<WxRemoveSavedFileOption>
-        ): Wx.PromisifiedCallbackResult<WxRemoveSavedFileOption>;
-        openDocumentAsync(
-            options?: Wx.PromisifiedCallbackOption<OpenDocumentOption>
-        ): Wx.PromisifiedCallbackResult<OpenDocumentOption>;
+            options?: Wx.PromisifiedOption<WxRemoveSavedFileOption>
+        ): Wx.PromisifiedResult<WxRemoveSavedFileOption>;
+        openDocumentAsync(options?: Wx.PromisifiedOption<OpenDocumentOption>): Wx.PromisifiedResult<OpenDocumentOption>;
         getSavedFileListAsync(
-            options?: Wx.PromisifiedCallbackOption<WxGetSavedFileListOption>
-        ): Wx.PromisifiedCallbackResult<WxGetSavedFileListOption>;
+            options?: Wx.PromisifiedOption<WxGetSavedFileListOption>
+        ): Wx.PromisifiedResult<WxGetSavedFileListOption>;
         getSavedFileInfoAsync(
-            options?: Wx.PromisifiedCallbackOption<GetSavedFileInfoOption>
-        ): Wx.PromisifiedCallbackResult<GetSavedFileInfoOption>;
+            options?: Wx.PromisifiedOption<GetSavedFileInfoOption>
+        ): Wx.PromisifiedResult<GetSavedFileInfoOption>;
         getFileInfoAsync(
-            options?: Wx.PromisifiedCallbackOption<WxGetFileInfoOption>
-        ): Wx.PromisifiedCallbackResult<WxGetFileInfoOption>;
+            options?: Wx.PromisifiedOption<WxGetFileInfoOption>
+        ): Wx.PromisifiedResult<WxGetFileInfoOption>;
 
         // 开放接口：登录 - OpenAPI/Login
-        pluginLoginAsync(
-            options?: Wx.PromisifiedCallbackOption<PluginLoginOption>
-        ): Wx.PromisifiedCallbackResult<PluginLoginOption>;
-        loginAsync(options?: Wx.PromisifiedCallbackOption<LoginOption>): Wx.PromisifiedCallbackResult<LoginOption>;
-        checkSessionAsync(
-            options?: Wx.PromisifiedCallbackOption<CheckSessionOption>
-        ): Wx.PromisifiedCallbackResult<CheckSessionOption>;
+        pluginLoginAsync(options?: Wx.PromisifiedOption<PluginLoginOption>): Wx.PromisifiedResult<PluginLoginOption>;
+        loginAsync(options?: Wx.PromisifiedOption<LoginOption>): Wx.PromisifiedResult<LoginOption>;
+        checkSessionAsync(options?: Wx.PromisifiedOption<CheckSessionOption>): Wx.PromisifiedResult<CheckSessionOption>;
         // 开放接口：用户信息 - OpenAPI/UserInfo
         getUserProfileAsync(
-            options?: Wx.PromisifiedCallbackOption<GetUserProfileOption>
-        ): Wx.PromisifiedCallbackResult<GetUserProfileOption>;
-        getUserInfoAsync(
-            options?: Wx.PromisifiedCallbackOption<GetUserInfoOption>
-        ): Wx.PromisifiedCallbackResult<GetUserInfoOption>;
+            options?: Wx.PromisifiedOption<GetUserProfileOption>
+        ): Wx.PromisifiedResult<GetUserProfileOption>;
+        getUserInfoAsync(options?: Wx.PromisifiedOption<GetUserInfoOption>): Wx.PromisifiedResult<GetUserInfoOption>;
         // 开放接口：授权 - OpenAPI/Authorization
-        authorizeAsync(
-            options?: Wx.PromisifiedCallbackOption<AuthorizeOption>
-        ): Wx.PromisifiedCallbackResult<AuthorizeOption>;
+        authorizeAsync(options?: Wx.PromisifiedOption<AuthorizeOption>): Wx.PromisifiedResult<AuthorizeOption>;
         authorizeForMiniProgramAsync(
-            options?: Wx.PromisifiedCallbackOption<AuthorizeForMiniProgramOption>
-        ): Wx.PromisifiedCallbackResult<AuthorizeForMiniProgramOption>;
+            options?: Wx.PromisifiedOption<AuthorizeForMiniProgramOption>
+        ): Wx.PromisifiedResult<AuthorizeForMiniProgramOption>;
         // 开放接口：设置 - OpenAPI/Setting
-        openSettingAsync(
-            options?: Wx.PromisifiedCallbackOption<OpenSettingOption>
-        ): Wx.PromisifiedCallbackResult<OpenSettingOption>;
-        getSettingAsync(
-            options?: Wx.PromisifiedCallbackOption<GetSettingOption>
-        ): Wx.PromisifiedCallbackResult<GetSettingOption>;
+        openSettingAsync(options?: Wx.PromisifiedOption<OpenSettingOption>): Wx.PromisifiedResult<OpenSettingOption>;
+        getSettingAsync(options?: Wx.PromisifiedOption<GetSettingOption>): Wx.PromisifiedResult<GetSettingOption>;
         // 开放接口：收货地址 - OpenAPI/Address
         chooseAddressAsync(
-            options?: Wx.PromisifiedCallbackOption<ChooseAddressOption>
-        ): Wx.PromisifiedCallbackResult<ChooseAddressOption>;
+            options?: Wx.PromisifiedOption<ChooseAddressOption>
+        ): Wx.PromisifiedResult<ChooseAddressOption>;
         // 开放接口：卡券 - OpenAPI/Card
-        openCardAsync(
-            options?: Wx.PromisifiedCallbackOption<OpenCardOption>
-        ): Wx.PromisifiedCallbackResult<OpenCardOption>;
-        addCardAsync(
-            options?: Wx.PromisifiedCallbackOption<AddCardOption>
-        ): Wx.PromisifiedCallbackResult<AddCardOption>;
+        openCardAsync(options?: Wx.PromisifiedOption<OpenCardOption>): Wx.PromisifiedResult<OpenCardOption>;
+        addCardAsync(options?: Wx.PromisifiedOption<AddCardOption>): Wx.PromisifiedResult<AddCardOption>;
         // 开放接口：发票 - OpenAPI/Invoice
         chooseInvoiceTitleAsync(
-            options?: Wx.PromisifiedCallbackOption<ChooseInvoiceTitleOption>
-        ): Wx.PromisifiedCallbackResult<ChooseInvoiceTitleOption>;
+            options?: Wx.PromisifiedOption<ChooseInvoiceTitleOption>
+        ): Wx.PromisifiedResult<ChooseInvoiceTitleOption>;
         chooseInvoiceAsync(
-            options?: Wx.PromisifiedCallbackOption<ChooseInvoiceOption>
-        ): Wx.PromisifiedCallbackResult<ChooseInvoiceOption>;
+            options?: Wx.PromisifiedOption<ChooseInvoiceOption>
+        ): Wx.PromisifiedResult<ChooseInvoiceOption>;
         // 开放接口：生物认证 - OpenAPI/SoterAuthentication
         startSoterAuthenticationAsync(
-            options?: Wx.PromisifiedCallbackOption<StartSoterAuthenticationOption>
-        ): Wx.PromisifiedCallbackResult<StartSoterAuthenticationOption>;
+            options?: Wx.PromisifiedOption<StartSoterAuthenticationOption>
+        ): Wx.PromisifiedResult<StartSoterAuthenticationOption>;
         checkIsSupportSoterAuthenticationAsync(
-            options?: Wx.PromisifiedCallbackOption<CheckIsSupportSoterAuthenticationOption>
+            options?: Wx.PromisifiedOption<CheckIsSupportSoterAuthenticationOption>
         ): Promise<CheckIsSupportSoterAuthenticationOption>;
         checkIsSoterEnrolledInDeviceAsync(
-            options?: Wx.PromisifiedCallbackOption<CheckIsSoterEnrolledInDeviceOption>
-        ): Wx.PromisifiedCallbackResult<CheckIsSoterEnrolledInDeviceOption>;
+            options?: Wx.PromisifiedOption<CheckIsSoterEnrolledInDeviceOption>
+        ): Wx.PromisifiedResult<CheckIsSoterEnrolledInDeviceOption>;
         // 开放接口：微信运动 - OpenAPI/RunData
-        shareToWeRunAsync(
-            options?: Wx.PromisifiedCallbackOption<ShareToWeRunOption>
-        ): Wx.PromisifiedCallbackResult<ShareToWeRunOption>;
-        getWeRunDataAsync(
-            options?: Wx.PromisifiedCallbackOption<GetWeRunDataOption>
-        ): Wx.PromisifiedCallbackResult<GetWeRunDataOption>;
+        shareToWeRunAsync(options?: Wx.PromisifiedOption<ShareToWeRunOption>): Wx.PromisifiedResult<ShareToWeRunOption>;
+        getWeRunDataAsync(options?: Wx.PromisifiedOption<GetWeRunDataOption>): Wx.PromisifiedResult<GetWeRunDataOption>;
         // 开放接口：订阅消息 - OpenAPI/SubscribeMessage
         requestSubscribeMessageAsync(
-            options?: Wx.PromisifiedCallbackOption<RequestSubscribeMessageOption>
-        ): Wx.PromisifiedCallbackResult<RequestSubscribeMessageOption>;
+            options?: Wx.PromisifiedOption<RequestSubscribeMessageOption>
+        ): Wx.PromisifiedResult<RequestSubscribeMessageOption>;
         requestSubscribeDeviceMessageAsync(
-            options?: Wx.PromisifiedCallbackOption<RequestSubscribeDeviceMessageOption>
-        ): Wx.PromisifiedCallbackResult<RequestSubscribeDeviceMessageOption>;
+            options?: Wx.PromisifiedOption<RequestSubscribeDeviceMessageOption>
+        ): Wx.PromisifiedResult<RequestSubscribeDeviceMessageOption>;
         // 开放接口：微信红包 - OpenAPI/RedPackage
         showRedPackgeAsync(
-            options?: Wx.PromisifiedCallbackOption<ShowRedPackageOption>
-        ): Wx.PromisifiedCallbackResult<ShowRedPackageOption>;
+            options?: Wx.PromisifiedOption<ShowRedPackageOption>
+        ): Wx.PromisifiedResult<ShowRedPackageOption>;
         // 开放接口：收藏 - OpenAPI/Favorites
         addVideoToFavoritesAsync(
-            options?: Wx.PromisifiedCallbackOption<AddVideoToFavoritesOption>
-        ): Wx.PromisifiedCallbackResult<AddVideoToFavoritesOption>;
+            options?: Wx.PromisifiedOption<AddVideoToFavoritesOption>
+        ): Wx.PromisifiedResult<AddVideoToFavoritesOption>;
         addFileToFavoritesAsync(
-            options?: Wx.PromisifiedCallbackOption<AddFileToFavoritesOption>
-        ): Wx.PromisifiedCallbackResult<AddFileToFavoritesOption>;
+            options?: Wx.PromisifiedOption<AddFileToFavoritesOption>
+        ): Wx.PromisifiedResult<AddFileToFavoritesOption>;
         // 开放接口：车牌 - LicensePlate
         chooseLicensePlateAsync(
-            options?: Wx.PromisifiedCallbackOption<ChooseLicensePlateOption>
-        ): Wx.PromisifiedCallbackResult<ChooseLicensePlateOption>;
+            options?: Wx.PromisifiedOption<ChooseLicensePlateOption>
+        ): Wx.PromisifiedResult<ChooseLicensePlateOption>;
         // 开放接口：视频号 - OpenAPI/Channels
         openChannelsUserProfileAsync(
-            options?: Wx.PromisifiedCallbackOption<OpenChannelsUserProfileOption>
-        ): Wx.PromisifiedCallbackResult<OpenChannelsUserProfileOption>;
+            options?: Wx.PromisifiedOption<OpenChannelsUserProfileOption>
+        ): Wx.PromisifiedResult<OpenChannelsUserProfileOption>;
         openChannelsLiveAsync(
-            options?: Wx.PromisifiedCallbackOption<OpenChannelsLiveOption>
-        ): Wx.PromisifiedCallbackResult<OpenChannelsLiveOption>;
+            options?: Wx.PromisifiedOption<OpenChannelsLiveOption>
+        ): Wx.PromisifiedResult<OpenChannelsLiveOption>;
         openChannelsEventAsync(
-            options?: Wx.PromisifiedCallbackOption<OpenChannelsEventOption>
-        ): Wx.PromisifiedCallbackResult<OpenChannelsEventOption>;
+            options?: Wx.PromisifiedOption<OpenChannelsEventOption>
+        ): Wx.PromisifiedResult<OpenChannelsEventOption>;
         openChannelsActivityAsync(
-            options?: Wx.PromisifiedCallbackOption<OpenChannelsActivityOption>
-        ): Wx.PromisifiedCallbackResult<OpenChannelsActivityOption>;
+            options?: Wx.PromisifiedOption<OpenChannelsActivityOption>
+        ): Wx.PromisifiedResult<OpenChannelsActivityOption>;
         getChannelsLiveNoticeInfoAsync(
-            options?: Wx.PromisifiedCallbackOption<GetChannelsLiveNoticeInfoOption>
-        ): Wx.PromisifiedCallbackResult<GetChannelsLiveNoticeInfoOption>;
+            options?: Wx.PromisifiedOption<GetChannelsLiveNoticeInfoOption>
+        ): Wx.PromisifiedResult<GetChannelsLiveNoticeInfoOption>;
         getChannelsLiveInfoAsync(
-            options?: Wx.PromisifiedCallbackOption<GetChannelsLiveInfoOption>
-        ): Wx.PromisifiedCallbackResult<GetChannelsLiveInfoOption>;
+            options?: Wx.PromisifiedOption<GetChannelsLiveInfoOption>
+        ): Wx.PromisifiedResult<GetChannelsLiveInfoOption>;
         // 开放接口：微信群 - OpenAPI/Group
         getGroupEnterInfoAsync(
-            options?: Wx.PromisifiedCallbackOption<GetGroupEnterInfoOption>
-        ): Wx.PromisifiedCallbackResult<GetGroupEnterInfoOption>;
+            options?: Wx.PromisifiedOption<GetGroupEnterInfoOption>
+        ): Wx.PromisifiedResult<GetGroupEnterInfoOption>;
         // 开放接口：微信客服 - ServiceChat
         openCustomerServiceChatAsync(
-            options?: Wx.PromisifiedCallbackOption<OpenCustomerServiceChatOption>
-        ): Wx.PromisifiedCallbackResult<OpenCustomerServiceChatOption>;
+            options?: Wx.PromisifiedOption<OpenCustomerServiceChatOption>
+        ): Wx.PromisifiedResult<OpenCustomerServiceChatOption>;
 
         // 设备：iBeacon - Device/iBeacon
         stopBeaconDiscoveryAsync(
-            options?: Wx.PromisifiedCallbackOption<StopBeaconDiscoveryOption>
-        ): Wx.PromisifiedCallbackResult<StopBeaconDiscoveryOption>;
+            options?: Wx.PromisifiedOption<StopBeaconDiscoveryOption>
+        ): Wx.PromisifiedResult<StopBeaconDiscoveryOption>;
         startBeaconDiscoveryAsync(
-            options?: Wx.PromisifiedCallbackOption<StartBeaconDiscoveryOption>
-        ): Wx.PromisifiedCallbackResult<StartBeaconDiscoveryOption>;
-        getBeaconsAsync(
-            options?: Wx.PromisifiedCallbackOption<GetBeaconsOption>
-        ): Wx.PromisifiedCallbackResult<GetBeaconsOption>;
+            options?: Wx.PromisifiedOption<StartBeaconDiscoveryOption>
+        ): Wx.PromisifiedResult<StartBeaconDiscoveryOption>;
+        getBeaconsAsync(options?: Wx.PromisifiedOption<GetBeaconsOption>): Wx.PromisifiedResult<GetBeaconsOption>;
         // 设备：NFC - Device/NFC
-        stopHCEAsync(
-            options?: Wx.PromisifiedCallbackOption<StopHCEOption>
-        ): Wx.PromisifiedCallbackResult<StopHCEOption>;
-        startHCEAsync(
-            options?: Wx.PromisifiedCallbackOption<StartHCEOption>
-        ): Wx.PromisifiedCallbackResult<StartHCEOption>;
+        stopHCEAsync(options?: Wx.PromisifiedOption<StopHCEOption>): Wx.PromisifiedResult<StopHCEOption>;
+        startHCEAsync(options?: Wx.PromisifiedOption<StartHCEOption>): Wx.PromisifiedResult<StartHCEOption>;
         sendHCEMessageAsync(
-            options?: Wx.PromisifiedCallbackOption<SendHCEMessageOption>
-        ): Wx.PromisifiedCallbackResult<SendHCEMessageOption>;
-        getHCEStateAsync(
-            options?: Wx.PromisifiedCallbackOption<GetHCEStateOption>
-        ): Wx.PromisifiedCallbackResult<GetHCEStateOption>;
+            options?: Wx.PromisifiedOption<SendHCEMessageOption>
+        ): Wx.PromisifiedResult<SendHCEMessageOption>;
+        getHCEStateAsync(options?: Wx.PromisifiedOption<GetHCEStateOption>): Wx.PromisifiedResult<GetHCEStateOption>;
         // 设备：WiFi - Device/WiFi
-        stopWifiAsync(
-            options?: Wx.PromisifiedCallbackOption<StopWifiOption>
-        ): Wx.PromisifiedCallbackResult<StopWifiOption>;
-        startWifiAsync(
-            options?: Wx.PromisifiedCallbackOption<StartWifiOption>
-        ): Wx.PromisifiedCallbackResult<StartWifiOption>;
-        setWifiListAsync(
-            options?: Wx.PromisifiedCallbackOption<SetWifiListOption>
-        ): Wx.PromisifiedCallbackResult<SetWifiListOption>;
-        getWifiListAsync(
-            options?: Wx.PromisifiedCallbackOption<GetWifiListOption>
-        ): Wx.PromisifiedCallbackResult<GetWifiListOption>;
+        stopWifiAsync(options?: Wx.PromisifiedOption<StopWifiOption>): Wx.PromisifiedResult<StopWifiOption>;
+        startWifiAsync(options?: Wx.PromisifiedOption<StartWifiOption>): Wx.PromisifiedResult<StartWifiOption>;
+        setWifiListAsync(options?: Wx.PromisifiedOption<SetWifiListOption>): Wx.PromisifiedResult<SetWifiListOption>;
+        getWifiListAsync(options?: Wx.PromisifiedOption<GetWifiListOption>): Wx.PromisifiedResult<GetWifiListOption>;
         getConnectedWifiAsync(
-            options?: Wx.PromisifiedCallbackOption<GetConnectedWifiOption>
-        ): Wx.PromisifiedCallbackResult<GetConnectedWifiOption>;
-        connectWifiAsync(
-            options?: Wx.PromisifiedCallbackOption<ConnectWifiOption>
-        ): Wx.PromisifiedCallbackResult<ConnectWifiOption>;
+            options?: Wx.PromisifiedOption<GetConnectedWifiOption>
+        ): Wx.PromisifiedResult<GetConnectedWifiOption>;
+        connectWifiAsync(options?: Wx.PromisifiedOption<ConnectWifiOption>): Wx.PromisifiedResult<ConnectWifiOption>;
         // 设备：日历 - Device/Calendar
         addPhoneRepeatCalendarAsync(
-            options?: Wx.PromisifiedCallbackOption<AddPhoneRepeatCalendarOption>
-        ): Wx.PromisifiedCallbackResult<AddPhoneRepeatCalendarOption>;
+            options?: Wx.PromisifiedOption<AddPhoneRepeatCalendarOption>
+        ): Wx.PromisifiedResult<AddPhoneRepeatCalendarOption>;
         addPhoneCalendarAsync(
-            options?: Wx.PromisifiedCallbackOption<AddPhoneCalendarOption>
-        ): Wx.PromisifiedCallbackResult<AddPhoneCalendarOption>;
+            options?: Wx.PromisifiedOption<AddPhoneCalendarOption>
+        ): Wx.PromisifiedResult<AddPhoneCalendarOption>;
         // 设备：联系人 - Device/Contact
         searchContactsAsync(
-            options?: Wx.PromisifiedCallbackOption<SearchContactsOption>
-        ): Wx.PromisifiedCallbackResult<SearchContactsOption>;
+            options?: Wx.PromisifiedOption<SearchContactsOption>
+        ): Wx.PromisifiedResult<SearchContactsOption>;
         chooseContactAsync(
-            options?: Wx.PromisifiedCallbackOption<ChooseContactOption>
-        ): Wx.PromisifiedCallbackResult<ChooseContactOption>;
+            options?: Wx.PromisifiedOption<ChooseContactOption>
+        ): Wx.PromisifiedResult<ChooseContactOption>;
         addPhoneContactAsync(
-            options?: Wx.PromisifiedCallbackOption<AddPhoneContactOption>
-        ): Wx.PromisifiedCallbackResult<AddPhoneContactOption>;
+            options?: Wx.PromisifiedOption<AddPhoneContactOption>
+        ): Wx.PromisifiedResult<AddPhoneContactOption>;
         // 设备：无障碍 - Device/Accessibility
         checkIsOpenAccessibilityAsync(
-            options?: Wx.PromisifiedCallbackOption<CheckIsOpenAccessibilityOption>
-        ): Wx.PromisifiedCallbackResult<CheckIsOpenAccessibilityOption>;
+            options?: Wx.PromisifiedOption<CheckIsOpenAccessibilityOption>
+        ): Wx.PromisifiedResult<CheckIsOpenAccessibilityOption>;
         // 设备：低功耗蓝牙 - Device/BLE
-        setBLEMTUAsync(
-            options?: Wx.PromisifiedCallbackOption<SetBLEMTUOption>
-        ): Wx.PromisifiedCallbackResult<SetBLEMTUOption>;
+        setBLEMTUAsync(options?: Wx.PromisifiedOption<SetBLEMTUOption>): Wx.PromisifiedResult<SetBLEMTUOption>;
         makeBluetoothPairAsync(
-            options?: Wx.PromisifiedCallbackOption<MakeBluetoothPairOption>
-        ): Wx.PromisifiedCallbackResult<MakeBluetoothPairOption>;
+            options?: Wx.PromisifiedOption<MakeBluetoothPairOption>
+        ): Wx.PromisifiedResult<MakeBluetoothPairOption>;
         writeBLECharacteristicValueAsync(
-            options?: Wx.PromisifiedCallbackOption<WriteBLECharacteristicValueOption>
-        ): Wx.PromisifiedCallbackResult<WriteBLECharacteristicValueOption>;
+            options?: Wx.PromisifiedOption<WriteBLECharacteristicValueOption>
+        ): Wx.PromisifiedResult<WriteBLECharacteristicValueOption>;
         readBLECharacteristicValueAsync(
-            options?: Wx.PromisifiedCallbackOption<ReadBLECharacteristicValueOption>
-        ): Wx.PromisifiedCallbackResult<ReadBLECharacteristicValueOption>;
+            options?: Wx.PromisifiedOption<ReadBLECharacteristicValueOption>
+        ): Wx.PromisifiedResult<ReadBLECharacteristicValueOption>;
         notifyBLECharacteristicValueChangeAsync(
-            options?: Wx.PromisifiedCallbackOption<NotifyBLECharacteristicValueChangeOption>
-        ): Wx.PromisifiedCallbackResult<NotifyBLECharacteristicValueChangeOption>;
-        getBLEMTUAsync(
-            options?: Wx.PromisifiedCallbackOption<GetBLEMTUOption>
-        ): Wx.PromisifiedCallbackResult<GetBLEMTUOption>;
+            options?: Wx.PromisifiedOption<NotifyBLECharacteristicValueChangeOption>
+        ): Wx.PromisifiedResult<NotifyBLECharacteristicValueChangeOption>;
+        getBLEMTUAsync(options?: Wx.PromisifiedOption<GetBLEMTUOption>): Wx.PromisifiedResult<GetBLEMTUOption>;
         getBLEDeviceServicesAsync(
-            options?: Wx.PromisifiedCallbackOption<GetBLEDeviceServicesOption>
-        ): Wx.PromisifiedCallbackResult<GetBLEDeviceServicesOption>;
+            options?: Wx.PromisifiedOption<GetBLEDeviceServicesOption>
+        ): Wx.PromisifiedResult<GetBLEDeviceServicesOption>;
         getBLEDeviceCharacteristicsAsync(
-            options?: Wx.PromisifiedCallbackOption<GetBLEDeviceCharacteristicsOption>
-        ): Wx.PromisifiedCallbackResult<GetBLEDeviceCharacteristicsOption>;
+            options?: Wx.PromisifiedOption<GetBLEDeviceCharacteristicsOption>
+        ): Wx.PromisifiedResult<GetBLEDeviceCharacteristicsOption>;
         createBLEConnectionAsync(
-            options?: Wx.PromisifiedCallbackOption<CreateBLEConnectionOption>
-        ): Wx.PromisifiedCallbackResult<CreateBLEConnectionOption>;
+            options?: Wx.PromisifiedOption<CreateBLEConnectionOption>
+        ): Wx.PromisifiedResult<CreateBLEConnectionOption>;
         closeBLEConnectionAsync(
-            options?: Wx.PromisifiedCallbackOption<CloseBLEConnectionOption>
-        ): Wx.PromisifiedCallbackResult<CloseBLEConnectionOption>;
+            options?: Wx.PromisifiedOption<CloseBLEConnectionOption>
+        ): Wx.PromisifiedResult<CloseBLEConnectionOption>;
         createBLEPeripheralServerAsync(
-            options?: Wx.PromisifiedCallbackOption<CreateBLEPeripheralServerOption>
-        ): Wx.PromisifiedCallbackResult<CreateBLEPeripheralServerOption>;
+            options?: Wx.PromisifiedOption<CreateBLEPeripheralServerOption>
+        ): Wx.PromisifiedResult<CreateBLEPeripheralServerOption>;
         getBLEDeviceRSSIAsync(
-            options?: Wx.PromisifiedCallbackOption<GetBLEDeviceRSSIOption>
-        ): Wx.PromisifiedCallbackResult<GetBLEDeviceRSSIOption>;
+            options?: Wx.PromisifiedOption<GetBLEDeviceRSSIOption>
+        ): Wx.PromisifiedResult<GetBLEDeviceRSSIOption>;
         // 设备：蓝牙 - Device/Bluetooth
         stopBluetoothDevicesDiscoveryAsync(
-            options?: Wx.PromisifiedCallbackOption<StopBluetoothDevicesDiscoveryOption>
-        ): Wx.PromisifiedCallbackResult<StopBluetoothDevicesDiscoveryOption>;
+            options?: Wx.PromisifiedOption<StopBluetoothDevicesDiscoveryOption>
+        ): Wx.PromisifiedResult<StopBluetoothDevicesDiscoveryOption>;
         startBluetoothDevicesDiscoveryAsync(
-            options?: Wx.PromisifiedCallbackOption<StartBluetoothDevicesDiscoveryOption>
-        ): Wx.PromisifiedCallbackResult<StartBluetoothDevicesDiscoveryOption>;
+            options?: Wx.PromisifiedOption<StartBluetoothDevicesDiscoveryOption>
+        ): Wx.PromisifiedResult<StartBluetoothDevicesDiscoveryOption>;
         openBluetoothAdapterAsync(
-            options?: Wx.PromisifiedCallbackOption<OpenBluetoothAdapterOption>
-        ): Wx.PromisifiedCallbackResult<OpenBluetoothAdapterOption>;
+            options?: Wx.PromisifiedOption<OpenBluetoothAdapterOption>
+        ): Wx.PromisifiedResult<OpenBluetoothAdapterOption>;
         isBluetoothDevicePairedAsync(
-            options?: Wx.PromisifiedCallbackOption<IsBluetoothDevicePairedOption>
-        ): Wx.PromisifiedCallbackResult<IsBluetoothDevicePairedOption>;
+            options?: Wx.PromisifiedOption<IsBluetoothDevicePairedOption>
+        ): Wx.PromisifiedResult<IsBluetoothDevicePairedOption>;
         getConnectedBluetoothDevicesAsync(
-            options?: Wx.PromisifiedCallbackOption<GetConnectedBluetoothDevicesOption>
-        ): Wx.PromisifiedCallbackResult<GetConnectedBluetoothDevicesOption>;
+            options?: Wx.PromisifiedOption<GetConnectedBluetoothDevicesOption>
+        ): Wx.PromisifiedResult<GetConnectedBluetoothDevicesOption>;
         getBluetoothDevicesAsync(
-            options?: Wx.PromisifiedCallbackOption<GetBluetoothDevicesOption>
-        ): Wx.PromisifiedCallbackResult<GetBluetoothDevicesOption>;
+            options?: Wx.PromisifiedOption<GetBluetoothDevicesOption>
+        ): Wx.PromisifiedResult<GetBluetoothDevicesOption>;
         getBluetoothAdapterStateAsync(
-            options?: Wx.PromisifiedCallbackOption<GetBluetoothAdapterStateOption>
-        ): Wx.PromisifiedCallbackResult<GetBluetoothAdapterStateOption>;
+            options?: Wx.PromisifiedOption<GetBluetoothAdapterStateOption>
+        ): Wx.PromisifiedResult<GetBluetoothAdapterStateOption>;
         closeBluetoothAdapterAsync(
-            options?: Wx.PromisifiedCallbackOption<CloseBluetoothAdapterOption>
-        ): Wx.PromisifiedCallbackResult<CloseBluetoothAdapterOption>;
+            options?: Wx.PromisifiedOption<CloseBluetoothAdapterOption>
+        ): Wx.PromisifiedResult<CloseBluetoothAdapterOption>;
         // 设备：电量 - Device/Battery
         getBatteryInfoAsync(
-            options?: Wx.PromisifiedCallbackOption<GetBatteryInfoOption>
-        ): Wx.PromisifiedCallbackResult<GetBatteryInfoOption>;
+            options?: Wx.PromisifiedOption<GetBatteryInfoOption>
+        ): Wx.PromisifiedResult<GetBatteryInfoOption>;
         // 设备：剪贴板 - Device/Clipboard
         setClipboardDataAsync(
-            options?: Wx.PromisifiedCallbackOption<SetClipboardDataOption>
-        ): Wx.PromisifiedCallbackResult<SetClipboardDataOption>;
+            options?: Wx.PromisifiedOption<SetClipboardDataOption>
+        ): Wx.PromisifiedResult<SetClipboardDataOption>;
         getClipboardDataAsync(
-            options?: Wx.PromisifiedCallbackOption<GetClipboardDataOption>
-        ): Wx.PromisifiedCallbackResult<GetClipboardDataOption>;
+            options?: Wx.PromisifiedOption<GetClipboardDataOption>
+        ): Wx.PromisifiedResult<GetClipboardDataOption>;
         // 设备：网络 - Device/Newwork
         getNetworkTypeAsync(
-            options?: Wx.PromisifiedCallbackOption<GetNetworkTypeOption>
-        ): Wx.PromisifiedCallbackResult<GetNetworkTypeOption>;
+            options?: Wx.PromisifiedOption<GetNetworkTypeOption>
+        ): Wx.PromisifiedResult<GetNetworkTypeOption>;
         getLocalIPAddressAsync(
-            options?: Wx.PromisifiedCallbackOption<GetLocalIPAddressOption>
-        ): Wx.PromisifiedCallbackResult<GetLocalIPAddressOption>;
+            options?: Wx.PromisifiedOption<GetLocalIPAddressOption>
+        ): Wx.PromisifiedResult<GetLocalIPAddressOption>;
         // 设备：加密 - Device/Crypto
         getRandomValuesAsync(
-            options?: Wx.PromisifiedCallbackOption<GetRandomValuesOption>
-        ): Wx.PromisifiedCallbackResult<GetRandomValuesOption>;
+            options?: Wx.PromisifiedOption<GetRandomValuesOption>
+        ): Wx.PromisifiedResult<GetRandomValuesOption>;
         // 设备：屏幕 - Device/Screen
         setVisualEffectOnCaptureAsync(
-            options?: Wx.PromisifiedCallbackOption<SetVisualEffectOnCaptureOption>
-        ): Wx.PromisifiedCallbackResult<SetVisualEffectOnCaptureOption>;
+            options?: Wx.PromisifiedOption<SetVisualEffectOnCaptureOption>
+        ): Wx.PromisifiedResult<SetVisualEffectOnCaptureOption>;
         setScreenBrightnessAsync(
-            options?: Wx.PromisifiedCallbackOption<SetScreenBrightnessOption>
-        ): Wx.PromisifiedCallbackResult<SetScreenBrightnessOption>;
+            options?: Wx.PromisifiedOption<SetScreenBrightnessOption>
+        ): Wx.PromisifiedResult<SetScreenBrightnessOption>;
         setKeepScreenOnAsync(
-            options?: Wx.PromisifiedCallbackOption<SetKeepScreenOnOption>
-        ): Wx.PromisifiedCallbackResult<SetKeepScreenOnOption>;
+            options?: Wx.PromisifiedOption<SetKeepScreenOnOption>
+        ): Wx.PromisifiedResult<SetKeepScreenOnOption>;
         getScreenBrightnessAsync(
-            options?: Wx.PromisifiedCallbackOption<GetScreenBrightnessOption>
-        ): Wx.PromisifiedCallbackResult<GetScreenBrightnessOption>;
+            options?: Wx.PromisifiedOption<GetScreenBrightnessOption>
+        ): Wx.PromisifiedResult<GetScreenBrightnessOption>;
         // 设备：键盘 - Device/Keyword
-        hideKeyboardAsync(
-            options?: Wx.PromisifiedCallbackOption<HideKeyboardOption>
-        ): Wx.PromisifiedCallbackResult<HideKeyboardOption>;
+        hideKeyboardAsync(options?: Wx.PromisifiedOption<HideKeyboardOption>): Wx.PromisifiedResult<HideKeyboardOption>;
         getSelectedTextRangeAsync(
-            options?: Wx.PromisifiedCallbackOption<GetSelectedTextRangeOption>
-        ): Wx.PromisifiedCallbackResult<GetSelectedTextRangeOption>;
+            options?: Wx.PromisifiedOption<GetSelectedTextRangeOption>
+        ): Wx.PromisifiedResult<GetSelectedTextRangeOption>;
         // 设备：电话 - Device/Call
         makePhoneCallAsync(
-            options?: Wx.PromisifiedCallbackOption<MakePhoneCallOption>
-        ): Wx.PromisifiedCallbackResult<MakePhoneCallOption>;
+            options?: Wx.PromisifiedOption<MakePhoneCallOption>
+        ): Wx.PromisifiedResult<MakePhoneCallOption>;
         // 设备：加速计 - Device/Accelerometer
         stopAccelerometerAsync(
-            options?: Wx.PromisifiedCallbackOption<StopAccelerometerOption>
-        ): Wx.PromisifiedCallbackResult<StopAccelerometerOption>;
+            options?: Wx.PromisifiedOption<StopAccelerometerOption>
+        ): Wx.PromisifiedResult<StopAccelerometerOption>;
         startAccelerometerAsync(
-            options?: Wx.PromisifiedCallbackOption<StartAccelerometerOption>
-        ): Wx.PromisifiedCallbackResult<StartAccelerometerOption>;
+            options?: Wx.PromisifiedOption<StartAccelerometerOption>
+        ): Wx.PromisifiedResult<StartAccelerometerOption>;
         // 设备：罗盘 - Device/Compass
-        stopCompassAsync(
-            options?: Wx.PromisifiedCallbackOption<StopCompassOption>
-        ): Wx.PromisifiedCallbackResult<StopCompassOption>;
-        startCompassAsync(
-            options?: Wx.PromisifiedCallbackOption<StartCompassOption>
-        ): Wx.PromisifiedCallbackResult<StartCompassOption>;
+        stopCompassAsync(options?: Wx.PromisifiedOption<StopCompassOption>): Wx.PromisifiedResult<StopCompassOption>;
+        startCompassAsync(options?: Wx.PromisifiedOption<StartCompassOption>): Wx.PromisifiedResult<StartCompassOption>;
         // 设备：设备方向 - Device/Motion
         stopDeviceMotionListeningAsync(
-            options?: Wx.PromisifiedCallbackOption<StopDeviceMotionListeningOption>
-        ): Wx.PromisifiedCallbackResult<StopDeviceMotionListeningOption>;
+            options?: Wx.PromisifiedOption<StopDeviceMotionListeningOption>
+        ): Wx.PromisifiedResult<StopDeviceMotionListeningOption>;
         startDeviceMotionListeningAsync(
-            options?: Wx.PromisifiedCallbackOption<StartDeviceMotionListeningOption>
-        ): Wx.PromisifiedCallbackResult<StartDeviceMotionListeningOption>;
+            options?: Wx.PromisifiedOption<StartDeviceMotionListeningOption>
+        ): Wx.PromisifiedResult<StartDeviceMotionListeningOption>;
         // 设备：陀螺仪 - Device/Gyroscope
         stopGyroscopeAsync(
-            options?: Wx.PromisifiedCallbackOption<StopGyroscopeOption>
-        ): Wx.PromisifiedCallbackResult<StopGyroscopeOption>;
+            options?: Wx.PromisifiedOption<StopGyroscopeOption>
+        ): Wx.PromisifiedResult<StopGyroscopeOption>;
         startGyroscopeAsync(
-            options?: Wx.PromisifiedCallbackOption<StartGyroscopeOption>
-        ): Wx.PromisifiedCallbackResult<StartGyroscopeOption>;
+            options?: Wx.PromisifiedOption<StartGyroscopeOption>
+        ): Wx.PromisifiedResult<StartGyroscopeOption>;
         // 设备：扫码 - Device/ScanCode
-        scanCodeAsync(
-            options?: Wx.PromisifiedCallbackOption<ScanCodeOption>
-        ): Wx.PromisifiedCallbackResult<ScanCodeOption>;
+        scanCodeAsync(options?: Wx.PromisifiedOption<ScanCodeOption>): Wx.PromisifiedResult<ScanCodeOption>;
         // 设备：振动 - Device/Vibration
-        vibrateShortAsync(
-            options?: Wx.PromisifiedCallbackOption<VibrateShortOption>
-        ): Wx.PromisifiedCallbackResult<VibrateShortOption>;
-        vibrateLongAsync(
-            options?: Wx.PromisifiedCallbackOption<VibrateLongOption>
-        ): Wx.PromisifiedCallbackResult<VibrateLongOption>;
+        vibrateShortAsync(options?: Wx.PromisifiedOption<VibrateShortOption>): Wx.PromisifiedResult<VibrateShortOption>;
+        vibrateLongAsync(options?: Wx.PromisifiedOption<VibrateLongOption>): Wx.PromisifiedResult<VibrateLongOption>;
 
         // AI：人脸识别 - AI/Face
         stopFaceDetectAsync(
-            options?: Wx.PromisifiedCallbackOption<StopFaceDetectOption>
-        ): Wx.PromisifiedCallbackResult<StopFaceDetectOption>;
+            options?: Wx.PromisifiedOption<StopFaceDetectOption>
+        ): Wx.PromisifiedResult<StopFaceDetectOption>;
         initFaceDetectAsync(
-            options?: Wx.PromisifiedCallbackOption<InitFaceDetectOption>
-        ): Wx.PromisifiedCallbackResult<InitFaceDetectOption>;
-        faceDetectAsync(
-            options?: Wx.PromisifiedCallbackOption<FaceDetectOption>
-        ): Wx.PromisifiedCallbackResult<FaceDetectOption>;
+            options?: Wx.PromisifiedOption<InitFaceDetectOption>
+        ): Wx.PromisifiedResult<InitFaceDetectOption>;
+        faceDetectAsync(options?: Wx.PromisifiedOption<FaceDetectOption>): Wx.PromisifiedResult<FaceDetectOption>;
 
         // 第三方平台 - Ext
-        getExtConfigAsync(
-            options?: Wx.PromisifiedCallbackOption<GetExtConfigOption>
-        ): Wx.PromisifiedCallbackResult<GetExtConfigOption>;
+        getExtConfigAsync(options?: Wx.PromisifiedOption<GetExtConfigOption>): Wx.PromisifiedResult<GetExtConfigOption>;
     }
 }
