@@ -5,8 +5,8 @@ declare namespace WechatMinigame {
             fail?: (...args: any) => void;
             complete?: (...args: any) => void;
         };
-        type PromisifiedOption<T extends CallbackOption> = SKIT.WxminiPromisify.Internal.WxPromisifiedCallbackOption<T>;
-        type PromisifiedResult<T extends CallbackOption> = SKIT.WxminiPromisify.Internal.WxPromisifiedCallbackResult<T>;
+        type PromisifiedOption<T extends CallbackOption> = Omit<T, keyof CallbackOption>;
+        type PromisifiedResult<T extends CallbackOption> = Promise<Parameters<T['success']>[0]>;
     }
 
     interface Wx {

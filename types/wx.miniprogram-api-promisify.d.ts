@@ -5,8 +5,8 @@ declare namespace WechatMiniprogram {
             fail?: (...args: any) => void;
             complete?: (...args: any) => void;
         };
-        type PromisifiedOption<T extends CallbackOption> = SKIT.WxminiPromisify.Internal.WxPromisifiedCallbackOption<T>;
-        type PromisifiedResult<T extends CallbackOption> = SKIT.WxminiPromisify.Internal.WxPromisifiedCallbackResult<T>;
+        type PromisifiedOption<T extends CallbackOption> = Omit<T, keyof CallbackOption>;
+        type PromisifiedResult<T extends CallbackOption> = Promise<Parameters<T['success']>[0]>;
     }
 
     interface Wx {
@@ -490,9 +490,6 @@ declare namespace WechatMiniprogram {
             options?: Wx.PromisifiedOption<AddPhoneCalendarOption>
         ): Wx.PromisifiedResult<AddPhoneCalendarOption>;
         // 设备：联系人 - Device/Contact
-        searchContactsAsync(
-            options?: Wx.PromisifiedOption<SearchContactsOption>
-        ): Wx.PromisifiedResult<SearchContactsOption>;
         chooseContactAsync(
             options?: Wx.PromisifiedOption<ChooseContactOption>
         ): Wx.PromisifiedResult<ChooseContactOption>;

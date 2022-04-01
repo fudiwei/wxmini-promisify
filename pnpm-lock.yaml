@@ -20,10 +20,6 @@ specifiers:
   prettier: 2.6.1
   typescript: ~4.6.0
 
-dependencies:
-  minigame-api-typings: 3.4.2
-  miniprogram-api-typings: 3.4.5
-
 devDependencies:
   '@babel/core': 7.17.8
   '@babel/preset-env': 7.16.11_@babel+core@7.17.8
@@ -39,6 +35,8 @@ devDependencies:
   gulp-rimraf: 1.0.0
   gulp-strip-debug: 4.0.0_gulp@4.0.2
   gulp-uglify: 3.0.2
+  minigame-api-typings: 3.4.2
+  miniprogram-api-typings: 3.4.5
   prettier: 2.6.1
   typescript: 4.6.3
 
@@ -3611,7 +3609,7 @@ packages:
 
   /minigame-api-typings/3.4.2:
     resolution: {integrity: sha512-Px7ZOg1DWdSZVMCgcKZcGcWWS/n95Wk4Wozi1NjXq9+nxQnatn9EGQODC1zCkbOKJWA9qcmrc76ydkf+t+aeDQ==, tarball: minigame-api-typings/download/minigame-api-typings-3.4.2.tgz}
-    dev: false
+    dev: true
 
   /minimatch/3.0.4:
     resolution: {integrity: sha1-UWbihkV/AzBgZL5Ul+jbsMPTIIM=, tarball: minimatch/download/minimatch-3.0.4.tgz}
@@ -3625,7 +3623,7 @@ packages:
 
   /miniprogram-api-typings/3.4.5:
     resolution: {integrity: sha512-GWvMdmPhJ40PLq4/sOh+n2xGRKf2R3kcuOaSe7IRTdT+Os8lfNrJYehYdgH7IoUWqaHqV8mFEWQj5oPIGhVv4Q==, tarball: miniprogram-api-typings/download/miniprogram-api-typings-3.4.5.tgz}
-    dev: false
+    dev: true
 
   /mixin-deep/1.3.2:
     resolution: {integrity: sha1-ESC0PcNZp4Xc5ltVuC4lfM9HlWY=, tarball: mixin-deep/download/mixin-deep-1.3.2.tgz}

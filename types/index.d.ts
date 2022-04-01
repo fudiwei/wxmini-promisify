@@ -3,7 +3,7 @@
 /// <reference path="./wx.minigame-api-promisify.d.ts" />
 
 declare namespace SKIT.WxminiPromisify {
-    interface WxminiPromisifyOptions {
+    interface WxminiPromisifyConfig {
         /*
          * 指定当前执行环境的根对象。默认环境为 wx，如在 uni-app、Taro 等跨端小程序框架、或其他平台的小程序时请自行替换为相应的值。
          */
@@ -18,11 +18,10 @@ declare namespace SKIT.WxminiPromisify {
         extends?: Array<string>;
     }
 
-    interface Wxmini {
-        promisify(options?: WxminiPromisifyOptions): void;
-    }
-
-    export const _default: Wxmini;
+    export const _default: {
+        promisify<T>(fn: (options?: { success?: (res?: T) => void }) => void): Promise<T>;
+        promisifyAll(config?: WxminiPromisifyConfig): void;
+    };
 }
 
 export default SKIT.WxminiPromisify._default;
