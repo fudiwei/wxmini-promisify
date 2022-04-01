@@ -234,6 +234,7 @@ declare namespace WechatMiniprogram {
         previewMediaAsync(options?: Wx.PromisifiedOption<PreviewMediaOption>): Wx.PromisifiedResult<PreviewMediaOption>;
         previewImageAsync(options?: Wx.PromisifiedOption<PreviewImageOption>): Wx.PromisifiedResult<PreviewImageOption>;
         getImageInfoAsync(options?: Wx.PromisifiedOption<GetImageInfoOption>): Wx.PromisifiedResult<GetImageInfoOption>;
+        editImageAsync(options?: Wx.PromisifiedOption<EditImageOption>): Wx.PromisifiedResult<EditImageOption>;
         compressImageAsync(
             options?: Wx.PromisifiedOption<CompressImageOption>
         ): Wx.PromisifiedResult<CompressImageOption>;

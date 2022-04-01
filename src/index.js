@@ -126,6 +126,7 @@ const callbackApiNames = [
     'previewMedia',
     'previewImage',
     'getImageInfo',
+    'editImage',
     'compressImage',
     'chooseMessageFile',
     'chooseImage',

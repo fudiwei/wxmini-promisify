@@ -21,7 +21,7 @@
         "promise",
         "promisify"
     ],
-    "version": "2.21.4",
+    "version": "2.22.0",
     "main": "dist/index.js",
     "author": "Fu Diwei",
     "repository": {
@@ -71,4 +71,3 @@
         "miniprogram-api-typings": "^3.4.5"
     }
 }
-
