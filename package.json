@@ -21,7 +21,7 @@
         "promise",
         "promisify"
     ],
-    "version": "2.22.0",
+    "version": "2.23.2",
     "main": "dist/index.js",
     "author": "Fu Diwei",
     "repository": {
@@ -39,7 +39,8 @@
     "files": [
         "src/*",
         "dist/*",
-        "types/*"
+        "types/*",
+        "!types/.prettierrc"
     ],
     "engines": {
         "node": ">=12",
@@ -62,12 +63,12 @@
         "gulp-strip-debug": "^4.0.0",
         "gulp-uglify": "^3.0.2",
         "minigame-api-typings": "^3.4.2",
-        "miniprogram-api-typings": "^3.4.5",
+        "miniprogram-api-typings": "^3.4.6",
         "prettier": "2.6.1",
         "typescript": "~4.6.0"
     },
     "peerDependencies": {
         "minigame-api-typings": "^3.4.2",
-        "miniprogram-api-typings": "^3.4.5"
+        "miniprogram-api-typings": "^3.4.6"
     }
 }

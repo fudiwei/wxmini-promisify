@@ -10,6 +10,9 @@ const callbackApiNames = [
     'updateWeChatApp',
     // 基础：调试 - Base/Debug
     'setEnableDebug',
+    // 基础：性能 - Base/Performance
+    'preloadWebview',
+    'preloadAssets',
 
     // 路由 - Route
     'switchTab',
@@ -19,7 +22,6 @@ const callbackApiNames = [
     'navigateBack',
 
     // 跳转 - Navigate
-    'openEmbeddedMiniProgram',
     'navigateToMiniProgram',
     'navigateBackMiniProgram',
     'exitMiniProgram',
@@ -95,6 +97,7 @@ const callbackApiNames = [
 
     // 支付 - Payment
     'requestPayment',
+    'requestPluginPayment',
     'requestOrderPayment',
 
     // 虚拟支付 - MidasPayment
@@ -157,6 +160,7 @@ const callbackApiNames = [
     'subscribeVoIPVideoMembers',
     'setEnable1v1Chat',
     'joinVoIPChat',
+    'join1v1Chat',
     'exitVoIPChat',
 
     // 位置 - Location
@@ -373,7 +377,6 @@ const callbackApiNames = [
     'handleWCPayOverseaWalletBuffer',
     'installDownloadApp',
     'issueTrafficCard',
-    'join1v1Chat',
     'joinGroup',
     'launchApplicationDirectly',
     'launchApplicationForNative',
@@ -392,6 +395,7 @@ const callbackApiNames = [
     'openChannelsCreateContact',
     'openChannelsLiveCollection',
     'openDeliveryList',
+    'openEmbeddedMiniProgram',
     'openMiniProgramHistoryList',
     'openMiniProgramProfile',
     'openMiniProgramSearch',
@@ -410,9 +414,7 @@ const callbackApiNames = [
     'pauseDownloadAppTask',
     'phoneBindCardVerifySms',
     'predownloadMiniProgramPackageDirectly',
-    'preloadAssets',
     'preloadMiniProgramEnvDirectly',
-    'preloadWebview',
     'presetWifiList',
     'preventApplePayUI',
     'publishWeChatState',

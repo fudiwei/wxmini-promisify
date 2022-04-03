@@ -31,7 +31,7 @@ declare const __wxConfig: {
 
     platform: string;
 
-    envVersion: 'develop' | 'trial' | 'release';
+    envVersion: "develop" | "trial" | "release";
 
     entryPagePath: string;
 
@@ -45,7 +45,7 @@ declare const __wxConfig: {
     };
 
     tabBar?: {
-        borderStyle?: 'black' | 'white';
+        borderStyle?: "black" | "white";
         color?: string;
         backgroundColor?: string;
         selectedColor?: string;

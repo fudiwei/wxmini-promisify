@@ -16,7 +16,7 @@ specifiers:
   gulp-strip-debug: ^4.0.0
   gulp-uglify: ^3.0.2
   minigame-api-typings: ^3.4.2
-  miniprogram-api-typings: ^3.4.5
+  miniprogram-api-typings: ^3.4.6
   prettier: 2.6.1
   typescript: ~4.6.0
 
@@ -36,7 +36,7 @@ devDependencies:
   gulp-strip-debug: 4.0.0_gulp@4.0.2
   gulp-uglify: 3.0.2
   minigame-api-typings: 3.4.2
-  miniprogram-api-typings: 3.4.5
+  miniprogram-api-typings: 3.4.6
   prettier: 2.6.1
   typescript: 4.6.3
 
@@ -3608,7 +3608,7 @@ packages:
     dev: true
 
   /minigame-api-typings/3.4.2:
-    resolution: {integrity: sha512-Px7ZOg1DWdSZVMCgcKZcGcWWS/n95Wk4Wozi1NjXq9+nxQnatn9EGQODC1zCkbOKJWA9qcmrc76ydkf+t+aeDQ==, tarball: minigame-api-typings/download/minigame-api-typings-3.4.2.tgz}
+    resolution: {integrity: sha512-Px7ZOg1DWdSZVMCgcKZcGcWWS/n95Wk4Wozi1NjXq9+nxQnatn9EGQODC1zCkbOKJWA9qcmrc76ydkf+t+aeDQ==}
     dev: true
 
   /minimatch/3.0.4:
@@ -3621,8 +3621,8 @@ packages:
     resolution: {integrity: sha512-FM9nNUYrRBAELZQT3xeZQ7fmMOBg6nWNmJKTcgsJeaLstP/UODVpGsr5OhXhhXg6f+qtJ8uiZ+PUxkDWcgIXLw==}
     dev: true
 
-  /miniprogram-api-typings/3.4.5:
-    resolution: {integrity: sha512-GWvMdmPhJ40PLq4/sOh+n2xGRKf2R3kcuOaSe7IRTdT+Os8lfNrJYehYdgH7IoUWqaHqV8mFEWQj5oPIGhVv4Q==, tarball: miniprogram-api-typings/download/miniprogram-api-typings-3.4.5.tgz}
+  /miniprogram-api-typings/3.4.6:
+    resolution: {integrity: sha512-1/aAma9wWzu9KS8m/h4j43UHoKS+XO61kaUDdftnlgwEyBndr0jrPJf/gUzdZQOST0pkLWmF0IMotz+j/Nh5SQ==}
     dev: true
 
   /mixin-deep/1.3.2:
