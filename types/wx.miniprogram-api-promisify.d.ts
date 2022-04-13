@@ -9,7 +9,7 @@ declare namespace WechatMiniprogram {
         type PromisifiedResult<T extends CallbackOption> = Promise<Parameters<T["success"]>[0]>;
     }
 
-    interface Wx {
+    interface WxAsync {
         // 基础：系统 - Base/System
         openSystemBluetoothSettingAsync(options?: Wx.PromisifiedOption<OpenSystemBluetoothSettingOption>): Wx.PromisifiedResult<OpenSystemBluetoothSettingOption>;
         openAppAuthorizeSettingAsync(options?: Wx.PromisifiedOption<OpenAppAuthorizeSettingOption>): Wx.PromisifiedResult<OpenAppAuthorizeSettingOption>;
@@ -91,15 +91,42 @@ declare namespace WechatMiniprogram {
         setWindowSizeAsync(options?: Wx.PromisifiedOption<SetWindowSizeOption>): Wx.PromisifiedResult<SetWindowSizeOption>;
 
         // 网络：发起请求 - Network/Request
-        requestAsync(options?: Wx.PromisifiedOption<RequestOption>): Wx.PromisifiedResult<RequestOption>;
-        requestAsync<T>(options?: Wx.PromisifiedOption<RequestOption<T>>): Promise<RequestOption<T>>;
+        requestAsync(
+            options?: Wx.PromisifiedOption<RequestOption> & {
+                onHeadersReceived?: OnHeadersReceivedCallback;
+                onChunkReceived?: OnChunkReceivedCallback;
+            }
+        ): Wx.PromisifiedResult<RequestOption>;
+        requestAsync<T>(
+            options?: Wx.PromisifiedOption<RequestOption<T>> & {
+                onHeadersReceived?: OnHeadersReceivedCallback;
+                onChunkReceived?: OnChunkReceivedCallback;
+            }
+        ): Promise<RequestOption<T>>;
         // 网络：下载 - Network/Download
-        downloadFileAsync(options?: Wx.PromisifiedOption<DownloadFileOption>): Wx.PromisifiedResult<DownloadFileOption>;
+        downloadFileAsync(
+            options?: Wx.PromisifiedOption<DownloadFileOption> & {
+                onHeadersReceived?: OnHeadersReceivedCallback;
+                onProgressUpdate?: DownloadTaskOnProgressUpdateCallback;
+            }
+        ): Wx.PromisifiedResult<DownloadFileOption>;
         // 网络：上传 - Network/Upload
-        uploadFileAsync(options?: Wx.PromisifiedOption<UploadFileOption>): Wx.PromisifiedResult<UploadFileOption>;
+        uploadFileAsync(
+            options?: Wx.PromisifiedOption<UploadFileOption> & {
+                onHeadersReceived?: OnHeadersReceivedCallback;
+                onProgressUpdate?: DownloadTaskOnProgressUpdateCallback;
+            }
+        ): Wx.PromisifiedResult<UploadFileOption>;
         // 网络：WebSocket - Network/WebSocket
         sendSocketMessageAsync(options?: Wx.PromisifiedOption<SendSocketMessageOption>): Wx.PromisifiedResult<SendSocketMessageOption>;
-        connectSocketAsync(options?: Wx.PromisifiedOption<ConnectSocketOption>): Wx.PromisifiedResult<ConnectSocketOption>;
+        connectSocketAsync(
+            options?: Wx.PromisifiedOption<ConnectSocketOption> & {
+                onClose?: OnSocketCloseCallback;
+                onError?: OnSocketErrorCallback;
+                onMessage?: OnSocketMessageCallback;
+                onOpen?: OnSocketOpenCallback;
+            }
+        ): Wx.PromisifiedResult<ConnectSocketOption>;
         closeSocketAsync(options?: Wx.PromisifiedOption<CloseSocketOption>): Wx.PromisifiedResult<CloseSocketOption>;
         // 网络：mDNS - Network/mDNS
         stopLocalServiceDiscoveryAsync(options?: Wx.PromisifiedOption<StopLocalServiceDiscoveryOption>): Wx.PromisifiedResult<StopLocalServiceDiscoveryOption>;
@@ -356,4 +383,7 @@ declare namespace WechatMiniprogram {
         // 第三方平台 - Ext
         getExtConfigAsync(options?: Wx.PromisifiedOption<GetExtConfigOption>): Wx.PromisifiedResult<GetExtConfigOption>;
     }
+
+    // @ts-ignore
+    interface Wx extends WxAsync {}
 }

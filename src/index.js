@@ -1,6 +1,4 @@
-const isCallable = (fn) => 'function' === typeof fn;
-
-const callbackApiNames = [
+const _apis = [
     // 基础：系统 - Base/System
     'openSystemBluetoothSetting',
     'openAppAuthorizeSetting',
@@ -8,6 +6,8 @@ const callbackApiNames = [
     'getSystemInfo',
     // 基础：更新 - Base/Update
     'updateWeChatApp',
+    // 基础：分包加载 - Base/Subpackage
+    'loadSubpackage',
     // 基础：调试 - Base/Debug
     'setEnableDebug',
     // 基础：性能 - Base/Performance
@@ -460,32 +460,59 @@ const callbackApiNames = [
     'voiceSplitJoint'
 ];
 
-const promisify = (fn) => {
-    if (!isCallable(fn))
-        throw 'The first argument `fn` must be a function.';
+const _isFn = (fn) => 'function' === typeof fn;
+
+const _c2p = (apiFunc, apiName) => {
+    if (!_isFn(apiFunc))
+        throw 'The first argument must be a function.';
 
     return (options = {}, ...args) => {
         const onSuccess = options.success,
             onFail = options.fail,
             onComplete = options.complete;
 
+        const bindEventListeners = (target, options, ...events) => {
+            if (!target || !options) {
+                return;
+            }
+
+            for (let i = 0; i < events.length; i++) {
+                if (_isFn(target[events[i]]) && _isFn(options[events[i]])) {
+                    target[events[i]](options[events[i]]);
+                }
+            }
+        };
+
         const p = new Promise((resolve, reject) => {
             options.success = (res) => resolve(res);
             options.fail = (err) => reject(err);
             options.complete = undefined;
-            fn(options, ...args);
+
+            const ret = apiFunc(options, ...args);
+            if (apiName === 'request') {
+                bindEventListeners(ret, options, 'onHeadersReceived', 'onChunkReceived');
+            } else if (apiName === 'downloadFile' || apiName === 'uploadFile') {
+                bindEventListeners(ret, options, 'onHeadersReceived', 'onProgressUpdate');
+            } else if (apiName === 'connectSocket') {
+                bindEventListeners(ret, options, 'onClose', 'onError', 'onMessage', 'onOpen');
+            } else if (apiName === 'loadSubpackage') {
+                bindEventListeners(ret, options, 'onProgressUpdate');
+            }
         }).then((res) => {
-            isCallable(onSuccess) && onSuccess(res);
+            _isFn(onSuccess) && onSuccess(res);
             return res;
         }).catch((err) => {
-            isCallable(onFail) && onFail(err);
+            _isFn(onFail) && onFail(err);
             throw err;
         });
 
-        isCallable(p.finally) && isCallable(onComplete) && p.finally(onComplete);
-
+        _isFn(p.finally) && _isFn(onComplete) && p.finally(onComplete);
         return p;
     };
+};
+
+const promisify = (fn) => {
+    return _c2p(fn);
 };
 
 const promisifyAll = (config = {}) => {
@@ -503,16 +530,16 @@ const promisifyAll = (config = {}) => {
         throw 'The first argument `config.extends` should be an array.';
 
     []
-        .concat(callbackApiNames, config.extends)
+        .concat(_apis, config.extends)
         .filter((e, i, arr) => !!e && arr.indexOf(e, 0) === i)
         .forEach((prop) => {
-            const fn = isCallable(config.env[prop])
+            const fn = _isFn(config.env[prop])
                 ? config.env[prop]
                 : function (args = {}) {
                     args.fail({ errMsg: `${prop}:not supported` });
                     args.complete({ errMsg: `${prop}:not supported` });
                 };
-            config.root[prop + 'Async'] = promisify(fn);
+            config.root[prop + 'Async'] = _c2p(fn, prop);
         });
 };
 
