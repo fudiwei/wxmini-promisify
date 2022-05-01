@@ -1,3 +1,5 @@
+/// <reference path="./wx.miniprogram-api-qy.d.ts" />
+
 declare namespace WechatMiniprogram {
     namespace WxAsync {
         type CallbackOption = {
@@ -384,6 +386,63 @@ declare namespace WechatMiniprogram {
         getExtConfigAsync(option?: WxAsync.PromisifiedOption<GetExtConfigOption>): WxAsync.PromisifiedResult<GetExtConfigOption>;
     }
 
+    interface QyAsync {
+        loginAsync(option?: WxAsync.PromisifiedOption<Qy.LoginOption>): WxAsync.PromisifiedResult<Qy.LoginOption>;
+        checkSessionAsync(option?: WxAsync.PromisifiedOption<Qy.CheckSessionOption>): WxAsync.PromisifiedResult<Qy.CheckSessionOption>;
+
+        getSystemInfoAsync(option?: WxAsync.PromisifiedOption<Qy.GetSystemInfoOption>): WxAsync.PromisifiedResult<Qy.GetSystemInfoOption>;
+        getContextAsync(option?: WxAsync.PromisifiedOption<Qy.GetContextOption>): WxAsync.PromisifiedResult<Qy.GetContextOption>;
+        setShareAttrAsync(option?: WxAsync.PromisifiedOption<Qy.SetShareAttrOption>): WxAsync.PromisifiedResult<Qy.SetShareAttrOption>;
+        getShareInfoAsync(option?: WxAsync.PromisifiedOption<Qy.GetShareInfoOption>): WxAsync.PromisifiedResult<Qy.GetShareInfoOption>;
+
+        selectEnterpriseContactAsync(option?: WxAsync.PromisifiedOption<Qy.SelectEnterpriseContactOption>): WxAsync.PromisifiedResult<Qy.SelectEnterpriseContactOption>;
+        openUserProfileAsync(option?: WxAsync.PromisifiedOption<Qy.OpenUserProfileOption>): WxAsync.PromisifiedResult<Qy.OpenUserProfileOption>;
+        getEnterpriseUserInfoAsync(option?: WxAsync.PromisifiedOption<Qy.GetEnterpriseUserInfoOption>): WxAsync.PromisifiedResult<Qy.GetEnterpriseUserInfoOption>;
+        getAvatarAsync(option?: WxAsync.PromisifiedOption<Qy.GetAvatarOption>): WxAsync.PromisifiedResult<Qy.GetAvatarOption>;
+        getQrCodeAsync(option?: WxAsync.PromisifiedOption<Qy.GetQrCodeOption>): WxAsync.PromisifiedResult<Qy.GetQrCodeOption>;
+        selectCorpGroupContactAsync(option?: WxAsync.PromisifiedOption<Qy.SelectCorpGroupContactOption>): WxAsync.PromisifiedResult<Qy.SelectCorpGroupContactOption>;
+        claimClassAdminAsync(option?: WxAsync.PromisifiedOption<Qy.ClaimClassAdminOption>): WxAsync.PromisifiedResult<Qy.ClaimClassAdminOption>;
+        selectPrivilegedContactAsync(option?: WxAsync.PromisifiedOption<Qy.SelectPrivilegedContactOption>): WxAsync.PromisifiedResult<Qy.SelectPrivilegedContactOption>;
+
+        openEnterpriseChatAsync(option?: WxAsync.PromisifiedOption<Qy.OpenEnterpriseChatOption>): WxAsync.PromisifiedResult<Qy.OpenEnterpriseChatOption>;
+        updateEnterpriseChatAsync(option?: WxAsync.PromisifiedOption<Qy.UpdateEnterpriseChatOption>): WxAsync.PromisifiedResult<Qy.UpdateEnterpriseChatOption>;
+        sendChatMessageAsync(option?: WxAsync.PromisifiedOption<Qy.SendChatMessageOption>): WxAsync.PromisifiedResult<Qy.SendChatMessageOption>;
+        createCorpGroupChatAsync(option?: WxAsync.PromisifiedOption<Qy.CreateCorpGroupChatOption>): WxAsync.PromisifiedResult<Qy.CreateCorpGroupChatOption>;
+        updateCorpGroupChatAsync(option?: WxAsync.PromisifiedOption<Qy.UpdateCorpGroupChatOption>): WxAsync.PromisifiedResult<Qy.UpdateCorpGroupChatOption>;
+
+        selectExternalContactAsync(option?: WxAsync.PromisifiedOption<Qy.SelectExternalContactOption>): WxAsync.PromisifiedResult<Qy.SelectExternalContactOption>;
+        getCurExternalContactAsync(option?: WxAsync.PromisifiedOption<Qy.GetCurExternalContactOption>): WxAsync.PromisifiedResult<Qy.GetCurExternalContactOption>;
+        getCurExternalChatAsync(option?: WxAsync.PromisifiedOption<Qy.GetCurExternalChatOption>): WxAsync.PromisifiedResult<Qy.GetCurExternalChatOption>;
+        shareToExternalContactAsync(option?: WxAsync.PromisifiedOption<Qy.ShareToExternalContactOption>): WxAsync.PromisifiedResult<Qy.ShareToExternalContactOption>;
+        shareToExternalChatAsync(option?: WxAsync.PromisifiedOption<Qy.ShareToExternalChatOption>): WxAsync.PromisifiedResult<Qy.ShareToExternalChatOption>;
+        navigateToAddCustomerAsync(option?: WxAsync.PromisifiedOption<Qy.NavigateToAddCustomerOption>): WxAsync.PromisifiedResult<Qy.NavigateToAddCustomerOption>;
+        shareToExternalMomentsAsync(option?: WxAsync.PromisifiedOption<Qy.ShareToExternalMomentsOption>): WxAsync.PromisifiedResult<Qy.ShareToExternalMomentsOption>;
+
+        navigateToKfChatAsync(option?: WxAsync.PromisifiedOption<Qy.NavigateToKfChatOption>): WxAsync.PromisifiedResult<Qy.NavigateToKfChatOption>;
+
+        startLivingAsync(option?: WxAsync.PromisifiedOption<Qy.StartLivingOption>): WxAsync.PromisifiedResult<Qy.StartLivingOption>;
+        replayLivingAsync(option?: WxAsync.PromisifiedOption<Qy.ReplayLivingOption>): WxAsync.PromisifiedResult<Qy.ReplayLivingOption>;
+        downloadLivingReplayAsync(option?: WxAsync.PromisifiedOption<Qy.DownloadLivingReplayOption>): WxAsync.PromisifiedResult<Qy.DownloadLivingReplayOption>;
+
+        // 教育
+        createSchoolPaymentAsync(option?: WxAsync.PromisifiedOption<Qy.CreateSchoolPaymentOption>): WxAsync.PromisifiedResult<Qy.CreateSchoolPaymentOption>;
+
+        // NFC 接口
+        getNFCReaderStateAsync(option?: WxAsync.PromisifiedOption<Qy.GetNFCReaderStateOption>): WxAsync.PromisifiedResult<Qy.GetNFCReaderStateOption>;
+        startNFCReaderAsync(option?: WxAsync.PromisifiedOption<Qy.StartNFCReaderOption>): WxAsync.PromisifiedResult<Qy.StartNFCReaderOption>;
+        stopNFCReaderAsync(option?: WxAsync.PromisifiedOption<Qy.StopNFCReaderOption>): WxAsync.PromisifiedResult<Qy.StopNFCReaderOption>;
+
+        openThirdAppServiceChatAsync(option?: WxAsync.PromisifiedOption<Qy.OpenThirdAppServiceChatOption>): WxAsync.PromisifiedResult<Qy.OpenThirdAppServiceChatOption>;
+        openAppManageAsync(option?: WxAsync.PromisifiedOption<Qy.OpenAppManageOption>): WxAsync.PromisifiedResult<Qy.OpenAppManageOption>;
+        openAppCommentAsync(option?: WxAsync.PromisifiedOption<Qy.OpenAppCommentOption>): WxAsync.PromisifiedResult<Qy.OpenAppCommentOption>;
+
+        translateVoiceAsync(option?: WxAsync.PromisifiedOption<Qy.TranslateVoiceOption>): WxAsync.PromisifiedResult<Qy.TranslateVoiceOption>;
+        chooseMessageFileAsync(option?: WxAsync.PromisifiedOption<Qy.ChooseMessageFileOption>): WxAsync.PromisifiedResult<Qy.ChooseMessageFileOption>;
+    }
+
     // @ts-ignore
     interface Wx extends WxAsync {}
+
+    // @ts-ignore
+    interface Qy extends QyAsync {}
 }

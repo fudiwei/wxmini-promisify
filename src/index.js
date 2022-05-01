@@ -457,7 +457,48 @@ const _apis = [
     'updatePerfData',
     'uploadSilkVoice',
     'verifyPaymentPassword',
-    'voiceSplitJoint'
+    'voiceSplitJoint',
+
+    // 企业微信专属 API
+    'qy.login',
+    'qy.checkSession',
+    'qy.getSystemInfo',
+    'qy.getContext',
+    'qy.setShareAttr',
+    'qy.getShareInfo',
+    'qy.selectEnterpriseContact',
+    'qy.openUserProfile',
+    'qy.getEnterpriseUserInfo',
+    'qy.getAvatar',
+    'qy.getQrCode',
+    'qy.selectCorpGroupContact',
+    'qy.claimClassAdmin',
+    'qy.selectPrivilegedContact',
+    'qy.openEnterpriseChat',
+    'qy.updateEnterpriseChat',
+    'qy.sendChatMessage',
+    'qy.createCorpGroupChat',
+    'qy.updateCorpGroupChat',
+    'qy.selectExternalContact',
+    'qy.getCurExternalContact',
+    'qy.getCurExternalChat',
+    'qy.shareToExternalContact',
+    'qy.shareToExternalChat',
+    'qy.navigateToAddCustomer',
+    'qy.shareToExternalMoments',
+    'qy.navigateToKfChat',
+    'qy.startLiving',
+    'qy.replayLiving',
+    'qy.downloadLivingReplay',
+    'qy.createSchoolPayment',
+    'qy.getNFCReaderState',
+    'qy.startNFCReader',
+    'qy.stopNFCReader',
+    'qy.openThirdAppServiceChat',
+    'qy.openAppManage',
+    'qy.openAppComment',
+    'qy.translateVoice',
+    'qy.chooseMessageFile'
 ];
 
 const _isFn = (fn) => 'function' === typeof fn;
@@ -533,13 +574,28 @@ const promisifyAll = (config = {}) => {
         .concat(_apis, config.extends)
         .filter((e, i, arr) => !!e && arr.indexOf(e, 0) === i)
         .forEach((prop) => {
-            const fn = _isFn(config.env[prop])
-                ? config.env[prop]
-                : function (args = {}) {
-                    args.fail({ errMsg: `${prop}:not supported` });
-                    args.complete({ errMsg: `${prop}:not supported` });
-                };
-            config.root[prop + 'Async'] = _c2p(fn, prop);
+            let env = config.env;
+            let root = config.root;
+
+            const pathes = String(prop).split('.').map(s => s.trim()).filter(s => !!s);
+            for (let i = 0, len = pathes.length; i < len; i++) {
+                const path = pathes[i];
+
+                if (i === len - 1) {
+                    const fn = _isFn(env[path])
+                        ? env[path]
+                        : function (args = {}) {
+                            args.fail({ errMsg: `${prop}:not supported` });
+                            args.complete({ errMsg: `${prop}:not supported` });
+                        };
+                    root[path + 'Async'] = _c2p(fn, prop);
+                    continue;
+                }
+
+                root[path] = Object.assign({}, env[path]);
+                env = env[path];
+                root = root[path];
+            }
         });
 };
 
