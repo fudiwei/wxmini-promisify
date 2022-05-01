@@ -1,4 +1,5 @@
 /// <reference path="./wx.miniprogram-config.d.ts" />
+/// <reference path="./wx.miniprogram-api-qy.d.ts" />
 /// <reference path="./wx.miniprogram-api-promisify.d.ts" />
 /// <reference path="./wx.minigame-api-promisify.d.ts" />
 
