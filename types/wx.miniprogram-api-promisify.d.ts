@@ -353,6 +353,7 @@ declare namespace WechatMiniprogram {
         setVisualEffectOnCaptureAsync(option?: WxAsync.PromisifiedOption<SetVisualEffectOnCaptureOption>): WxAsync.PromisifiedResult<SetVisualEffectOnCaptureOption>;
         setScreenBrightnessAsync(option?: WxAsync.PromisifiedOption<SetScreenBrightnessOption>): WxAsync.PromisifiedResult<SetScreenBrightnessOption>;
         setKeepScreenOnAsync(option?: WxAsync.PromisifiedOption<SetKeepScreenOnOption>): WxAsync.PromisifiedResult<SetKeepScreenOnOption>;
+        getScreenRecordingStateAsync(option?: WxAsync.PromisifiedOption<GetScreenRecordingStateOption>): WxAsync.PromisifiedResult<GetScreenRecordingStateOption>;
         getScreenBrightnessAsync(option?: WxAsync.PromisifiedOption<GetScreenBrightnessOption>): WxAsync.PromisifiedResult<GetScreenBrightnessOption>;
         // 设备：键盘 - Device/Keyword
         hideKeyboardAsync(option?: WxAsync.PromisifiedOption<HideKeyboardOption>): WxAsync.PromisifiedResult<HideKeyboardOption>;

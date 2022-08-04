@@ -113,7 +113,10 @@ declare namespace WechatMinigame {
         saveImageToPhotosAlbumAsync(option?: WxAsync.PromisifiedOption<SaveImageToPhotosAlbumOption>): WxAsync.PromisifiedResult<SaveImageToPhotosAlbumOption>;
         previewMediaAsync(option?: WxAsync.PromisifiedOption<PreviewMediaOption>): WxAsync.PromisifiedResult<PreviewMediaOption>;
         previewImageAsync(option?: WxAsync.PromisifiedOption<PreviewImageOption>): WxAsync.PromisifiedResult<PreviewImageOption>;
+        chooseMessageFileAsync(option?: WxAsync.PromisifiedOption<ChooseMessageFileOption>): WxAsync.PromisifiedResult<ChooseMessageFileOption>;
         chooseImageAsync(option?: WxAsync.PromisifiedOption<ChooseImageOption>): WxAsync.PromisifiedResult<ChooseImageOption>;
+        // 媒体：视频 - Media/Video
+        chooseMediaAsync(option?: WxAsync.PromisifiedOption<ChooseMediaOption>): WxAsync.PromisifiedResult<ChooseMediaOption>;
         // 媒体：音频 - Media/Audio&Voice
         setInnerAudioOptionAsync(option?: WxAsync.PromisifiedOption<SetInnerAudioOption>): WxAsync.PromisifiedResult<SetInnerAudioOption>;
         getAvailableAudioSourcesAsync(option?: WxAsync.PromisifiedOption<GetAvailableAudioSourcesOption>): WxAsync.PromisifiedResult<GetAvailableAudioSourcesOption>;

@@ -308,6 +308,7 @@ const _apis = [
     'setVisualEffectOnCapture',
     'setScreenBrightness',
     'setKeepScreenOn',
+    'getScreenRecordingState',
     'getScreenBrightness',
     // 设备：键盘 - Device/Keyboard
     'hideKeyboard',
