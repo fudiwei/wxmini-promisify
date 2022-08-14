@@ -656,6 +656,38 @@ declare namespace WechatMiniprogram.Qy {
     type ChooseMessageFileCompleteCallback = (res: GeneralCallbackResult) => void;
     type ChooseMessageFileFailCallback = (res: GeneralCallbackResult) => void;
     type ChooseMessageFileSuccessCallback = (result: ChooseMessageFileSuccessCallbackResult) => void;
+
+    interface CreateExternalPaymentOption {
+        complete?: CreateExternalPaymentCompleteCallback;
+        fail?: CreateExternalPaymentFailCallback;
+        success?: CreateExternalPaymentSuccessCallback;
+        paymentType?: number;
+        totalFee?: number;
+        description?: string;
+    }
+    interface CreateExternalPaymentSuccessCallbackResult {
+        paymentId: string;
+        errMsg: string;
+    }
+    type CreateExternalPaymentCompleteCallback = (res: GeneralCallbackResult) => void;
+    type CreateExternalPaymentFailCallback = (res: GeneralCallbackResult) => void;
+    type CreateExternalPaymentSuccessCallback = (result: CreateExternalPaymentSuccessCallbackResult) => void;
+
+    interface RefundExternalPaymentOption {
+        complete?: RefundExternalPaymentCompleteCallback;
+        fail?: RefundExternalPaymentFailCallback;
+        success?: RefundExternalPaymentSuccessCallback;
+        paymentId: string;
+        outTradeNo: string;
+        refundFee?: number;
+        refundComment?: string;
+    }
+    interface RefundExternalPaymentSuccessCallbackResult {
+        errMsg: string;
+    }
+    type RefundExternalPaymentCompleteCallback = (res: GeneralCallbackResult) => void;
+    type RefundExternalPaymentFailCallback = (res: GeneralCallbackResult) => void;
+    type RefundExternalPaymentSuccessCallback = (result: RefundExternalPaymentSuccessCallbackResult) => void;
 }
 
 declare namespace WechatMiniprogram {
@@ -672,50 +704,30 @@ declare namespace WechatMiniprogram {
         getShareInfo<T extends WechatMiniprogram.Qy.GetShareInfoOption = WechatMiniprogram.Qy.GetShareInfoOption>(option?: T): WechatMiniprogram.PromisifySuccessResult<T, WechatMiniprogram.Qy.GetShareInfoOption>;
 
         // 企业通讯录
-        selectEnterpriseContact<T extends WechatMiniprogram.Qy.SelectEnterpriseContactOption = WechatMiniprogram.Qy.SelectEnterpriseContactOption>(
-            option?: T
-        ): WechatMiniprogram.PromisifySuccessResult<T, WechatMiniprogram.Qy.SelectEnterpriseContactOption>;
+        selectEnterpriseContact<T extends WechatMiniprogram.Qy.SelectEnterpriseContactOption = WechatMiniprogram.Qy.SelectEnterpriseContactOption>(option?: T): WechatMiniprogram.PromisifySuccessResult<T, WechatMiniprogram.Qy.SelectEnterpriseContactOption>;
         openUserProfile<T extends WechatMiniprogram.Qy.OpenUserProfileOption = WechatMiniprogram.Qy.OpenUserProfileOption>(option?: T): WechatMiniprogram.PromisifySuccessResult<T, WechatMiniprogram.Qy.OpenUserProfileOption>;
-        getEnterpriseUserInfo<T extends WechatMiniprogram.Qy.GetEnterpriseUserInfoOption = WechatMiniprogram.Qy.GetEnterpriseUserInfoOption>(
-            option?: T
-        ): WechatMiniprogram.PromisifySuccessResult<T, WechatMiniprogram.Qy.GetEnterpriseUserInfoOption>;
+        getEnterpriseUserInfo<T extends WechatMiniprogram.Qy.GetEnterpriseUserInfoOption = WechatMiniprogram.Qy.GetEnterpriseUserInfoOption>(option?: T): WechatMiniprogram.PromisifySuccessResult<T, WechatMiniprogram.Qy.GetEnterpriseUserInfoOption>;
         getAvatar<T extends WechatMiniprogram.Qy.GetAvatarOption = WechatMiniprogram.Qy.GetAvatarOption>(option?: T): WechatMiniprogram.PromisifySuccessResult<T, WechatMiniprogram.Qy.GetAvatarOption>;
         getQrCode<T extends WechatMiniprogram.Qy.GetQrCodeOption = WechatMiniprogram.Qy.GetQrCodeOption>(option?: T): WechatMiniprogram.PromisifySuccessResult<T, WechatMiniprogram.Qy.GetQrCodeOption>;
-        selectCorpGroupContact<T extends WechatMiniprogram.Qy.SelectCorpGroupContactOption = WechatMiniprogram.Qy.SelectCorpGroupContactOption>(
-            option?: T
-        ): WechatMiniprogram.PromisifySuccessResult<T, WechatMiniprogram.Qy.SelectCorpGroupContactOption>;
+        selectCorpGroupContact<T extends WechatMiniprogram.Qy.SelectCorpGroupContactOption = WechatMiniprogram.Qy.SelectCorpGroupContactOption>(option?: T): WechatMiniprogram.PromisifySuccessResult<T, WechatMiniprogram.Qy.SelectCorpGroupContactOption>;
         claimClassAdmin<T extends WechatMiniprogram.Qy.ClaimClassAdminOption = WechatMiniprogram.Qy.ClaimClassAdminOption>(option?: T): WechatMiniprogram.PromisifySuccessResult<T, WechatMiniprogram.Qy.ClaimClassAdminOption>;
-        selectPrivilegedContact<T extends WechatMiniprogram.Qy.SelectPrivilegedContactOption = WechatMiniprogram.Qy.SelectPrivilegedContactOption>(
-            option?: T
-        ): WechatMiniprogram.PromisifySuccessResult<T, WechatMiniprogram.Qy.SelectPrivilegedContactOption>;
+        selectPrivilegedContact<T extends WechatMiniprogram.Qy.SelectPrivilegedContactOption = WechatMiniprogram.Qy.SelectPrivilegedContactOption>(option?: T): WechatMiniprogram.PromisifySuccessResult<T, WechatMiniprogram.Qy.SelectPrivilegedContactOption>;
 
         // 会话接口
         openEnterpriseChat<T extends WechatMiniprogram.Qy.OpenEnterpriseChatOption = WechatMiniprogram.Qy.OpenEnterpriseChatOption>(option?: T): WechatMiniprogram.PromisifySuccessResult<T, WechatMiniprogram.Qy.OpenEnterpriseChatOption>;
-        updateEnterpriseChat<T extends WechatMiniprogram.Qy.UpdateEnterpriseChatOption = WechatMiniprogram.Qy.UpdateEnterpriseChatOption>(
-            option?: T
-        ): WechatMiniprogram.PromisifySuccessResult<T, WechatMiniprogram.Qy.UpdateEnterpriseChatOption>;
+        updateEnterpriseChat<T extends WechatMiniprogram.Qy.UpdateEnterpriseChatOption = WechatMiniprogram.Qy.UpdateEnterpriseChatOption>(option?: T): WechatMiniprogram.PromisifySuccessResult<T, WechatMiniprogram.Qy.UpdateEnterpriseChatOption>;
         sendChatMessage<T extends WechatMiniprogram.Qy.SendChatMessageOption = WechatMiniprogram.Qy.SendChatMessageOption>(option?: T): WechatMiniprogram.PromisifySuccessResult<T, WechatMiniprogram.Qy.SendChatMessageOption>;
         createCorpGroupChat<T extends WechatMiniprogram.Qy.CreateCorpGroupChatOption = WechatMiniprogram.Qy.CreateCorpGroupChatOption>(option?: T): WechatMiniprogram.PromisifySuccessResult<T, WechatMiniprogram.Qy.CreateCorpGroupChatOption>;
         updateCorpGroupChat<T extends WechatMiniprogram.Qy.UpdateCorpGroupChatOption = WechatMiniprogram.Qy.UpdateCorpGroupChatOption>(option?: T): WechatMiniprogram.PromisifySuccessResult<T, WechatMiniprogram.Qy.UpdateCorpGroupChatOption>;
 
         // 客户联系
-        selectExternalContact<T extends WechatMiniprogram.Qy.SelectExternalContactOption = WechatMiniprogram.Qy.SelectExternalContactOption>(
-            option?: T
-        ): WechatMiniprogram.PromisifySuccessResult<T, WechatMiniprogram.Qy.SelectExternalContactOption>;
-        getCurExternalContact<T extends WechatMiniprogram.Qy.GetCurExternalContactOption = WechatMiniprogram.Qy.GetCurExternalContactOption>(
-            option?: T
-        ): WechatMiniprogram.PromisifySuccessResult<T, WechatMiniprogram.Qy.GetCurExternalContactOption>;
+        selectExternalContact<T extends WechatMiniprogram.Qy.SelectExternalContactOption = WechatMiniprogram.Qy.SelectExternalContactOption>(option?: T): WechatMiniprogram.PromisifySuccessResult<T, WechatMiniprogram.Qy.SelectExternalContactOption>;
+        getCurExternalContact<T extends WechatMiniprogram.Qy.GetCurExternalContactOption = WechatMiniprogram.Qy.GetCurExternalContactOption>(option?: T): WechatMiniprogram.PromisifySuccessResult<T, WechatMiniprogram.Qy.GetCurExternalContactOption>;
         getCurExternalChat<T extends WechatMiniprogram.Qy.GetCurExternalChatOption = WechatMiniprogram.Qy.GetCurExternalChatOption>(option?: T): WechatMiniprogram.PromisifySuccessResult<T, WechatMiniprogram.Qy.GetCurExternalChatOption>;
-        shareToExternalContact<T extends WechatMiniprogram.Qy.ShareToExternalContactOption = WechatMiniprogram.Qy.ShareToExternalContactOption>(
-            option?: T
-        ): WechatMiniprogram.PromisifySuccessResult<T, WechatMiniprogram.Qy.ShareToExternalContactOption>;
+        shareToExternalContact<T extends WechatMiniprogram.Qy.ShareToExternalContactOption = WechatMiniprogram.Qy.ShareToExternalContactOption>(option?: T): WechatMiniprogram.PromisifySuccessResult<T, WechatMiniprogram.Qy.ShareToExternalContactOption>;
         shareToExternalChat<T extends WechatMiniprogram.Qy.ShareToExternalChatOption = WechatMiniprogram.Qy.ShareToExternalChatOption>(option?: T): WechatMiniprogram.PromisifySuccessResult<T, WechatMiniprogram.Qy.ShareToExternalChatOption>;
-        navigateToAddCustomer<T extends WechatMiniprogram.Qy.NavigateToAddCustomerOption = WechatMiniprogram.Qy.NavigateToAddCustomerOption>(
-            option?: T
-        ): WechatMiniprogram.PromisifySuccessResult<T, WechatMiniprogram.Qy.NavigateToAddCustomerOption>;
-        shareToExternalMoments<T extends WechatMiniprogram.Qy.ShareToExternalMomentsOption = WechatMiniprogram.Qy.ShareToExternalMomentsOption>(
-            option?: T
-        ): WechatMiniprogram.PromisifySuccessResult<T, WechatMiniprogram.Qy.ShareToExternalMomentsOption>;
+        navigateToAddCustomer<T extends WechatMiniprogram.Qy.NavigateToAddCustomerOption = WechatMiniprogram.Qy.NavigateToAddCustomerOption>(option?: T): WechatMiniprogram.PromisifySuccessResult<T, WechatMiniprogram.Qy.NavigateToAddCustomerOption>;
+        shareToExternalMoments<T extends WechatMiniprogram.Qy.ShareToExternalMomentsOption = WechatMiniprogram.Qy.ShareToExternalMomentsOption>(option?: T): WechatMiniprogram.PromisifySuccessResult<T, WechatMiniprogram.Qy.ShareToExternalMomentsOption>;
         updateMomentsSetting<T extends WechatMiniprogram.Qy.UpdateMomentsSettingOption = WechatMiniprogram.Qy.UpdateMomentsSettingOption>(option?: T, callback?: WechatMiniprogram.Qy.UpdateMomentsSettingCompleteCallback): void;
 
         // 微信客服
@@ -724,9 +736,7 @@ declare namespace WechatMiniprogram {
         // 效率工具
         startLiving<T extends WechatMiniprogram.Qy.StartLivingOption = WechatMiniprogram.Qy.StartLivingOption>(option?: T): WechatMiniprogram.PromisifySuccessResult<T, WechatMiniprogram.Qy.StartLivingOption>;
         replayLiving<T extends WechatMiniprogram.Qy.ReplayLivingOption = WechatMiniprogram.Qy.ReplayLivingOption>(option?: T): WechatMiniprogram.PromisifySuccessResult<T, WechatMiniprogram.Qy.ReplayLivingOption>;
-        downloadLivingReplay<T extends WechatMiniprogram.Qy.DownloadLivingReplayOption = WechatMiniprogram.Qy.DownloadLivingReplayOption>(
-            option?: T
-        ): WechatMiniprogram.PromisifySuccessResult<T, WechatMiniprogram.Qy.DownloadLivingReplayOption>;
+        downloadLivingReplay<T extends WechatMiniprogram.Qy.DownloadLivingReplayOption = WechatMiniprogram.Qy.DownloadLivingReplayOption>(option?: T): WechatMiniprogram.PromisifySuccessResult<T, WechatMiniprogram.Qy.DownloadLivingReplayOption>;
 
         // 教育
         createSchoolPayment<T extends WechatMiniprogram.Qy.CreateSchoolPaymentOption = WechatMiniprogram.Qy.CreateSchoolPaymentOption>(option?: T): WechatMiniprogram.PromisifySuccessResult<T, WechatMiniprogram.Qy.CreateSchoolPaymentOption>;
@@ -738,15 +748,17 @@ declare namespace WechatMiniprogram {
         onNFCReadMessage(callback: WechatMiniprogram.Qy.OnNFCReadMessageCallback): void;
 
         // 第三方服务
-        openThirdAppServiceChat<T extends WechatMiniprogram.Qy.OpenThirdAppServiceChatOption = WechatMiniprogram.Qy.OpenThirdAppServiceChatOption>(
-            option?: T
-        ): WechatMiniprogram.PromisifySuccessResult<T, WechatMiniprogram.Qy.OpenThirdAppServiceChatOption>;
+        openThirdAppServiceChat<T extends WechatMiniprogram.Qy.OpenThirdAppServiceChatOption = WechatMiniprogram.Qy.OpenThirdAppServiceChatOption>(option?: T): WechatMiniprogram.PromisifySuccessResult<T, WechatMiniprogram.Qy.OpenThirdAppServiceChatOption>;
         openAppManage<T extends WechatMiniprogram.Qy.OpenAppManageOption = WechatMiniprogram.Qy.OpenAppManageOption>(option?: T): WechatMiniprogram.PromisifySuccessResult<T, WechatMiniprogram.Qy.OpenAppManageOption>;
         openAppComment<T extends WechatMiniprogram.Qy.OpenAppCommentOption = WechatMiniprogram.Qy.OpenAppCommentOption>(option?: T): WechatMiniprogram.PromisifySuccessResult<T, WechatMiniprogram.Qy.OpenAppCommentOption>;
 
         // 更多企业微信专用接口
         translateVoice<T extends WechatMiniprogram.Qy.TranslateVoiceOption = WechatMiniprogram.Qy.TranslateVoiceOption>(option?: T): WechatMiniprogram.PromisifySuccessResult<T, WechatMiniprogram.Qy.TranslateVoiceOption>;
         chooseMessageFile<T extends WechatMiniprogram.Qy.ChooseMessageFileOption = WechatMiniprogram.Qy.ChooseMessageFileOption>(option?: T): WechatMiniprogram.PromisifySuccessResult<T, WechatMiniprogram.Qy.ChooseMessageFileOption>;
+
+        // 对外收款
+        createExternalPayment<T extends WechatMiniprogram.Qy.CreateExternalPaymentOption = WechatMiniprogram.Qy.CreateExternalPaymentOption>(option?: T): WechatMiniprogram.PromisifySuccessResult<T, WechatMiniprogram.Qy.CreateExternalPaymentOption>;
+        refundExternalPayment<T extends WechatMiniprogram.Qy.RefundExternalPaymentOption = WechatMiniprogram.Qy.RefundExternalPaymentOption>(option?: T): WechatMiniprogram.PromisifySuccessResult<T, WechatMiniprogram.Qy.RefundExternalPaymentOption>;
     }
 
     // @ts-ignore

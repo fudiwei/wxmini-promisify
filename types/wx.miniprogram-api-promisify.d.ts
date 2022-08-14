@@ -425,10 +425,8 @@ declare namespace WechatMiniprogram {
         replayLivingAsync(option?: WxAsync.PromisifiedOption<Qy.ReplayLivingOption>): WxAsync.PromisifiedResult<Qy.ReplayLivingOption>;
         downloadLivingReplayAsync(option?: WxAsync.PromisifiedOption<Qy.DownloadLivingReplayOption>): WxAsync.PromisifiedResult<Qy.DownloadLivingReplayOption>;
 
-        // 教育
         createSchoolPaymentAsync(option?: WxAsync.PromisifiedOption<Qy.CreateSchoolPaymentOption>): WxAsync.PromisifiedResult<Qy.CreateSchoolPaymentOption>;
 
-        // NFC 接口
         getNFCReaderStateAsync(option?: WxAsync.PromisifiedOption<Qy.GetNFCReaderStateOption>): WxAsync.PromisifiedResult<Qy.GetNFCReaderStateOption>;
         startNFCReaderAsync(option?: WxAsync.PromisifiedOption<Qy.StartNFCReaderOption>): WxAsync.PromisifiedResult<Qy.StartNFCReaderOption>;
         stopNFCReaderAsync(option?: WxAsync.PromisifiedOption<Qy.StopNFCReaderOption>): WxAsync.PromisifiedResult<Qy.StopNFCReaderOption>;
@@ -439,6 +437,9 @@ declare namespace WechatMiniprogram {
 
         translateVoiceAsync(option?: WxAsync.PromisifiedOption<Qy.TranslateVoiceOption>): WxAsync.PromisifiedResult<Qy.TranslateVoiceOption>;
         chooseMessageFileAsync(option?: WxAsync.PromisifiedOption<Qy.ChooseMessageFileOption>): WxAsync.PromisifiedResult<Qy.ChooseMessageFileOption>;
+
+        createExternalPaymentAsync(option?: WxAsync.PromisifiedOption<Qy.CreateExternalPaymentOption>): WxAsync.PromisifiedResult<Qy.CreateExternalPaymentOption>;
+        refundExternalPaymentAsync(option?: WxAsync.PromisifiedOption<Qy.RefundExternalPaymentOption>): WxAsync.PromisifiedResult<Qy.RefundExternalPaymentOption>;
     }
 
     // @ts-ignore

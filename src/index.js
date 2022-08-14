@@ -499,7 +499,9 @@ const _apis = [
     'qy.openAppManage',
     'qy.openAppComment',
     'qy.translateVoice',
-    'qy.chooseMessageFile'
+    'qy.chooseMessageFile',
+    'qy.createExternalPayment',
+    'qy.refundExternalPayment'
 ];
 
 const _isFn = (fn) => 'function' === typeof fn;
