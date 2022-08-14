@@ -21,7 +21,7 @@
         "promise",
         "promisify"
     ],
-    "version": "2.24.6",
+    "version": "2.24.7",
     "main": "dist/index.js",
     "author": "Fu Diwei",
     "repository": {
