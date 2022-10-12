@@ -3,12 +3,12 @@
 declare namespace WechatMiniprogram {
     namespace WxAsync {
         type CallbackOption = {
-            success?: (...args: any) => void;
-            fail?: (...args: any) => void;
-            complete?: (...args: any) => void;
+            success?: (...args: any) => any;
+            fail?: (...args: any) => any;
+            complete?: (...args: any) => any;
         };
         type PromisifiedOption<T extends CallbackOption> = Omit<T, keyof CallbackOption>;
-        type PromisifiedResult<T extends CallbackOption> = Promise<Parameters<T["success"]>[0]>;
+        type PromisifiedResult<T extends CallbackOption> = Promise<Parameters<NonNullable<T["success"]>>[0]>;
     }
 
     interface WxAsync {
@@ -22,8 +22,9 @@ declare namespace WechatMiniprogram {
         // 基础：调试 - Base/Debug
         setEnableDebugAsync(option?: WxAsync.PromisifiedOption<SetEnableDebugOption>): WxAsync.PromisifiedResult<SetEnableDebugOption>;
         // 基础：性能 - Base/Performance
-        preloadWebviewAsync(option?: WxAsync.PromisifiedOption<PreloadWebviewOption>): WxAsync.PromisifiedResult<PreloadWebviewOption>;
         preloadAssetsAsync(option?: WxAsync.PromisifiedOption<PreloadAssetsOption>): WxAsync.PromisifiedResult<PreloadAssetsOption>;
+        preloadSkylineViewAsync(option?: WxAsync.PromisifiedOption<PreloadSkylineViewOption>): WxAsync.PromisifiedResult<PreloadSkylineViewOption>;
+        preloadWebviewAsync(option?: WxAsync.PromisifiedOption<PreloadWebviewOption>): WxAsync.PromisifiedResult<PreloadWebviewOption>;
 
         // 路由 - Route
         reLaunchAsync(option?: WxAsync.PromisifiedOption<ReLaunchOption>): WxAsync.PromisifiedResult<ReLaunchOption>;
@@ -33,6 +34,7 @@ declare namespace WechatMiniprogram {
         navigateBackAsync(option?: WxAsync.PromisifiedOption<NavigateBackOption>): WxAsync.PromisifiedResult<NavigateBackOption>;
 
         // 跳转 - Navigate
+        openEmbeddedMiniProgramAsync(option?: WxAsync.PromisifiedOption<OpenEmbeddedMiniProgramOption>): WxAsync.PromisifiedResult<OpenEmbeddedMiniProgramOption>;
         navigateToMiniProgramAsync(option?: WxAsync.PromisifiedOption<NavigateToMiniProgramOption>): WxAsync.PromisifiedResult<NavigateToMiniProgramOption>;
         navigateBackMiniProgramAsync(option?: WxAsync.PromisifiedOption<NavigateBackMiniProgramOption>): WxAsync.PromisifiedResult<NavigateBackMiniProgramOption>;
         exitMiniProgramAsync(option?: WxAsync.PromisifiedOption<ExitMiniProgramOption>): WxAsync.PromisifiedResult<ExitMiniProgramOption>;
@@ -146,6 +148,8 @@ declare namespace WechatMiniprogram {
         getStorageAsync(option?: WxAsync.PromisifiedOption<GetStorageOption>): WxAsync.PromisifiedResult<GetStorageOption>;
         getStorageAsync<T>(option?: WxAsync.PromisifiedOption<GetStorageOption<T>>): Promise<GetStorageOption<T>>;
         clearStorageAsync(option?: WxAsync.PromisifiedOption<ClearStorageOption>): WxAsync.PromisifiedResult<ClearStorageOption>;
+        batchSetStorageAsync(option?: WxAsync.PromisifiedOption<BatchSetStorageOption>): WxAsync.PromisifiedResult<BatchSetStorageOption>;
+        batchGetStorageAsync(option?: WxAsync.PromisifiedOption<BatchGetStorageOption>): WxAsync.PromisifiedResult<BatchGetStorageOption>;
         // 数据缓存：周期性更新 - Storage/BackgroundFetch
         setBackgroundFetchTokenAsync(option?: WxAsync.PromisifiedOption<SetBackgroundFetchTokenOption>): WxAsync.PromisifiedResult<SetBackgroundFetchTokenOption>;
         getBackgroundFetchTokenAsync(option?: WxAsync.PromisifiedOption<GetBackgroundFetchTokenOption>): WxAsync.PromisifiedResult<GetBackgroundFetchTokenOption>;
@@ -231,6 +235,7 @@ declare namespace WechatMiniprogram {
         startLocationUpdateAsync(option?: WxAsync.PromisifiedOption<StartLocationUpdateOption>): WxAsync.PromisifiedResult<StartLocationUpdateOption>;
         openLocationAsync(option?: WxAsync.PromisifiedOption<OpenLocationOption>): WxAsync.PromisifiedResult<OpenLocationOption>;
         getLocationAsync(option?: WxAsync.PromisifiedOption<GetLocationOption>): WxAsync.PromisifiedResult<GetLocationOption>;
+        getFuzzyLocationAsync(option?: WxAsync.PromisifiedOption<GetFuzzyLocationOption>): WxAsync.PromisifiedResult<GetFuzzyLocationOption>;
         choosePoiAsync(option?: WxAsync.PromisifiedOption<ChoosePoiOption>): WxAsync.PromisifiedResult<ChoosePoiOption>;
         chooseLocationAsync(option?: WxAsync.PromisifiedOption<ChooseLocationOption>): WxAsync.PromisifiedResult<ChooseLocationOption>;
 
@@ -286,6 +291,7 @@ declare namespace WechatMiniprogram {
         openChannelsLiveAsync(option?: WxAsync.PromisifiedOption<OpenChannelsLiveOption>): WxAsync.PromisifiedResult<OpenChannelsLiveOption>;
         openChannelsEventAsync(option?: WxAsync.PromisifiedOption<OpenChannelsEventOption>): WxAsync.PromisifiedResult<OpenChannelsEventOption>;
         openChannelsActivityAsync(option?: WxAsync.PromisifiedOption<OpenChannelsActivityOption>): WxAsync.PromisifiedResult<OpenChannelsActivityOption>;
+        getChannelsShareKey(option?: WxAsync.PromisifiedOption<GetChannelsShareKeyOption>): WxAsync.PromisifiedResult<GetChannelsShareKeyOption>;
         getChannelsLiveNoticeInfoAsync(option?: WxAsync.PromisifiedOption<GetChannelsLiveNoticeInfoOption>): WxAsync.PromisifiedResult<GetChannelsLiveNoticeInfoOption>;
         getChannelsLiveInfoAsync(option?: WxAsync.PromisifiedOption<GetChannelsLiveInfoOption>): WxAsync.PromisifiedResult<GetChannelsLiveInfoOption>;
         // 开放接口：微信群 - OpenAPI/Group
@@ -374,6 +380,8 @@ declare namespace WechatMiniprogram {
         startGyroscopeAsync(option?: WxAsync.PromisifiedOption<StartGyroscopeOption>): WxAsync.PromisifiedResult<StartGyroscopeOption>;
         // 设备：扫码 - Device/ScanCode
         scanCodeAsync(option?: WxAsync.PromisifiedOption<ScanCodeOption>): WxAsync.PromisifiedResult<ScanCodeOption>;
+        // 设备：短信 - Device/SMS
+        sendSmsAsync(option?: WxAsync.PromisifiedOption<SendSmsOption>): WxAsync.PromisifiedResult<SendSmsOption>;
         // 设备：振动 - Device/Vibration
         vibrateShortAsync(option?: WxAsync.PromisifiedOption<VibrateShortOption>): WxAsync.PromisifiedResult<VibrateShortOption>;
         vibrateLongAsync(option?: WxAsync.PromisifiedOption<VibrateLongOption>): WxAsync.PromisifiedResult<VibrateLongOption>;
@@ -424,6 +432,10 @@ declare namespace WechatMiniprogram {
         startLivingAsync(option?: WxAsync.PromisifiedOption<Qy.StartLivingOption>): WxAsync.PromisifiedResult<Qy.StartLivingOption>;
         replayLivingAsync(option?: WxAsync.PromisifiedOption<Qy.ReplayLivingOption>): WxAsync.PromisifiedResult<Qy.ReplayLivingOption>;
         downloadLivingReplayAsync(option?: WxAsync.PromisifiedOption<Qy.DownloadLivingReplayOption>): WxAsync.PromisifiedResult<Qy.DownloadLivingReplayOption>;
+        wedriveSelectDirAsync(option?: WxAsync.PromisifiedOption<Qy.WedriveSelectDirOption>): WxAsync.PromisifiedResult<Qy.WedriveSelectDirOption>;
+        wedriveSelectFileForShareAsync(option?: WxAsync.PromisifiedOption<Qy.WedriveSelectFileForShareOption>): WxAsync.PromisifiedResult<Qy.WedriveSelectFileForShareOption>;
+        wedriveSelectFileForDownloadAsync(option?: WxAsync.PromisifiedOption<Qy.WedriveSelectFileForDownloadOption>): WxAsync.PromisifiedResult<Qy.WedriveSelectFileForDownloadOption>;
+        wedocSelectDocAsync(option?: WxAsync.PromisifiedOption<Qy.WedocSelectDocOption>): WxAsync.PromisifiedResult<Qy.WedocSelectDocOption>;
 
         createSchoolPaymentAsync(option?: WxAsync.PromisifiedOption<Qy.CreateSchoolPaymentOption>): WxAsync.PromisifiedResult<Qy.CreateSchoolPaymentOption>;
 

@@ -22,7 +22,7 @@ declare namespace WechatMiniprogram.Qy {
     }
     type LoginCompleteCallback = (res: GeneralCallbackResult) => void;
     type LoginFailCallback = (res: GeneralCallbackResult) => void;
-    type LoginSuccessCallback = (result: LoginSuccessCallbackResult) => void;
+    type LoginSuccessCallback = (res: LoginSuccessCallbackResult) => void;
 
     interface CheckSessionOption {
         complete?: CheckSessionCompleteCallback;
@@ -44,7 +44,7 @@ declare namespace WechatMiniprogram.Qy {
     }
     type GetSystemInfoCompleteCallback = (res: GeneralCallbackResult) => void;
     type GetSystemInfoFailCallback = (res: GeneralCallbackResult) => void;
-    type GetSystemInfoSuccessCallback = (result: GetSystemInfoSuccessCallbackResult) => void;
+    type GetSystemInfoSuccessCallback = (res: GetSystemInfoSuccessCallbackResult) => void;
 
     interface GetContextOption {
         complete?: GetContextCompleteCallback;
@@ -58,7 +58,7 @@ declare namespace WechatMiniprogram.Qy {
     }
     type GetContextCompleteCallback = (res: GeneralCallbackResult) => void;
     type GetContextFailCallback = (res: GeneralCallbackResult) => void;
-    type GetContextSuccessCallback = (result: GetContextSuccessCallbackResult) => void;
+    type GetContextSuccessCallback = (res: GetContextSuccessCallbackResult) => void;
 
     interface SetShareAttrOption {
         complete?: SetShareAttrCompleteCallback;
@@ -69,7 +69,7 @@ declare namespace WechatMiniprogram.Qy {
     }
     type SetShareAttrCompleteCallback = (res: GeneralCallbackResult) => void;
     type SetShareAttrFailCallback = (res: GeneralCallbackResult) => void;
-    type SetShareAttrSuccessCallback = (result: GeneralCallbackResult) => void;
+    type SetShareAttrSuccessCallback = (res: GeneralCallbackResult) => void;
 
     interface GetShareInfoOption {
         complete?: GetShareInfoCompleteCallback;
@@ -84,7 +84,7 @@ declare namespace WechatMiniprogram.Qy {
     }
     type GetShareInfoCompleteCallback = (res: GeneralCallbackResult) => void;
     type GetShareInfoFailCallback = (res: GeneralCallbackResult) => void;
-    type GetShareInfoSuccessCallback = (result: GetShareInfoSuccessCallbackResult) => void;
+    type GetShareInfoSuccessCallback = (res: GetShareInfoSuccessCallbackResult) => void;
 
     interface SelectEnterpriseContactOption {
         complete?: SelectEnterpriseContactCompleteCallback;
@@ -103,7 +103,7 @@ declare namespace WechatMiniprogram.Qy {
     }
     type SelectEnterpriseContactCompleteCallback = (res: GeneralCallbackResult) => void;
     type SelectEnterpriseContactFailCallback = (res: GeneralCallbackResult) => void;
-    type SelectEnterpriseContactSuccessCallback = (result: SelectEnterpriseContactSuccessCallbackResult) => void;
+    type SelectEnterpriseContactSuccessCallback = (res: SelectEnterpriseContactSuccessCallbackResult) => void;
 
     interface OpenUserProfileOption {
         complete?: OpenUserProfileCompleteCallback;
@@ -114,7 +114,7 @@ declare namespace WechatMiniprogram.Qy {
     }
     type OpenUserProfileCompleteCallback = (res: GeneralCallbackResult) => void;
     type OpenUserProfileFailCallback = (res: GeneralCallbackResult) => void;
-    type OpenUserProfileSuccessCallback = (result: GeneralCallbackResult) => void;
+    type OpenUserProfileSuccessCallback = (res: GeneralCallbackResult) => void;
 
     interface GetEnterpriseUserInfoOption {
         complete?: GetEnterpriseUserInfoCompleteCallback;
@@ -136,7 +136,7 @@ declare namespace WechatMiniprogram.Qy {
     }
     type GetEnterpriseUserInfoCompleteCallback = (res: GeneralCallbackResult) => void;
     type GetEnterpriseUserInfoFailCallback = (res: GeneralCallbackResult) => void;
-    type GetEnterpriseUserInfoSuccessCallback = (result: GetEnterpriseUserInfoSuccessCallbackResult) => void;
+    type GetEnterpriseUserInfoSuccessCallback = (res: GetEnterpriseUserInfoSuccessCallbackResult) => void;
 
     interface GetAvatarOption {
         complete?: GetAvatarCompleteCallback;
@@ -150,7 +150,7 @@ declare namespace WechatMiniprogram.Qy {
     }
     type GetAvatarCompleteCallback = (res: GeneralCallbackResult) => void;
     type GetAvatarFailCallback = (res: GeneralCallbackResult) => void;
-    type GetAvatarSuccessCallback = (result: GetAvatarSuccessCallbackResult) => void;
+    type GetAvatarSuccessCallback = (res: GetAvatarSuccessCallbackResult) => void;
 
     interface GetQrCodeOption {
         complete?: GetQrCodeCompleteCallback;
@@ -164,7 +164,7 @@ declare namespace WechatMiniprogram.Qy {
     }
     type GetQrCodeCompleteCallback = (res: GeneralCallbackResult) => void;
     type GetQrCodeFailCallback = (res: GeneralCallbackResult) => void;
-    type GetQrCodeSuccessCallback = (result: GetQrCodeSuccessCallbackResult) => void;
+    type GetQrCodeSuccessCallback = (res: GetQrCodeSuccessCallbackResult) => void;
 
     interface SelectCorpGroupContactOption {
         complete?: SelectCorpGroupContactCompleteCallback;
@@ -194,7 +194,7 @@ declare namespace WechatMiniprogram.Qy {
     }
     type SelectCorpGroupContactCompleteCallback = (res: GeneralCallbackResult) => void;
     type SelectCorpGroupContactFailCallback = (res: GeneralCallbackResult) => void;
-    type SelectCorpGroupContactSuccessCallback = (result: SelectCorpGroupContactSuccessCallbackResult) => void;
+    type SelectCorpGroupContactSuccessCallback = (res: SelectCorpGroupContactSuccessCallbackResult) => void;
 
     interface ClaimClassAdminOption {
         complete?: ClaimClassAdminCompleteCallback;
@@ -207,7 +207,7 @@ declare namespace WechatMiniprogram.Qy {
     }
     type ClaimClassAdminCompleteCallback = (res: GeneralCallbackResult) => void;
     type ClaimClassAdminFailCallback = (res: GeneralCallbackResult) => void;
-    type ClaimClassAdminSuccessCallback = (result: ClaimClassAdminSuccessCallbackResult) => void;
+    type ClaimClassAdminSuccessCallback = (res: ClaimClassAdminSuccessCallbackResult) => void;
 
     interface SelectPrivilegedContactOption {
         complete?: SelectPrivilegedContactCompleteCallback;
@@ -230,7 +230,7 @@ declare namespace WechatMiniprogram.Qy {
     }
     type SelectPrivilegedContactCompleteCallback = (res: GeneralCallbackResult) => void;
     type SelectPrivilegedContactFailCallback = (res: GeneralCallbackResult) => void;
-    type SelectPrivilegedContactSuccessCallback = (result: SelectPrivilegedContactSuccessCallbackResult) => void;
+    type SelectPrivilegedContactSuccessCallback = (res: SelectPrivilegedContactSuccessCallbackResult) => void;
 
     interface OpenEnterpriseChatOption {
         complete?: OpenEnterpriseChatCompleteCallback;
@@ -247,7 +247,7 @@ declare namespace WechatMiniprogram.Qy {
     }
     type OpenEnterpriseChatCompleteCallback = (res: GeneralCallbackResult) => void;
     type OpenEnterpriseChatFailCallback = (res: GeneralCallbackResult) => void;
-    type OpenEnterpriseChatSuccessCallback = (result: OpenEnterpriseChatSuccessCallbackResult) => void;
+    type OpenEnterpriseChatSuccessCallback = (res: OpenEnterpriseChatSuccessCallbackResult) => void;
 
     interface UpdateEnterpriseChatOption {
         complete?: UpdateEnterpriseChatCompleteCallback;
@@ -258,7 +258,7 @@ declare namespace WechatMiniprogram.Qy {
     }
     type UpdateEnterpriseChatCompleteCallback = (res: GeneralCallbackResult) => void;
     type UpdateEnterpriseChatFailCallback = (res: GeneralCallbackResult) => void;
-    type UpdateEnterpriseChatSuccessCallback = (result: GeneralCallbackResult) => void;
+    type UpdateEnterpriseChatSuccessCallback = (res: GeneralCallbackResult) => void;
 
     interface SelectExternalContactOption {
         complete?: SelectExternalContactCompleteCallback;
@@ -272,7 +272,7 @@ declare namespace WechatMiniprogram.Qy {
     }
     type SelectExternalContactCompleteCallback = (res: GeneralCallbackResult) => void;
     type SelectExternalContactFailCallback = (res: GeneralCallbackResult) => void;
-    type SelectExternalContactSuccessCallback = (result: SelectExternalContactSuccessCallbackResult) => void;
+    type SelectExternalContactSuccessCallback = (res: SelectExternalContactSuccessCallbackResult) => void;
 
     interface SendChatMessageOption {
         complete?: SendChatMessageCompleteCallback;
@@ -317,7 +317,7 @@ declare namespace WechatMiniprogram.Qy {
     }
     type SendChatMessageCompleteCallback = (res: GeneralCallbackResult) => void;
     type SendChatMessageFailCallback = (res: GeneralCallbackResult) => void;
-    type SendChatMessageSuccessCallback = (result: GeneralCallbackResult) => void;
+    type SendChatMessageSuccessCallback = (res: GeneralCallbackResult) => void;
 
     interface CreateCorpGroupChatOption {
         complete?: CreateCorpGroupChatCompleteCallback;
@@ -335,7 +335,7 @@ declare namespace WechatMiniprogram.Qy {
     }
     type CreateCorpGroupChatCompleteCallback = (res: GeneralCallbackResult) => void;
     type CreateCorpGroupChatFailCallback = (res: GeneralCallbackResult) => void;
-    type CreateCorpGroupChatSuccessCallback = (result: CreateCorpGroupChatSuccessCallbackResult) => void;
+    type CreateCorpGroupChatSuccessCallback = (res: CreateCorpGroupChatSuccessCallbackResult) => void;
 
     interface UpdateCorpGroupChatOption {
         complete?: UpdateCorpGroupChatCompleteCallback;
@@ -352,7 +352,7 @@ declare namespace WechatMiniprogram.Qy {
     }
     type UpdateCorpGroupChatCompleteCallback = (res: GeneralCallbackResult) => void;
     type UpdateCorpGroupChatFailCallback = (res: GeneralCallbackResult) => void;
-    type UpdateCorpGroupChatSuccessCallback = (result: UpdateCorpGroupChatSuccessCallbackResult) => void;
+    type UpdateCorpGroupChatSuccessCallback = (res: UpdateCorpGroupChatSuccessCallbackResult) => void;
 
     interface GetCurExternalContactOption {
         complete?: GetCurExternalContactCompleteCallback;
@@ -365,7 +365,7 @@ declare namespace WechatMiniprogram.Qy {
     }
     type GetCurExternalContactCompleteCallback = (res: GeneralCallbackResult) => void;
     type GetCurExternalContactFailCallback = (res: GeneralCallbackResult) => void;
-    type GetCurExternalContactSuccessCallback = (result: GetCurExternalContactSuccessCallbackResult) => void;
+    type GetCurExternalContactSuccessCallback = (res: GetCurExternalContactSuccessCallbackResult) => void;
 
     interface GetCurExternalChatOption {
         complete?: GetCurExternalChatCompleteCallback;
@@ -378,7 +378,7 @@ declare namespace WechatMiniprogram.Qy {
     }
     type GetCurExternalChatCompleteCallback = (res: GeneralCallbackResult) => void;
     type GetCurExternalChatFailCallback = (res: GeneralCallbackResult) => void;
-    type GetCurExternalChatSuccessCallback = (result: GetCurExternalChatSuccessCallbackResult) => void;
+    type GetCurExternalChatSuccessCallback = (res: GetCurExternalChatSuccessCallbackResult) => void;
 
     interface ShareToExternalContactOption {
         complete?: ShareToExternalContactCompleteCallback;
@@ -415,7 +415,7 @@ declare namespace WechatMiniprogram.Qy {
     }
     type ShareToExternalContactCompleteCallback = (res: GeneralCallbackResult) => void;
     type ShareToExternalContactFailCallback = (res: GeneralCallbackResult) => void;
-    type ShareToExternalContactSuccessCallback = (result: GeneralCallbackResult) => void;
+    type ShareToExternalContactSuccessCallback = (res: GeneralCallbackResult) => void;
 
     interface ShareToExternalChatOption {
         complete?: ShareToExternalChatCompleteCallback;
@@ -452,7 +452,7 @@ declare namespace WechatMiniprogram.Qy {
     }
     type ShareToExternalChatCompleteCallback = (res: GeneralCallbackResult) => void;
     type ShareToExternalChatFailCallback = (res: GeneralCallbackResult) => void;
-    type ShareToExternalChatSuccessCallback = (result: GeneralCallbackResult) => void;
+    type ShareToExternalChatSuccessCallback = (res: GeneralCallbackResult) => void;
 
     interface NavigateToAddCustomerOption {
         complete?: NavigateToAddCustomerCompleteCallback;
@@ -461,7 +461,7 @@ declare namespace WechatMiniprogram.Qy {
     }
     type NavigateToAddCustomerCompleteCallback = (res: GeneralCallbackResult) => void;
     type NavigateToAddCustomerFailCallback = (res: GeneralCallbackResult) => void;
-    type NavigateToAddCustomerSuccessCallback = (result: GeneralCallbackResult) => void;
+    type NavigateToAddCustomerSuccessCallback = (res: GeneralCallbackResult) => void;
 
     interface ShareToExternalMomentsOption {
         complete?: ShareToExternalMomentsCompleteCallback;
@@ -488,7 +488,7 @@ declare namespace WechatMiniprogram.Qy {
     }
     type ShareToExternalMomentsCompleteCallback = (res: GeneralCallbackResult) => void;
     type ShareToExternalMomentsFailCallback = (res: GeneralCallbackResult) => void;
-    type ShareToExternalMomentsSuccessCallback = (result: GeneralCallbackResult) => void;
+    type ShareToExternalMomentsSuccessCallback = (res: GeneralCallbackResult) => void;
 
     interface UpdateMomentsSettingOption {
         signature?: string;
@@ -505,7 +505,7 @@ declare namespace WechatMiniprogram.Qy {
     }
     type NavigateToKfChatCompleteCallback = (res: GeneralCallbackResult) => void;
     type NavigateToKfChatFailCallback = (res: GeneralCallbackResult) => void;
-    type NavigateToKfChatSuccessCallback = (result: GeneralCallbackResult) => void;
+    type NavigateToKfChatSuccessCallback = (res: GeneralCallbackResult) => void;
 
     interface StartLivingOption {
         complete?: StartLivingCompleteCallback;
@@ -522,7 +522,7 @@ declare namespace WechatMiniprogram.Qy {
     }
     type StartLivingCompleteCallback = (res: GeneralCallbackResult) => void;
     type StartLivingFailCallback = (res: GeneralCallbackResult) => void;
-    type StartLivingSuccessCallback = (result: StartLivingSuccessCallbackResult) => void;
+    type StartLivingSuccessCallback = (res: StartLivingSuccessCallbackResult) => void;
 
     interface ReplayLivingOption {
         complete?: ReplayLivingCompleteCallback;
@@ -532,7 +532,7 @@ declare namespace WechatMiniprogram.Qy {
     }
     type ReplayLivingCompleteCallback = (res: GeneralCallbackResult) => void;
     type ReplayLivingFailCallback = (res: GeneralCallbackResult) => void;
-    type ReplayLivingSuccessCallback = (result: GeneralCallbackResult) => void;
+    type ReplayLivingSuccessCallback = (res: GeneralCallbackResult) => void;
 
     interface DownloadLivingReplayOption {
         complete?: DownloadLivingReplayCompleteCallback;
@@ -542,7 +542,70 @@ declare namespace WechatMiniprogram.Qy {
     }
     type DownloadLivingReplayCompleteCallback = (res: GeneralCallbackResult) => void;
     type DownloadLivingReplayFailCallback = (res: GeneralCallbackResult) => void;
-    type DownloadLivingReplaySuccessCallback = (result: GeneralCallbackResult) => void;
+    type DownloadLivingReplaySuccessCallback = (res: GeneralCallbackResult) => void;
+
+    interface WedriveSelectDirOption {
+        complete?: WedriveSelectDirCompleteCallback;
+        fail?: WedriveSelectDirFailCallback;
+        success?: WedriveSelectDirSuccessCallback;
+    }
+    interface WedriveSelectDirSuccessCallbackResult {
+        result: {
+            selectedTicket: string;
+        };
+        errMsg: string;
+    }
+    type WedriveSelectDirCompleteCallback = (res: GeneralCallbackResult) => void;
+    type WedriveSelectDirFailCallback = (res: GeneralCallbackResult) => void;
+    type WedriveSelectDirSuccessCallback = (res: WedriveSelectDirSuccessCallbackResult) => void;
+
+    interface WedriveSelectFileForShareOption {
+        complete?: WedriveSelectFileForShareCompleteCallback;
+        fail?: WedriveSelectFileForShareFailCallback;
+        success?: WedriveSelectFileForShareSuccessCallback;
+        selectedFileNum: number;
+    }
+    interface WedriveSelectFileForShareSuccessCallbackResult {
+        result: {
+            selectedFileUrls: string[];
+        };
+        errMsg: string;
+    }
+    type WedriveSelectFileForShareCompleteCallback = (res: GeneralCallbackResult) => void;
+    type WedriveSelectFileForShareFailCallback = (res: GeneralCallbackResult) => void;
+    type WedriveSelectFileForShareSuccessCallback = (res: WedriveSelectFileForShareSuccessCallbackResult) => void;
+
+    interface WedriveSelectFileForDownloadOption {
+        complete?: WedriveSelectFileForDownloadCompleteCallback;
+        fail?: WedriveSelectFileForDownloadFailCallback;
+        success?: WedriveSelectFileForDownloadSuccessCallback;
+        selectedFileNum: number;
+    }
+    interface WedriveSelectFileForDownloadSuccessCallbackResult {
+        result: {
+            selectedTickets: string[];
+        };
+        errMsg: string;
+    }
+    type WedriveSelectFileForDownloadCompleteCallback = (res: GeneralCallbackResult) => void;
+    type WedriveSelectFileForDownloadFailCallback = (res: GeneralCallbackResult) => void;
+    type WedriveSelectFileForDownloadSuccessCallback = (res: WedriveSelectFileForDownloadSuccessCallbackResult) => void;
+
+    interface WedocSelectDocOption {
+        complete?: WedocSelectDocCompleteCallback;
+        fail?: WedocSelectDocFailCallback;
+        success?: WedocSelectDocSuccessCallback;
+        selectedFileNum: number;
+    }
+    interface WedocSelectDocSuccessCallbackResult {
+        result: {
+            selectedFileUrls: string[];
+        };
+        errMsg: string;
+    }
+    type WedocSelectDocCompleteCallback = (res: GeneralCallbackResult) => void;
+    type WedocSelectDocFailCallback = (res: GeneralCallbackResult) => void;
+    type WedocSelectDocSuccessCallback = (res: WedocSelectDocSuccessCallbackResult) => void;
 
     interface CreateSchoolPaymentOption {
         complete?: CreateSchoolPaymentCompleteCallback;
@@ -561,7 +624,7 @@ declare namespace WechatMiniprogram.Qy {
     }
     type CreateSchoolPaymentCompleteCallback = (res: GeneralCallbackResult) => void;
     type CreateSchoolPaymentFailCallback = (res: GeneralCallbackResult) => void;
-    type CreateSchoolPaymentSuccessCallback = (result: CreateSchoolPaymentSuccessCallbackResult) => void;
+    type CreateSchoolPaymentSuccessCallback = (res: CreateSchoolPaymentSuccessCallbackResult) => void;
 
     interface GetNFCReaderStateOption {
         complete?: GetNFCReaderStateCompleteCallback;
@@ -570,7 +633,7 @@ declare namespace WechatMiniprogram.Qy {
     }
     type GetNFCReaderStateCompleteCallback = (res: GeneralCallbackResult) => void;
     type GetNFCReaderStateFailCallback = (res: GeneralCallbackResult) => void;
-    type GetNFCReaderStateSuccessCallback = (result: GeneralCallbackResult) => void;
+    type GetNFCReaderStateSuccessCallback = (res: GeneralCallbackResult) => void;
 
     interface StartNFCReaderOption {
         complete?: StartNFCReaderCompleteCallback;
@@ -579,7 +642,7 @@ declare namespace WechatMiniprogram.Qy {
     }
     type StartNFCReaderCompleteCallback = (res: GeneralCallbackResult) => void;
     type StartNFCReaderFailCallback = (res: GeneralCallbackResult) => void;
-    type StartNFCReaderSuccessCallback = (result: GeneralCallbackResult) => void;
+    type StartNFCReaderSuccessCallback = (res: GeneralCallbackResult) => void;
 
     interface StopNFCReaderOption {
         complete?: StopNFCReaderCompleteCallback;
@@ -588,7 +651,7 @@ declare namespace WechatMiniprogram.Qy {
     }
     type StopNFCReaderCompleteCallback = (res: GeneralCallbackResult) => void;
     type StopNFCReaderFailCallback = (res: GeneralCallbackResult) => void;
-    type StopNFCReaderSuccessCallback = (result: GeneralCallbackResult) => void;
+    type StopNFCReaderSuccessCallback = (res: GeneralCallbackResult) => void;
 
     interface OnNFCReadMessageCallback {
         messageType: number;
@@ -607,7 +670,7 @@ declare namespace WechatMiniprogram.Qy {
     }
     type OpenThirdAppServiceChatCompleteCallback = (res: GeneralCallbackResult) => void;
     type OpenThirdAppServiceChatFailCallback = (res: GeneralCallbackResult) => void;
-    type OpenThirdAppServiceChatSuccessCallback = (result: GeneralCallbackResult) => void;
+    type OpenThirdAppServiceChatSuccessCallback = (res: GeneralCallbackResult) => void;
 
     interface OpenAppManageOption {
         complete?: OpenAppManageCompleteCallback;
@@ -616,7 +679,7 @@ declare namespace WechatMiniprogram.Qy {
     }
     type OpenAppManageCompleteCallback = (res: GeneralCallbackResult) => void;
     type OpenAppManageFailCallback = (res: GeneralCallbackResult) => void;
-    type OpenAppManageSuccessCallback = (result: GeneralCallbackResult) => void;
+    type OpenAppManageSuccessCallback = (res: GeneralCallbackResult) => void;
 
     interface OpenAppCommentOption {
         complete?: OpenAppCommentCompleteCallback;
@@ -625,7 +688,7 @@ declare namespace WechatMiniprogram.Qy {
     }
     type OpenAppCommentCompleteCallback = (res: GeneralCallbackResult) => void;
     type OpenAppCommentFailCallback = (res: GeneralCallbackResult) => void;
-    type OpenAppCommentSuccessCallback = (result: GeneralCallbackResult) => void;
+    type OpenAppCommentSuccessCallback = (res: GeneralCallbackResult) => void;
 
     interface TranslateVoiceOption {
         complete?: TranslateVoiceCompleteCallback;
@@ -640,7 +703,7 @@ declare namespace WechatMiniprogram.Qy {
     }
     type TranslateVoiceCompleteCallback = (res: GeneralCallbackResult) => void;
     type TranslateVoiceFailCallback = (res: GeneralCallbackResult) => void;
-    type TranslateVoiceSuccessCallback = (result: TranslateVoiceSuccessCallbackResult) => void;
+    type TranslateVoiceSuccessCallback = (res: TranslateVoiceSuccessCallbackResult) => void;
 
     interface ChooseMessageFileOption {
         complete?: ChooseMessageFileCompleteCallback;
@@ -655,7 +718,7 @@ declare namespace WechatMiniprogram.Qy {
     }
     type ChooseMessageFileCompleteCallback = (res: GeneralCallbackResult) => void;
     type ChooseMessageFileFailCallback = (res: GeneralCallbackResult) => void;
-    type ChooseMessageFileSuccessCallback = (result: ChooseMessageFileSuccessCallbackResult) => void;
+    type ChooseMessageFileSuccessCallback = (res: ChooseMessageFileSuccessCallbackResult) => void;
 
     interface CreateExternalPaymentOption {
         complete?: CreateExternalPaymentCompleteCallback;
@@ -671,7 +734,7 @@ declare namespace WechatMiniprogram.Qy {
     }
     type CreateExternalPaymentCompleteCallback = (res: GeneralCallbackResult) => void;
     type CreateExternalPaymentFailCallback = (res: GeneralCallbackResult) => void;
-    type CreateExternalPaymentSuccessCallback = (result: CreateExternalPaymentSuccessCallbackResult) => void;
+    type CreateExternalPaymentSuccessCallback = (res: CreateExternalPaymentSuccessCallbackResult) => void;
 
     interface RefundExternalPaymentOption {
         complete?: RefundExternalPaymentCompleteCallback;
@@ -687,7 +750,7 @@ declare namespace WechatMiniprogram.Qy {
     }
     type RefundExternalPaymentCompleteCallback = (res: GeneralCallbackResult) => void;
     type RefundExternalPaymentFailCallback = (res: GeneralCallbackResult) => void;
-    type RefundExternalPaymentSuccessCallback = (result: RefundExternalPaymentSuccessCallbackResult) => void;
+    type RefundExternalPaymentSuccessCallback = (res: RefundExternalPaymentSuccessCallbackResult) => void;
 }
 
 declare namespace WechatMiniprogram {
@@ -737,6 +800,10 @@ declare namespace WechatMiniprogram {
         startLiving<T extends WechatMiniprogram.Qy.StartLivingOption = WechatMiniprogram.Qy.StartLivingOption>(option?: T): WechatMiniprogram.PromisifySuccessResult<T, WechatMiniprogram.Qy.StartLivingOption>;
         replayLiving<T extends WechatMiniprogram.Qy.ReplayLivingOption = WechatMiniprogram.Qy.ReplayLivingOption>(option?: T): WechatMiniprogram.PromisifySuccessResult<T, WechatMiniprogram.Qy.ReplayLivingOption>;
         downloadLivingReplay<T extends WechatMiniprogram.Qy.DownloadLivingReplayOption = WechatMiniprogram.Qy.DownloadLivingReplayOption>(option?: T): WechatMiniprogram.PromisifySuccessResult<T, WechatMiniprogram.Qy.DownloadLivingReplayOption>;
+        wedriveSelectDir<T extends WechatMiniprogram.Qy.WedriveSelectDirOption = WechatMiniprogram.Qy.WedriveSelectDirOption>(option?: T): WechatMiniprogram.PromisifySuccessResult<T, WechatMiniprogram.Qy.WedriveSelectDirOption>;
+        wedriveSelectFileForShare<T extends WechatMiniprogram.Qy.WedriveSelectFileForShareOption = WechatMiniprogram.Qy.WedriveSelectFileForShareOption>(option?: T): WechatMiniprogram.PromisifySuccessResult<T, WechatMiniprogram.Qy.WedriveSelectFileForShareOption>;
+        wedriveSelectFileForDownload<T extends WechatMiniprogram.Qy.WedriveSelectFileForDownloadOption = WechatMiniprogram.Qy.WedriveSelectFileForDownloadOption>(option?: T): WechatMiniprogram.PromisifySuccessResult<T, WechatMiniprogram.Qy.WedriveSelectFileForDownloadOption>;
+        wedocSelectDoc<T extends WechatMiniprogram.Qy.WedocSelectDocOption = WechatMiniprogram.Qy.WedocSelectDocOption>(option?: T): WechatMiniprogram.PromisifySuccessResult<T, WechatMiniprogram.Qy.WedocSelectDocOption>;
 
         // 教育
         createSchoolPayment<T extends WechatMiniprogram.Qy.CreateSchoolPaymentOption = WechatMiniprogram.Qy.CreateSchoolPaymentOption>(option?: T): WechatMiniprogram.PromisifySuccessResult<T, WechatMiniprogram.Qy.CreateSchoolPaymentOption>;

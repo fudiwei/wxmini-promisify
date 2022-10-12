@@ -12,6 +12,7 @@ const _apis = [
     'setEnableDebug',
     // 基础：性能 - Base/Performance
     'preloadWebview',
+    'preloadSkylineView',
     'preloadAssets',
 
     // 路由 - Route
@@ -22,6 +23,7 @@ const _apis = [
     'navigateBack',
 
     // 跳转 - Navigate
+    'openEmbeddedMiniProgram',
     'navigateToMiniProgram',
     'navigateBackMiniProgram',
     'exitMiniProgram',
@@ -110,6 +112,8 @@ const _apis = [
     'getStorageInfo',
     'getStorage',
     'clearStorage',
+    'batchSetStorage',
+    'batchGetStorage',
     // 数据缓存：周期性更新 - Storage/BackgroundFetch
     'setBackgroundFetchToken',
     'onBackgroundFetchData',
@@ -169,6 +173,7 @@ const _apis = [
     'startLocationUpdate',
     'openLocation',
     'getLocation',
+    'getFuzzyLocation',
     'choosePoi',
     'chooseLocation',
 
@@ -223,6 +228,7 @@ const _apis = [
     'openChannelsLive',
     'openChannelsEvent',
     'openChannelsActivity',
+    'getChannelsShareKey',
     'getChannelsLiveNoticeInfo',
     'getChannelsLiveInfo',
     // 开放接口：微信群 - OpenAPI/Group
@@ -331,6 +337,8 @@ const _apis = [
     'startGyroscope',
     // 设备：扫码 - Device/ScanCode
     'scanCode',
+    // 设备：短信 - Device/SMS
+    'sendSms',
     // 设备：振动 - Device/Vibration
     'vibrateShort',
     'vibrateLong',
@@ -356,6 +364,7 @@ const _apis = [
     'checkTrafficCardConditions',
     'chooseLicensePlate',
     'chooseShareGroup',
+    'cropImage',
     'deleteTrafficCard',
     'downloadApp',
     'downloadAppForIOS',
@@ -366,13 +375,13 @@ const _apis = [
     'getAppInstallState',
     'getChannelsLiveReservation',
     'getChannelsLiveState',
-    'getChannelsShareKey',
     'getCookies',
     'getExptInfo',
     'getLabInfo',
     'getMonitoredBluetoothDevices',
     'getOpenDeviceId',
     'getResPath',
+    'getSkylineInfo',
     'getWCPayOverseaPrepayRequest',
     'getWxSecData',
     'handleWCPayOverseaWalletBuffer',
@@ -396,7 +405,6 @@ const _apis = [
     'openChannelsCreateContact',
     'openChannelsLiveCollection',
     'openDeliveryList',
-    'openEmbeddedMiniProgram',
     'openMiniProgramHistoryList',
     'openMiniProgramProfile',
     'openMiniProgramSearch',
@@ -491,6 +499,10 @@ const _apis = [
     'qy.startLiving',
     'qy.replayLiving',
     'qy.downloadLivingReplay',
+    'qy.wedriveSelectDir',
+    'qy.wedriveSelectFileForShare',
+    'qy.wedriveSelectFileForDownload',
+    'qy.wedocSelectDoc',
     'qy.createSchoolPayment',
     'qy.getNFCReaderState',
     'qy.startNFCReader',

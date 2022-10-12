@@ -1,16 +1,18 @@
 declare namespace WechatMinigame {
     namespace WxAsync {
         type CallbackOption = {
-            success?: (...args: any) => void;
-            fail?: (...args: any) => void;
-            complete?: (...args: any) => void;
+            success?: (...args: any) => any;
+            fail?: (...args: any) => any;
+            complete?: (...args: any) => any;
         };
         type PromisifiedOption<T extends CallbackOption> = Omit<T, keyof CallbackOption>;
-        type PromisifiedResult<T extends CallbackOption> = Promise<Parameters<T["success"]>[0]>;
+        type PromisifiedResult<T extends CallbackOption> = Promise<Parameters<NonNullable<T["success"]>>[0]>;
     }
 
     interface WxAsync {
         // 基础：系统 - Base/System
+        openSystemBluetoothSettingAsync(option?: WxAsync.PromisifiedOption<OpenSystemBluetoothSettingOption>): WxAsync.PromisifiedResult<OpenSystemBluetoothSettingOption>;
+        openAppAuthorizeSettingAsync(option?: WxAsync.PromisifiedOption<OpenAppAuthorizeSettingOption>): WxAsync.PromisifiedResult<OpenAppAuthorizeSettingOption>;
         getSystemInfoAsyncAsync(option?: WxAsync.PromisifiedOption<GetSystemInfoAsyncOption>): WxAsync.PromisifiedResult<GetSystemInfoAsyncOption>;
         getSystemInfoAsync(option?: WxAsync.PromisifiedOption<GetSystemInfoOption>): WxAsync.PromisifiedResult<GetSystemInfoOption>;
         // 基础：更新 - Base/Update
@@ -105,6 +107,8 @@ declare namespace WechatMinigame {
         getStorageAsync(option?: WxAsync.PromisifiedOption<GetStorageOption>): WxAsync.PromisifiedResult<GetStorageOption>;
         getStorageAsync<T>(option?: WxAsync.PromisifiedOption<GetStorageOption<T>>): Promise<GetStorageOption<T>>;
         clearStorageAsync(option?: WxAsync.PromisifiedOption<ClearStorageOption>): WxAsync.PromisifiedResult<ClearStorageOption>;
+        batchSetStorageAsync(option?: WxAsync.PromisifiedOption<BatchSetStorageOption>): WxAsync.PromisifiedResult<BatchSetStorageOption>;
+        batchGetStorageAsync(option?: WxAsync.PromisifiedOption<BatchGetStorageOption>): WxAsync.PromisifiedResult<BatchGetStorageOption>;
 
         // 字体 - Font
         getTextLineHeightAsync(option?: WxAsync.PromisifiedOption<GetTextLineHeightOption>): WxAsync.PromisifiedResult<GetTextLineHeightOption>;
@@ -127,6 +131,7 @@ declare namespace WechatMinigame {
 
         // 位置 - Location
         getLocationAsync(option?: WxAsync.PromisifiedOption<GetLocationOption>): WxAsync.PromisifiedResult<GetLocationOption>;
+        getFuzzyLocationAsync(option?: WxAsync.PromisifiedOption<GetFuzzyLocationOption>): WxAsync.PromisifiedResult<GetFuzzyLocationOption>;
 
         // 文件 File
         saveFileToDiskAsync(option?: WxAsync.PromisifiedOption<SaveFileToDiskOption>): WxAsync.PromisifiedResult<SaveFileToDiskOption>;
