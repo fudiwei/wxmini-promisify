@@ -1,9 +1,9 @@
-const gulp = require('gulp');
-const gulp$babel = require('gulp-babel'),
-    gulp$eslint = require('gulp-eslint'),
-    gulp$rimraf = require('gulp-rimraf'),
-    gulp$strip = require('gulp-strip-debug'),
-    gulp$uglify = require('gulp-uglify');
+import gulp from 'gulp';
+import gulp$babel from 'gulp-babel';
+import gulp$eslint from 'gulp-eslint';
+import gulp$rimraf from 'gulp-rimraf';
+import gulp$stripDebug from 'gulp-strip-debug';
+import gulp$uglify from 'gulp-uglify';
 
 gulp.task('clean', () => {
     return gulp
@@ -36,7 +36,7 @@ gulp.task('dist', gulp.series('clean', () => {
 
     return gulp
         .src(['src/**/*.js'])
-        .pipe(gulp$strip())
+        .pipe(gulp$stripDebug())
         .pipe(gulp$babel(babelOptions))
         .pipe(gulp$uglify())
         .pipe(gulp.dest('dist'));

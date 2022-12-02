@@ -43,29 +43,29 @@
         "!types/.prettierrc"
     ],
     "engines": {
-        "node": ">=12",
+        "node": ">=14",
         "npm": ">=7",
-        "pnpm": ">=6"
+        "pnpm": ">=7"
     },
     "devDependencies": {
-        "@babel/core": "7.17.8",
-        "@babel/preset-env": "^7.16.11",
-        "@typescript-eslint/eslint-plugin": "5.17.0",
-        "@typescript-eslint/parser": "5.17.0",
-        "eslint": "8.12.0",
-        "eslint-config-prettier": "8.5.0",
+        "@babel/core": "7.20.5",
+        "@babel/preset-env": "^7.20.2",
+        "@typescript-eslint/eslint-plugin": "^5.45.0",
+        "@typescript-eslint/parser": "^5.45.0",
+        "eslint": "^8.28.0",
+        "eslint-config-prettier": "^8.5.0",
         "eslint-plugin-node": "^11.1.0",
-        "eslint-plugin-prettier": "^4.0.0",
+        "eslint-plugin-prettier": "^4.2.1",
         "gulp": "^4.0.2",
         "gulp-babel": "^8.0.0",
         "gulp-eslint": "^6.0.0",
         "gulp-rimraf": "^1.0.0",
-        "gulp-strip-debug": "^4.0.0",
+        "gulp-strip-debug": "^5.0.0",
         "gulp-uglify": "^3.0.2",
-        "minigame-api-typings": "3.6.0",
-        "miniprogram-api-typings": "3.6.0",
-        "prettier": "2.6.1",
-        "typescript": "~4.6.0"
+        "minigame-api-typings": "^3.6.0",
+        "miniprogram-api-typings": "^3.6.0",
+        "prettier": "^2.8.0",
+        "typescript": "~4.8.0"
     },
     "peerDependencies": {
         "minigame-api-typings": "^3.6.0",
