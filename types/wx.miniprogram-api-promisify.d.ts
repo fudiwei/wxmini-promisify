@@ -419,6 +419,13 @@ declare namespace WechatMiniprogram {
         createCorpGroupChatAsync(option?: WxAsync.PromisifiedOption<Qy.CreateCorpGroupChatOption>): WxAsync.PromisifiedResult<Qy.CreateCorpGroupChatOption>;
         updateCorpGroupChatAsync(option?: WxAsync.PromisifiedOption<Qy.UpdateCorpGroupChatOption>): WxAsync.PromisifiedResult<Qy.UpdateCorpGroupChatOption>;
 
+        getNFCReaderStateAsync(option?: WxAsync.PromisifiedOption<Qy.GetNFCReaderStateOption>): WxAsync.PromisifiedResult<Qy.GetNFCReaderStateOption>;
+        startNFCReaderAsync(option?: WxAsync.PromisifiedOption<Qy.StartNFCReaderOption>): WxAsync.PromisifiedResult<Qy.StartNFCReaderOption>;
+        stopNFCReaderAsync(option?: WxAsync.PromisifiedOption<Qy.StopNFCReaderOption>): WxAsync.PromisifiedResult<Qy.StopNFCReaderOption>;
+
+        translateVoiceAsync(option?: WxAsync.PromisifiedOption<Qy.TranslateVoiceOption>): WxAsync.PromisifiedResult<Qy.TranslateVoiceOption>;
+        chooseMessageFileAsync(option?: WxAsync.PromisifiedOption<Qy.ChooseMessageFileOption>): WxAsync.PromisifiedResult<Qy.ChooseMessageFileOption>;
+
         selectExternalContactAsync(option?: WxAsync.PromisifiedOption<Qy.SelectExternalContactOption>): WxAsync.PromisifiedResult<Qy.SelectExternalContactOption>;
         getCurExternalContactAsync(option?: WxAsync.PromisifiedOption<Qy.GetCurExternalContactOption>): WxAsync.PromisifiedResult<Qy.GetCurExternalContactOption>;
         getCurExternalChatAsync(option?: WxAsync.PromisifiedOption<Qy.GetCurExternalChatOption>): WxAsync.PromisifiedResult<Qy.GetCurExternalChatOption>;
@@ -429,29 +436,35 @@ declare namespace WechatMiniprogram {
 
         navigateToKfChatAsync(option?: WxAsync.PromisifiedOption<Qy.NavigateToKfChatOption>): WxAsync.PromisifiedResult<Qy.NavigateToKfChatOption>;
 
-        startLivingAsync(option?: WxAsync.PromisifiedOption<Qy.StartLivingOption>): WxAsync.PromisifiedResult<Qy.StartLivingOption>;
-        replayLivingAsync(option?: WxAsync.PromisifiedOption<Qy.ReplayLivingOption>): WxAsync.PromisifiedResult<Qy.ReplayLivingOption>;
-        downloadLivingReplayAsync(option?: WxAsync.PromisifiedOption<Qy.DownloadLivingReplayOption>): WxAsync.PromisifiedResult<Qy.DownloadLivingReplayOption>;
+        createExternalPaymentAsync(option?: WxAsync.PromisifiedOption<Qy.CreateExternalPaymentOption>): WxAsync.PromisifiedResult<Qy.CreateExternalPaymentOption>;
+        refundExternalPaymentAsync(option?: WxAsync.PromisifiedOption<Qy.RefundExternalPaymentOption>): WxAsync.PromisifiedResult<Qy.RefundExternalPaymentOption>;
+
+        createSchoolPaymentAsync(option?: WxAsync.PromisifiedOption<Qy.CreateSchoolPaymentOption>): WxAsync.PromisifiedResult<Qy.CreateSchoolPaymentOption>;
+
+        checkScheduleAsync(option?: WxAsync.PromisifiedOption<Qy.CheckScheduleOption>): WxAsync.PromisifiedResult<Qy.CheckScheduleOption>;
+
+        startMeetingAsync(option?: WxAsync.PromisifiedOption<Qy.StartMeetingOption>): WxAsync.PromisifiedResult<Qy.StartMeetingOption>;
+
         wedriveSelectDirAsync(option?: WxAsync.PromisifiedOption<Qy.WedriveSelectDirOption>): WxAsync.PromisifiedResult<Qy.WedriveSelectDirOption>;
         wedriveSelectFileForShareAsync(option?: WxAsync.PromisifiedOption<Qy.WedriveSelectFileForShareOption>): WxAsync.PromisifiedResult<Qy.WedriveSelectFileForShareOption>;
         wedriveSelectFileForDownloadAsync(option?: WxAsync.PromisifiedOption<Qy.WedriveSelectFileForDownloadOption>): WxAsync.PromisifiedResult<Qy.WedriveSelectFileForDownloadOption>;
         wedocSelectDocAsync(option?: WxAsync.PromisifiedOption<Qy.WedocSelectDocOption>): WxAsync.PromisifiedResult<Qy.WedocSelectDocOption>;
 
-        createSchoolPaymentAsync(option?: WxAsync.PromisifiedOption<Qy.CreateSchoolPaymentOption>): WxAsync.PromisifiedResult<Qy.CreateSchoolPaymentOption>;
-
-        getNFCReaderStateAsync(option?: WxAsync.PromisifiedOption<Qy.GetNFCReaderStateOption>): WxAsync.PromisifiedResult<Qy.GetNFCReaderStateOption>;
-        startNFCReaderAsync(option?: WxAsync.PromisifiedOption<Qy.StartNFCReaderOption>): WxAsync.PromisifiedResult<Qy.StartNFCReaderOption>;
-        stopNFCReaderAsync(option?: WxAsync.PromisifiedOption<Qy.StopNFCReaderOption>): WxAsync.PromisifiedResult<Qy.StopNFCReaderOption>;
+        startLivingAsync(option?: WxAsync.PromisifiedOption<Qy.StartLivingOption>): WxAsync.PromisifiedResult<Qy.StartLivingOption>;
+        replayLivingAsync(option?: WxAsync.PromisifiedOption<Qy.ReplayLivingOption>): WxAsync.PromisifiedResult<Qy.ReplayLivingOption>;
+        downloadLivingReplayAsync(option?: WxAsync.PromisifiedOption<Qy.DownloadLivingReplayOption>): WxAsync.PromisifiedResult<Qy.DownloadLivingReplayOption>;
 
         openThirdAppServiceChatAsync(option?: WxAsync.PromisifiedOption<Qy.OpenThirdAppServiceChatOption>): WxAsync.PromisifiedResult<Qy.OpenThirdAppServiceChatOption>;
         openAppManageAsync(option?: WxAsync.PromisifiedOption<Qy.OpenAppManageOption>): WxAsync.PromisifiedResult<Qy.OpenAppManageOption>;
         openAppCommentAsync(option?: WxAsync.PromisifiedOption<Qy.OpenAppCommentOption>): WxAsync.PromisifiedResult<Qy.OpenAppCommentOption>;
 
-        translateVoiceAsync(option?: WxAsync.PromisifiedOption<Qy.TranslateVoiceOption>): WxAsync.PromisifiedResult<Qy.TranslateVoiceOption>;
-        chooseMessageFileAsync(option?: WxAsync.PromisifiedOption<Qy.ChooseMessageFileOption>): WxAsync.PromisifiedResult<Qy.ChooseMessageFileOption>;
-
-        createExternalPaymentAsync(option?: WxAsync.PromisifiedOption<Qy.CreateExternalPaymentOption>): WxAsync.PromisifiedResult<Qy.CreateExternalPaymentOption>;
-        refundExternalPaymentAsync(option?: WxAsync.PromisifiedOption<Qy.RefundExternalPaymentOption>): WxAsync.PromisifiedResult<Qy.RefundExternalPaymentOption>;
+        openAppDeviceDataAuthAsync(option?: WxAsync.PromisifiedOption<Qy.OpenAppDeviceDataAuthOption>): WxAsync.PromisifiedResult<Qy.OpenAppDeviceDataAuthOption>;
+        addDeviceAsync(option?: WxAsync.PromisifiedOption<Qy.AddDeviceOption>): WxAsync.PromisifiedResult<Qy.AddDeviceOption>;
+        openDeviceProfileAsync(option?: WxAsync.PromisifiedOption<Qy.OpenDeviceProfileOption>): WxAsync.PromisifiedResult<Qy.OpenDeviceProfileOption>;
+        queryCurrHWOpenTalkAsync(option?: WxAsync.PromisifiedOption<Qy.QueryCurrHWOpenTalkOption>): WxAsync.PromisifiedResult<Qy.QueryCurrHWOpenTalkOption>;
+        enterHWOpenTalkAsync(option?: WxAsync.PromisifiedOption<Qy.EnterHWOpenTalkOption>): WxAsync.PromisifiedResult<Qy.EnterHWOpenTalkOption>;
+        startWecastAsync(option?: WxAsync.PromisifiedOption<Qy.StartWecastOption>): WxAsync.PromisifiedResult<Qy.StartWecastOption>;
+        printFileAsync(option?: WxAsync.PromisifiedOption<Qy.PrintFileOption>): WxAsync.PromisifiedResult<Qy.PrintFileOption>;
     }
 
     // @ts-ignore

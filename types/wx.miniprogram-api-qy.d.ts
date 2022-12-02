@@ -354,6 +354,73 @@ declare namespace WechatMiniprogram.Qy {
     type UpdateCorpGroupChatFailCallback = (res: GeneralCallbackResult) => void;
     type UpdateCorpGroupChatSuccessCallback = (res: UpdateCorpGroupChatSuccessCallbackResult) => void;
 
+    interface GetNFCReaderStateOption {
+        complete?: GetNFCReaderStateCompleteCallback;
+        fail?: GetNFCReaderStateFailCallback;
+        success?: GetNFCReaderStateSuccessCallback;
+    }
+    type GetNFCReaderStateCompleteCallback = (res: GeneralCallbackResult) => void;
+    type GetNFCReaderStateFailCallback = (res: GeneralCallbackResult) => void;
+    type GetNFCReaderStateSuccessCallback = (res: GeneralCallbackResult) => void;
+
+    interface StartNFCReaderOption {
+        complete?: StartNFCReaderCompleteCallback;
+        fail?: StartNFCReaderFailCallback;
+        success?: StartNFCReaderSuccessCallback;
+    }
+    type StartNFCReaderCompleteCallback = (res: GeneralCallbackResult) => void;
+    type StartNFCReaderFailCallback = (res: GeneralCallbackResult) => void;
+    type StartNFCReaderSuccessCallback = (res: GeneralCallbackResult) => void;
+
+    interface StopNFCReaderOption {
+        complete?: StopNFCReaderCompleteCallback;
+        fail?: StopNFCReaderFailCallback;
+        success?: StopNFCReaderSuccessCallback;
+    }
+    type StopNFCReaderCompleteCallback = (res: GeneralCallbackResult) => void;
+    type StopNFCReaderFailCallback = (res: GeneralCallbackResult) => void;
+    type StopNFCReaderSuccessCallback = (res: GeneralCallbackResult) => void;
+
+    interface OnNFCReadMessageCallback {
+        messageType: number;
+        data?: {
+            hex: string;
+            reversed_hex: string;
+            dec: number;
+            reversed_dec: number;
+        };
+    }
+
+    interface TranslateVoiceOption {
+        complete?: TranslateVoiceCompleteCallback;
+        fail?: TranslateVoiceFailCallback;
+        success?: TranslateVoiceSuccessCallback;
+        filePath: string;
+        isShowProgressTips?: 0 | 1;
+    }
+    interface TranslateVoiceSuccessCallbackResult {
+        translateResult: string;
+        errMsg: string;
+    }
+    type TranslateVoiceCompleteCallback = (res: GeneralCallbackResult) => void;
+    type TranslateVoiceFailCallback = (res: GeneralCallbackResult) => void;
+    type TranslateVoiceSuccessCallback = (res: TranslateVoiceSuccessCallbackResult) => void;
+
+    interface ChooseMessageFileOption {
+        complete?: ChooseMessageFileCompleteCallback;
+        fail?: ChooseMessageFileFailCallback;
+        success?: ChooseMessageFileSuccessCallback;
+        count: number;
+        type?: string;
+    }
+    interface ChooseMessageFileSuccessCallbackResult {
+        tempFiles: { path: string; size: number; name: string; type: string; time: number }[];
+        errMsg: string;
+    }
+    type ChooseMessageFileCompleteCallback = (res: GeneralCallbackResult) => void;
+    type ChooseMessageFileFailCallback = (res: GeneralCallbackResult) => void;
+    type ChooseMessageFileSuccessCallback = (res: ChooseMessageFileSuccessCallbackResult) => void;
+
     interface GetCurExternalContactOption {
         complete?: GetCurExternalContactCompleteCallback;
         fail?: GetCurExternalContactFailCallback;
@@ -507,42 +574,78 @@ declare namespace WechatMiniprogram.Qy {
     type NavigateToKfChatFailCallback = (res: GeneralCallbackResult) => void;
     type NavigateToKfChatSuccessCallback = (res: GeneralCallbackResult) => void;
 
-    interface StartLivingOption {
-        complete?: StartLivingCompleteCallback;
-        fail?: StartLivingFailCallback;
-        success?: StartLivingSuccessCallback;
-        livingId?: string;
-        liveType?: number;
-        theme?: string;
-        departmentIds?: number[];
+    interface CreateExternalPaymentOption {
+        complete?: CreateExternalPaymentCompleteCallback;
+        fail?: CreateExternalPaymentFailCallback;
+        success?: CreateExternalPaymentSuccessCallback;
+        paymentType?: number;
+        totalFee?: number;
+        description?: string;
     }
-    interface StartLivingSuccessCallbackResult {
-        livingId?: string;
+    interface CreateExternalPaymentSuccessCallbackResult {
+        paymentId: string;
         errMsg: string;
     }
-    type StartLivingCompleteCallback = (res: GeneralCallbackResult) => void;
-    type StartLivingFailCallback = (res: GeneralCallbackResult) => void;
-    type StartLivingSuccessCallback = (res: StartLivingSuccessCallbackResult) => void;
+    type CreateExternalPaymentCompleteCallback = (res: GeneralCallbackResult) => void;
+    type CreateExternalPaymentFailCallback = (res: GeneralCallbackResult) => void;
+    type CreateExternalPaymentSuccessCallback = (res: CreateExternalPaymentSuccessCallbackResult) => void;
 
-    interface ReplayLivingOption {
-        complete?: ReplayLivingCompleteCallback;
-        fail?: ReplayLivingFailCallback;
-        success?: ReplayLivingSuccessCallback;
-        livingId: string;
+    interface RefundExternalPaymentOption {
+        complete?: RefundExternalPaymentCompleteCallback;
+        fail?: RefundExternalPaymentFailCallback;
+        success?: RefundExternalPaymentSuccessCallback;
+        paymentId: string;
+        outTradeNo: string;
+        refundFee?: number;
+        refundComment?: string;
     }
-    type ReplayLivingCompleteCallback = (res: GeneralCallbackResult) => void;
-    type ReplayLivingFailCallback = (res: GeneralCallbackResult) => void;
-    type ReplayLivingSuccessCallback = (res: GeneralCallbackResult) => void;
+    interface RefundExternalPaymentSuccessCallbackResult {
+        errMsg: string;
+    }
+    type RefundExternalPaymentCompleteCallback = (res: GeneralCallbackResult) => void;
+    type RefundExternalPaymentFailCallback = (res: GeneralCallbackResult) => void;
+    type RefundExternalPaymentSuccessCallback = (res: RefundExternalPaymentSuccessCallbackResult) => void;
 
-    interface DownloadLivingReplayOption {
-        complete?: DownloadLivingReplayCompleteCallback;
-        fail?: DownloadLivingReplayFailCallback;
-        success?: DownloadLivingReplaySuccessCallback;
-        livingId: string;
+    interface CreateSchoolPaymentOption {
+        complete?: CreateSchoolPaymentCompleteCallback;
+        fail?: CreateSchoolPaymentFailCallback;
+        success?: CreateSchoolPaymentSuccessCallback;
+        projectName?: string;
+        amount?: number;
+        payers?: {
+            students?: string[];
+            departments?: number[];
+        };
     }
-    type DownloadLivingReplayCompleteCallback = (res: GeneralCallbackResult) => void;
-    type DownloadLivingReplayFailCallback = (res: GeneralCallbackResult) => void;
-    type DownloadLivingReplaySuccessCallback = (res: GeneralCallbackResult) => void;
+    interface CreateSchoolPaymentSuccessCallbackResult {
+        paymentId: string;
+        errMsg: string;
+    }
+    type CreateSchoolPaymentCompleteCallback = (res: GeneralCallbackResult) => void;
+    type CreateSchoolPaymentFailCallback = (res: GeneralCallbackResult) => void;
+    type CreateSchoolPaymentSuccessCallback = (res: CreateSchoolPaymentSuccessCallbackResult) => void;
+
+    interface CheckScheduleOption {
+        complete?: CheckScheduleCompleteCallback;
+        fail?: CheckScheduleFailCallback;
+        success?: CheckScheduleSuccessCallback;
+        start_time: number;
+        end_time: number;
+        users?: string[];
+    }
+    type CheckScheduleCompleteCallback = (res: GeneralCallbackResult) => void;
+    type CheckScheduleFailCallback = (res: GeneralCallbackResult) => void;
+    type CheckScheduleSuccessCallback = (res: GeneralCallbackResult) => void;
+
+    interface StartMeetingOption {
+        complete?: StartMeetingCompleteCallback;
+        fail?: StartMeetingFailCallback;
+        success?: StartMeetingSuccessCallback;
+        meetingId?: string;
+    }
+    type StartMeetingCompleteCallback = (res: GeneralCallbackResult) => void;
+    type StartMeetingFailCallback = (res: GeneralCallbackResult) => void;
+    type StartMeetingSuccessCallback = (res: GeneralCallbackResult) => void;
 
     interface WedriveSelectDirOption {
         complete?: WedriveSelectDirCompleteCallback;
@@ -607,61 +710,42 @@ declare namespace WechatMiniprogram.Qy {
     type WedocSelectDocFailCallback = (res: GeneralCallbackResult) => void;
     type WedocSelectDocSuccessCallback = (res: WedocSelectDocSuccessCallbackResult) => void;
 
-    interface CreateSchoolPaymentOption {
-        complete?: CreateSchoolPaymentCompleteCallback;
-        fail?: CreateSchoolPaymentFailCallback;
-        success?: CreateSchoolPaymentSuccessCallback;
-        projectName?: string;
-        amount?: number;
-        payers?: {
-            students?: string[];
-            departments?: number[];
-        };
+    interface StartLivingOption {
+        complete?: StartLivingCompleteCallback;
+        fail?: StartLivingFailCallback;
+        success?: StartLivingSuccessCallback;
+        livingId?: string;
+        liveType?: number;
+        theme?: string;
+        departmentIds?: number[];
     }
-    interface CreateSchoolPaymentSuccessCallbackResult {
-        paymentId: string;
+    interface StartLivingSuccessCallbackResult {
+        livingId?: string;
         errMsg: string;
     }
-    type CreateSchoolPaymentCompleteCallback = (res: GeneralCallbackResult) => void;
-    type CreateSchoolPaymentFailCallback = (res: GeneralCallbackResult) => void;
-    type CreateSchoolPaymentSuccessCallback = (res: CreateSchoolPaymentSuccessCallbackResult) => void;
+    type StartLivingCompleteCallback = (res: GeneralCallbackResult) => void;
+    type StartLivingFailCallback = (res: GeneralCallbackResult) => void;
+    type StartLivingSuccessCallback = (res: StartLivingSuccessCallbackResult) => void;
 
-    interface GetNFCReaderStateOption {
-        complete?: GetNFCReaderStateCompleteCallback;
-        fail?: GetNFCReaderStateFailCallback;
-        success?: GetNFCReaderStateSuccessCallback;
+    interface ReplayLivingOption {
+        complete?: ReplayLivingCompleteCallback;
+        fail?: ReplayLivingFailCallback;
+        success?: ReplayLivingSuccessCallback;
+        livingId: string;
     }
-    type GetNFCReaderStateCompleteCallback = (res: GeneralCallbackResult) => void;
-    type GetNFCReaderStateFailCallback = (res: GeneralCallbackResult) => void;
-    type GetNFCReaderStateSuccessCallback = (res: GeneralCallbackResult) => void;
+    type ReplayLivingCompleteCallback = (res: GeneralCallbackResult) => void;
+    type ReplayLivingFailCallback = (res: GeneralCallbackResult) => void;
+    type ReplayLivingSuccessCallback = (res: GeneralCallbackResult) => void;
 
-    interface StartNFCReaderOption {
-        complete?: StartNFCReaderCompleteCallback;
-        fail?: StartNFCReaderFailCallback;
-        success?: StartNFCReaderSuccessCallback;
+    interface DownloadLivingReplayOption {
+        complete?: DownloadLivingReplayCompleteCallback;
+        fail?: DownloadLivingReplayFailCallback;
+        success?: DownloadLivingReplaySuccessCallback;
+        livingId: string;
     }
-    type StartNFCReaderCompleteCallback = (res: GeneralCallbackResult) => void;
-    type StartNFCReaderFailCallback = (res: GeneralCallbackResult) => void;
-    type StartNFCReaderSuccessCallback = (res: GeneralCallbackResult) => void;
-
-    interface StopNFCReaderOption {
-        complete?: StopNFCReaderCompleteCallback;
-        fail?: StopNFCReaderFailCallback;
-        success?: StopNFCReaderSuccessCallback;
-    }
-    type StopNFCReaderCompleteCallback = (res: GeneralCallbackResult) => void;
-    type StopNFCReaderFailCallback = (res: GeneralCallbackResult) => void;
-    type StopNFCReaderSuccessCallback = (res: GeneralCallbackResult) => void;
-
-    interface OnNFCReadMessageCallback {
-        messageType: number;
-        data?: {
-            hex: string;
-            reversed_hex: string;
-            dec: number;
-            reversed_dec: number;
-        };
-    }
+    type DownloadLivingReplayCompleteCallback = (res: GeneralCallbackResult) => void;
+    type DownloadLivingReplayFailCallback = (res: GeneralCallbackResult) => void;
+    type DownloadLivingReplaySuccessCallback = (res: GeneralCallbackResult) => void;
 
     interface OpenThirdAppServiceChatOption {
         complete?: OpenThirdAppServiceChatCompleteCallback;
@@ -690,83 +774,99 @@ declare namespace WechatMiniprogram.Qy {
     type OpenAppCommentFailCallback = (res: GeneralCallbackResult) => void;
     type OpenAppCommentSuccessCallback = (res: GeneralCallbackResult) => void;
 
-    interface TranslateVoiceOption {
-        complete?: TranslateVoiceCompleteCallback;
-        fail?: TranslateVoiceFailCallback;
-        success?: TranslateVoiceSuccessCallback;
-        filePath: string;
-        isShowProgressTips?: 0 | 1;
+    interface OpenAppDeviceDataAuthOption {
+        complete?: OpenAppDeviceDataAuthCompleteCallback;
+        fail?: OpenAppDeviceDataAuthFailCallback;
+        success?: OpenAppDeviceDataAuthSuccessCallback;
     }
-    interface TranslateVoiceSuccessCallbackResult {
-        translateResult: string;
-        errMsg: string;
-    }
-    type TranslateVoiceCompleteCallback = (res: GeneralCallbackResult) => void;
-    type TranslateVoiceFailCallback = (res: GeneralCallbackResult) => void;
-    type TranslateVoiceSuccessCallback = (res: TranslateVoiceSuccessCallbackResult) => void;
+    type OpenAppDeviceDataAuthCompleteCallback = (res: GeneralCallbackResult) => void;
+    type OpenAppDeviceDataAuthFailCallback = (res: GeneralCallbackResult) => void;
+    type OpenAppDeviceDataAuthSuccessCallback = (res: GeneralCallbackResult) => void;
 
-    interface ChooseMessageFileOption {
-        complete?: ChooseMessageFileCompleteCallback;
-        fail?: ChooseMessageFileFailCallback;
-        success?: ChooseMessageFileSuccessCallback;
-        count: number;
-        type?: string;
+    interface AddDeviceOption {
+        complete?: AddDeviceCompleteCallback;
+        fail?: AddDeviceFailCallback;
+        success?: AddDeviceSuccessCallback;
+        type: string;
+        qrcode_url?: string;
+        sn?: string;
     }
-    interface ChooseMessageFileSuccessCallbackResult {
-        tempFiles: { path: string; size: number; name: string; type: string; time: number }[];
-        errMsg: string;
-    }
-    type ChooseMessageFileCompleteCallback = (res: GeneralCallbackResult) => void;
-    type ChooseMessageFileFailCallback = (res: GeneralCallbackResult) => void;
-    type ChooseMessageFileSuccessCallback = (res: ChooseMessageFileSuccessCallbackResult) => void;
+    type AddDeviceCompleteCallback = (res: GeneralCallbackResult) => void;
+    type AddDeviceFailCallback = (res: GeneralCallbackResult) => void;
+    type AddDeviceSuccessCallback = (res: GeneralCallbackResult) => void;
 
-    interface CreateExternalPaymentOption {
-        complete?: CreateExternalPaymentCompleteCallback;
-        fail?: CreateExternalPaymentFailCallback;
-        success?: CreateExternalPaymentSuccessCallback;
-        paymentType?: number;
-        totalFee?: number;
-        description?: string;
+    interface OpenDeviceProfileOption {
+        complete?: OpenDeviceProfileCompleteCallback;
+        fail?: OpenDeviceProfileFailCallback;
+        success?: OpenDeviceProfileSuccessCallback;
+        deviceSn: string;
     }
-    interface CreateExternalPaymentSuccessCallbackResult {
-        paymentId: string;
-        errMsg: string;
-    }
-    type CreateExternalPaymentCompleteCallback = (res: GeneralCallbackResult) => void;
-    type CreateExternalPaymentFailCallback = (res: GeneralCallbackResult) => void;
-    type CreateExternalPaymentSuccessCallback = (res: CreateExternalPaymentSuccessCallbackResult) => void;
+    type OpenDeviceProfileCompleteCallback = (res: GeneralCallbackResult) => void;
+    type OpenDeviceProfileFailCallback = (res: GeneralCallbackResult) => void;
+    type OpenDeviceProfileSuccessCallback = (res: GeneralCallbackResult) => void;
 
-    interface RefundExternalPaymentOption {
-        complete?: RefundExternalPaymentCompleteCallback;
-        fail?: RefundExternalPaymentFailCallback;
-        success?: RefundExternalPaymentSuccessCallback;
-        paymentId: string;
-        outTradeNo: string;
-        refundFee?: number;
-        refundComment?: string;
+    interface QueryCurrHWOpenTalkOption {
+        complete?: QueryCurrHWOpenTalkCompleteCallback;
+        fail?: QueryCurrHWOpenTalkFailCallback;
+        success?: QueryCurrHWOpenTalkSuccessCallback;
     }
-    interface RefundExternalPaymentSuccessCallbackResult {
+    interface QueryCurrHWOpenTalkSuccessCallbackResult {
+        inTalkType?: string;
+        ticket?: string;
         errMsg: string;
     }
-    type RefundExternalPaymentCompleteCallback = (res: GeneralCallbackResult) => void;
-    type RefundExternalPaymentFailCallback = (res: GeneralCallbackResult) => void;
-    type RefundExternalPaymentSuccessCallback = (res: RefundExternalPaymentSuccessCallbackResult) => void;
+    type QueryCurrHWOpenTalkCompleteCallback = (res: GeneralCallbackResult) => void;
+    type QueryCurrHWOpenTalkFailCallback = (res: GeneralCallbackResult) => void;
+    type QueryCurrHWOpenTalkSuccessCallback = (res: QueryCurrHWOpenTalkSuccessCallbackResult) => void;
+
+    interface EnterHWOpenTalkOption {
+        complete?: EnterHWOpenTalkCompleteCallback;
+        fail?: EnterHWOpenTalkFailCallback;
+        success?: EnterHWOpenTalkSuccessCallback;
+        code: string;
+        ticket?: string;
+    }
+    type EnterHWOpenTalkCompleteCallback = (res: GeneralCallbackResult) => void;
+    type EnterHWOpenTalkFailCallback = (res: GeneralCallbackResult) => void;
+    type EnterHWOpenTalkSuccessCallback = (res: GeneralCallbackResult) => void;
+
+    interface StartWecastOption {
+        complete?: StartWecastCompleteCallback;
+        fail?: StartWecastFailCallback;
+        success?: StartWecastSuccessCallback;
+    }
+    type StartWecastCompleteCallback = (res: GeneralCallbackResult) => void;
+    type StartWecastFailCallback = (res: GeneralCallbackResult) => void;
+    type StartWecastSuccessCallback = (res: GeneralCallbackResult) => void;
+
+    interface PrintFileOption {
+        complete?: PrintFileCompleteCallback;
+        fail?: PrintFileFailCallback;
+        success?: PrintFileSuccessCallback;
+        fileId: string;
+        fileIdType: string;
+        fileName?: string;
+    }
+    type PrintFileCompleteCallback = (res: GeneralCallbackResult) => void;
+    type PrintFileFailCallback = (res: GeneralCallbackResult) => void;
+    type PrintFileSuccessCallback = (res: GeneralCallbackResult) => void;
+
 }
 
 declare namespace WechatMiniprogram {
     interface Qy {
-        // 企业微信登录接口
+        // 基础：登录
         login<T extends WechatMiniprogram.Qy.LoginOption = WechatMiniprogram.Qy.LoginOption>(option?: T): WechatMiniprogram.PromisifySuccessResult<T, WechatMiniprogram.Qy.LoginOption>;
         checkSession<T extends WechatMiniprogram.Qy.CheckSessionOption = WechatMiniprogram.Qy.CheckSessionOption>(option?: T): WechatMiniprogram.PromisifySuccessResult<T, WechatMiniprogram.Qy.CheckSessionOption>;
 
-        // 基础接口
+        // 基础：基础接口
         getSystemInfo<T extends WechatMiniprogram.Qy.GetSystemInfoOption = WechatMiniprogram.Qy.GetSystemInfoOption>(option?: T): WechatMiniprogram.PromisifySuccessResult<T, WechatMiniprogram.Qy.GetSystemInfoOption>;
         canIUse(schema: string): boolean;
         getContext<T extends WechatMiniprogram.Qy.GetContextOption = WechatMiniprogram.Qy.GetContextOption>(option?: T): WechatMiniprogram.PromisifySuccessResult<T, WechatMiniprogram.Qy.GetContextOption>;
         setShareAttr<T extends WechatMiniprogram.Qy.SetShareAttrOption = WechatMiniprogram.Qy.SetShareAttrOption>(option?: T): WechatMiniprogram.PromisifySuccessResult<T, WechatMiniprogram.Qy.SetShareAttrOption>;
         getShareInfo<T extends WechatMiniprogram.Qy.GetShareInfoOption = WechatMiniprogram.Qy.GetShareInfoOption>(option?: T): WechatMiniprogram.PromisifySuccessResult<T, WechatMiniprogram.Qy.GetShareInfoOption>;
 
-        // 企业通讯录
+        // 基础：企业通讯录
         selectEnterpriseContact<T extends WechatMiniprogram.Qy.SelectEnterpriseContactOption = WechatMiniprogram.Qy.SelectEnterpriseContactOption>(option?: T): WechatMiniprogram.PromisifySuccessResult<T, WechatMiniprogram.Qy.SelectEnterpriseContactOption>;
         openUserProfile<T extends WechatMiniprogram.Qy.OpenUserProfileOption = WechatMiniprogram.Qy.OpenUserProfileOption>(option?: T): WechatMiniprogram.PromisifySuccessResult<T, WechatMiniprogram.Qy.OpenUserProfileOption>;
         getEnterpriseUserInfo<T extends WechatMiniprogram.Qy.GetEnterpriseUserInfoOption = WechatMiniprogram.Qy.GetEnterpriseUserInfoOption>(option?: T): WechatMiniprogram.PromisifySuccessResult<T, WechatMiniprogram.Qy.GetEnterpriseUserInfoOption>;
@@ -776,14 +876,24 @@ declare namespace WechatMiniprogram {
         claimClassAdmin<T extends WechatMiniprogram.Qy.ClaimClassAdminOption = WechatMiniprogram.Qy.ClaimClassAdminOption>(option?: T): WechatMiniprogram.PromisifySuccessResult<T, WechatMiniprogram.Qy.ClaimClassAdminOption>;
         selectPrivilegedContact<T extends WechatMiniprogram.Qy.SelectPrivilegedContactOption = WechatMiniprogram.Qy.SelectPrivilegedContactOption>(option?: T): WechatMiniprogram.PromisifySuccessResult<T, WechatMiniprogram.Qy.SelectPrivilegedContactOption>;
 
-        // 会话接口
+        // 基础：会话接口
         openEnterpriseChat<T extends WechatMiniprogram.Qy.OpenEnterpriseChatOption = WechatMiniprogram.Qy.OpenEnterpriseChatOption>(option?: T): WechatMiniprogram.PromisifySuccessResult<T, WechatMiniprogram.Qy.OpenEnterpriseChatOption>;
         updateEnterpriseChat<T extends WechatMiniprogram.Qy.UpdateEnterpriseChatOption = WechatMiniprogram.Qy.UpdateEnterpriseChatOption>(option?: T): WechatMiniprogram.PromisifySuccessResult<T, WechatMiniprogram.Qy.UpdateEnterpriseChatOption>;
         sendChatMessage<T extends WechatMiniprogram.Qy.SendChatMessageOption = WechatMiniprogram.Qy.SendChatMessageOption>(option?: T): WechatMiniprogram.PromisifySuccessResult<T, WechatMiniprogram.Qy.SendChatMessageOption>;
         createCorpGroupChat<T extends WechatMiniprogram.Qy.CreateCorpGroupChatOption = WechatMiniprogram.Qy.CreateCorpGroupChatOption>(option?: T): WechatMiniprogram.PromisifySuccessResult<T, WechatMiniprogram.Qy.CreateCorpGroupChatOption>;
         updateCorpGroupChat<T extends WechatMiniprogram.Qy.UpdateCorpGroupChatOption = WechatMiniprogram.Qy.UpdateCorpGroupChatOption>(option?: T): WechatMiniprogram.PromisifySuccessResult<T, WechatMiniprogram.Qy.UpdateCorpGroupChatOption>;
 
-        // 客户联系
+        // 基础：NFC 接口
+        getNFCReaderState<T extends WechatMiniprogram.Qy.GetNFCReaderStateOption = WechatMiniprogram.Qy.GetNFCReaderStateOption>(option?: T): WechatMiniprogram.PromisifySuccessResult<T, WechatMiniprogram.Qy.GetNFCReaderStateOption>;
+        startNFCReader<T extends WechatMiniprogram.Qy.StopNFCReaderOption = WechatMiniprogram.Qy.StartNFCReaderOption>(option?: T): WechatMiniprogram.PromisifySuccessResult<T, WechatMiniprogram.Qy.StartNFCReaderOption>;
+        stopNFCReader<T extends WechatMiniprogram.Qy.StopNFCReaderOption = WechatMiniprogram.Qy.StopNFCReaderOption>(option?: T): WechatMiniprogram.PromisifySuccessResult<T, WechatMiniprogram.Qy.StopNFCReaderOption>;
+        onNFCReadMessage(callback: WechatMiniprogram.Qy.OnNFCReadMessageCallback): void;
+
+        // 基础：更多
+        translateVoice<T extends WechatMiniprogram.Qy.TranslateVoiceOption = WechatMiniprogram.Qy.TranslateVoiceOption>(option?: T): WechatMiniprogram.PromisifySuccessResult<T, WechatMiniprogram.Qy.TranslateVoiceOption>;
+        chooseMessageFile<T extends WechatMiniprogram.Qy.ChooseMessageFileOption = WechatMiniprogram.Qy.ChooseMessageFileOption>(option?: T): WechatMiniprogram.PromisifySuccessResult<T, WechatMiniprogram.Qy.ChooseMessageFileOption>;
+
+        // 连接微信：客户联系
         selectExternalContact<T extends WechatMiniprogram.Qy.SelectExternalContactOption = WechatMiniprogram.Qy.SelectExternalContactOption>(option?: T): WechatMiniprogram.PromisifySuccessResult<T, WechatMiniprogram.Qy.SelectExternalContactOption>;
         getCurExternalContact<T extends WechatMiniprogram.Qy.GetCurExternalContactOption = WechatMiniprogram.Qy.GetCurExternalContactOption>(option?: T): WechatMiniprogram.PromisifySuccessResult<T, WechatMiniprogram.Qy.GetCurExternalContactOption>;
         getCurExternalChat<T extends WechatMiniprogram.Qy.GetCurExternalChatOption = WechatMiniprogram.Qy.GetCurExternalChatOption>(option?: T): WechatMiniprogram.PromisifySuccessResult<T, WechatMiniprogram.Qy.GetCurExternalChatOption>;
@@ -793,39 +903,46 @@ declare namespace WechatMiniprogram {
         shareToExternalMoments<T extends WechatMiniprogram.Qy.ShareToExternalMomentsOption = WechatMiniprogram.Qy.ShareToExternalMomentsOption>(option?: T): WechatMiniprogram.PromisifySuccessResult<T, WechatMiniprogram.Qy.ShareToExternalMomentsOption>;
         updateMomentsSetting<T extends WechatMiniprogram.Qy.UpdateMomentsSettingOption = WechatMiniprogram.Qy.UpdateMomentsSettingOption>(option?: T, callback?: WechatMiniprogram.Qy.UpdateMomentsSettingCompleteCallback): void;
 
-        // 微信客服
+        // 连接微信：微信客服
         navigateToKfChat<T extends WechatMiniprogram.Qy.NavigateToKfChatOption = WechatMiniprogram.Qy.NavigateToKfChatOption>(option?: T): WechatMiniprogram.PromisifySuccessResult<T, WechatMiniprogram.Qy.NavigateToKfChatOption>;
 
-        // 效率工具
-        startLiving<T extends WechatMiniprogram.Qy.StartLivingOption = WechatMiniprogram.Qy.StartLivingOption>(option?: T): WechatMiniprogram.PromisifySuccessResult<T, WechatMiniprogram.Qy.StartLivingOption>;
-        replayLiving<T extends WechatMiniprogram.Qy.ReplayLivingOption = WechatMiniprogram.Qy.ReplayLivingOption>(option?: T): WechatMiniprogram.PromisifySuccessResult<T, WechatMiniprogram.Qy.ReplayLivingOption>;
-        downloadLivingReplay<T extends WechatMiniprogram.Qy.DownloadLivingReplayOption = WechatMiniprogram.Qy.DownloadLivingReplayOption>(option?: T): WechatMiniprogram.PromisifySuccessResult<T, WechatMiniprogram.Qy.DownloadLivingReplayOption>;
+        // 连接微信：对外收款
+        createExternalPayment<T extends WechatMiniprogram.Qy.CreateExternalPaymentOption = WechatMiniprogram.Qy.CreateExternalPaymentOption>(option?: T): WechatMiniprogram.PromisifySuccessResult<T, WechatMiniprogram.Qy.CreateExternalPaymentOption>;
+        refundExternalPayment<T extends WechatMiniprogram.Qy.RefundExternalPaymentOption = WechatMiniprogram.Qy.RefundExternalPaymentOption>(option?: T): WechatMiniprogram.PromisifySuccessResult<T, WechatMiniprogram.Qy.RefundExternalPaymentOption>;
+
+        // 连接微信：家校沟通
+        createSchoolPayment<T extends WechatMiniprogram.Qy.CreateSchoolPaymentOption = WechatMiniprogram.Qy.CreateSchoolPaymentOption>(option?: T): WechatMiniprogram.PromisifySuccessResult<T, WechatMiniprogram.Qy.CreateSchoolPaymentOption>;
+
+        // 办公：日程
+        checkSchedule<T extends WechatMiniprogram.Qy.CheckScheduleOption = WechatMiniprogram.Qy.CheckScheduleOption>(option?: T): WechatMiniprogram.PromisifySuccessResult<T, WechatMiniprogram.Qy.CheckScheduleOption>;
+
+        // 办公：会议
+        startMeeting<T extends WechatMiniprogram.Qy.StartMeetingOption = WechatMiniprogram.Qy.StartMeetingOption>(option?: T): WechatMiniprogram.PromisifySuccessResult<T, WechatMiniprogram.Qy.StartMeetingOption>;
+
+        // 办公：微盘
         wedriveSelectDir<T extends WechatMiniprogram.Qy.WedriveSelectDirOption = WechatMiniprogram.Qy.WedriveSelectDirOption>(option?: T): WechatMiniprogram.PromisifySuccessResult<T, WechatMiniprogram.Qy.WedriveSelectDirOption>;
         wedriveSelectFileForShare<T extends WechatMiniprogram.Qy.WedriveSelectFileForShareOption = WechatMiniprogram.Qy.WedriveSelectFileForShareOption>(option?: T): WechatMiniprogram.PromisifySuccessResult<T, WechatMiniprogram.Qy.WedriveSelectFileForShareOption>;
         wedriveSelectFileForDownload<T extends WechatMiniprogram.Qy.WedriveSelectFileForDownloadOption = WechatMiniprogram.Qy.WedriveSelectFileForDownloadOption>(option?: T): WechatMiniprogram.PromisifySuccessResult<T, WechatMiniprogram.Qy.WedriveSelectFileForDownloadOption>;
         wedocSelectDoc<T extends WechatMiniprogram.Qy.WedocSelectDocOption = WechatMiniprogram.Qy.WedocSelectDocOption>(option?: T): WechatMiniprogram.PromisifySuccessResult<T, WechatMiniprogram.Qy.WedocSelectDocOption>;
 
-        // 教育
-        createSchoolPayment<T extends WechatMiniprogram.Qy.CreateSchoolPaymentOption = WechatMiniprogram.Qy.CreateSchoolPaymentOption>(option?: T): WechatMiniprogram.PromisifySuccessResult<T, WechatMiniprogram.Qy.CreateSchoolPaymentOption>;
-
-        // NFC 接口
-        getNFCReaderState<T extends WechatMiniprogram.Qy.GetNFCReaderStateOption = WechatMiniprogram.Qy.GetNFCReaderStateOption>(option?: T): WechatMiniprogram.PromisifySuccessResult<T, WechatMiniprogram.Qy.GetNFCReaderStateOption>;
-        startNFCReader<T extends WechatMiniprogram.Qy.StopNFCReaderOption = WechatMiniprogram.Qy.StartNFCReaderOption>(option?: T): WechatMiniprogram.PromisifySuccessResult<T, WechatMiniprogram.Qy.StartNFCReaderOption>;
-        stopNFCReader<T extends WechatMiniprogram.Qy.StopNFCReaderOption = WechatMiniprogram.Qy.StopNFCReaderOption>(option?: T): WechatMiniprogram.PromisifySuccessResult<T, WechatMiniprogram.Qy.StopNFCReaderOption>;
-        onNFCReadMessage(callback: WechatMiniprogram.Qy.OnNFCReadMessageCallback): void;
+        // 办公：直播
+        startLiving<T extends WechatMiniprogram.Qy.StartLivingOption = WechatMiniprogram.Qy.StartLivingOption>(option?: T): WechatMiniprogram.PromisifySuccessResult<T, WechatMiniprogram.Qy.StartLivingOption>;
+        replayLiving<T extends WechatMiniprogram.Qy.ReplayLivingOption = WechatMiniprogram.Qy.ReplayLivingOption>(option?: T): WechatMiniprogram.PromisifySuccessResult<T, WechatMiniprogram.Qy.ReplayLivingOption>;
+        downloadLivingReplay<T extends WechatMiniprogram.Qy.DownloadLivingReplayOption = WechatMiniprogram.Qy.DownloadLivingReplayOption>(option?: T): WechatMiniprogram.PromisifySuccessResult<T, WechatMiniprogram.Qy.DownloadLivingReplayOption>;
 
         // 第三方服务
         openThirdAppServiceChat<T extends WechatMiniprogram.Qy.OpenThirdAppServiceChatOption = WechatMiniprogram.Qy.OpenThirdAppServiceChatOption>(option?: T): WechatMiniprogram.PromisifySuccessResult<T, WechatMiniprogram.Qy.OpenThirdAppServiceChatOption>;
         openAppManage<T extends WechatMiniprogram.Qy.OpenAppManageOption = WechatMiniprogram.Qy.OpenAppManageOption>(option?: T): WechatMiniprogram.PromisifySuccessResult<T, WechatMiniprogram.Qy.OpenAppManageOption>;
         openAppComment<T extends WechatMiniprogram.Qy.OpenAppCommentOption = WechatMiniprogram.Qy.OpenAppCommentOption>(option?: T): WechatMiniprogram.PromisifySuccessResult<T, WechatMiniprogram.Qy.OpenAppCommentOption>;
 
-        // 更多企业微信专用接口
-        translateVoice<T extends WechatMiniprogram.Qy.TranslateVoiceOption = WechatMiniprogram.Qy.TranslateVoiceOption>(option?: T): WechatMiniprogram.PromisifySuccessResult<T, WechatMiniprogram.Qy.TranslateVoiceOption>;
-        chooseMessageFile<T extends WechatMiniprogram.Qy.ChooseMessageFileOption = WechatMiniprogram.Qy.ChooseMessageFileOption>(option?: T): WechatMiniprogram.PromisifySuccessResult<T, WechatMiniprogram.Qy.ChooseMessageFileOption>;
-
-        // 对外收款
-        createExternalPayment<T extends WechatMiniprogram.Qy.CreateExternalPaymentOption = WechatMiniprogram.Qy.CreateExternalPaymentOption>(option?: T): WechatMiniprogram.PromisifySuccessResult<T, WechatMiniprogram.Qy.CreateExternalPaymentOption>;
-        refundExternalPayment<T extends WechatMiniprogram.Qy.RefundExternalPaymentOption = WechatMiniprogram.Qy.RefundExternalPaymentOption>(option?: T): WechatMiniprogram.PromisifySuccessResult<T, WechatMiniprogram.Qy.RefundExternalPaymentOption>;
+        // 智慧硬件
+        openAppDeviceDataAuth<T extends WechatMiniprogram.Qy.OpenAppDeviceDataAuthOption = WechatMiniprogram.Qy.OpenAppDeviceDataAuthOption>(option?: T): WechatMiniprogram.PromisifySuccessResult<T, WechatMiniprogram.Qy.OpenAppDeviceDataAuthOption>;
+        addDevice<T extends WechatMiniprogram.Qy.AddDeviceOption = WechatMiniprogram.Qy.AddDeviceOption>(option?: T): WechatMiniprogram.PromisifySuccessResult<T, WechatMiniprogram.Qy.AddDeviceOption>;
+        openDeviceProfile<T extends WechatMiniprogram.Qy.OpenDeviceProfileOption = WechatMiniprogram.Qy.OpenDeviceProfileOption>(option?: T): WechatMiniprogram.PromisifySuccessResult<T, WechatMiniprogram.Qy.OpenDeviceProfileOption>;
+        queryCurrHWOpenTalk<T extends WechatMiniprogram.Qy.QueryCurrHWOpenTalkOption = WechatMiniprogram.Qy.QueryCurrHWOpenTalkOption>(option?: T): WechatMiniprogram.PromisifySuccessResult<T, WechatMiniprogram.Qy.QueryCurrHWOpenTalkOption>;
+        enterHWOpenTalk<T extends WechatMiniprogram.Qy.EnterHWOpenTalkOption = WechatMiniprogram.Qy.EnterHWOpenTalkOption>(option?: T): WechatMiniprogram.PromisifySuccessResult<T, WechatMiniprogram.Qy.EnterHWOpenTalkOption>;
+        startWecast<T extends WechatMiniprogram.Qy.StartWecastOption = WechatMiniprogram.Qy.StartWecastOption>(option?: T): WechatMiniprogram.PromisifySuccessResult<T, WechatMiniprogram.Qy.StartWecastOption>;
+        printFile<T extends WechatMiniprogram.Qy.PrintFileOption = WechatMiniprogram.Qy.PrintFileOption>(option?: T): WechatMiniprogram.PromisifySuccessResult<T, WechatMiniprogram.Qy.PrintFileOption>;
     }
 
     // @ts-ignore
