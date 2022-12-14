@@ -1,0 +1,35 @@
+﻿name: Test
+
+on:
+    - push
+    - pull_request
+
+jobs:
+    run-lint:
+        name: Lint
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v2
+              with:
+                  persist-credentials: false
+
+            - name: Restore node_modules
+              uses: actions/cache@v2
+              id: node-modules-cache
+              with:
+                  path: node_modules
+                  key: ${{ runner.os }}-node-modules-${{ hashFiles('package-lock.json') }}
+
+            - name: Install PNPM
+              run: npm install -g pnpm@7
+
+            - name: Install Deps
+              if: steps.node-modules-cache.outputs.cache-hit != 'true'
+              run: npm install
+
+            - name: Run ESLint
+              run: npm run eslint
+
+            - name: Run Build
+              run: npm run build

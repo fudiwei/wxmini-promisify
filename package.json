@@ -32,8 +32,7 @@
     "scripts": {
         "clean": "gulp clean",
         "eslint": "gulp eslint",
-        "build": "gulp dist --sourceMap=no",
-        "deploy": "npm run build && npm publish --access=public"
+        "build": "gulp dist --sourceMap=no"
     },
     "typings": "types/index.d.ts",
     "files": [

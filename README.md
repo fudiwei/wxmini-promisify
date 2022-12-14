@@ -2,8 +2,8 @@
 
 [![NPM Version](https://img.shields.io/npm/v/@skit/wxmini-promisify.svg?sanitize=true)](https://www.npmjs.com/package/@skit/wxmini-promisify)
 [![NPM Download](https://img.shields.io/npm/dm/@skit/wxmini-promisify.svg?sanitize=true)](https://www.npmjs.com/package/@skit/wxmini-promisify)
-[![Dependency Status](https://david-dm.org/fudiwei/wxmini-promisify.svg)](https://david-dm.org/fudiwei/wxmini-promisify)
 [![License](https://img.shields.io/github/license/fudiwei/wxmini-promisify)](https://mit-license.org/)
+[![GitHub Actions Test Status](https://github.com/fudiwei/wxmini-promisify/actions/workflows/test.yml/badge.svg?branch=main)](https://github.com/fudiwei/wxmini-promisify/actions/workflows/test.yml)
 
 > 微信官方已于 2019 年 7 月 16 日推出了小程序 API Promise 化独立的扩展库 [miniprogram-api-promise](https://github.com/wechat-miniprogram/miniprogram-api-promise)，详情请参阅此[链接](https://developers.weixin.qq.com/miniprogram/dev/extended/utils/api-promise.html)。
 >
