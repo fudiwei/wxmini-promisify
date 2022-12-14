@@ -4,10 +4,13 @@ const _apis = [
     'openAppAuthorizeSetting',
     'getSystemInfoAsync',
     'getSystemInfo',
+    'getSkylineInfo',
+    'getRendererUserAgent',
     // 基础：更新 - Base/Update
     'updateWeChatApp',
     // 基础：分包加载 - Base/Subpackage
     'loadSubpackage',
+    'preDownloadSubpackage',
     // 基础：调试 - Base/Debug
     'setEnableDebug',
     // 基础：性能 - Base/Performance
@@ -134,6 +137,7 @@ const _apis = [
     'previewImage',
     'getImageInfo',
     'editImage',
+    'cropImage',
     'compressImage',
     'chooseMessageFile',
     'chooseImage',
@@ -332,6 +336,8 @@ const _apis = [
     // 设备：设备方向 - Device/Motion
     'stopDeviceMotionListening',
     'startDeviceMotionListening',
+    // 设备：转屏 - Device/Orientation
+    'setDeviceOrientation',
     // 设备：陀螺仪 - Device/Gyroscope
     'stopGyroscope',
     'startGyroscope',
@@ -364,7 +370,6 @@ const _apis = [
     'checkTrafficCardConditions',
     'chooseLicensePlate',
     'chooseShareGroup',
-    'cropImage',
     'deleteTrafficCard',
     'downloadApp',
     'downloadAppForIOS',
@@ -381,7 +386,6 @@ const _apis = [
     'getMonitoredBluetoothDevices',
     'getOpenDeviceId',
     'getResPath',
-    'getSkylineInfo',
     'getWCPayOverseaPrepayRequest',
     'getWxSecData',
     'handleWCPayOverseaWalletBuffer',
@@ -516,13 +520,13 @@ const _apis = [
     'qy.openThirdAppServiceChat',
     'qy.openAppManage',
     'qy.openAppComment',
-    'openAppDeviceDataAuth',
-    'addDevice',
-    'openDeviceProfile',
-    'queryCurrHWOpenTalk',
-    'enterHWOpenTalk',
-    'startWecast',
-    'printFile'
+    'qy.openAppDeviceDataAuth',
+    'qy.addDevice',
+    'qy.openDeviceProfile',
+    'qy.queryCurrHWOpenTalk',
+    'qy.enterHWOpenTalk',
+    'qy.startWecast',
+    'qy.printFile'
 ];
 
 const _isFn = (fn) => 'function' === typeof fn;

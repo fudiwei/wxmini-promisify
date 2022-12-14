@@ -23,6 +23,11 @@ declare namespace WechatMinigame {
                 onProgressUpdate?: LoadSubpackageTaskOnProgressUpdateCallback;
             }
         ): WxAsync.PromisifiedResult<LoadSubpackageOption>;
+        preDownloadSubpackageAsync(
+            option?: WxAsync.PromisifiedOption<PreDownloadSubpackageOption> & {
+                onProgressUpdate?: LoadSubpackageTaskOnProgressUpdateCallback;
+            }
+        ): WxAsync.PromisifiedResult<PreDownloadSubpackageOption>;
         // 基础：调试 - Base/Debug
         setEnableDebugAsync(option?: WxAsync.PromisifiedOption<SetEnableDebugOption>): WxAsync.PromisifiedResult<SetEnableDebugOption>;
 
@@ -230,6 +235,8 @@ declare namespace WechatMinigame {
         // 设备：设备方向 - Device/Motion
         stopDeviceMotionListeningAsync(option?: WxAsync.PromisifiedOption<StopDeviceMotionListeningOption>): WxAsync.PromisifiedResult<StopDeviceMotionListeningOption>;
         startDeviceMotionListeningAsync(option?: WxAsync.PromisifiedOption<StartDeviceMotionListeningOption>): WxAsync.PromisifiedResult<StartDeviceMotionListeningOption>;
+        // 设备：转屏 - Device/Orientation
+        setDeviceOrientationAsync(option?: WxAsync.PromisifiedOption<SetDeviceOrientationOption>): WxAsync.PromisifiedResult<SetDeviceOrientationOption>;
         // 设备：陀螺仪 - Device/Gyroscope
         stopGyroscopeAsync(option?: WxAsync.PromisifiedOption<StopGyroscopeOption>): WxAsync.PromisifiedResult<StopGyroscopeOption>;
         startGyroscopeAsync(option?: WxAsync.PromisifiedOption<StartGyroscopeOption>): WxAsync.PromisifiedResult<StartGyroscopeOption>;

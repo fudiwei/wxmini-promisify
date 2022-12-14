@@ -17,10 +17,18 @@ declare namespace WechatMiniprogram {
         openAppAuthorizeSettingAsync(option?: WxAsync.PromisifiedOption<OpenAppAuthorizeSettingOption>): WxAsync.PromisifiedResult<OpenAppAuthorizeSettingOption>;
         getSystemInfoAsyncAsync(option?: WxAsync.PromisifiedOption<GetSystemInfoAsyncOption>): WxAsync.PromisifiedResult<GetSystemInfoAsyncOption>;
         getSystemInfoAsync(option?: WxAsync.PromisifiedOption<GetSystemInfoOption>): WxAsync.PromisifiedResult<GetSystemInfoOption>;
+        getSkylineInfoAsync(option?: WxAsync.PromisifiedOption<GetSkylineInfoOption>): WxAsync.PromisifiedResult<GetSkylineInfoOption>;
+        getRendererUserAgentAsync(option?: WxAsync.PromisifiedOption<GetRendererUserAgentOption>): WxAsync.PromisifiedResult<GetRendererUserAgentOption>;
         // 基础：更新 - Base/Update
         updateWeChatAppAsync(option?: WxAsync.PromisifiedOption<UpdateWeChatAppOption>): WxAsync.PromisifiedResult<UpdateWeChatAppOption>;
         // 基础：调试 - Base/Debug
         setEnableDebugAsync(option?: WxAsync.PromisifiedOption<SetEnableDebugOption>): WxAsync.PromisifiedResult<SetEnableDebugOption>;
+        // 基础：分包加载 - Base/Subpackage
+        preDownloadSubpackageAsync(
+            option?: WxAsync.PromisifiedOption<PreDownloadSubpackageOption> & {
+                onProgressUpdate?: LoadSubpackageTaskOnProgressUpdateCallback;
+            }
+        ): WxAsync.PromisifiedResult<PreDownloadSubpackageOption>;
         // 基础：性能 - Base/Performance
         preloadAssetsAsync(option?: WxAsync.PromisifiedOption<PreloadAssetsOption>): WxAsync.PromisifiedResult<PreloadAssetsOption>;
         preloadSkylineViewAsync(option?: WxAsync.PromisifiedOption<PreloadSkylineViewOption>): WxAsync.PromisifiedResult<PreloadSkylineViewOption>;
@@ -166,6 +174,7 @@ declare namespace WechatMiniprogram {
         previewImageAsync(option?: WxAsync.PromisifiedOption<PreviewImageOption>): WxAsync.PromisifiedResult<PreviewImageOption>;
         getImageInfoAsync(option?: WxAsync.PromisifiedOption<GetImageInfoOption>): WxAsync.PromisifiedResult<GetImageInfoOption>;
         editImageAsync(option?: WxAsync.PromisifiedOption<EditImageOption>): WxAsync.PromisifiedResult<EditImageOption>;
+        cropImageAsync(option?: WxAsync.PromisifiedOption<CropImageOption>): WxAsync.PromisifiedResult<CropImageOption>;
         compressImageAsync(option?: WxAsync.PromisifiedOption<CompressImageOption>): WxAsync.PromisifiedResult<CompressImageOption>;
         chooseMessageFileAsync(option?: WxAsync.PromisifiedOption<ChooseMessageFileOption>): WxAsync.PromisifiedResult<ChooseMessageFileOption>;
         chooseImageAsync(option?: WxAsync.PromisifiedOption<ChooseImageOption>): WxAsync.PromisifiedResult<ChooseImageOption>;
