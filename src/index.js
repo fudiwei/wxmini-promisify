@@ -508,6 +508,7 @@ const _apis = [
     'qy.createExternalPayment',
     'qy.refundExternalPayment',
     'qy.createSchoolPayment',
+    'qy.createDoc',
     'qy.checkSchedule',
     'qy.startMeeting',
     'qy.wedriveSelectDir',

@@ -450,6 +450,8 @@ declare namespace WechatMiniprogram {
 
         createSchoolPaymentAsync(option?: WxAsync.PromisifiedOption<Qy.CreateSchoolPaymentOption>): WxAsync.PromisifiedResult<Qy.CreateSchoolPaymentOption>;
 
+        createDocAsync(option?: WxAsync.PromisifiedOption<Qy.CreateDocOption>): WxAsync.PromisifiedResult<Qy.CreateDocOption>;
+
         checkScheduleAsync(option?: WxAsync.PromisifiedOption<Qy.CheckScheduleOption>): WxAsync.PromisifiedResult<Qy.CheckScheduleOption>;
 
         startMeetingAsync(option?: WxAsync.PromisifiedOption<Qy.StartMeetingOption>): WxAsync.PromisifiedResult<Qy.StartMeetingOption>;

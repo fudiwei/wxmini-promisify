@@ -625,6 +625,16 @@ declare namespace WechatMiniprogram.Qy {
     type CreateSchoolPaymentFailCallback = (res: GeneralCallbackResult) => void;
     type CreateSchoolPaymentSuccessCallback = (res: CreateSchoolPaymentSuccessCallbackResult) => void;
 
+    interface CreateDocOption {
+        complete?: CreateDocCompleteCallback;
+        fail?: CreateDocFailCallback;
+        success?: CreateDocSuccessCallback;
+        docType: number;
+    }
+    type CreateDocCompleteCallback = (res: GeneralCallbackResult) => void;
+    type CreateDocFailCallback = (res: GeneralCallbackResult) => void;
+    type CreateDocSuccessCallback = (res: GeneralCallbackResult) => void;
+
     interface CheckScheduleOption {
         complete?: CheckScheduleCompleteCallback;
         fail?: CheckScheduleFailCallback;
@@ -912,6 +922,9 @@ declare namespace WechatMiniprogram {
 
         // 连接微信：家校沟通
         createSchoolPayment<T extends WechatMiniprogram.Qy.CreateSchoolPaymentOption = WechatMiniprogram.Qy.CreateSchoolPaymentOption>(option?: T): WechatMiniprogram.PromisifySuccessResult<T, WechatMiniprogram.Qy.CreateSchoolPaymentOption>;
+
+        // 办公：文档
+        createDoc<T extends WechatMiniprogram.Qy.CreateDocOption = WechatMiniprogram.Qy.CreateDocOption>(option?: T): WechatMiniprogram.PromisifySuccessResult<T, WechatMiniprogram.Qy.CreateDocOption>;
 
         // 办公：日程
         checkSchedule<T extends WechatMiniprogram.Qy.CheckScheduleOption = WechatMiniprogram.Qy.CheckScheduleOption>(option?: T): WechatMiniprogram.PromisifySuccessResult<T, WechatMiniprogram.Qy.CheckScheduleOption>;
