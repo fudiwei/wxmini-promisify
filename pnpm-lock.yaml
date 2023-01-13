@@ -1,7 +1,7 @@
 lockfileVersion: 5.4
 
 specifiers:
-  '@babel/core': 7.20.5
+  '@babel/core': ^7.20.5
   '@babel/preset-env': ^7.20.2
   '@typescript-eslint/eslint-plugin': ^5.46.1
   '@typescript-eslint/parser': ^5.46.1
@@ -15,8 +15,8 @@ specifiers:
   gulp-rimraf: ^1.0.0
   gulp-strip-debug: ^5.0.0
   gulp-uglify: ^3.0.2
-  minigame-api-typings: ^3.7.0
-  miniprogram-api-typings: ^3.8.1
+  minigame-api-typings: ^3.7.1
+  miniprogram-api-typings: ^3.9.0
   prettier: ^2.8.1
   typescript: ~4.8.0
 
@@ -35,8 +35,8 @@ devDependencies:
   gulp-rimraf: 1.0.0
   gulp-strip-debug: 5.0.0_gulp@4.0.2
   gulp-uglify: 3.0.2
-  minigame-api-typings: 3.7.0
-  miniprogram-api-typings: 3.8.1
+  minigame-api-typings: 3.7.1
+  miniprogram-api-typings: 3.9.0
   prettier: 2.8.1
   typescript: 4.8.4
 
@@ -46,7 +46,7 @@ packages:
     resolution: {integrity: sha512-Aolwjd7HSC2PyY0fDj/wA/EimQT4HfEnFYNp5s9CQlrdhyvWTtvZ5YzrUPu6R6/1jKiUlxu8bUhkdSnKHNAHMA==}
     engines: {node: '>=6.0.0'}
     dependencies:
-      '@jridgewell/trace-mapping': 0.3.4
+      '@jridgewell/trace-mapping': 0.3.17
     dev: true
 
   /@babel/code-frame/7.18.6:
@@ -76,7 +76,7 @@ packages:
       '@babel/traverse': 7.20.5
       '@babel/types': 7.20.5
       convert-source-map: 1.8.0
-      debug: 4.3.3
+      debug: 4.3.4
       gensync: 1.0.0-beta.2
       json5: 2.2.1
       semver: 6.3.0
@@ -1228,13 +1228,8 @@ packages:
     engines: {node: '>=6.0.0'}
     dependencies:
       '@jridgewell/set-array': 1.1.2
-      '@jridgewell/sourcemap-codec': 1.4.11
+      '@jridgewell/sourcemap-codec': 1.4.14
       '@jridgewell/trace-mapping': 0.3.17
-    dev: true
-
-  /@jridgewell/resolve-uri/3.0.5:
-    resolution: {integrity: sha512-VPeQ7+wH0itvQxnG+lIzWgkysKIr3L9sslimFW55rHMdGu/qCQ5z5h9zq4gI8uBtqkpHhsF4Z/OwExufUCThew==}
-    engines: {node: '>=6.0.0'}
     dev: true
 
   /@jridgewell/resolve-uri/3.1.0:
@@ -1247,10 +1242,6 @@ packages:
     engines: {node: '>=6.0.0'}
     dev: true
 
-  /@jridgewell/sourcemap-codec/1.4.11:
-    resolution: {integrity: sha512-Fg32GrJo61m+VqYSdRSjRXMjQ06j8YIYfcTqndLYVAaHmroZHLJZCydsWBOTDqXS2v+mjxohBWEMfg97GXmYQg==}
-    dev: true
-
   /@jridgewell/sourcemap-codec/1.4.14:
     resolution: {integrity: sha512-XPSJHWmi394fuUuzDnGz1wiKqWfo1yXecHQMRf2l6hztTO+nPru658AyDngaBe7isIxEkRsPR3FZh+s7iVa4Uw==}
     dev: true
@@ -1260,13 +1251,6 @@ packages:
     dependencies:
       '@jridgewell/resolve-uri': 3.1.0
       '@jridgewell/sourcemap-codec': 1.4.14
-    dev: true
-
-  /@jridgewell/trace-mapping/0.3.4:
-    resolution: {integrity: sha512-vFv9ttIedivx0ux3QSjhgtCVjPZd5l46ZOMDSCwnH1yUO2e964gO8LZGyv2QkqcgR6TnBU1v+1IFqmeoG+0UJQ==}
-    dependencies:
-      '@jridgewell/resolve-uri': 3.0.5
-      '@jridgewell/sourcemap-codec': 1.4.11
     dev: true
 
   /@nodelib/fs.scandir/2.1.5:
@@ -2081,18 +2065,6 @@ packages:
         optional: true
     dependencies:
       ms: 2.0.0
-    dev: true
-
-  /debug/4.3.3:
-    resolution: {integrity: sha512-/zxw5+vh1Tfv+4Qn7a5nsbcJKPaSvCDhojn6FEl9vupwK2VCSDtEiEtqr8DFtzYFOdz63LBkxec7DYuc2jon6Q==}
-    engines: {node: '>=6.0'}
-    peerDependencies:
-      supports-color: '*'
-    peerDependenciesMeta:
-      supports-color:
-        optional: true
-    dependencies:
-      ms: 2.1.2
     dev: true
 
   /debug/4.3.4:
@@ -3699,8 +3671,8 @@ packages:
     engines: {node: '>=6'}
     dev: true
 
-  /minigame-api-typings/3.7.0:
-    resolution: {integrity: sha512-4PKnxK7qdwQUw92BXvv+thhcLSWNV69l8gnaw3mTp+CYcEGSmzggg3KaC1l/tqxRdQ8S0Tnvc4fDgFzMF5oCHg==}
+  /minigame-api-typings/3.7.1:
+    resolution: {integrity: sha512-92CeVALuKB65+a8keeDuK5KMi68WFu0TF/i7VoOQKhvV3Xrq2KRFcQO9zOV2T06IfMHPdBxL5dieq1xg6j0pbg==}
     dev: true
 
   /minimatch/3.0.4:
@@ -3719,8 +3691,8 @@ packages:
     resolution: {integrity: sha512-FM9nNUYrRBAELZQT3xeZQ7fmMOBg6nWNmJKTcgsJeaLstP/UODVpGsr5OhXhhXg6f+qtJ8uiZ+PUxkDWcgIXLw==}
     dev: true
 
-  /miniprogram-api-typings/3.8.1:
-    resolution: {integrity: sha512-AjuBYxghx3LZeTtWQ48TfDMxoACGRUA+NdPrgl+mPPNgi5g0YXn3sDELNHRw0LcjTxfqhVufwLL65AjwT+W+FQ==}
+  /miniprogram-api-typings/3.9.0:
+    resolution: {integrity: sha512-QCXHHW9H4XYazb8J9EMiFyaOWHXhBG4oehkQqi+76FJpKKIlpgL0ZkXxzJ2L+6T/c5OxKm7iegovKIQGVkZDLQ==}
     dev: true
 
   /mixin-deep/1.3.2:

@@ -293,6 +293,7 @@ declare namespace WechatMiniprogram {
         // 开放接口：收藏 - OpenAPI/Favorites
         addVideoToFavoritesAsync(option?: WxAsync.PromisifiedOption<AddVideoToFavoritesOption>): WxAsync.PromisifiedResult<AddVideoToFavoritesOption>;
         addFileToFavoritesAsync(option?: WxAsync.PromisifiedOption<AddFileToFavoritesOption>): WxAsync.PromisifiedResult<AddFileToFavoritesOption>;
+        checkIsAddedToMyMiniProgramAsync(option?: WxAsync.PromisifiedOption<CheckIsAddedToMyMiniProgramOption>): WxAsync.PromisifiedResult<CheckIsAddedToMyMiniProgramOption>;
         // 开放接口：车牌 - LicensePlate
         chooseLicensePlateAsync(option?: WxAsync.PromisifiedOption<ChooseLicensePlateOption>): WxAsync.PromisifiedResult<ChooseLicensePlateOption>;
         // 开放接口：视频号 - OpenAPI/Channels

@@ -32,6 +32,7 @@ declare namespace WechatMinigame {
         setEnableDebugAsync(option?: WxAsync.PromisifiedOption<SetEnableDebugOption>): WxAsync.PromisifiedResult<SetEnableDebugOption>;
 
         // 跳转 - Navigate
+        restartMiniProgramAsync(option?: WxAsync.PromisifiedOption<RestartMiniProgramOption>): WxAsync.PromisifiedResult<RestartMiniProgramOption>;
         navigateToMiniProgramAsync(option?: WxAsync.PromisifiedOption<NavigateToMiniProgramOption>): WxAsync.PromisifiedResult<NavigateToMiniProgramOption>;
         exitMiniProgramAsync(option?: WxAsync.PromisifiedOption<ExitMiniProgramOption>): WxAsync.PromisifiedResult<ExitMiniProgramOption>;
 
@@ -115,6 +116,9 @@ declare namespace WechatMinigame {
         batchSetStorageAsync(option?: WxAsync.PromisifiedOption<BatchSetStorageOption>): WxAsync.PromisifiedResult<BatchSetStorageOption>;
         batchGetStorageAsync(option?: WxAsync.PromisifiedOption<BatchGetStorageOption>): WxAsync.PromisifiedResult<BatchGetStorageOption>;
 
+        // 数据分析 - DataAnalysis
+        reportSceneAsync(option?: WxAsync.PromisifiedOption<ReportSceneOption>): WxAsync.PromisifiedResult<ReportSceneOption>;
+
         // 字体 - Font
         getTextLineHeightAsync(option?: WxAsync.PromisifiedOption<GetTextLineHeightOption>): WxAsync.PromisifiedResult<GetTextLineHeightOption>;
 
@@ -182,6 +186,8 @@ declare namespace WechatMinigame {
         getFriendCloudStorageAsync(option?: WxAsync.PromisifiedOption<GetFriendCloudStorageOption>): WxAsync.PromisifiedResult<GetFriendCloudStorageOption>;
         // 开放接口：防沉迷 - OpenAPI/Anti-Addiction
         checkIsUserAdvisedToRestAsync(option?: WxAsync.PromisifiedOption<CheckIsUserAdvisedToRestOption>): WxAsync.PromisifiedResult<CheckIsUserAdvisedToRestOption>;
+        // 开放接口：收藏 - OpenAPI/Favorites
+        checkIsAddedToMyMiniProgramAsync(option?: WxAsync.PromisifiedOption<CheckIsAddedToMyMiniProgramOption>): WxAsync.PromisifiedResult<CheckIsAddedToMyMiniProgramOption>;
         // 开放接口：客服消息 - OpenAPI/CustomerMessage
         openCustomerServiceConversationAsync(option?: WxAsync.PromisifiedOption<OpenCustomerServiceConversationOption>): WxAsync.PromisifiedResult<OpenCustomerServiceConversationOption>;
 

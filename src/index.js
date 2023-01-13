@@ -27,6 +27,7 @@ const _apis = [
 
     // 跳转 - Navigate
     'openEmbeddedMiniProgram',
+    'restartMiniProgram',
     'navigateToMiniProgram',
     'navigateBackMiniProgram',
     'exitMiniProgram',
@@ -122,6 +123,9 @@ const _apis = [
     'onBackgroundFetchData',
     'getBackgroundFetchToken',
     'getBackgroundFetchData',
+
+    // 数据分析 - DataAnalysis
+    'reportScene',
 
     // 画布 - Canvas
     'canvasToTempFilePath',
@@ -227,6 +231,7 @@ const _apis = [
     // 开放接口：收藏 - OpenAPI/Favorites
     'addVideoToFavorites',
     'addFileToFavorites',
+    'checkIsAddedToMyMiniProgram',
     // 开放接口：视频号 - OpenAPI/Channels
     'openChannelsUserProfile',
     'openChannelsLive',
