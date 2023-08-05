@@ -186,10 +186,17 @@ declare namespace WechatMinigame {
         getFriendCloudStorageAsync(option?: WxAsync.PromisifiedOption<GetFriendCloudStorageOption>): WxAsync.PromisifiedResult<GetFriendCloudStorageOption>;
         // 开放接口：防沉迷 - OpenAPI/Anti-Addiction
         checkIsUserAdvisedToRestAsync(option?: WxAsync.PromisifiedOption<CheckIsUserAdvisedToRestOption>): WxAsync.PromisifiedResult<CheckIsUserAdvisedToRestOption>;
-        // 开放接口：收藏 - OpenAPI/Favorites
+        // 开放接口：我的小程序 - OpenAPI/MyMiniProgram
         checkIsAddedToMyMiniProgramAsync(option?: WxAsync.PromisifiedOption<CheckIsAddedToMyMiniProgramOption>): WxAsync.PromisifiedResult<CheckIsAddedToMyMiniProgramOption>;
-        // 开放接口：客服消息 - OpenAPI/CustomerMessage
+        // 开放接口：隐私信息授权 - OpenAPI/Privacy
+        requirePrivacyAuthorizeAsync(option?: WxAsync.PromisifiedOption<RequirePrivacyAuthorizeOption>): WxAsync.PromisifiedResult<RequirePrivacyAuthorizeOption>;
+        openPrivacyContractAsync(option?: WxAsync.PromisifiedOption<OpenPrivacyContractOption>): WxAsync.PromisifiedResult<OpenPrivacyContractOption>;
+        getPrivacySettingAsync(option?: WxAsync.PromisifiedOption<GetPrivacySettingOption>): WxAsync.PromisifiedResult<GetPrivacySettingOption>;
+        // 开放接口：微信客服 - OpenAPI/ServiceChat
+        openCustomerServiceChatAsync(option?: WxAsync.PromisifiedOption<OpenCustomerServiceChatOption>): WxAsync.PromisifiedResult<OpenCustomerServiceChatOption>;
         openCustomerServiceConversationAsync(option?: WxAsync.PromisifiedOption<OpenCustomerServiceConversationOption>): WxAsync.PromisifiedResult<OpenCustomerServiceConversationOption>;
+        // 开放接口：游戏圈 - OpenAPI/GameClub
+        getGameClubDataAsync(option?: WxAsync.PromisifiedOption<GetGameClubDataOption>): WxAsync.PromisifiedResult<GetGameClubDataOption>;
 
         // 设备：iBeacon - Device/iBeacon
         stopBeaconDiscoveryAsync(option?: WxAsync.PromisifiedOption<StopBeaconDiscoveryOption>): WxAsync.PromisifiedResult<StopBeaconDiscoveryOption>;
@@ -251,6 +258,9 @@ declare namespace WechatMinigame {
         // 设备：振动 - Device/Vibration
         vibrateShortAsync(option?: WxAsync.PromisifiedOption<VibrateShortOption>): WxAsync.PromisifiedResult<VibrateShortOption>;
         vibrateLongAsync(option?: WxAsync.PromisifiedOption<VibrateLongOption>): WxAsync.PromisifiedResult<VibrateLongOption>;
+
+        // AI：推理 - AI/Inference
+        getInferenceEnvInfoAsync(option?: WxAsync.PromisifiedOption<GetInferenceEnvInfoOption>): WxAsync.PromisifiedResult<GetInferenceEnvInfoOption>;
 
         // 第三方平台 - Ext
         getExtConfigAsync(option?: WxAsync.PromisifiedOption<GetExtConfigOption>): WxAsync.PromisifiedResult<GetExtConfigOption>;

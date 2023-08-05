@@ -102,9 +102,10 @@ const _apis = [
     'startLocalServiceDiscovery',
 
     // 支付 - Payment
-    'requestPayment',
+    'requestVirtualPayment',
     'requestPluginPayment',
     'requestOrderPayment',
+    'requestPayment',
 
     // 虚拟支付 - MidasPayment
     'requestMidasPayment',
@@ -231,7 +232,10 @@ const _apis = [
     // 开放接口：收藏 - OpenAPI/Favorites
     'addVideoToFavorites',
     'addFileToFavorites',
+    // 开放接口：我的小程序 - OpenAPI/MyMiniProgram
     'checkIsAddedToMyMiniProgram',
+    // 开放接口：车牌 - OpenAPI/LicensePlate
+    'chooseLicensePlate',
     // 开放接口：视频号 - OpenAPI/Channels
     'openChannelsUserProfile',
     'openChannelsLive',
@@ -240,8 +244,15 @@ const _apis = [
     'getChannelsShareKey',
     'getChannelsLiveNoticeInfo',
     'getChannelsLiveInfo',
+    // 开放接口：音视频通话 - OpenAPI/VoIP
+    'requestDeviceVoIP',
+    'getDeviceVoIPList',
     // 开放接口：微信群 - OpenAPI/Group
     'getGroupEnterInfo',
+    // 开放接口：隐私信息授权 - OpenAPI/Privacy
+    'requirePrivacyAuthorize',
+    'openPrivacyContract',
+    'getPrivacySetting',
     // 开放接口：微信客服 - OpenAPI/ServiceChat
     'openCustomerServiceChat',
     // 开放接口：开放数据 - OpenAPI/Data
@@ -260,6 +271,8 @@ const _apis = [
     'checkIsUserAdvisedToRest',
     // 开放接口：客服消息 - OpenAPI/CustomerMessage
     'openCustomerServiceConversation',
+    // 开放接口：游戏圈 - OpenAPI/GameClub
+    'getGameClubData',
 
     // 设备：外围设备 - Device/Peripheral
     'createBLEPeripheralServer',
@@ -354,6 +367,8 @@ const _apis = [
     'vibrateShort',
     'vibrateLong',
 
+    // AI：推理 - AI/Inference
+    'getInferenceEnvInfo',
     // AI：人脸识别 - AI/Face
     'stopFaceDetect',
     'initFaceDetect',
@@ -373,7 +388,6 @@ const _apis = [
     'checkBeforeAddOrder',
     'checkIsSupportFacialRecognition',
     'checkTrafficCardConditions',
-    'chooseLicensePlate',
     'chooseShareGroup',
     'deleteTrafficCard',
     'downloadApp',
@@ -451,7 +465,6 @@ const _apis = [
     'requestPersonalPay',
     'requestQueryCashier',
     'requestVerifyUserIdentity',
-    'requestVirtualPayment',
     'reserveChannelsLive',
     'resumeDownloadAppTask',
     'scanItem',
@@ -627,8 +640,8 @@ const promisifyAll = (config = {}) => {
                 }
 
                 root[path] = Object.assign({}, env[path]);
-                env = env[path];
                 root = root[path];
+                env = env[path];
             }
         });
 };

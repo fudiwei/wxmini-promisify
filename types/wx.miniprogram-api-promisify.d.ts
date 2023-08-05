@@ -145,9 +145,10 @@ declare namespace WechatMiniprogram {
         startLocalServiceDiscoveryAsync(option?: WxAsync.PromisifiedOption<StartLocalServiceDiscoveryOption>): WxAsync.PromisifiedResult<StartLocalServiceDiscoveryOption>;
 
         // 支付 - Payment
-        requestPaymentAsync(option?: WxAsync.PromisifiedOption<RequestPaymentOption>): WxAsync.PromisifiedResult<RequestPaymentOption>;
+        requestVirtualPaymentAsync(option?: WxAsync.PromisifiedOption<RequestVirtualPaymentOption>): WxAsync.PromisifiedResult<RequestVirtualPaymentOption>;
         requestPluginPaymentAsync(option?: WxAsync.PromisifiedOption<RequestPluginPaymentOption>): WxAsync.PromisifiedResult<RequestPluginPaymentOption>;
         requestOrderPaymentAsync(option?: WxAsync.PromisifiedOption<RequestOrderPaymentOption>): WxAsync.PromisifiedResult<RequestOrderPaymentOption>;
+        requestPaymentAsync(option?: WxAsync.PromisifiedOption<RequestPaymentOption>): WxAsync.PromisifiedResult<RequestPaymentOption>;
 
         // 数据缓存：存储 - Storage/Storage
         setStorageAsync(option?: WxAsync.PromisifiedOption<SetStorageOption>): WxAsync.PromisifiedResult<SetStorageOption>;
@@ -293,6 +294,7 @@ declare namespace WechatMiniprogram {
         // 开放接口：收藏 - OpenAPI/Favorites
         addVideoToFavoritesAsync(option?: WxAsync.PromisifiedOption<AddVideoToFavoritesOption>): WxAsync.PromisifiedResult<AddVideoToFavoritesOption>;
         addFileToFavoritesAsync(option?: WxAsync.PromisifiedOption<AddFileToFavoritesOption>): WxAsync.PromisifiedResult<AddFileToFavoritesOption>;
+        // 开放接口：我的小程序 - OpenAPI/MyMiniProgram
         checkIsAddedToMyMiniProgramAsync(option?: WxAsync.PromisifiedOption<CheckIsAddedToMyMiniProgramOption>): WxAsync.PromisifiedResult<CheckIsAddedToMyMiniProgramOption>;
         // 开放接口：车牌 - LicensePlate
         chooseLicensePlateAsync(option?: WxAsync.PromisifiedOption<ChooseLicensePlateOption>): WxAsync.PromisifiedResult<ChooseLicensePlateOption>;
@@ -304,9 +306,16 @@ declare namespace WechatMiniprogram {
         getChannelsShareKey(option?: WxAsync.PromisifiedOption<GetChannelsShareKeyOption>): WxAsync.PromisifiedResult<GetChannelsShareKeyOption>;
         getChannelsLiveNoticeInfoAsync(option?: WxAsync.PromisifiedOption<GetChannelsLiveNoticeInfoOption>): WxAsync.PromisifiedResult<GetChannelsLiveNoticeInfoOption>;
         getChannelsLiveInfoAsync(option?: WxAsync.PromisifiedOption<GetChannelsLiveInfoOption>): WxAsync.PromisifiedResult<GetChannelsLiveInfoOption>;
+        // 开放接口：音视频通话 - OpenAPI/VoIP
+        requestDeviceVoIPAsync(option?: WxAsync.PromisifiedOption<RequestDeviceVoIPOption>): WxAsync.PromisifiedResult<RequestDeviceVoIPOption>;
+        getDeviceVoIPListAsync(option?: WxAsync.PromisifiedOption<GetDeviceVoIPListOption>): WxAsync.PromisifiedResult<GetDeviceVoIPListOption>;
         // 开放接口：微信群 - OpenAPI/Group
         getGroupEnterInfoAsync(option?: WxAsync.PromisifiedOption<GetGroupEnterInfoOption>): WxAsync.PromisifiedResult<GetGroupEnterInfoOption>;
-        // 开放接口：微信客服 - ServiceChat
+        // 开放接口：隐私信息授权 - OpenAPI/Privacy
+        requirePrivacyAuthorizeAsync(option?: WxAsync.PromisifiedOption<RequirePrivacyAuthorizeOption>): WxAsync.PromisifiedResult<RequirePrivacyAuthorizeOption>;
+        openPrivacyContractAsync(option?: WxAsync.PromisifiedOption<OpenPrivacyContractOption>): WxAsync.PromisifiedResult<OpenPrivacyContractOption>;
+        getPrivacySettingAsync(option?: WxAsync.PromisifiedOption<GetPrivacySettingOption>): WxAsync.PromisifiedResult<GetPrivacySettingOption>;
+        // 开放接口：微信客服 - OpenAPI/ServiceChat
         openCustomerServiceChatAsync(option?: WxAsync.PromisifiedOption<OpenCustomerServiceChatOption>): WxAsync.PromisifiedResult<OpenCustomerServiceChatOption>;
 
         // 设备：iBeacon - Device/iBeacon
@@ -396,6 +405,8 @@ declare namespace WechatMiniprogram {
         vibrateShortAsync(option?: WxAsync.PromisifiedOption<VibrateShortOption>): WxAsync.PromisifiedResult<VibrateShortOption>;
         vibrateLongAsync(option?: WxAsync.PromisifiedOption<VibrateLongOption>): WxAsync.PromisifiedResult<VibrateLongOption>;
 
+        // AI：推理 - AI/Inference
+        getInferenceEnvInfoAsync(option?: WxAsync.PromisifiedOption<GetInferenceEnvInfoOption>): WxAsync.PromisifiedResult<GetInferenceEnvInfoOption>;
         // AI：人脸识别 - AI/Face
         stopFaceDetectAsync(option?: WxAsync.PromisifiedOption<StopFaceDetectOption>): WxAsync.PromisifiedResult<StopFaceDetectOption>;
         initFaceDetectAsync(option?: WxAsync.PromisifiedOption<InitFaceDetectOption>): WxAsync.PromisifiedResult<InitFaceDetectOption>;

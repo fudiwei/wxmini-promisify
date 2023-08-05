@@ -713,6 +713,7 @@ declare namespace WechatMiniprogram.Qy {
     interface WedocSelectDocSuccessCallbackResult {
         result: {
             selectedFileUrls: string[];
+            selectedFileInfos: { url: string; type: number }[];
         };
         errMsg: string;
     }
@@ -860,7 +861,6 @@ declare namespace WechatMiniprogram.Qy {
     type PrintFileCompleteCallback = (res: GeneralCallbackResult) => void;
     type PrintFileFailCallback = (res: GeneralCallbackResult) => void;
     type PrintFileSuccessCallback = (res: GeneralCallbackResult) => void;
-
 }
 
 declare namespace WechatMiniprogram {
