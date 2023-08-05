@@ -127,6 +127,7 @@ const _apis = [
 
     // 数据分析 - DataAnalysis
     'reportScene',
+    'getCommonConfig',
 
     // 画布 - Canvas
     'canvasToTempFilePath',
@@ -223,6 +224,8 @@ const _apis = [
     // 开放接口：微信运动 - OpenAPI/RunData
     'shareToWeRun',
     'getWeRunData',
+    'addWeRunData',
+    'uploadWeRunData',
     // 开放接口：订阅消息 - OpenAPI/SubscribeMessage
     'requestSubscribeMessage',
     'requestSubscribeSystemMessage',
@@ -237,6 +240,7 @@ const _apis = [
     // 开放接口：车牌 - OpenAPI/LicensePlate
     'chooseLicensePlate',
     // 开放接口：视频号 - OpenAPI/Channels
+    'reserveChannelsLive',
     'openChannelsUserProfile',
     'openChannelsLive',
     'openChannelsEvent',
@@ -274,7 +278,7 @@ const _apis = [
     // 开放接口：游戏圈 - OpenAPI/GameClub
     'getGameClubData',
 
-    // 设备：外围设备 - Device/Peripheral
+    // 设备：外围设备 - Device/Peripheralf
     'createBLEPeripheralServer',
     // 设备：iBeacon - Device/iBeacon
     'stopBeaconDiscovery',
@@ -378,7 +382,10 @@ const _apis = [
     'getExtConfig',
 
     // 私有 API
-    'addWeRunData',
+    'addDevicePanel',
+    'addNativeDownloadTask',
+    'addToDesktop',
+    'batchAddDevicePanel',
     'batchGetContactDirectly',
     'bindGroup',
     'bindPaymentCard',
@@ -388,11 +395,14 @@ const _apis = [
     'checkBeforeAddOrder',
     'checkIsSupportFacialRecognition',
     'checkTrafficCardConditions',
+    'chooseMultiMedia',
     'chooseShareGroup',
+    'chooseWeChatContact',
     'deleteTrafficCard',
     'downloadApp',
     'downloadAppForIOS',
     'downloadSilkVoice',
+    'drawCanvas',
     'enterContact',
     'faceVerifyForPay',
     'getABTestConfig',
@@ -400,6 +410,7 @@ const _apis = [
     'getChannelsLiveReservation',
     'getChannelsLiveState',
     'getCookies',
+    'getDevicePanelList',
     'getExptInfo',
     'getLabInfo',
     'getMonitoredBluetoothDevices',
@@ -423,11 +434,15 @@ const _apis = [
     'navigateToDevMiniProgram',
     'navigateToMiniProgramDirectly',
     'notifyBLECharacteristicValueChanged',
+    'notifyWCPayResult',
     'openBluetoothAdapterBackground',
     'openBusinessView',
     'openChannelsCreateContact',
     'openChannelsLiveCollection',
+    'openCTID',
     'openDeliveryList',
+    'openGoldenRedPacketDetail',
+    'openMiniProgramAuthManageList',
     'openMiniProgramHistoryList',
     'openMiniProgramProfile',
     'openMiniProgramSearch',
@@ -442,6 +457,7 @@ const _apis = [
     'openWCPayCardList',
     'openWCPayOverseaPaymentReceive',
     'openWCPayOverseaPaymentReceive',
+    'openWeComUserProfile',
     'operateWXData',
     'pauseDownloadAppTask',
     'phoneBindCardVerifySms',
@@ -454,6 +470,7 @@ const _apis = [
     'queryDownloadAppTask',
     'queryTrafficCardInfo',
     'rechargeTrafficCard',
+    'removeDevicePanel',
     'requestBizSplitBillPayment',
     'requestEntrustAuthorization',
     'requestFacetoFacePayment',
@@ -465,11 +482,12 @@ const _apis = [
     'requestPersonalPay',
     'requestQueryCashier',
     'requestVerifyUserIdentity',
-    'reserveChannelsLive',
     'resumeDownloadAppTask',
     'scanItem',
     'searchContacts',
     'secureTunnel',
+    'sendBizRedPacket',
+    'sendGoldenRedPacket',
     'setBluetoothBackgroundMode',
     'setCookies',
     'setCurrentPaySpeech',
@@ -480,13 +498,22 @@ const _apis = [
     'setPageOrientation',
     'setPageStyle',
     'setResPath',
+    'shareAppMessageForFakeNative',
     'showShareActionSheet',
+    'startCustomFacialRecognitionVerify',
+    'startCustomFacialRecognitionVerifyAndUploadVideo',
+    'startFacialEncryptionVerify',
+    'startFacialEncryptionVerifyAndUploadVideo',
+    'startFacialRecognitionVerify',
+    'startFacialRecognitionVerifyAndUploadVideo',
     'startMonitoringBluetoothDevice',
     'stopMonitoringBluetoothDevice',
     'traceEvent',
     'triggerGettingWidgetData',
+    'uploadEncryptedFileToCDN',
     'updatePerfData',
     'uploadSilkVoice',
+    'uploadToCommonCDN',
     'verifyPaymentPassword',
     'voiceSplitJoint',
 

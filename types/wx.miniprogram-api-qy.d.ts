@@ -314,6 +314,15 @@ declare namespace WechatMiniprogram.Qy {
                 miniprogram?: { appid: string; page: string; content: string };
             }[];
         };
+        channelsShopProduct?: {
+            productId: string;
+            shopAppId: string;
+            imgUrl: string;
+            title: string;
+            sellingPrice: string;
+            shopImgUrl: string;
+            shopNickname: string;
+        };
     }
     type SendChatMessageCompleteCallback = (res: GeneralCallbackResult) => void;
     type SendChatMessageFailCallback = (res: GeneralCallbackResult) => void;

@@ -48,11 +48,11 @@ devDependencies:
     specifier: ^3.0.2
     version: 3.0.2
   minigame-api-typings:
-    specifier: ^3.7.3
-    version: 3.7.4
+    specifier: ^3.8.1
+    version: 3.8.1
   miniprogram-api-typings:
-    specifier: ^3.10.0
-    version: 3.10.0
+    specifier: ^3.11.0
+    version: 3.11.0
   prettier:
     specifier: ^2.8.1
     version: 2.8.1
@@ -3691,8 +3691,8 @@ packages:
     engines: {node: '>=6'}
     dev: true
 
-  /minigame-api-typings@3.7.4:
-    resolution: {integrity: sha512-UFTMhGp/gU+M43cseQ/sfisohmv6A4bc4uJ1a7ZK1UJ8+FbwGJyW28OJUINpRM426p5iRj5rCp8pJg4o5fmrFQ==}
+  /minigame-api-typings@3.8.1:
+    resolution: {integrity: sha512-Rg2AS7HAIxt3+NC3hfZdQZP/KAk+Ar/0PBOg3/jxAbo5n0/jiy0VOiqGp+3FqRIlTlMTkR9oe9wqAAwhcCEm3w==}
     dev: true
 
   /minimatch@3.0.4:
@@ -3711,8 +3711,8 @@ packages:
     resolution: {integrity: sha512-FM9nNUYrRBAELZQT3xeZQ7fmMOBg6nWNmJKTcgsJeaLstP/UODVpGsr5OhXhhXg6f+qtJ8uiZ+PUxkDWcgIXLw==}
     dev: true
 
-  /miniprogram-api-typings@3.10.0:
-    resolution: {integrity: sha512-pvGZmj9uamahlqfPj1bwn5Cd/bjImc5ehyAha/QfA9limG6HO9Plj/yROfSChK6J6+VUoVB9cnNthx4XuI0T2Q==}
+  /miniprogram-api-typings@3.11.0:
+    resolution: {integrity: sha512-jMYeqEOGZc1dq7MR8Zu1tj1zmzlvATlvsUb7eFaTYk8LoBVrbgdGUWwVjAmFFNjNdiUaokceGeJaByAa5QYpKw==}
     dev: true
 
   /mixin-deep@1.3.2:

@@ -164,6 +164,9 @@ declare namespace WechatMiniprogram {
         getBackgroundFetchTokenAsync(option?: WxAsync.PromisifiedOption<GetBackgroundFetchTokenOption>): WxAsync.PromisifiedResult<GetBackgroundFetchTokenOption>;
         getBackgroundFetchDataAsync(option?: WxAsync.PromisifiedOption<GetBackgroundFetchDataOption>): WxAsync.PromisifiedResult<GetBackgroundFetchDataOption>;
 
+        // 数据分析 - DataAnalysis
+        getCommonConfigAsync(option?: WxAsync.PromisifiedOption<GetCommonConfigOption>): WxAsync.PromisifiedResult<GetCommonConfigOption>;
+
         // 画布 - Canvas
         canvasToTempFilePathAsync(option?: WxAsync.PromisifiedOption<CanvasToTempFilePathOption>, component?: Component.TrivialInstance | Page.TrivialInstance): Promise<CanvasToTempFilePathOption>;
         canvasPutImageDataAsync(option?: WxAsync.PromisifiedOption<CanvasPutImageDataOption>): WxAsync.PromisifiedResult<CanvasPutImageDataOption>;
@@ -286,6 +289,8 @@ declare namespace WechatMiniprogram {
         // 开放接口：微信运动 - OpenAPI/RunData
         shareToWeRunAsync(option?: WxAsync.PromisifiedOption<ShareToWeRunOption>): WxAsync.PromisifiedResult<ShareToWeRunOption>;
         getWeRunDataAsync(option?: WxAsync.PromisifiedOption<GetWeRunDataOption>): WxAsync.PromisifiedResult<GetWeRunDataOption>;
+        addWeRunDataAsync(option?: WxAsync.PromisifiedOption<AddWeRunDataOption>): WxAsync.PromisifiedResult<AddWeRunDataOption>;
+        uploadWeRunDataAsync(option?: WxAsync.PromisifiedOption<UploadWeRunDataOption>): WxAsync.PromisifiedResult<UploadWeRunDataOption>;
         // 开放接口：订阅消息 - OpenAPI/SubscribeMessage
         requestSubscribeMessageAsync(option?: WxAsync.PromisifiedOption<RequestSubscribeMessageOption>): WxAsync.PromisifiedResult<RequestSubscribeMessageOption>;
         requestSubscribeDeviceMessageAsync(option?: WxAsync.PromisifiedOption<RequestSubscribeDeviceMessageOption>): WxAsync.PromisifiedResult<RequestSubscribeDeviceMessageOption>;

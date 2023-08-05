@@ -166,6 +166,7 @@ declare namespace WechatMinigame {
         // 开放接口：订阅消息 - OpenAPI/SubscribeMessage
         requestSubscribeSystemMessageAsync(option?: WxAsync.PromisifiedOption<RequestSubscribeSystemMessageOption>): WxAsync.PromisifiedResult<RequestSubscribeSystemMessageOption>;
         // 开放接口：视频号 - OpenAPI/Channels
+        reserveChannelsLiveAsync(option?: WxAsync.PromisifiedOption<ReserveChannelsLiveOption>): WxAsync.PromisifiedResult<ReserveChannelsLiveOption>;
         openChannelsLiveAsync(option?: WxAsync.PromisifiedOption<OpenChannelsLiveOption>): WxAsync.PromisifiedResult<OpenChannelsLiveOption>;
         openChannelsActivityAsync(option?: WxAsync.PromisifiedOption<OpenChannelsActivityOption>): WxAsync.PromisifiedResult<OpenChannelsActivityOption>;
         getChannelsLiveNoticeInfoAsync(option?: WxAsync.PromisifiedOption<GetChannelsLiveNoticeInfoOption>): WxAsync.PromisifiedResult<GetChannelsLiveNoticeInfoOption>;
