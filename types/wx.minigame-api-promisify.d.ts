@@ -115,6 +115,10 @@ declare namespace WechatMinigame {
         clearStorageAsync(option?: WxAsync.PromisifiedOption<ClearStorageOption>): WxAsync.PromisifiedResult<ClearStorageOption>;
         batchSetStorageAsync(option?: WxAsync.PromisifiedOption<BatchSetStorageOption>): WxAsync.PromisifiedResult<BatchSetStorageOption>;
         batchGetStorageAsync(option?: WxAsync.PromisifiedOption<BatchGetStorageOption>): WxAsync.PromisifiedResult<BatchGetStorageOption>;
+        // 数据缓存：周期性更新 - Storage/BackgroundFetch
+        setBackgroundFetchTokenAsync(option?: WxAsync.PromisifiedOption<SetBackgroundFetchTokenOption>): WxAsync.PromisifiedResult<SetBackgroundFetchTokenOption>;
+        getBackgroundFetchTokenAsync(option?: WxAsync.PromisifiedOption<GetBackgroundFetchTokenOption>): WxAsync.PromisifiedResult<GetBackgroundFetchTokenOption>;
+        getBackgroundFetchDataAsync(option?: WxAsync.PromisifiedOption<GetBackgroundFetchDataOption>): WxAsync.PromisifiedResult<GetBackgroundFetchDataOption>;
 
         // 数据分析 - DataAnalysis
         reportSceneAsync(option?: WxAsync.PromisifiedOption<ReportSceneOption>): WxAsync.PromisifiedResult<ReportSceneOption>;
@@ -126,6 +130,7 @@ declare namespace WechatMinigame {
         saveImageToPhotosAlbumAsync(option?: WxAsync.PromisifiedOption<SaveImageToPhotosAlbumOption>): WxAsync.PromisifiedResult<SaveImageToPhotosAlbumOption>;
         previewMediaAsync(option?: WxAsync.PromisifiedOption<PreviewMediaOption>): WxAsync.PromisifiedResult<PreviewMediaOption>;
         previewImageAsync(option?: WxAsync.PromisifiedOption<PreviewImageOption>): WxAsync.PromisifiedResult<PreviewImageOption>;
+        compressImageAsync(option?: WxAsync.PromisifiedOption<CompressImageOption>): WxAsync.PromisifiedResult<CompressImageOption>;
         chooseMessageFileAsync(option?: WxAsync.PromisifiedOption<ChooseMessageFileOption>): WxAsync.PromisifiedResult<ChooseMessageFileOption>;
         chooseImageAsync(option?: WxAsync.PromisifiedOption<ChooseImageOption>): WxAsync.PromisifiedResult<ChooseImageOption>;
         // 媒体：视频 - Media/Video

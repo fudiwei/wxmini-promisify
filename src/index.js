@@ -259,6 +259,9 @@ const _apis = [
     'getPrivacySetting',
     // 开放接口：微信客服 - OpenAPI/ServiceChat
     'openCustomerServiceChat',
+    'openStickerSetView',
+    'openStickerIPView',
+    'openSingleStickerView',
     // 开放接口：开放数据 - OpenAPI/Data
     'shareMessageToFriend',
     'setUserCloudStorage',

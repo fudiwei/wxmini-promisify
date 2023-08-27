@@ -38,6 +38,7 @@ declare namespace WechatMiniprogram {
         reLaunchAsync(option?: WxAsync.PromisifiedOption<ReLaunchOption>): WxAsync.PromisifiedResult<ReLaunchOption>;
         switchTabAsync(option?: WxAsync.PromisifiedOption<SwitchTabOption>): WxAsync.PromisifiedResult<SwitchTabOption>;
         redirectToAsync(option?: WxAsync.PromisifiedOption<RedirectToOption>): WxAsync.PromisifiedResult<RedirectToOption>;
+        restartMiniProgramAsync(option?: WxAsync.PromisifiedOption<RestartMiniProgramOption>): WxAsync.PromisifiedResult<RestartMiniProgramOption>;
         navigateToAsync(option?: WxAsync.PromisifiedOption<NavigateToOption>): WxAsync.PromisifiedResult<NavigateToOption>;
         navigateBackAsync(option?: WxAsync.PromisifiedOption<NavigateBackOption>): WxAsync.PromisifiedResult<NavigateBackOption>;
 
@@ -322,6 +323,9 @@ declare namespace WechatMiniprogram {
         getPrivacySettingAsync(option?: WxAsync.PromisifiedOption<GetPrivacySettingOption>): WxAsync.PromisifiedResult<GetPrivacySettingOption>;
         // 开放接口：微信客服 - OpenAPI/ServiceChat
         openCustomerServiceChatAsync(option?: WxAsync.PromisifiedOption<OpenCustomerServiceChatOption>): WxAsync.PromisifiedResult<OpenCustomerServiceChatOption>;
+        openStickerSetViewAsync(option?: WxAsync.PromisifiedOption<OpenStickerSetViewOption>): WxAsync.PromisifiedResult<OpenStickerSetViewOption>;
+        openStickerIPViewAsync(option?: WxAsync.PromisifiedOption<OpenStickerIPViewOption>): WxAsync.PromisifiedResult<OpenStickerIPViewOption>;
+        openSingleStickerViewAsync(option?: WxAsync.PromisifiedOption<OpenSingleStickerViewOption>): WxAsync.PromisifiedResult<OpenSingleStickerViewOption>;
 
         // 设备：iBeacon - Device/iBeacon
         stopBeaconDiscoveryAsync(option?: WxAsync.PromisifiedOption<StopBeaconDiscoveryOption>): WxAsync.PromisifiedResult<StopBeaconDiscoveryOption>;
